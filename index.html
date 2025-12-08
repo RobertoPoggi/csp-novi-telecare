@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeleCare H24 v1.0.0 - CSP Novi Ligure</title>
+    
+    <!-- Favicon CSP Novi -->
+    <link rel="icon" type="image/png" href="https://cdn1.genspark.ai/user-upload-image/favicon-csp-novi.png">
+    <link rel="apple-touch-icon" href="https://cdn1.genspark.ai/user-upload-image/favicon-csp-novi.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="TeleCare CSP Novi">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e5799 0%, #207cca 50%, #2989d8 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e5799 0%, #207cca 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 5px;
+        }
+        
+        .header .version {
+            font-size: 0.9em;
+            opacity: 0.8;
+            font-style: italic;
+        }
+        
+        .sync-status {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .sync-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #4CAF50;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f5f7fa;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .stat-card.active {
+            border-color: #207cca;
+            background: #e3f2fd;
+        }
+        
+        .stat-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .stat-card .number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #1e5799;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card .label {
+            font-size: 1.1em;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .controls {
+            padding: 20px 30px;
+            background: white;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 40px 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: #207cca;
+        }
+        
+        .search-box .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+        
+        select {
+            padding: 12px 20px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 1em;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+        
+        select:focus {
+            outline: none;
+            border-color: #207cca;
+        }
+        
+        .refresh-btn {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #1e5799 0%, #207cca 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .refresh-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .refresh-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .content {
+            padding: 30px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        
+        .table-container {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #1e5799 0%, #207cca 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        tr:hover {
+            background: #f5f7fa;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        .badge-green {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .badge-orange {
+            background: #fff3e0;
+            color: #e65100;
+        }
+        
+        .badge-purple {
+            background: #f3e5f5;
+            color: #6a1b9a;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+        
+        .empty-state .icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+        
+        .footer {
+            background: #f5f7fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #207cca;
+            font-size: 1.2em;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #207cca;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+            
+            .sync-status {
+                position: static;
+                margin-top: 15px;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+            
+            th, td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="sync-status">
+                <div class="sync-indicator"></div>
+                <span>Sistema Attivo</span>
+            </div>
+            <h1>🏥 TeleCare H24</h1>
+            <div class="subtitle">CSP Novi Ligure - Consorzio Intercomunale del Novese</div>
+            <div class="version">v1.0.0 | Progetto FNNA 2024-2027 | Centrale Operativa 36 mesi</div>
+        </div>
+        
+        <!-- Statistics -->
+        <div class="stats-container">
+            <div class="stat-card" onclick="filterByView('all')" id="card-totale">
+                <div class="icon">👥</div>
+                <div class="number" id="stat-totale">0</div>
+                <div class="label">Assistiti Totali</div>
+            </div>
+            
+            <div class="stat-card" onclick="filterByView('installati')" id="card-installati">
+                <div class="icon">✅</div>
+                <div class="number" id="stat-installati">0</div>
+                <div class="label">Installati</div>
+            </div>
+            
+            <div class="stat-card" onclick="filterByView('pianificati')" id="card-pianificati">
+                <div class="icon">📅</div>
+                <div class="number" id="stat-pianificati">0</div>
+                <div class="label">Pianificati</div>
+            </div>
+            
+            <div class="stat-card" onclick="filterByView('monitoraggio')" id="card-monitoraggio">
+                <div class="icon">❤️</div>
+                <div class="number" id="stat-monitoraggio">0</div>
+                <div class="label">TeleMonitoraggio ECG</div>
+            </div>
+        </div>
+        
+        <!-- Controls -->
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Cerca assistito (nome, cognome, codice fiscale...)">
+                <span class="search-icon">🔍</span>
+            </div>
+            
+            <select id="comuneFilter">
+                <option value="">Tutti i Comuni (30)</option>
+            </select>
+            
+            <select id="statoFilter">
+                <option value="">Tutti gli Stati</option>
+                <option value="Installato">Installato</option>
+                <option value="Pianificato">Pianificato</option>
+                <option value="Sospeso">Sospeso</option>
+            </select>
+            
+            <button class="refresh-btn" onclick="loadData()">
+                <span>🔄</span>
+                <span>Aggiorna</span>
+            </button>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <div id="loadingIndicator" class="loading">
+                <div class="spinner"></div>
+                Caricamento dati in corso...
+            </div>
+            
+            <div id="dataContainer" style="display: none;">
+                <!-- Table will be inserted here -->
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <strong>CSP Novi Ligure</strong> | Consorzio Intercomunale del Novese dei Servizi alla Persona<br>
+            📞 Supporto: assistenza@csp-novi.it | ⏰ Centrale Operativa H24/7 per 36 mesi<br>
+            🏛️ FNNA 2024-2027 | 🌐 50 Assistiti su 30 Comuni | 🔧 Installazioni e Formazione TeleCare H24
+        </div>
+    </div>
+
+    <script>
+        // Google Apps Script URL - CONFIGURATO
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwOEnDooCDfHD8KIGnKAv79Gm8pQv53LbKpWJ_ZEE1e8lULnzZV728JdlGDcfWTjj58/exec';
+        
+        // Global variables
+        let allData = [];
+        let currentFilter = 'all';
+        
+        // Load data from Google Sheets
+        async function loadData() {
+            try {
+                showLoading(true);
+                const response = await fetch(SCRIPT_URL);
+                const data = await response.json();
+                
+                if (data.success) {
+                    allData = data.data;
+                    updateStatistics();
+                    populateComuniFilter();
+                    displayData();
+                } else {
+                    throw new Error(data.message || 'Errore nel caricamento dati');
+                }
+            } catch (error) {
+                console.error('Errore:', error);
+                document.getElementById('dataContainer').innerHTML = `
+                    <div class="empty-state">
+                        <div class="icon">⚠️</div>
+                        <h3>Errore nel caricamento dei dati</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            } finally {
+                showLoading(false);
+            }
+        }
+        
+        // Show/hide loading indicator
+        function showLoading(show) {
+            document.getElementById('loadingIndicator').style.display = show ? 'block' : 'none';
+            document.getElementById('dataContainer').style.display = show ? 'none' : 'block';
+        }
+        
+        // Update statistics
+        function updateStatistics() {
+            const totale = allData.length;
+            const installati = allData.filter(a => a.stato === 'Installato').length;
+            const pianificati = allData.filter(a => a.stato === 'Pianificato').length;
+            const monitoraggio = allData.filter(a => a.tipoServizio === 'TeleMonitoraggio').length;
+            
+            document.getElementById('stat-totale').textContent = totale;
+            document.getElementById('stat-installati').textContent = installati;
+            document.getElementById('stat-pianificati').textContent = pianificati;
+            document.getElementById('stat-monitoraggio').textContent = monitoraggio;
+        }
+        
+        // Populate comuni filter
+        function populateComuniFilter() {
+            const comuni = [...new Set(allData.map(a => a.comune))].sort();
+            const select = document.getElementById('comuneFilter');
+            select.innerHTML = '<option value="">Tutti i Comuni (30)</option>';
+            comuni.forEach(comune => {
+                const option = document.createElement('option');
+                option.value = comune;
+                option.textContent = comune;
+                select.appendChild(option);
+            });
+        }
+        
+        // Filter by view
+        function filterByView(view) {
+            currentFilter = view;
+            
+            // Update active card
+            document.querySelectorAll('.stat-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            document.getElementById(`card-${view === 'monitoraggio' ? 'monitoraggio' : 
+                                            view === 'installati' ? 'installati' : 
+                                            view === 'pianificati' ? 'pianificati' : 'totale'}`).classList.add('active');
+            
+            displayData();
+        }
+        
+        // Display data
+        function displayData() {
+            let filteredData = [...allData];
+            
+            // Apply view filter
+            if (currentFilter === 'monitoraggio') {
+                filteredData = filteredData.filter(a => a.tipoServizio === 'TeleMonitoraggio');
+            } else if (currentFilter === 'installati') {
+                filteredData = filteredData.filter(a => a.stato === 'Installato');
+            } else if (currentFilter === 'pianificati') {
+                filteredData = filteredData.filter(a => a.stato === 'Pianificato');
+            }
+            
+            // Apply search filter
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            if (searchTerm) {
+                filteredData = filteredData.filter(a => 
+                    a.nome.toLowerCase().includes(searchTerm) ||
+                    a.cognome.toLowerCase().includes(searchTerm) ||
+                    a.codiceFiscale.toLowerCase().includes(searchTerm) ||
+                    a.comune.toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            // Apply comune filter
+            const comuneFilter = document.getElementById('comuneFilter').value;
+            if (comuneFilter) {
+                filteredData = filteredData.filter(a => a.comune === comuneFilter);
+            }
+            
+            // Apply stato filter
+            const statoFilter = document.getElementById('statoFilter').value;
+            if (statoFilter) {
+                filteredData = filteredData.filter(a => a.stato === statoFilter);
+            }
+            
+            // Display table
+            const container = document.getElementById('dataContainer');
+            
+            if (filteredData.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="icon">📋</div>
+                        <h3>Nessun assistito trovato</h3>
+                        <p>Prova a modificare i filtri di ricerca</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = `
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Cognome</th>
+                                <th>Nome</th>
+                                <th>Comune</th>
+                                <th>Tipo Servizio</th>
+                                <th>Dispositivi</th>
+                                <th>Stato</th>
+                                <th>Data Installazione</th>
+                                <th>Tecnico</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+            
+            filteredData.forEach(assistito => {
+                const statoBadge = assistito.stato === 'Installato' ? 'badge-green' : 'badge-orange';
+                const tipoBadge = assistito.tipoServizio === 'TeleMonitoraggio' ? 'badge-purple' : 'badge-green';
+                
+                html += `
+                    <tr>
+                        <td><strong>${assistito.id}</strong></td>
+                        <td>${assistito.cognome}</td>
+                        <td>${assistito.nome}</td>
+                        <td>${assistito.comune}</td>
+                        <td><span class="badge ${tipoBadge}">${assistito.tipoServizio}</span></td>
+                        <td>${assistito.dispositivi}</td>
+                        <td><span class="badge ${statoBadge}">${assistito.stato}</span></td>
+                        <td>${assistito.dataInstallazione || '-'}</td>
+                        <td>${assistito.tecnicoInstallazione || 'TeleCare H24'}</td>
+                    </tr>
+                `;
+            });
+            
+            html += `
+                        </tbody>
+                    </table>
+                </div>
+            `;
+            
+            container.innerHTML = html;
+        }
+        
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', displayData);
+        document.getElementById('comuneFilter').addEventListener('change', displayData);
+        document.getElementById('statoFilter').addEventListener('change', displayData);
+        
+        // Initial load
+        loadData();
+    </script>
+</body>
+</html>

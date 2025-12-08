@@ -1,0 +1,355 @@
+═══════════════════════════════════════════════════════════════════════════════
+  📧 MESSAGGI PRONTI PER CONDIVIDERE IL SISTEMA
+═══════════════════════════════════════════════════════════════════════════════
+
+🔗 LINK DA CONDIVIDERE:
+https://telecare.github.io/csp-novi-telecare/
+
+═══════════════════════════════════════════════════════════════════════════════
+  📧 MESSAGGIO EMAIL - VERSIONE FORMALE
+═══════════════════════════════════════════════════════════════════════════════
+
+Oggetto: Sistema TeleCare H24 v1.0.0 - CSP Novi Ligure - Progetto FNNA
+
+Gentili colleghi,
+
+è operativo il nuovo sistema TeleCare H24 versione 1.0.0 per la gestione 
+del progetto di TeleAssistenza e TeleMonitoraggio finanziato dal Fondo 
+Nazionale per la Non Autosufficienza.
+
+🔗 Accesso al sistema:
+https://telecare.github.io/csp-novi-telecare/
+
+📊 Caratteristiche principali:
+• Dashboard con contatori in tempo reale (50 assistiti totali)
+• 45 Assistiti con TeleAssistenza (SiDLY CARE PRO)
+• 5 Assistiti con TeleMonitoraggio (ECG BC1 + HUB + Connect)
+• Copertura territoriale: 30 Comuni del Novese
+• Filtri per comune e tipo servizio
+• Ricerca assistiti per nome, cognome, CF
+• Visualizzazione stato installazioni (Installati/Pianificati)
+
+🎯 Ambito territoriale:
+Il servizio copre l'intero Consorzio Intercomunale del Novese, con presenza 
+in 30 comuni della provincia di Alessandria.
+
+⏰ Durata progetto:
+36 mesi (2024-2027)
+
+💰 Finanziamento:
+FNNA - Fondo Nazionale per la Non Autosufficienza
+
+📱 Per informazioni tecniche:
+assistenza@csp-novi.it | Tel: 0143 XXX XXX
+
+Cordiali saluti,
+
+CSP Novi Ligure
+Consorzio Intercomunale del Novese dei Servizi alla Persona
+
+═══════════════════════════════════════════════════════════════════════════════
+  💬 MESSAGGIO WHATSAPP/TELEGRAM - VERSIONE BREVE
+═══════════════════════════════════════════════════════════════════════════════
+
+🏥 *TeleCare H24 - CSP Novi Ligure*
+
+È attivo il nuovo sistema di monitoraggio per il progetto FNNA! 🎉
+
+🔗 Link: https://telecare.github.io/csp-novi-telecare/
+
+📊 *Dati principali:*
+• 50 assistiti totali
+• 45 con TeleAssistenza (SiDLY CARE PRO)
+• 5 con TeleMonitoraggio cardiaco (ECG BC1)
+• 30 Comuni del Novese coperti
+• Durata: 36 mesi (2024-2027)
+
+✨ Dashboard in tempo reale con filtri e ricerca avanzata!
+
+Per info: assistenza@csp-novi.it
+
+═══════════════════════════════════════════════════════════════════════════════
+  📱 POST SOCIAL MEDIA (Facebook/LinkedIn)
+═══════════════════════════════════════════════════════════════════════════════
+
+🏥 NUOVO SERVIZIO ATTIVO | TeleCare H24 per il Novese
+
+Il CSP Novi Ligure è orgoglioso di presentare il sistema TeleCare H24, 
+dedicato a 50 assistiti in 30 Comuni del territorio.
+
+🎯 SERVIZI EROGATI:
+• TeleAssistenza H24/7 con SiDLY CARE PRO (45 assistiti)
+• TeleMonitoraggio cardiaco con ECG BC1 (5 assistiti)
+• Copertura completa del Consorzio Intercomunale del Novese
+
+💡 INNOVAZIONE E CURA:
+Grazie al Fondo Nazionale per la Non Autosufficienza (FNNA), garantiamo 
+assistenza continua e monitoraggio sanitario avanzato per i nostri anziani.
+
+🌐 Dashboard online: https://telecare.github.io/csp-novi-telecare/
+
+📅 Durata progetto: 36 mesi (2024-2027)
+
+#TeleCare #AssistenzaAnziani #Innovazione #CSPNovi #Novese #Alessandria 
+#NonAutosufficienza #SanitàDigitale #TeleMonitoraggio
+
+═══════════════════════════════════════════════════════════════════════════════
+  📋 MESSAGGIO PER OPERATORI SANITARI
+═══════════════════════════════════════════════════════════════════════════════
+
+Oggetto: Accesso Sistema TeleCare H24 - CSP Novi Ligure
+
+Gentile Operatore/Operatrice,
+
+in qualità di membro del team assistenziale del progetto FNNA, hai accesso 
+al sistema di monitoraggio TeleCare H24.
+
+🔗 LINK SISTEMA:
+https://telecare.github.io/csp-novi-telecare/
+
+📊 COME UTILIZZARE IL SISTEMA:
+
+1. **Dashboard Principale**
+   Visualizza i 5 contatori principali con statistiche in tempo reale
+
+2. **Ricerca Assistiti**
+   Utilizza la barra di ricerca per trovare rapidamente un assistito per:
+   - Nome o Cognome
+   - Codice Fiscale
+   - Comune di residenza
+
+3. **Filtri Disponibili**
+   - Filtro per Comune (30 comuni disponibili)
+   - Filtro per Tipo Servizio (TeleAssistenza/TeleMonitoraggio)
+   - Filtro per Stato (Installato/Pianificato)
+
+4. **Informazioni Visualizzate**
+   Per ogni assistito puoi consultare:
+   - Dati anagrafici
+   - Tipo di servizio attivato
+   - Dispositivi assegnati
+   - Stato installazione
+   - Date installazione/pianificazione
+   - Note operative
+   - Referente ASL
+
+🔄 AGGIORNAMENTO DATI:
+Il sistema si aggiorna automaticamente ogni 30 secondi. Puoi forzare 
+l'aggiornamento cliccando sul pulsante "🔄 Aggiorna".
+
+📱 ACCESSO MOBILE:
+Il sistema è completamente responsive e accessibile da smartphone e tablet.
+
+⚠️ PRIVACY E SICUREZZA:
+Ricorda che stai accedendo a dati personali sensibili. Assicurati di:
+- Non condividere il link con persone non autorizzate
+- Utilizzare connessioni sicure
+- Rispettare le normative GDPR
+
+📞 SUPPORTO TECNICO:
+Per problemi tecnici o richieste di supporto:
+- Email: assistenza@csp-novi.it
+- Telefono: 0143 XXX XXX
+- Orario: Lun-Ven 9:00-18:00
+
+Grazie per la collaborazione!
+
+CSP Novi Ligure - Team TeleCare
+
+═══════════════════════════════════════════════════════════════════════════════
+  🎓 MESSAGGIO PER FORMAZIONE PERSONALE
+═══════════════════════════════════════════════════════════════════════════════
+
+FORMAZIONE SISTEMA TELECARE H24
+CSP Novi Ligure
+
+📅 Data Formazione: [DATA]
+🕐 Orario: [ORARIO]
+📍 Sede: [SEDE] / Online: [LINK VIDEOCONFERENZA]
+
+🎯 OBIETTIVI FORMAZIONE:
+- Presentazione sistema TeleCare H24
+- Navigazione dashboard e utilizzo filtri
+- Gestione dati assistiti
+- Procedure operative standard
+- Q&A e risoluzione dubbi
+
+📚 MATERIALI FORMAZIONE:
+- Guida utente completa
+- Video tutorial
+- Casi d'uso pratici
+
+🔗 Link sistema (da consultare prima della formazione):
+https://telecare.github.io/csp-novi-telecare/
+
+📖 PREPARAZIONE RICHIESTA:
+Prima della sessione di formazione, ti chiediamo di:
+1. Visitare il link del sistema
+2. Esplorare la dashboard principale
+3. Provare i vari filtri disponibili
+4. Annotare eventuali domande
+
+📧 CONFERMA PARTECIPAZIONE:
+Rispondi a questa email confermando la tua presenza entro [DATA].
+
+Ci vediamo in formazione!
+
+Team TeleCare - CSP Novi Ligure
+
+═══════════════════════════════════════════════════════════════════════════════
+  📊 REPORT MENSILE - TEMPLATE
+═══════════════════════════════════════════════════════════════════════════════
+
+REPORT MENSILE TELECARE H24
+CSP Novi Ligure - [MESE] [ANNO]
+
+🔗 Dashboard: https://telecare.github.io/csp-novi-telecare/
+
+📊 STATISTICHE DEL MESE:
+
+Assistiti Totali: 50
+├─ TeleAssistenza (SiDLY CARE PRO): 45
+└─ TeleMonitoraggio (ECG BC1): 5
+
+Stato Servizi:
+├─ Installati: [NUMERO]
+├─ Pianificati: [NUMERO]
+└─ Sospesi: [NUMERO]
+
+Comuni Serviti: 30
+Top 5 Comuni per numero assistiti:
+1. [COMUNE]: [NUM] assistiti
+2. [COMUNE]: [NUM] assistiti
+3. [COMUNE]: [NUM] assistiti
+4. [COMUNE]: [NUM] assistiti
+5. [COMUNE]: [NUM] assistiti
+
+📈 ATTIVITÀ DEL MESE:
+- Nuove installazioni: [NUM]
+- Manutenzioni effettuate: [NUM]
+- Interventi urgenti: [NUM]
+- Sostituzioni dispositivi: [NUM]
+
+✅ OBIETTIVI RAGGIUNTI:
+- [Obiettivo 1]
+- [Obiettivo 2]
+- [Obiettivo 3]
+
+⚠️ CRITICITÀ RILEVATE:
+- [Criticità 1]
+- [Criticità 2]
+
+📅 PROSSIME ATTIVITÀ:
+- [Attività 1]
+- [Attività 2]
+- [Attività 3]
+
+Report generato da: [NOME]
+Data: [DATA]
+
+═══════════════════════════════════════════════════════════════════════════════
+  📞 COMUNICAZIONE PER FAMIGLIE ASSISTITI
+═══════════════════════════════════════════════════════════════════════════════
+
+Oggetto: Servizio TeleCare H24 attivo per il vostro familiare
+
+Gentile Famiglia,
+
+siamo lieti di informarvi che il vostro congiunto è stato inserito nel 
+progetto TeleCare H24 del CSP Novi Ligure, un servizio innovativo di 
+assistenza e monitoraggio continuo.
+
+🏥 COS'È TELECARE H24:
+Un sistema di assistenza e monitoraggio sanitario attivo 24 ore su 24, 
+7 giorni su 7, che garantisce sicurezza e supporto immediato in caso di 
+necessità.
+
+🎯 SERVIZI ATTIVI:
+[X] TeleAssistenza con SiDLY CARE PRO
+    - Centrale operativa sempre disponibile
+    - Chiamate di emergenza con localizzazione GPS
+    - Comunicazione bidirezionale
+
+[X] TeleMonitoraggio cardiaco con ECG BC1
+    - Controllo continuo parametri cardiaci
+    - Trasmissione dati in tempo reale
+    - Refertazione medica specialistica
+
+📅 DATA INSTALLAZIONE: [DATA]
+👨‍🔧 TECNICO REFERENTE: [NOME]
+
+📱 COME FUNZIONA:
+Il dispositivo installato permette al vostro familiare di:
+- Chiamare assistenza premendo un semplice pulsante
+- Essere localizzato in caso di necessità
+- Ricevere supporto immediato h24/7
+
+🔔 CENTRALE OPERATIVA:
+- Numero emergenze: [NUMERO]
+- Email: assistenza@csp-novi.it
+- Disponibilità: 24 ore su 24, 365 giorni l'anno
+
+💰 COSTI:
+Il servizio è completamente gratuito per l'assistito, finanziato dal 
+Fondo Nazionale per la Non Autosufficienza.
+
+📋 DURATA:
+Il servizio sarà attivo per i prossimi 36 mesi (fino al 2027).
+
+❓ PER INFORMAZIONI:
+Per qualsiasi domanda o necessità, non esitate a contattarci:
+- Telefono: 0143 XXX XXX
+- Email: info@csp-novi.it
+- Orario uffici: Lun-Ven 9:00-17:00
+
+Grazie per la fiducia accordata al nostro Consorzio.
+
+Cordiali saluti,
+
+CSP Novi Ligure
+Consorzio Intercomunale del Novese dei Servizi alla Persona
+
+═══════════════════════════════════════════════════════════════════════════════
+  📄 NOTA LEGALE E PRIVACY
+═══════════════════════════════════════════════════════════════════════════════
+
+INFORMATIVA PRIVACY - SISTEMA TELECARE H24
+
+Il sistema TeleCare H24 gestisce dati personali e sanitari ai sensi del 
+Regolamento UE 2016/679 (GDPR).
+
+Titolare del Trattamento:
+CSP Novi Ligure - Consorzio Intercomunale del Novese dei Servizi alla Persona
+Sede: [INDIRIZZO]
+Email: privacy@csp-novi.it
+
+Finalità del Trattamento:
+- Gestione servizi di TeleAssistenza e TeleMonitoraggio
+- Coordinamento interventi assistenziali
+- Monitoraggio stato sanitario assistiti
+- Adempimenti di legge
+
+Base Giuridica:
+- Consenso dell'interessato
+- Esecuzione di un contratto
+- Adempimento di obblighi di legge
+
+Conservazione Dati:
+I dati saranno conservati per la durata del progetto (36 mesi) e 
+successivamente secondo le disposizioni normative vigenti.
+
+Diritti dell'Interessato:
+- Accesso ai propri dati
+- Rettifica e cancellazione
+- Limitazione del trattamento
+- Portabilità dei dati
+- Opposizione al trattamento
+
+Per esercitare i propri diritti: privacy@csp-novi.it
+
+═══════════════════════════════════════════════════════════════════════════════
+
+© 2024 CSP Novi Ligure - Tutti i diritti riservati
+Sistema TeleCare H24 v1.0.0 | Progetto FNNA 2024-2027
+
+═══════════════════════════════════════════════════════════════════════════════

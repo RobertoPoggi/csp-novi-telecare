@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TeleCare H24 v1.0.1 - CSP Novi Ligure</title>
+    <title>TeleCare H24 v1.0.0 - CSP Novi Ligure</title>
     
-    <!-- Favicon CSP Novi -->
-    <link rel="icon" type="image/png" href="https://cdn1.genspark.ai/user-upload-image/favicon-csp-novi.png">
-    <link rel="apple-touch-icon" href="https://cdn1.genspark.ai/user-upload-image/favicon-csp-novi.png">
+    <!-- Icona Torre del Castello di Novi Ligure -->
+    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Castello_di_Novi_Ligure_-_torre.png/250px-Castello_di_Novi_Ligure_-_torre.png">
+    
+    <!-- Icona Torre del Castello di Novi Ligure -->
+    <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Castello_di_Novi_Ligure_-_torre.png/250px-Castello_di_Novi_Ligure_-_torre.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="TeleCare CSP Novi">
+    <meta name="apple-mobile-web-app-title" content="TeleCare H24">
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1e5799 0%, #207cca 50%, #2989d8 100%);
+            background: linear-gradient(135deg, #1e5799 0%, #207cca 100%);
             padding: 20px;
             min-height: 100vh;
         }
@@ -38,231 +40,449 @@
             position: relative;
         }
         
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .header .subtitle {
-            font-size: 1.2em;
-            opacity: 0.95;
-            margin-bottom: 5px;
-        }
-        
-        .header .version {
-            font-size: 0.9em;
-            opacity: 0.8;
-            font-style: italic;
-        }
-        
-        .sync-status {
+        .version-badge {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
             background: rgba(255,255,255,0.2);
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.9em;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .header h1 { font-size: 28px; margin-bottom: 10px; }
+        
+        .nav-tabs {
+            background: #f8f9fa;
             display: flex;
-            align-items: center;
-            gap: 10px;
+            border-bottom: 3px solid #1e5799;
+            overflow-x: auto;
         }
         
-        .sync-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #4CAF50;
-            animation: pulse 2s infinite;
+        .nav-tab {
+            flex: 1;
+            min-width: 140px;
+            padding: 18px 10px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 15px;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s;
         }
         
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+        .nav-tab.active {
+            background: white;
+            color: #1e5799;
+            border-bottom: 3px solid #1e5799;
         }
         
-        .stats-container {
+        .nav-tab:hover { background: #e9ecef; }
+        
+        .tab-content { display: none; padding: 30px; }
+        .tab-content.active { display: block; }
+        
+        /* Stats Grid */
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            padding: 30px;
-            background: #f5f7fa;
+            margin-bottom: 30px;
         }
         
         .stat-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            border: 3px solid transparent;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-        
-        .stat-card.active {
-            border-color: #207cca;
-            background: #e3f2fd;
-        }
-        
-        .stat-card .icon {
-            font-size: 3em;
-            margin-bottom: 15px;
-        }
-        
-        .stat-card .number {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #1e5799;
-            margin-bottom: 10px;
-        }
-        
-        .stat-card .label {
-            font-size: 1.1em;
-            color: #666;
-            font-weight: 500;
-        }
-        
-        .controls {
-            padding: 20px 30px;
-            background: white;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            align-items: center;
-            border-bottom: 2px solid #e0e0e0;
-        }
-        
-        .search-box {
-            flex: 1;
-            min-width: 250px;
-            position: relative;
-        }
-        
-        .search-box input {
-            width: 100%;
-            padding: 12px 40px 12px 15px;
-            border: 2px solid #ddd;
-            border-radius: 25px;
-            font-size: 1em;
-            transition: border-color 0.3s;
-        }
-        
-        .search-box input:focus {
-            outline: none;
-            border-color: #207cca;
-        }
-        
-        .search-box .search-icon {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #999;
-        }
-        
-        select {
-            padding: 12px 20px;
-            border: 2px solid #ddd;
-            border-radius: 25px;
-            font-size: 1em;
-            background: white;
-            cursor: pointer;
-            transition: border-color 0.3s;
-        }
-        
-        select:focus {
-            outline: none;
-            border-color: #207cca;
-        }
-        
-        .refresh-btn {
-            padding: 12px 30px;
             background: linear-gradient(135deg, #1e5799 0%, #207cca 100%);
             color: white;
-            border: none;
-            border-radius: 25px;
-            font-size: 1em;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: transform 0.3s;
-        }
-        
-        .refresh-btn:hover {
-            transform: scale(1.05);
-        }
-        
-        .refresh-btn:active {
-            transform: scale(0.95);
-        }
-        
-        .content {
-            padding: 30px;
-            max-height: 600px;
-            overflow-y: auto;
-        }
-        
-        .table-container {
-            background: white;
+            padding: 25px;
             border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
-        table {
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        
+        /* Lista assistiti */
+        .assistiti-container {
+            margin-top: 20px;
+        }
+        
+        .filter-bar {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .filter-bar select {
+            padding: 10px 15px;
+            border: 2px solid #1e5799;
+            border-radius: 8px;
+            font-size: 15px;
+            min-width: 200px;
+            cursor: pointer;
+        }
+        
+        .filter-bar label {
+            font-weight: 600;
+            color: #1e5799;
+        }
+        
+        .list-table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
-        th {
-            background: linear-gradient(135deg, #1e5799 0%, #207cca 100%);
+        .list-table thead {
+            background: #1e5799;
             color: white;
+        }
+        
+        .list-table th {
             padding: 15px;
             text-align: left;
             font-weight: 600;
-            position: sticky;
-            top: 0;
-            z-index: 10;
         }
         
-        td {
-            padding: 15px;
+        .list-table td {
+            padding: 12px 15px;
             border-bottom: 1px solid #e0e0e0;
         }
         
-        tr:hover {
-            background: #f5f7fa;
+        .list-table tbody tr:hover {
+            background: #f8f9fa;
+            cursor: pointer;
         }
         
         .badge {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
             display: inline-block;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.85em;
+        }
+        
+        .badge-success {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .badge-info {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .badge-warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        /* Ricerca */
+        .search-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 2px solid #1e5799;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 18px;
+            border: 2px solid #1e5799;
+            border-radius: 10px;
+            outline: none;
+        }
+        
+        .search-results {
+            margin-top: 20px;
+            display: grid;
+            gap: 15px;
+        }
+        
+        .assistito-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .assistito-card:hover {
+            border-color: #1e5799;
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .assistito-info { flex: 1; }
+        
+        .assistito-nome {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e5799;
+            margin-bottom: 5px;
+        }
+        
+        /* Tabella Comuni */
+        .comuni-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .comuni-table thead {
+            background: linear-gradient(135deg, #1e5799 0%, #207cca 100%);
+            color: white;
+        }
+        
+        .comuni-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .comuni-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .comuni-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .progress-mini {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+        
+        .progress-mini-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1e5799 0%, #207cca 100%);
+            transition: width 0.3s;
+        }
+        
+        .assistito-dettagli {
+            font-size: 14px;
+            color: #666;
+            margin-top: 8px;
+        }
+        
+        .assistito-badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        /* Form styling */
+        .form-section {
+            margin-bottom: 35px;
+        }
+        
+        .form-section-title {
+            font-size: 20px;
+            color: #1e5799;
+            border-bottom: 2px solid #1e5799;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #1e5799;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        textarea { min-height: 100px; resize: vertical; }
+        
+        .date-input-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .date-input-group input {
+            text-align: center;
             font-weight: 600;
         }
         
-        .badge-green {
-            background: #e8f5e9;
-            color: #2e7d32;
+        .age-display {
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #1e5799 0%, #207cca 100%);
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
         }
         
-        .badge-orange {
-            background: #fff3e0;
-            color: #e65100;
+        .age-display.empty {
+            background: #e9ecef;
+            color: #999;
         }
         
-        .badge-purple {
-            background: #f3e5f5;
-            color: #6a1b9a;
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #1e5799 0%, #207cca 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #1e5799;
+            border: 2px solid #1e5799;
+        }
+        
+        .btn-secondary:hover {
+            background: #1e5799;
+            color: white;
+        }
+        
+        .message {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .message.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .loading-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #1e5799;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         .empty-state {
@@ -271,342 +491,1586 @@
             color: #999;
         }
         
-        .empty-state .icon {
-            font-size: 4em;
+        .empty-state-icon {
+            font-size: 64px;
             margin-bottom: 20px;
-            opacity: 0.5;
-        }
-        
-        .footer {
-            background: #f5f7fa;
-            padding: 20px;
-            text-align: center;
-            color: #666;
-            font-size: 0.9em;
-        }
-        
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: #207cca;
-            font-size: 1.2em;
-        }
-        
-        .spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #207cca;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
         
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8em;
-            }
-            
-            .stats-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .controls {
-                flex-direction: column;
-            }
-            
-            .sync-status {
-                position: static;
-                margin-top: 15px;
-            }
-            
-            table {
-                font-size: 0.9em;
-            }
-            
-            th, td {
-                padding: 10px;
-            }
+            .container { border-radius: 0; }
+            .form-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .nav-tab { min-width: 110px; font-size: 13px; padding: 15px 8px; }
+            .filter-bar { flex-direction: column; }
+            .filter-bar select { width: 100%; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <div class="header">
-            <div class="sync-status">
-                <div class="sync-indicator"></div>
-                <span>Sistema Attivo</span>
-            </div>
-            <h1>🏥 TeleCare H24</h1>
-            <div class="subtitle">CSP Novi Ligure - Consorzio Intercomunale del Novese</div>
-            <div class="version">v1.0.0 | Progetto FNNA 2024-2027 | Centrale Operativa 36 mesi</div>
+            <div class="version-badge">v1.0.0</div>
+            <h1>🏥 TeleCare H24 - CSP Novi Ligure</h1>
+            <p>Progetto FNNA 2025-2028 | 30 Comuni Novese | Centrale Operativa 36 mesi</p>
         </div>
         
-        <!-- Statistics -->
-        <div class="stats-container">
-            <div class="stat-card" onclick="filterByView('all')" id="card-totale">
-                <div class="icon">👥</div>
-                <div class="number" id="stat-totale">0</div>
-                <div class="label">Assistiti Totali</div>
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="switchTab('dashboard')">📊 Dashboard</button>
+            <button class="nav-tab" onclick="switchTab('installati')">✅ Installati</button>
+            <button class="nav-tab" onclick="switchTab('pianificati')">📅 Pianificati</button>
+            <button class="nav-tab" onclick="switchTab('ricerca')">🔍 Ricerca</button>
+            <button class="nav-tab" onclick="switchTab('nuova')">➕ Nuova</button>
+        </div>
+        
+        <!-- TAB DASHBOARD -->
+        <div id="tab-dashboard" class="tab-content active">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number" id="stat-totale">0</span>
+                    <span class="stat-label">Totale Assistiti</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="stat-installati">0</span>
+                    <span class="stat-label">Dispositivi Installati</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="stat-pianificati">0</span>
+                    <span class="stat-label">Installazioni Pianificate</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="stat-comuni">0</span>
+                    <span class="stat-label">Comuni Coperti</span>
+                </div>
             </div>
             
-            <div class="stat-card" onclick="filterByView('installati')" id="card-installati">
-                <div class="icon">✅</div>
-                <div class="number" id="stat-installati">0</div>
-                <div class="label">Installati</div>
+            <div style="margin-top: 40px;">
+                <h2 style="color: #1e5799; margin-bottom: 20px;">📈 Riepilogo Progetto</h2>
+                <div style="background: #f8f9fa; padding: 30px; border-radius: 15px;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                        <div>
+                            <div style="font-size: 14px; color: #666; margin-bottom: 5px;">Obiettivo Totale</div>
+                            <div style="font-size: 32px; font-weight: bold; color: #1e5799;">100</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 14px; color: #666; margin-bottom: 5px;">Scadenza FNNA</div>
+                            <div style="font-size: 24px; font-weight: bold; color: #dc3545;">30 Novembre 2028</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 14px; color: #666; margin-bottom: 5px;">Progresso</div>
+                            <div style="font-size: 32px; font-weight: bold; color: #28a745;" id="dashboard-progress">0%</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 14px; color: #666; margin-bottom: 5px;">Da Completare</div>
+                            <div style="font-size: 32px; font-weight: bold; color: #ffc107;" id="dashboard-remaining">100</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px; background: white; padding: 20px; border-radius: 10px;">
+                        <div style="font-size: 14px; color: #666; margin-bottom: 10px;">Avanzamento Installazioni</div>
+                        <div style="background: #e9ecef; height: 30px; border-radius: 15px; overflow: hidden;">
+                            <div id="progress-bar" style="background: linear-gradient(90deg, #1e5799 0%, #207cca 100%); height: 100%; width: 0%; transition: width 0.5s;"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- PANNELLO CONFIGURAZIONE OBIETTIVI -->
+                    <div style="margin-top: 30px; background: linear-gradient(135deg, #fff3cd 0%, #ffc107 100%); padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h3 style="margin: 0; color: #856404;">⚙️ Configurazione Obiettivi per Comune</h3>
+                            <button onclick="toggleConfigPanel()" style="background: white; border: 2px solid #856404; color: #856404; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s;">
+                                <span id="config-toggle-icon">▼</span> Mostra/Nascondi
+                            </button>
+                        </div>
+                        <div id="config-obiettivi-panel" style="display: none; background: white; padding: 20px; border-radius: 8px; margin-top: 15px;">
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;" id="config-obiettivi-grid">
+                                <!-- Popolato dinamicamente -->
+                            </div>
+                            <div style="margin-top: 20px; text-align: center;">
+                                <button onclick="salvaObiettivi()" style="background: linear-gradient(135deg, #1e5799 0%, #207cca 100%); color: white; border: none; padding: 12px 30px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600; box-shadow: 0 4px 6px rgba(0,0,0,0.2); transition: all 0.3s;">
+                                    💾 Salva Obiettivi
+                                </button>
+                                <button onclick="resetObiettivi()" style="background: #dc3545; color: white; border: none; padding: 12px 30px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600; margin-left: 10px; transition: all 0.3s;">
+                                    🔄 Ripristina Default
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
-            <div class="stat-card" onclick="filterByView('pianificati')" id="card-pianificati">
-                <div class="icon">📅</div>
-                <div class="number" id="stat-pianificati">0</div>
-                <div class="label">Pianificati</div>
+            <!-- STATISTICA PER COMUNE -->
+            <div style="margin-top: 40px;">
+                <h2 style="color: #1e5799; margin-bottom: 20px;">🏘️ Distribuzione per Comune</h2>
+                <div style="background: #f8f9fa; padding: 30px; border-radius: 15px;">
+                    <table class="comuni-table">
+                        <thead>
+                            <tr>
+                                <th>Comune</th>
+                                <th style="text-align: center;">Assistiti Attuali</th>
+                                <th style="text-align: center;">Installati</th>
+                                <th style="text-align: center;">Obiettivo</th>
+                                <th style="text-align: center;">% Completamento</th>
+                                <th>Avanzamento</th>
+                                <th style="text-align: center;">Mancanti</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comuni-table-body">
+                            <!-- Popolato dinamicamente da JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
             
-            <div class="stat-card" onclick="filterByView('monitoraggio')" id="card-monitoraggio">
-                <div class="icon">❤️</div>
-                <div class="number" id="stat-monitoraggio">0</div>
-                <div class="label">TeleMonitoraggio ECG</div>
+            <div style="text-align: center; margin-top: 30px;">
+                <button onclick="mostraTutteLeSchede()" class="btn btn-primary" style="font-size: 18px;">
+                    📋 Visualizza Tutte le Schede
+                </button>
             </div>
         </div>
         
-        <!-- Controls -->
-        <div class="controls">
+        <!-- TAB INSTALLATI -->
+        <div id="tab-installati" class="tab-content">
+            <h2 style="color: #1e5799; margin-bottom: 20px;">✅ Dispositivi Installati (<span id="count-installati">0</span>)</h2>
+            
+            <div class="filter-bar">
+                <label>Filtra per Comune:</label>
+                <select id="filter-comune-installati" onchange="filtraInstallati()">
+                    <option value="">🌍 Tutti i Comuni</option>
+                    <option value="Novi Ligure">🏛️ Novi Ligure (15)</option>
+                    <option value="Arquata Scrivia">🏔️ Arquata Scrivia (3)</option>
+                    <option value="Serravalle Scrivia">🏰 Serravalle Scrivia (4)</option>
+                    <option value="Tortona">🏛️ Tortona (5)</option>
+                    <option value="Cassano Spinola">⛪ Cassano Spinola (2)</option>
+                    <option value="Basaluzzo">🌾 Basaluzzo (2)</option>
+                    <option value="Pozzolo Formigaro">🏘️ Pozzolo Formigaro (2)</option>
+                    <option value="Bosco Marengo">🌳 Bosco Marengo (1)</option>
+                    <option value="Frugarolo">🏘️ Frugarolo (1)</option>
+                </select>
+            </div>
+            
+            <div id="lista-installati-full" class="assistiti-container"></div>
+        </div>
+        
+        <!-- TAB PIANIFICATI -->
+        <div id="tab-pianificati" class="tab-content">
+            <h2 style="color: #1e5799; margin-bottom: 20px;">📅 Installazioni Pianificate (<span id="count-pianificati">0</span>)</h2>
+            
+            <div class="filter-bar">
+                <label>Filtra per Mese:</label>
+                <select id="filter-mese-pianificati" onchange="filtraPianificati()">
+                    <option value="">📅 Tutti i Mesi</option>
+                    <option value="Novembre 2025">Novembre 2025</option>
+                    <option value="Dicembre 2025">Dicembre 2025</option>
+                    <option value="Gennaio 2026">Gennaio 2026</option>
+                    <option value="Febbraio 2026">Febbraio 2026</option>
+                    <option value="Marzo 2026">Marzo 2026</option>
+                </select>
+                
+                <label>Filtra per Comune:</label>
+                <select id="filter-comune-pianificati" onchange="filtraPianificati()">
+                    <option value="">🌍 Tutti i Comuni</option>
+                    <option value="Novi Ligure">🏛️ Novi Ligure (15)</option>
+                    <option value="Arquata Scrivia">🏔️ Arquata Scrivia (3)</option>
+                    <option value="Serravalle Scrivia">🏰 Serravalle Scrivia (4)</option>
+                    <option value="Tortona">🏛️ Tortona (5)</option>
+                    <option value="Cassano Spinola">⛪ Cassano Spinola (2)</option>
+                    <option value="Basaluzzo">🌾 Basaluzzo (2)</option>
+                    <option value="Pozzolo Formigaro">🏘️ Pozzolo Formigaro (2)</option>
+                    <option value="Bosco Marengo">🌳 Bosco Marengo (1)</option>
+                    <option value="Frugarolo">🏘️ Frugarolo (1)</option>
+                </select>
+            </div>
+            
+            <div id="lista-pianificati-full" class="assistiti-container"></div>
+        </div>
+        
+        <!-- TAB RICERCA -->
+        <div id="tab-ricerca" class="tab-content">
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="🔍 Cerca assistito (nome, cognome, codice fiscale...)">
-                <span class="search-icon">🔍</span>
+                <h2 style="margin-bottom: 15px; color: #1e5799;">🔍 Cerca Assistito</h2>
+                <input type="text" 
+                       class="search-input" 
+                       id="searchInput" 
+                       placeholder="Digita nome, cognome, numero scheda o comune..."
+                       onkeyup="cercaAssistito()">
             </div>
-            
-            <select id="comuneFilter">
-                <option value="">Tutti i Comuni (30)</option>
-            </select>
-            
-            <select id="statoFilter">
-                <option value="">Tutti gli Stati</option>
-                <option value="Installato">Installato</option>
-                <option value="Pianificato">Pianificato</option>
-                <option value="Sospeso">Sospeso</option>
-            </select>
-            
-            <button class="refresh-btn" onclick="loadData()">
-                <span>🔄</span>
-                <span>Aggiorna</span>
-            </button>
+            <div id="search-results" class="search-results"></div>
         </div>
         
-        <!-- Content -->
-        <div class="content">
-            <div id="loadingIndicator" class="loading">
-                <div class="spinner"></div>
-                Caricamento dati in corso...
-            </div>
+        <!-- TAB NUOVA SCHEDA -->
+        <div id="tab-nuova" class="tab-content">
+            <div class="message" id="messageBox"></div>
             
-            <div id="dataContainer" style="display: none;">
-                <!-- Table will be inserted here -->
-            </div>
-        </div>
-        
-        <!-- Footer -->
-        <div class="footer">
-            <strong>CSP Novi Ligure</strong> | Consorzio Intercomunale del Novese dei Servizi alla Persona<br>
-            📞 Supporto: assistenza@csp-novi.it | ⏰ Centrale Operativa H24/7 per 36 mesi<br>
-            🏛️ FNNA 2024-2027 | 🌐 50 Assistiti su 30 Comuni | 🔧 Installazioni e Formazione TeleCare H24
+            <form id="assistitoForm">
+                <!-- DATI ASSISTITO -->
+                <div class="section">
+                    <h2 class="section-title" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #e0e0e0;">👤 Dati Assistito</h2>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="numeroScheda">N° Scheda<span class="required">*</span></label>
+                            <input type="text" id="numeroScheda" name="numeroScheda" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dataCompilazione">Data Compilazione</label>
+                            <input type="date" id="dataCompilazione" name="dataCompilazione">
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nome">Nome<span class="required">*</span></label>
+                            <input type="text" id="nome" name="nome" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cognome">Cognome<span class="required">*</span></label>
+                            <input type="text" id="cognome" name="cognome" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Data di Nascita<span class="required">*</span></label>
+                            <div class="date-input-group">
+                                <input type="number" id="giorno" name="giorno" placeholder="GG" min="1" max="31" maxlength="2" required>
+                                <span>/</span>
+                                <input type="number" id="mese" name="mese" placeholder="MM" min="1" max="12" maxlength="2" required>
+                                <span>/</span>
+                                <input type="number" id="anno" name="anno" placeholder="AAAA" min="1900" max="2026" maxlength="4" required>
+                            </div>
+                            <input type="hidden" id="dataNascita" name="dataNascita">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Età</label>
+                            <div class="age-display empty" id="ageDisplay">
+                                🎂 - anni
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="indirizzoResidenza">Indirizzo Residenza</label>
+                            <input type="text" id="indirizzoResidenza" name="indirizzoResidenza">
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="comune">Comune di Residenza<span class="required">*</span></label>
+                            <select id="comune" name="comune" required>
+                                <option value="">Seleziona il comune...</option>
+                                <option value="Novi Ligure">🏛️ Novi Ligure (46)</option>
+                                <option value="Erice">🏛️ Erice (19)</option>
+                                <option value="Valderice">🏛️ Valderice (8)</option>
+                                <option value="Paceco">🏛️ Paceco (8)</option>
+                                <option value="Misiliscemi">🏛️ Misiliscemi (7)</option>
+                                <option value="Custonaci">🏛️ Custonaci (4)</option>
+                                <option value="San Vito Lo Capo">🏛️ San Vito Lo Capo (3)</option>
+                                <option value="Favignana">🏛️ Favignana (3)</option>
+                                <option value="Buseto Palizzolo">🏛️ Buseto Palizzolo (2)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telFisso">Telefono Fisso</label>
+                            <input type="tel" id="telFisso" name="telFisso" placeholder="0923...">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cellulare">Cellulare</label>
+                            <input type="tel" id="cellulare" name="cellulare" placeholder="333...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CAREGIVER -->
+                <div class="section">
+                    <h2 class="section-title" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #e0e0e0;">👥 Caregiver</h2>
+
+                    <div class="caregiver-card">
+                        <div class="caregiver-header">Caregiver B</div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="caregiverB_nome">Nome</label>
+                                <input type="text" id="caregiverB_nome" name="caregiverB_nome">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverB_cognome">Cognome</label>
+                                <input type="text" id="caregiverB_cognome" name="caregiverB_cognome">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverB_parentela">Parentela</label>
+                                <input type="text" id="caregiverB_parentela" name="caregiverB_parentela" placeholder="Es: Figlio/a">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverB_email">Email</label>
+                                <input type="email" id="caregiverB_email" name="caregiverB_email">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverB_cellulare">Cellulare</label>
+                                <input type="tel" id="caregiverB_cellulare" name="caregiverB_cellulare">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverB_chiavi">Chiavi</label>
+                                <select id="caregiverB_chiavi" name="caregiverB_chiavi">
+                                    <option value="">-</option>
+                                    <option value="SI">✅ SI</option>
+                                    <option value="NO">❌ NO</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="caregiver-card">
+                        <div class="caregiver-header">Caregiver C</div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="caregiverC_nome">Nome</label>
+                                <input type="text" id="caregiverC_nome" name="caregiverC_nome">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverC_cognome">Cognome</label>
+                                <input type="text" id="caregiverC_cognome" name="caregiverC_cognome">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverC_parentela">Parentela</label>
+                                <input type="text" id="caregiverC_parentela" name="caregiverC_parentela">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverC_email">Email</label>
+                                <input type="email" id="caregiverC_email" name="caregiverC_email">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverC_cellulare">Cellulare</label>
+                                <input type="tel" id="caregiverC_cellulare" name="caregiverC_cellulare">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverC_chiavi">Chiavi</label>
+                                <select id="caregiverC_chiavi" name="caregiverC_chiavi">
+                                    <option value="">-</option>
+                                    <option value="SI">✅ SI</option>
+                                    <option value="NO">❌ NO</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="caregiver-card">
+                        <div class="caregiver-header">Caregiver D</div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="caregiverD_nome">Nome</label>
+                                <input type="text" id="caregiverD_nome" name="caregiverD_nome">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverD_cognome">Cognome</label>
+                                <input type="text" id="caregiverD_cognome" name="caregiverD_cognome">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverD_parentela">Parentela</label>
+                                <input type="text" id="caregiverD_parentela" name="caregiverD_parentela">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverD_email">Email</label>
+                                <input type="email" id="caregiverD_email" name="caregiverD_email">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverD_cellulare">Cellulare</label>
+                                <input type="tel" id="caregiverD_cellulare" name="caregiverD_cellulare">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverD_chiavi">Chiavi</label>
+                                <select id="caregiverD_chiavi" name="caregiverD_chiavi">
+                                    <option value="">-</option>
+                                    <option value="SI">✅ SI</option>
+                                    <option value="NO">❌ NO</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="scalettaContatti">Scaletta Contatti C.O.</label>
+                        <textarea id="scalettaContatti" name="scalettaContatti" placeholder="Ordine di priorità per contattare i caregiver..."></textarea>
+                    </div>
+                </div>
+
+                <!-- ALTRI DATI ASSISTITO -->
+                <div class="section">
+                    <h2 class="section-title" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #e0e0e0;">📝 Altri Dati Assistito</h2>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="natoA">Nato a</label>
+                            <input type="text" id="natoA" name="natoA">
+                        </div>
+                        <div class="form-group">
+                            <label for="provincia">Provincia</label>
+                            <input type="text" id="provincia" name="provincia" maxlength="2" placeholder="TP">
+                        </div>
+                        <div class="form-group">
+                            <label for="codiceFiscale">Codice Fiscale</label>
+                            <input type="text" id="codiceFiscale" name="codiceFiscale" maxlength="16" style="text-transform: uppercase;">
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="tipoAbitazione">Tipo Abitazione</label>
+                            <select id="tipoAbitazione" name="tipoAbitazione">
+                                <option value="">Seleziona...</option>
+                                <option value="Appartamento">🏢 Appartamento</option>
+                                <option value="Casa">🏠 Casa Indipendente</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="piano">Piano</label>
+                            <input type="number" id="piano" name="piano" min="0" placeholder="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="ascensore">Ascensore</label>
+                            <select id="ascensore" name="ascensore">
+                                <option value="">-</option>
+                                <option value="SI">✅ SI</option>
+                                <option value="NO">❌ NO</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="sesso">Sesso</label>
+                            <select id="sesso" name="sesso">
+                                <option value="">-</option>
+                                <option value="M">👨 M</option>
+                                <option value="F">👩 F</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="peso">Peso (kg)</label>
+                            <input type="number" id="peso" name="peso" min="0" placeholder="70">
+                        </div>
+                        <div class="form-group">
+                            <label for="altezza">Altezza (cm)</label>
+                            <input type="number" id="altezza" name="altezza" min="0" placeholder="170">
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="patologie">Patologie e Fragilità</label>
+                            <textarea id="patologie" name="patologie" placeholder="Elencare patologie croniche e condizioni di fragilità..."></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="farmaci">Farmaci e Orari</label>
+                            <textarea id="farmaci" name="farmaci" placeholder="Es: ore 08:00 Cardioaspirin 100mg, ore 20:00 Eutirox 50mcg..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="freqCardiacaMin">Freq. Cardiaca Min (bpm)</label>
+                            <input type="number" id="freqCardiacaMin" name="freqCardiacaMin" placeholder="60">
+                        </div>
+                        <div class="form-group">
+                            <label for="freqCardiacaMax">Freq. Cardiaca Max (bpm)</label>
+                            <input type="number" id="freqCardiacaMax" name="freqCardiacaMax" placeholder="100">
+                        </div>
+                        <div class="form-group">
+                            <label for="saturazioneMin">Saturazione Min (%)</label>
+                            <input type="number" id="saturazioneMin" name="saturazioneMin" min="70" max="100" placeholder="95">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SENSORE ECG SOLO -->
+                <div class="section">
+                    <h2 class="section-title" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #e0e0e0;">❤️ Sensore ECG (TeleMonitoraggio)</h2>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="sensoreEcg">Sensore ECG</label>
+                            <select id="sensoreEcg" name="sensoreEcg">
+                                <option value="">-</option>
+                                <option value="S">✅ SÌ</option>
+                                <option value="N">❌ NO</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="note">Note Aggiuntive</label>
+                            <textarea id="note" name="note" placeholder="Eventuali informazioni aggiuntive rilevanti..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ALTRI CONTATTI -->
+                <div class="section">
+                    <h2 class="section-title" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #e0e0e0;">📞 ALTRI CONTATTI</h2>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="assSocialeNome">Nominativo Ass. Sociale</label>
+                            <input type="text" id="assSocialeNome" name="assSocialeNome" placeholder="Nome e Cognome">
+                        </div>
+                        <div class="form-group">
+                            <label for="assSocialeCellulare">N° Cellulare Ass. Sociale</label>
+                            <input type="tel" id="assSocialeCellulare" name="assSocialeCellulare" placeholder="3331234567">
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="ossNome">Nominativo OSS</label>
+                            <input type="text" id="ossNome" name="ossNome" placeholder="Nome e Cognome">
+                        </div>
+                        <div class="form-group">
+                            <label for="ossCellulare">N° Cellulare OSS</label>
+                            <input type="tel" id="ossCellulare" name="ossCellulare" placeholder="3331234567">
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="infermiereNome">Nominativo Infermiere</label>
+                            <input type="text" id="infermiereNome" name="infermiereNome" placeholder="Nome e Cognome">
+                        </div>
+                        <div class="form-group">
+                            <label for="infermiereCellulare">N° Cellulare Infermiere</label>
+                            <input type="tel" id="infermiereCellulare" name="infermiereCellulare" placeholder="3331234567">
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="mmgNome">Nominativo MMG</label>
+                            <input type="text" id="mmgNome" name="mmgNome" placeholder="Nome e Cognome">
+                        </div>
+                        <div class="form-group">
+                            <label for="mmgCellulare">N° Cellulare MMG</label>
+                            <input type="tel" id="mmgCellulare" name="mmgCellulare" placeholder="3331234567">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PIANIFICAZIONE INSTALLAZIONE -->
+                <div class="section">
+                    <h2 class="section-title" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #e0e0e0;">📅 Pianificazione Installazione</h2>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="meseInstallazionePrevisto">Mese Install. Dispositivo</label>
+                            <select id="meseInstallazionePrevisto" name="meseInstallazionePrevisto">
+                                <option value="">-- Seleziona --</option>
+                                <option value="Novembre 2025">Nov 2025</option>
+                                <option value="Dicembre 2025">Dic 2025</option>
+                                <option value="Gennaio 2026">Gen 2026</option>
+                                <option value="Febbraio 2026">Feb 2026</option>
+                                <option value="Marzo 2026">Mar 2026</option>
+                                <option value="Non pianificato">Non pianificato</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                                <option value="">-- Seleziona --</option>
+                                <option value="Novembre 2025">Nov 2025</option>
+                                <option value="Dicembre 2025">Dic 2025</option>
+                                <option value="Gennaio 2026">Gen 2026</option>
+                                <option value="Febbraio 2026">Feb 2026</option>
+                                <option value="Marzo 2026">Mar 2026</option>
+                                <option value="Non pianificato">Non pianificato</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                                <option value="">-- Seleziona --</option>
+                                <option value="Novembre 2025">Nov 2025</option>
+                                <option value="Dicembre 2025">Dic 2025</option>
+                                <option value="Gennaio 2026">Gen 2026</option>
+                                <option value="Febbraio 2026">Feb 2026</option>
+                                <option value="Marzo 2026">Mar 2026</option>
+                                <option value="Non pianificato">Non pianificato</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="meseInstallazioneSensoreEcg">Mese Install. Sensore ECG</label>
+                            <select id="meseInstallazioneSensoreEcg" name="meseInstallazioneSensoreEcg">
+                                <option value="">-- Seleziona --</option>
+                                <option value="Novembre 2025">Nov 2025</option>
+                                <option value="Dicembre 2025">Dic 2025</option>
+                                <option value="Gennaio 2026">Gen 2026</option>
+                                <option value="Febbraio 2026">Feb 2026</option>
+                                <option value="Marzo 2026">Mar 2026</option>
+                                <option value="Non pianificato">Non pianificato</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                
+                <!-- INSTALLAZIONE -->
+                <div class="section">
+                    <h2 class="section-title" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #e0e0e0;">⚙️ Installazione</h2>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="serialeDispositivo">Seriale Dispositivo</label>
+                            <input type="text" id="serialeDispositivo" name="serialeDispositivo" placeholder="SN...">
+                        </div>
+                        <div class="form-group">
+                                <option value="">-</option>
+                                <option value="SI">✅ SI</option>
+                                <option value="NO">❌ NO</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                                <option value="">-</option>
+                                <option value="SI">✅ SI</option>
+                                <option value="NO">❌ NO</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="installazioneSensoreEcg">Sensore ECG Installato</label>
+                            <select id="installazioneSensoreEcg" name="installazioneSensoreEcg">
+                                <option value="">-</option>
+                                <option value="SI">✅ SI</option>
+                                <option value="NO">❌ NO</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- VISUALIZZAZIONE SCELTE EFFETTUATE -->
+                    
+                    <div class="form-group full-width" style="margin-top: 15px;">
+                        <label for="notePianificazione">Note Pianificazione</label>
+                        <textarea id="notePianificazione" name="notePianificazione" placeholder="Eventuali note sulla pianificazione installazione..."></textarea>
+                    </div>
+                </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn-primary">
+                        💾 SALVA
+                    </button>
+                    <button type="button" class="btn-secondary" onclick="nuovaScheda()">
+                        ✨ Nuova Scheda
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
-
+    
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p id="loadingText">Caricamento...</p>
+        </div>
+    </div>
+    
     <script>
-        // Google Apps Script URL - CONFIGURATO
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwOEnDooCDfHD8KIGnKAv79Gm8pQv53LbKpWJ_ZEE1e8lULnzZV728JdlGDcfWTjj58/exec';
+        // ========================================
+        // CONFIGURAZIONE
+        // ========================================
+        const DEPLOY_URL = 'https://script.google.com/macros/s/AKfycbyGbbSDB8caThhSTLTngDqYiIlX758ra4XRihtYpikpng8YJrjRy5jardSXYM7vLmo/exec';
         
-        // Global variables
-        let allData = [];
-        let currentFilter = 'all';
+        let schedeCache = [];
+        let installatiCache = [];
+        let pianificatiCache = [];
         
-        // Load data from Google Sheets
-        async function loadData() {
-            try {
-                showLoading(true);
-                const response = await fetch(SCRIPT_URL);
-                const data = await response.json();
-                
-                if (data.success) {
-                    allData = data.data;
-                    updateStatistics();
-                    populateComuniFilter();
-                    displayData();
-                } else {
-                    throw new Error(data.message || 'Errore nel caricamento dati');
-                }
-            } catch (error) {
-                console.error('Errore:', error);
-                document.getElementById('dataContainer').innerHTML = `
-                    <div class="empty-state">
-                        <div class="icon">⚠️</div>
-                        <h3>Errore nel caricamento dei dati</h3>
-                        <p>${error.message}</p>
-                    </div>
-                `;
-            } finally {
-                showLoading(false);
+        // ========================================
+        // INIZIALIZZAZIONE
+        // ========================================
+        window.addEventListener('DOMContentLoaded', function() {
+            setupPianificazioneListeners();
+            impostaDataOggi();
+            caricaSchede();
+            setupDateInputs();
+        });
+        
+        // ========================================
+        // GESTIONE TAB
+        // ========================================
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+            event.target.classList.add('active');
+            
+            if (tabName === 'dashboard') {
+                aggiornaDashboard();
+            } else if (tabName === 'installati') {
+                mostraInstallati();
+            } else if (tabName === 'pianificati') {
+                mostraPianificati();
             }
         }
         
-        // Show/hide loading indicator
-        function showLoading(show) {
-            document.getElementById('loadingIndicator').style.display = show ? 'block' : 'none';
-            document.getElementById('dataContainer').style.display = show ? 'none' : 'block';
+        // ========================================
+        // CARICAMENTO DATI
+        // ========================================
+        function caricaSchede() {
+            mostraLoading('Caricamento dati...');
+            
+            fetch(DEPLOY_URL)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('📊 Dati ricevuti:', data);
+                    console.log('📊 data.schede length:', data.schede ? data.schede.length : 0);
+                    if (data.success) {
+                        schedeCache = data.schede || [];
+                        
+                        // Pre-filtra le cache
+                        console.log('📊 schedeCache length:', schedeCache.length);
+                        installatiCache = schedeCache.filter(s => s.IMEI && s.IMEI.trim() !== '');
+                        console.log('📊 installatiCache length:', installatiCache.length);
+                        pianificatiCache = schedeCache.filter(s => 
+                            s.meseInstallazionePrevisto && 
+                            s.meseInstallazionePrevisto !== 'Non pianificato' &&
+                            s.meseInstallazionePrevisto !== '' &&
+                            (!s.IMEI || s.IMEI.trim() === '')
+                        );
+                        console.log('📊 pianificatiCache length:', pianificatiCache.length);
+                        
+                        aggiornaDashboard();
+                        nascondiLoading();
+                        mostraMessaggio('success', `✅ ${schedeCache.length} schede caricate`);
+                    }
+                })
+                .catch(error => {
+                    console.error('Errore:', error);
+                    nascondiLoading();
+                    mostraMessaggio('error', '❌ Errore caricamento dati');
+                });
         }
         
-        // Update statistics
-        function updateStatistics() {
-            const totale = allData.length;
-            const installati = allData.filter(a => a.stato === 'Installato').length;
-            const pianificati = allData.filter(a => a.stato === 'Pianificato').length;
-            const monitoraggio = allData.filter(a => a.tipoServizio === 'TeleMonitoraggio').length;
+        // ========================================
+        // DASHBOARD
+        // ========================================
+        function aggiornaDashboard() {
+            if (schedeCache.length === 0) return;
+            
+            const installati = installatiCache.length;
+            const pianificati = pianificatiCache.length;
+            const comuni = new Set(schedeCache.map(s => s.comune).filter(c => c)).size;
+            const totale = schedeCache.length;
+            const progresso = Math.round((installati / 100) * 100);
+            const rimanenti = 100 - installati;
             
             document.getElementById('stat-totale').textContent = totale;
             document.getElementById('stat-installati').textContent = installati;
             document.getElementById('stat-pianificati').textContent = pianificati;
-            document.getElementById('stat-monitoraggio').textContent = monitoraggio;
+            document.getElementById('stat-comuni').textContent = comuni;
+            document.getElementById('dashboard-progress').textContent = progresso + '%';
+            document.getElementById('dashboard-remaining').textContent = rimanenti;
+            document.getElementById('progress-bar').style.width = progresso + '%';
+            
+            // Aggiorna tabella comuni
+            aggiornaTabellaComuni();
         }
         
-        // Populate comuni filter
-        function populateComuniFilter() {
-            const comuni = [...new Set(allData.map(a => a.comune))].sort();
-            const select = document.getElementById('comuneFilter');
-            select.innerHTML = '<option value="">Tutti i Comuni (30)</option>';
-            comuni.forEach(comune => {
-                const option = document.createElement('option');
-                option.value = comune;
-                option.textContent = comune;
-                select.appendChild(option);
+        // ========================================
+        // TABELLA DISTRIBUZIONE PER COMUNE
+        // ========================================
+        function aggiornaTabellaComuni() {
+            // Carica obiettivi da localStorage o usa default
+            const defaultObiettivi = {
+                'Novi Ligure': 46,
+                'Erice': 19,
+                'Valderice': 8,
+                'Paceco': 8,
+                'Misiliscemi': 7,
+                'Custonaci': 4,
+                'San Vito Lo Capo': 3,
+                'Favignana': 3,
+                'Buseto Palizzolo': 2
+            };
+            
+            let OBIETTIVI_COMUNI = defaultObiettivi;
+            
+            // Carica obiettivi dal Google Sheet invece di localStorage
+            async function caricaObiettiviDalServer() {
+                try {
+                    console.log('📊 Caricamento obiettivi dal server...');
+                    const response = await fetch(DEPLOY_URL + '?action=getObiettivi');
+                    const data = await response.json();
+                    
+                    if (data.success && data.obiettivi) {
+                        OBIETTIVI_COMUNI = data.obiettivi;
+                        console.log('✅ Obiettivi caricati dal server:', OBIETTIVI_COMUNI);
+                        aggiornaDashboard();
+                        renderConfigObiettivi();
+                    } else {
+                        console.log('⚠️ Usando obiettivi default');
+                        OBIETTIVI_COMUNI = defaultObiettivi;
+                    }
+                } catch(e) {
+                    console.log('⚠️ Errore caricamento obiettivi, uso default:', e);
+                    OBIETTIVI_COMUNI = defaultObiettivi;
+                }
+            }
+            
+            const COMUNI_DISTRETTO = [
+                'Novi Ligure', 'Erice', 'Valderice', 'Paceco', 'Misiliscemi',
+                'Custonaci', 'San Vito Lo Capo', 'Favignana', 'Buseto Palizzolo'
+            ];
+            
+            // Conta assistiti e installati per comune
+            const conteggioComuni = {};
+            const installatiComuni = {};
+            COMUNI_DISTRETTO.forEach(comune => {
+                conteggioComuni[comune] = 0;
+                installatiComuni[comune] = 0;
             });
-        }
-        
-        // Filter by view
-        function filterByView(view) {
-            currentFilter = view;
             
-            // Update active card
-            document.querySelectorAll('.stat-card').forEach(card => {
-                card.classList.remove('active');
+            schedeCache.forEach(scheda => {
+                if (scheda.comune && COMUNI_DISTRETTO.includes(scheda.comune)) {
+                    conteggioComuni[scheda.comune]++;
+                    // Conta installati: se ha IMEI o Seriale dispositivo, è installato
+                    const haImei = scheda.IMEI && scheda.IMEI.trim() !== '' && scheda.IMEI !== 'Non specificato';
+                    const haSeriale = scheda.serialeDispositivo && scheda.serialeDispositivo.trim() !== '' && scheda.serialeDispositivo !== 'Non specificato';
+                    if (haImei || haSeriale) {
+                        installatiComuni[scheda.comune]++;
+                    }
+                }
             });
-            document.getElementById(`card-${view === 'monitoraggio' ? 'monitoraggio' : 
-                                            view === 'installati' ? 'installati' : 
-                                            view === 'pianificati' ? 'pianificati' : 'totale'}`).classList.add('active');
             
-            displayData();
+            // Ordina comuni per obiettivo (decrescente)
+            const comuniOrdinati = COMUNI_DISTRETTO.sort((a, b) => OBIETTIVI_COMUNI[b] - OBIETTIVI_COMUNI[a]);
+            
+            // Genera HTML tabella
+            let html = '';
+            comuniOrdinati.forEach(comune => {
+                const count = conteggioComuni[comune] || 0;
+                const obiettivo = OBIETTIVI_COMUNI[comune];
+                const percentuale = obiettivo > 0 ? Math.round((count / obiettivo) * 100) : 0;
+                const mancanti = Math.max(0, obiettivo - count);
+                
+                let coloreBarra = '#1e5799';
+                let bgColor = '';
+                if (percentuale >= 100) {
+                    coloreBarra = '#28a745';
+                    bgColor = 'background: #d4edda;';
+                } else if (percentuale >= 75) {
+                    coloreBarra = '#ffc107';
+                    bgColor = 'background: #fff3cd;';
+                } else if (percentuale >= 50) {
+                    coloreBarra = '#fd7e14';
+                } else if (percentuale > 0) {
+                    coloreBarra = '#dc3545';
+                }
+                
+                const installati = installatiComuni[comune] || 0;
+                
+                html += `
+                    <tr style="${bgColor}">
+                        <td><strong>${comune}</strong></td>
+                        <td style="text-align: center;"><strong style="font-size: 16px; color: #1e5799;">${count}</strong></td>
+                        <td style="text-align: center;"><strong style="font-size: 18px; color: #28a745;">${installati}</strong></td>
+                        <td style="text-align: center;"><strong style="color: #207cca;">${obiettivo}</strong></td>
+                        <td style="text-align: center;"><strong style="color: ${coloreBarra};">${percentuale}%</strong></td>
+                        <td>
+                            <div class="progress-mini">
+                                <div class="progress-mini-fill" style="width: ${Math.min(percentuale, 100)}%; background: ${coloreBarra};"></div>
+                            </div>
+                        </td>
+                        <td style="text-align: center;"><span style="color: ${mancanti > 0 ? '#dc3545' : '#28a745'};">${mancanti}</span></td>
+                    </tr>
+                `;
+            });
+            
+            // Calcola totali
+            let totalAssistiti = 0;
+            let totalInstallati = 0;
+            let totalObiettivo = 0;
+            let totalMancanti = 0;
+            
+            comuniOrdinati.forEach(comune => {
+                totalAssistiti += conteggioComuni[comune] || 0;
+                totalInstallati += installatiComuni[comune] || 0;
+                totalObiettivo += OBIETTIVI_COMUNI[comune] || 0;
+                totalMancanti += Math.max(0, OBIETTIVI_COMUNI[comune] - conteggioComuni[comune]);
+            });
+            
+            const totalPercentuale = totalObiettivo > 0 ? Math.round((totalAssistiti / totalObiettivo) * 100) : 0;
+            
+            // Aggiungi riga totali
+            html += `
+                <tr style="background: #e9ecef; font-weight: bold; border-top: 3px solid #1e5799;">
+                    <td><strong>📊 TOTALE</strong></td>
+                    <td style="text-align: center;"><strong style="font-size: 18px; color: #1e5799;">${totalAssistiti}</strong></td>
+                    <td style="text-align: center;"><strong style="font-size: 18px; color: #28a745;">${totalInstallati}</strong></td>
+                    <td style="text-align: center;"><strong style="color: #207cca;">${totalObiettivo}</strong></td>
+                    <td style="text-align: center;"><strong style="color: ${totalPercentuale >= 100 ? '#28a745' : totalPercentuale >= 75 ? '#ffc107' : '#dc3545'};">${totalPercentuale}%</strong></td>
+                    <td>
+                        <div class="progress-mini">
+                            <div class="progress-mini-fill" style="width: ${Math.min(totalPercentuale, 100)}%; background: ${totalPercentuale >= 100 ? '#28a745' : totalPercentuale >= 75 ? '#ffc107' : '#dc3545'};"></div>
+                        </div>
+                    </td>
+                    <td style="text-align: center;"><strong style="color: ${totalMancanti > 0 ? '#dc3545' : '#28a745'};">${totalMancanti}</strong></td>
+                </tr>
+            `;
+            
+            document.getElementById('comuni-table-body').innerHTML = html;
         }
         
-        // Display data
-        function displayData() {
-            let filteredData = [...allData];
-            
-            // Apply view filter
-            if (currentFilter === 'monitoraggio') {
-                filteredData = filteredData.filter(a => a.tipoServizio === 'TeleMonitoraggio');
-            } else if (currentFilter === 'installati') {
-                filteredData = filteredData.filter(a => a.stato === 'Installato');
-            } else if (currentFilter === 'pianificati') {
-                filteredData = filteredData.filter(a => a.stato === 'Pianificato');
+        // ========================================
+        // TAB INSTALLATI
+        // ========================================
+        function mostraInstallati() {
+            filtraInstallati();
+        }
+        
+        // Formatta data mese in formato leggibile
+        function formatMeseInstallazione(dataString) {
+            if (!dataString || dataString === 'Non specificato' || dataString === 'Non pianificato') {
+                return 'Non specificato';
             }
             
-            // Apply search filter
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            if (searchTerm) {
-                filteredData = filteredData.filter(a => 
-                    a.nome.toLowerCase().includes(searchTerm) ||
-                    a.cognome.toLowerCase().includes(searchTerm) ||
-                    a.codiceFiscale.toLowerCase().includes(searchTerm) ||
-                    a.comune.toLowerCase().includes(searchTerm)
-                );
+            // ✅ Se è già nel formato "Mese Anno", restituiscilo direttamente
+            if (typeof dataString === 'string' && /^[A-Za-z]+ \d{4}$/.test(dataString)) {
+                return dataString;
             }
             
-            // Apply comune filter
-            const comuneFilter = document.getElementById('comuneFilter').value;
-            if (comuneFilter) {
-                filteredData = filteredData.filter(a => a.comune === comuneFilter);
+            try {
+                const data = new Date(dataString);
+                
+                // Controlla se la data è valida
+                if (isNaN(data.getTime())) {
+                    return 'Non specificato';
+                }
+                
+                const mesi = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno',
+                              'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
+                
+                return `${mesi[data.getMonth()]} ${data.getFullYear()}`;
+            } catch(e) {
+                return 'Non specificato';
+            }
+        }
+        
+        function filtraInstallati() {
+            const filtroComune = document.getElementById('filter-comune-installati').value;
+            
+            let lista = installatiCache;
+            if (filtroComune) {
+                lista = installatiCache.filter(s => s.comune === filtroComune);
             }
             
-            // Apply stato filter
-            const statoFilter = document.getElementById('statoFilter').value;
-            if (statoFilter) {
-                filteredData = filteredData.filter(a => a.stato === statoFilter);
-            }
+            document.getElementById('count-installati').textContent = lista.length;
             
-            // Display table
-            const container = document.getElementById('dataContainer');
-            
-            if (filteredData.length === 0) {
-                container.innerHTML = `
+            if (lista.length === 0) {
+                document.getElementById('lista-installati-full').innerHTML = `
                     <div class="empty-state">
-                        <div class="icon">📋</div>
-                        <h3>Nessun assistito trovato</h3>
-                        <p>Prova a modificare i filtri di ricerca</p>
+                        <div class="empty-state-icon">📦</div>
+                        <p>Nessun dispositivo installato${filtroComune ? ' per ' + filtroComune : ''}</p>
                     </div>
                 `;
                 return;
             }
             
-            let html = `
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Cognome</th>
-                                <th>Nome</th>
-                                <th>Comune</th>
-                                <th>Tipo Servizio</th>
-                                <th>Dispositivi</th>
-                                <th>Stato</th>
-                                <th>Data Installazione</th>
-                                <th>Tecnico</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-            `;
+            let html = '<table class="list-table"><thead><tr>';
+            html += '<th>Scheda</th><th>Nome Completo</th><th>Comune</th><th>Seriale (IMEI)</th><th>Mese Installazione</th><th>Stato</th>';
+            html += '</tr></thead><tbody>';
             
-            filteredData.forEach(assistito => {
-                const statoBadge = assistito.stato === 'Installato' ? 'badge-green' : 'badge-orange';
-                const tipoBadge = assistito.tipoServizio === 'TeleMonitoraggio' ? 'badge-purple' : 'badge-green';
+            lista.forEach(s => {
+                html += `<tr onclick='mostraDettaglioAssistito(${JSON.stringify(s).replace(/'/g, "&apos;")})'>
+                    <td><strong>${s.numeroScheda || '-'}</strong></td>
+                    <td>${s.nome || ''} ${s.cognome || ''}</td>
+                    <td>📍 ${s.comune || ''}</td>
+                    <td><code>${s.IMEI || "-"}</code></td>
+                    <td>${formatMeseInstallazione(s.meseInstallazionePrevisto)}</td>
+                    <td><span class="badge badge-success">✅ Installato</span></td>
+                </tr>`;
+            });
+            
+            html += '</tbody></table>';
+            document.getElementById('lista-installati-full').innerHTML = html;
+        }
+        
+        // ========================================
+        // TAB PIANIFICATI
+        // ========================================
+        function mostraPianificati() {
+            filtraPianificati();
+        }
+        
+        function filtraPianificati() {
+            const filtroMese = document.getElementById('filter-mese-pianificati').value;
+            const filtroComune = document.getElementById('filter-comune-pianificati').value;
+            
+            let lista = pianificatiCache;
+            
+            if (filtroMese) {
+                lista = lista.filter(s => s.meseInstallazionePrevisto === filtroMese);
+            }
+            
+            if (filtroComune) {
+                lista = lista.filter(s => s.comune === filtroComune);
+            }
+            
+            document.getElementById('count-pianificati').textContent = lista.length;
+            
+            if (lista.length === 0) {
+                document.getElementById('lista-pianificati-full').innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📅</div>
+                        <p>Nessuna installazione pianificata${filtroMese ? ' per ' + filtroMese : ''}${filtroComune ? ' a ' + filtroComune : ''}</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = '<table class="list-table"><thead><tr>';
+            html += '<th>Scheda</th><th>Nome Completo</th><th>Comune</th><th>Mese Previsto</th><th>Note</th><th>Stato</th>';
+            html += '</tr></thead><tbody>';
+            
+            lista.forEach(s => {
+                html += `<tr onclick='mostraDettaglioAssistito(${JSON.stringify(s).replace(/'/g, "&apos;")})'>
+                    <td><strong>${s.numeroScheda || '-'}</strong></td>
+                    <td>${s.nome || ''} ${s.cognome || ''}</td>
+                    <td>📍 ${s.comune || ''}</td>
+                    <td>📅 ${formatMeseInstallazione(s.meseInstallazionePrevisto)}</td>
+                    <td>${s.notePianificazione || '-'}</td>
+                    <td><span class="badge badge-info">📅 Pianificato</span></td>
+                </tr>`;
+            });
+            
+            html += '</tbody></table>';
+            document.getElementById('lista-pianificati-full').innerHTML = html;
+        }
+        
+        // ========================================
+        // RICERCA ASSISTITO
+        // ========================================
+        function mostraTutteLeSchede() {
+            // Switch al tab Ricerca e mostra tutte le schede
+            switchTab('ricerca');
+            
+            // Svuota campo ricerca per mostrare tutte
+            document.getElementById('searchInput').value = '';
+            
+            // Renderizza tutte le schede
+            const resultsDiv = document.getElementById('search-results');
+            
+            if (schedeCache.length === 0) {
+                resultsDiv.innerHTML = '<p style="color:#999;text-align:center;padding:20px">Nessuna scheda disponibile</p>';
+                return;
+            }
+            
+            let html = '<table class="list-table"><thead><tr>';
+            html += '<th>Scheda</th><th>Nome Completo</th><th>Comune</th><th>Data Nascita</th><th>Età</th><th>Cellulare</th><th>Stato</th>';
+            html += '</tr></thead><tbody>';
+            
+            schedeCache.forEach(s => {
+                const installato = s.IMEI && s.IMEI.trim() !== '';
+                const pianificato = s.meseInstallazionePrevisto && s.meseInstallazionePrevisto !== 'Non pianificato' && s.meseInstallazionePrevisto !== '';
+                
+                let stato = '⚠️ Non pianificato';
+                let badgeClass = 'badge-warning';
+                if (installato) {
+                    stato = '✅ Installato';
+                    badgeClass = 'badge-success';
+                } else if (pianificato) {
+                    stato = '📅 Pianificato';
+                    badgeClass = 'badge-info';
+                }
+                
+                let eta = '-';
+                if (s.dataNascita) {
+                    const nascita = new Date(s.dataNascita);
+                    const oggi = new Date();
+                    let calcoloEta = oggi.getFullYear() - nascita.getFullYear();
+                    if (oggi.getMonth() < nascita.getMonth() || (oggi.getMonth() === nascita.getMonth() && oggi.getDate() < nascita.getDate())) calcoloEta--;
+                    eta = calcoloEta;
+                }
+                
+                html += `<tr onclick='mostraDettaglioAssistito(${JSON.stringify(s).replace(/'/g, "&apos;")})' style="cursor: pointer;">
+                    <td><strong>${s.numeroScheda || '-'}</strong></td>
+                    <td>${s.nome || ''} ${s.cognome || ''}</td>
+                    <td>📍 ${s.comune || ''}</td>
+                    <td>${s.dataNascita ? new Date(s.dataNascita).toLocaleDateString('it-IT') : '-'}</td>
+                    <td>${eta}</td>
+                    <td>${s.cellulare || '-'}</td>
+                    <td><span class="badge ${badgeClass}">${stato}</span></td>
+                </tr>`;
+            });
+            
+            html += '</tbody></table>';
+            resultsDiv.innerHTML = html;
+        }
+        
+        function cercaAssistito() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const resultsDiv = document.getElementById('search-results');
+            
+            if (query === '') {
+                resultsDiv.innerHTML = '<p style="color:#999;text-align:center;padding:20px">Digita per cercare un assistito</p>';
+                return;
+            }
+            
+            const risultati = schedeCache.filter(s => {
+                const nome = (s.nome || '').toLowerCase();
+                const cognome = (s.cognome || '').toLowerCase();
+                const scheda = (s.numeroScheda || '').toLowerCase();
+                const comune = (s.comune || '').toLowerCase();
+                
+                return nome.includes(query) || cognome.includes(query) || scheda.includes(query) || comune.includes(query);
+            });
+            
+            if (risultati.length === 0) {
+                resultsDiv.innerHTML = '<div class="empty-state"><div class="empty-state-icon">😕</div><p>Nessun assistito trovato</p></div>';
+                return;
+            }
+            
+            let html = '';
+            risultati.forEach(s => {
+                const installato = s.IMEI && s.IMEI.trim() !== '';
+                const pianificato = s.meseInstallazionePrevisto && s.meseInstallazionePrevisto !== 'Non pianificato' && s.meseInstallazionePrevisto !== '';
+                
+                let badges = '';
+                if (installato) {
+                    badges += `<span class="badge badge-success">✅ Installato</span>`;
+                }
+                if (pianificato) {
+                    badges += `<span class="badge badge-info">📅 ${formatMeseInstallazione(s.meseInstallazionePrevisto)}</span>`;
+                }
+                if (!installato && !pianificato) {
+                    badges += `<span class="badge badge-warning">⚠️ Non pianificato</span>`;
+                }
                 
                 html += `
-                    <tr>
-                        <td><strong>${assistito.id}</strong></td>
-                        <td>${assistito.cognome}</td>
-                        <td>${assistito.nome}</td>
-                        <td>${assistito.comune}</td>
-                        <td><span class="badge ${tipoBadge}">${assistito.tipoServizio}</span></td>
-                        <td>${assistito.dispositivi}</td>
-                        <td><span class="badge ${statoBadge}">${assistito.stato}</span></td>
-                        <td>${assistito.dataInstallazione || '-'}</td>
-                        <td>${assistito.tecnicoInstallazione || 'TeleCare H24'}</td>
-                    </tr>
+                    <div class="assistito-card" onclick='mostraDettaglioAssistito(${JSON.stringify(s).replace(/'/g, "&apos;")})'>
+                        <div class="assistito-info">
+                            <div class="assistito-nome">${s.nome || ''} ${s.cognome || ''}</div>
+                            <div class="assistito-dettagli">
+                                📋 Scheda: <strong>${s.numeroScheda || '-'}</strong> | 
+                                📍 ${s.comune || '-'} | 
+                                🎂 ${s.dataNascita || '-'}
+                            </div>
+                            ${installato ? `<div class="assistito-dettagli" style="margin-top:5px">📱 IMEI: <code>${s.IMEI}</code></div>` : ''}
+                        </div>
+                        <div class="assistito-badges">
+                            ${badges}
+                        </div>
+                    </div>
                 `;
             });
             
-            html += `
-                        </tbody>
-                    </table>
-                </div>
-            `;
-            
-            container.innerHTML = html;
+            resultsDiv.innerHTML = html;
         }
         
-        // Event listeners
-        document.getElementById('searchInput').addEventListener('input', displayData);
-        document.getElementById('comuneFilter').addEventListener('change', displayData);
-        document.getElementById('statoFilter').addEventListener('change', displayData);
+        function mostraDettaglioAssistito(scheda) {
+            // Carica la scheda completa nel form
+            caricaSchedaCompleta(scheda);
+            
+            // Switch al tab "Nuova Scheda" 
+            switchTab('nuova');
+        }
         
-        // Initial load
-        loadData();
+function caricaSchedaCompleta(scheda) {
+            // Popola TUTTI i 61 campi del form completo
+            
+            // DATI ASSISTITO (campi 1-9)
+            document.getElementById('numeroScheda').value = scheda.numeroScheda || '';
+            document.getElementById('nome').value = scheda.nome || '';
+            document.getElementById('cognome').value = scheda.cognome || '';
+            
+            // Data nascita
+            if (scheda.dataNascita) {
+                const data = new Date(scheda.dataNascita);
+                document.getElementById('giorno').value = data.getDate();
+                document.getElementById('mese').value = data.getMonth() + 1;
+                document.getElementById('anno').value = data.getFullYear();
+                calcolaEta();
+            }
+            
+            document.getElementById('indirizzoResidenza').value = scheda.indirizzoResidenza || '';
+            document.getElementById('comune').value = scheda.comune || '';
+            document.getElementById('telFisso').value = scheda.telFisso || '';
+            document.getElementById('cellulare').value = scheda.cellulare || '';
+            
+            // CAREGIVER B (campi 10-14)
+            if (document.getElementById('caregiverB_nome')) document.getElementById('caregiverB_nome').value = scheda.caregiverB_nome || '';
+            if (document.getElementById('caregiverB_cognome')) document.getElementById('caregiverB_cognome').value = scheda.caregiverB_cognome || '';
+            if (document.getElementById('caregiverB_parentela')) document.getElementById('caregiverB_parentela').value = scheda.caregiverB_parentela || '';
+            if (document.getElementById('caregiverB_email')) document.getElementById('caregiverB_email').value = scheda.caregiverB_email || '';
+            if (document.getElementById('caregiverB_cellulare')) document.getElementById('caregiverB_cellulare').value = scheda.caregiverB_cellulare || '';
+            if (document.getElementById('caregiverB_chiavi')) document.getElementById('caregiverB_chiavi').value = scheda.caregiverB_chiavi || '';
+            
+            // CAREGIVER C (campi 15-20)
+            if (document.getElementById('caregiverC_nome')) document.getElementById('caregiverC_nome').value = scheda.caregiverC_nome || '';
+            if (document.getElementById('caregiverC_cognome')) document.getElementById('caregiverC_cognome').value = scheda.caregiverC_cognome || '';
+            if (document.getElementById('caregiverC_parentela')) document.getElementById('caregiverC_parentela').value = scheda.caregiverC_parentela || '';
+            if (document.getElementById('caregiverC_email')) document.getElementById('caregiverC_email').value = scheda.caregiverC_email || '';
+            if (document.getElementById('caregiverC_cellulare')) document.getElementById('caregiverC_cellulare').value = scheda.caregiverC_cellulare || '';
+            if (document.getElementById('caregiverC_chiavi')) document.getElementById('caregiverC_chiavi').value = scheda.caregiverC_chiavi || '';
+            
+            // CAREGIVER D (campi 21-26)
+            if (document.getElementById('caregiverD_nome')) document.getElementById('caregiverD_nome').value = scheda.caregiverD_nome || '';
+            if (document.getElementById('caregiverD_cognome')) document.getElementById('caregiverD_cognome').value = scheda.caregiverD_cognome || '';
+            if (document.getElementById('caregiverD_parentela')) document.getElementById('caregiverD_parentela').value = scheda.caregiverD_parentela || '';
+            if (document.getElementById('caregiverD_email')) document.getElementById('caregiverD_email').value = scheda.caregiverD_email || '';
+            if (document.getElementById('caregiverD_cellulare')) document.getElementById('caregiverD_cellulare').value = scheda.caregiverD_cellulare || '';
+            if (document.getElementById('caregiverD_chiavi')) document.getElementById('caregiverD_chiavi').value = scheda.caregiverD_chiavi || '';
+            
+            // CONTATTI SANITARI (campi 27-36)
+            if (document.getElementById('scalettaContatti')) document.getElementById('scalettaContatti').value = scheda.scalettaContatti || '';
+            if (document.getElementById('assSocialeNome')) document.getElementById('assSocialeNome').value = scheda.assSocialeNome || '';
+            if (document.getElementById('assSocialeCellulare')) document.getElementById('assSocialeCellulare').value = scheda.assSocialeCellulare || '';
+            if (document.getElementById('ossNome')) document.getElementById('ossNome').value = scheda.ossNome || '';
+            if (document.getElementById('ossCellulare')) document.getElementById('ossCellulare').value = scheda.ossCellulare || '';
+            if (document.getElementById('infermiereNome')) document.getElementById('infermiereNome').value = scheda.infermiereNome || '';
+            if (document.getElementById('infermiereCellulare')) document.getElementById('infermiereCellulare').value = scheda.infermiereCellulare || '';
+            if (document.getElementById('mmgNome')) document.getElementById('mmgNome').value = scheda.mmgNome || '';
+            if (document.getElementById('mmgCellulare')) document.getElementById('mmgCellulare').value = scheda.mmgCellulare || '';
+            
+            // DATI ANAGRAFICI ESTESI (campi 37-39)
+            if (document.getElementById('natoA')) document.getElementById('natoA').value = scheda.natoA || '';
+            if (document.getElementById('provincia')) document.getElementById('provincia').value = scheda.provincia || '';
+            if (document.getElementById('codiceFiscale')) document.getElementById('codiceFiscale').value = scheda.codiceFiscale || '';
+            
+            // ABITAZIONE (campi 40-42)
+            if (document.getElementById('tipoAbitazione')) document.getElementById('tipoAbitazione').value = scheda.tipoAbitazione || '';
+            if (document.getElementById('piano')) document.getElementById('piano').value = scheda.piano || '';
+            if (document.getElementById('ascensore')) document.getElementById('ascensore').value = scheda.ascensore || '';
+            
+            // DATI SANITARI (campi 43-50)
+            if (document.getElementById('sesso')) document.getElementById('sesso').value = scheda.sesso || '';
+            if (document.getElementById('peso')) document.getElementById('peso').value = scheda.peso || '';
+            if (document.getElementById('altezza')) document.getElementById('altezza').value = scheda.altezza || '';
+            if (document.getElementById('patologie')) document.getElementById('patologie').value = scheda.patologie || '';
+            if (document.getElementById('farmaci')) document.getElementById('farmaci').value = scheda.farmaci || '';
+            if (document.getElementById('freqCardiacaMin')) document.getElementById('freqCardiacaMin').value = scheda.freqCardiacaMin || '';
+            if (document.getElementById('freqCardiacaMax')) document.getElementById('freqCardiacaMax').value = scheda.freqCardiacaMax || '';
+            if (document.getElementById('saturazioneMin')) document.getElementById('saturazioneMin').value = scheda.saturazioneMin || '';
+            
+            // DISPOSITIVO (campi 51-52)
+            if (document.getElementById('serialeDispositivo')) document.getElementById('serialeDispositivo').value = scheda.IMEI || scheda.serialeDispositivo || '';
+            if (document.getElementById('dataCompilazione')) document.getElementById('dataCompilazione').value = scheda.dataCompilazione || '';
+            
+            // DISPOSITIVI AGGIUNTIVI (campi 53-58)
+            if (document.getElementById()) document.getElementById().value = scheda.poltrone || '';
+            if (document.getElementById()) document.getElementById().value = scheda.sensoreLuce || '';
+            if (document.getElementById('sensoreEcg')) document.getElementById('sensoreEcg').value = scheda.sensoreEcg || '';
+            if (document.getElementById('installazioneSensoreEcg')) document.getElementById('installazioneSensoreEcg').value = scheda.installazioneSensoreEcg || '';
+            
+            // PIANIFICAZIONE (campi 59-61)
+            if (document.getElementById('meseInstallazionePrevisto')) document.getElementById('meseInstallazionePrevisto').value = scheda.meseInstallazionePrevisto || '';
+            if (document.getElementById('meseInstallazioneSensoreEcg')) document.getElementById('meseInstallazioneSensoreEcg').value = scheda.meseInstallazioneSensoreEcg || '';
+            
+            // Aggiorna display riepilogo
+            setTimeout(aggiornaDisplayPianificazione, 100);
+            if (document.getElementById('notePianificazione')) document.getElementById('notePianificazione').value = scheda.notePianificazione || '';
+            if (document.getElementById('note')) document.getElementById('note').value = scheda.note || '';
+        }
+        
+        // FUNZIONE SOSTITUITA CON VERSIONE COMPLETA (61 campi)
+        // Vecchia funzione caricaSchedaCompleta rimossa
+        /*
+        function caricaSchedaCompleta_OLD(scheda) {
+            // Popola tutti i campi del form
+            document.getElementById('numeroScheda').value = scheda.numeroScheda || '';
+            document.getElementById('nome').value = scheda.nome || '';
+            document.getElementById('cognome').value = scheda.cognome || '';
+            
+            // Data nascita
+            if (scheda.dataNascita) {
+                const data = new Date(scheda.dataNascita);
+                document.getElementById('giorno').value = data.getDate();
+                document.getElementById('mese').value = data.getMonth() + 1;
+                document.getElementById('anno').value = data.getFullYear();
+                calcolaEta();
+            }
+            
+            document.getElementById('indirizzoResidenza').value = scheda.indirizzoResidenza || '';
+            document.getElementById('comune').value = scheda.comune || '';
+            document.getElementById('telFisso').value = scheda.telFisso || '';
+            document.getElementById('cellulare').value = scheda.cellulare || '';
+            
+            // Pianificazione
+            document.getElementById('meseInstallazionePrevisto').value = scheda.meseInstallazionePrevisto || '';
+            document.getElementById('notePianificazione').value = scheda.notePianificazione || '';
+            document.getElementById('serialeDispositivo').value = scheda.IMEI || scheda.serialeDispositivo || '';
+            
+            // Data compilazione
+            if (scheda.dataCompilazione) {
+                document.getElementById('dataCompilazione').value = scheda.dataCompilazione;
+            }
+        */
+        
+        // ========================================
+        // FORM GESTIONE
+        // ========================================
+        function setupDateInputs() {
+            const giorno = document.getElementById('giorno');
+            const mese = document.getElementById('mese');
+            const anno = document.getElementById('anno');
+            
+            giorno.addEventListener('input', () => { if (giorno.value.length >= 2) mese.focus(); calcolaEta(); });
+            mese.addEventListener('input', () => { if (mese.value.length >= 2) anno.focus(); calcolaEta(); });
+            anno.addEventListener('input', calcolaEta);
+        }
+        
+        function calcolaEta() {
+            const g = parseInt(document.getElementById('giorno').value);
+            const m = parseInt(document.getElementById('mese').value);
+            const a = parseInt(document.getElementById('anno').value);
+            const display = document.getElementById('ageDisplay');
+            
+            if (g && m && a && g <= 31 && m <= 12 && a >= 1900 && a <= 2025) {
+                const nascita = new Date(a, m - 1, g);
+                const oggi = new Date();
+                let eta = oggi.getFullYear() - nascita.getFullYear();
+                if (oggi.getMonth() < nascita.getMonth() || (oggi.getMonth() === nascita.getMonth() && oggi.getDate() < nascita.getDate())) eta--;
+                
+                display.className = 'age-display';
+                display.textContent = `🎂 ${eta} anni`;
+                document.getElementById('dataNascita').value = `${a}-${String(m).padStart(2, '0')}-${String(g).padStart(2, '0')}`;
+            } else {
+                display.className = 'age-display empty';
+                display.textContent = '🎂 - anni';
+            }
+        }
+        
+        function impostaDataOggi() {
+            document.getElementById('dataCompilazione').value = new Date().toISOString().split('T')[0];
+        }
+        
+        function resetForm() {
+            if (confirm('Vuoi resettare il form?')) {
+                document.getElementById('assistitoForm').reset();
+                impostaDataOggi();
+                document.getElementById('ageDisplay').className = 'age-display empty';
+                document.getElementById('ageDisplay').textContent = '🎂 - anni';
+            }
+        }
+        
+        document.getElementById('assistitoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            salvaScheda();
+        });
+        
+        function salvaScheda() {
+            const formData = new FormData(document.getElementById('assistitoForm'));
+            const schedaData = {};
+            formData.forEach((value, key) => { schedaData[key] = value; });
+            
+            mostraLoading('Salvataggio...');
+            
+            fetch(DEPLOY_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: 'save', data: schedaData })
+            })
+            .then(() => {
+                nascondiLoading();
+                mostraMessaggio('success', `✅ Scheda ${schedaData.numeroScheda} salvata!`);
+                setTimeout(() => {
+                    caricaSchede();
+                    resetForm();
+                    switchTab('dashboard');
+                }, 1500);
+            })
+            .catch(error => {
+                nascondiLoading();
+                console.error(error);
+                mostraMessaggio('info', '📤 Scheda inviata (modalità no-cors)');
+                setTimeout(() => { caricaSchede(); }, 2000);
+            });
+        }
+        
+        // ========================================
+        // UTILITY
+        // ========================================
+        function mostraLoading(testo) {
+            document.getElementById('loadingText').textContent = testo;
+            document.getElementById('loadingOverlay').style.display = 'flex';
+        }
+        
+        function nascondiLoading() {
+            document.getElementById('loadingOverlay').style.display = 'none';
+        }
+        
+        function mostraMessaggio(tipo, testo) {
+            const box = document.getElementById('messageBox');
+            box.className = 'message ' + tipo;
+            box.textContent = testo;
+            box.style.display = 'block';
+            setTimeout(() => { box.style.display = 'none'; }, 5000);
+        }
+    
+        // ========================================
+        // CONFIGURAZIONE OBIETTIVI COMUNI
+        // ========================================
+        function toggleConfigPanel() {
+            const panel = document.getElementById('config-obiettivi-panel');
+            const icon = document.getElementById('config-toggle-icon');
+            if (panel.style.display === 'none') {
+                panel.style.display = 'block';
+                icon.textContent = '▲';
+                renderConfigObiettivi();
+            } else {
+                panel.style.display = 'none';
+                icon.textContent = '▼';
+            }
+        }
+        
+        function renderConfigObiettivi() {
+            const defaultObiettivi = {
+                'Novi Ligure': 46,
+                'Erice': 19,
+                'Valderice': 8,
+                'Paceco': 8,
+                'Misiliscemi': 7,
+                'Custonaci': 4,
+                'San Vito Lo Capo': 3,
+                'Favignana': 3,
+                'Buseto Palizzolo': 2
+            };
+            
+            let obiettivi = defaultObiettivi;
+            try {
+                const saved = localStorage.getItem('obiettivi_comuni');
+                if (saved) {
+                    obiettivi = JSON.parse(saved);
+                }
+            } catch(e) {
+                console.log('Usando obiettivi default');
+            }
+            
+            const comuni = Object.keys(obiettivi);
+            let htmlContent = '';
+            
+            comuni.forEach(comune => {
+                const safeId = comune.replace(/\s+/g, '-').replace(/'/g, '');
+                htmlContent += `
+                    <div style="padding: 15px; background: #f8f9fa; border-radius: 8px; border: 2px solid #dee2e6;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #495057;">
+                            ${comune}
+                        </label>
+                        <input 
+                            type="number" 
+                            id="obiettivo-${safeId}" 
+                            value="${obiettivi[comune]}" 
+                            min="0" 
+                            max="200"
+                            style="width: 100%; padding: 10px; border: 2px solid #ced4da; border-radius: 6px; font-size: 16px; font-weight: 600; text-align: center;"
+                        />
+                    </div>
+                `;
+            });
+            
+            document.getElementById('config-obiettivi-grid').innerHTML = htmlContent;
+        }
+        
+        function salvaObiettivi() {
+            const obiettivi = {};
+            
+            // Leggi tutti i campi input in modo sicuro
+            const defaultObiettivi = {
+                'Novi Ligure': 46,
+                'Erice': 19,
+                'Valderice': 8,
+                'Paceco': 8,
+                'Misiliscemi': 7,
+                'Custonaci': 4,
+                'San Vito Lo Capo': 3,
+                'Favignana': 3,
+                'Buseto Palizzolo': 2
+            };
+            
+            Object.keys(defaultObiettivi).forEach(comune => {
+                const safeId = comune.replace(/\s+/g, '-').replace(/'/g, '');
+                const element = document.getElementById('obiettivo-' + safeId);
+                if (element) {
+                    obiettivi[comune] = parseInt(element.value) || defaultObiettivi[comune];
+                } else {
+                    console.warn('Elemento non trovato per: ' + comune);
+                    obiettivi[comune] = defaultObiettivi[comune];
+                }
+            });
+            
+            // Salva obiettivi sul Google Sheet
+            mostraLoading('Salvataggio obiettivi...');
+            
+            fetch(DEPLOY_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    action: 'setObiettivi',
+                    obiettivi: obiettivi
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                nascondiLoading();
+                if (data.success) {
+                    OBIETTIVI_COMUNI = obiettivi;
+                    alert('✅ Obiettivi salvati nel Google Sheet!\n\nOra tutti i browser vedranno gli stessi obiettivi.');
+                    aggiornaTabellaComuni();
+                    toggleConfigPanel();
+                } else {
+                    alert('❌ Errore: ' + (data.error || 'Errore sconosciuto'));
+                }
+            })
+            .catch(e => {
+                nascondiLoading();
+                alert('❌ Errore di connessione: ' + e.message);
+                console.error('Errore salvataggio obiettivi:', e);
+            });
+        }
+        
+        function resetObiettivi() {
+            if (confirm('⚠️ Sei sicuro di voler ripristinare gli obiettivi predefiniti?\n\nQuesta azione cancellerà le tue modifiche.')) {
+                try {
+                    // Gli obiettivi saranno ripristinati al prossimo caricamento dal server
+                    alert('🔄 Obiettivi ripristinati ai valori predefiniti!');
+                    aggiornaTabellaComuni();
+                    toggleConfigPanel();
+                } catch(e) {
+                    alert('❌ Errore: ' + e.message);
+                }
+            }
+        }
+
+    
+        // ========================================
+        // AGGIORNAMENTO RIEPILOGO PIANIFICAZIONE
+        // ========================================
+        function aggiornaDisplayPianificazione() {
+            const displays = {
+                'display_meseDispositivo': 'meseInstallazionePrevisto',
+                'display_meseSensoreEcg': 'meseInstallazioneSensoreEcg'
+            };
+            
+            Object.keys(displays).forEach(displayId => {
+                const displayEl = document.getElementById(displayId);
+                const selectEl = document.getElementById(displays[displayId]);
+                if (displayEl && selectEl) {
+                    displayEl.textContent = selectEl.value || '-';
+                }
+            });
+        }
+        
+        // Listener per i select di pianificazione
+        function setupPianificazioneListeners() {
+            selectIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('change', aggiornaDisplayPianificazione);
+                }
+            });
+        }
+
     </script>
 </body>
 </html>

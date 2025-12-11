@@ -29,7 +29,8 @@
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
+            overflow: visible;
+            min-height: 800px;
         }
         
         .header {
@@ -82,8 +83,14 @@
         
         .nav-tab:hover { background: #e9ecef; }
         
-        .tab-content { display: none; padding: 30px; }
-        .tab-content.active { display: block; }
+        .tab-content { 
+            display: none; 
+            padding: 30px;
+            min-height: 600px;
+        }
+        .tab-content.active { 
+            display: block; 
+        }
         
         /* Stats Grid */
         .stats-grid {
@@ -516,7 +523,7 @@
                 btn.classList.remove('active');
             });
             
-            const targetTab = document.getElementById(tabName + '-tab');
+            const targetTab = document.getElementById('tab-' + tabName);
             if (targetTab) {
                 targetTab.classList.add('active');
                 const navBtn = Array.from(document.querySelectorAll('.nav-tab')).find(btn => 

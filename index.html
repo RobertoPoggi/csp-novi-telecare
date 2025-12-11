@@ -1255,6 +1255,37 @@
         let installatiCache = [];
         let pianificatiCache = [];
         
+        // VARIABILE GLOBALE per obiettivi (caricata da Google Sheet)
+        let OBIETTIVI_COMUNI = {};
+        const OBIETTIVO_TOTALE = 50;
+        
+        // ========================================
+        // CARICAMENTO OBIETTIVI DA GOOGLE SHEET
+        // ========================================
+        async function caricaObiettiviDalServer() {
+            try {
+                console.log('📊 Caricamento obiettivi dal server...');
+                const response = await fetch(DEPLOY_URL + '?action=getObiettivi');
+                const data = await response.json();
+                
+                if (data.success && data.obiettivi) {
+                    OBIETTIVI_COMUNI = data.obiettivi;
+                    console.log('✅ Obiettivi caricati dal server:', OBIETTIVI_COMUNI);
+                    console.log('📊 Totale comuni con obiettivi:', Object.keys(OBIETTIVI_COMUNI).length);
+                    aggiornaDashboard();
+                    renderConfigObiettivi();
+                } else {
+                    console.error('❌ Errore: obiettivi non disponibili nel database');
+                    mostraMessaggio('error', '❌ ERRORE: Impossibile caricare gli obiettivi dal database. Verifica la connessione e riprova.');
+                    throw new Error('Obiettivi non disponibili nel database');
+                }
+            } catch(e) {
+                console.error('❌ Errore caricamento obiettivi dal server:', e);
+                mostraMessaggio('error', '❌ ERRORE CRITICO: Impossibile caricare gli obiettivi dal database.\n\nL\'applicazione richiede connessione al database per funzionare.\n\nVerifica:\n1) Connessione internet\n2) Google Sheet accessibile\n3) API Script attivo');
+                throw e;
+            }
+        }
+        
         // ========================================
         // INIZIALIZZAZIONE
         // ========================================
@@ -1291,7 +1322,7 @@
         // ========================================
         // CARICAMENTO DATI
         // ========================================
-        function caricaSchede() {
+        async function caricaSchede() {
             mostraLoading('Caricamento dati...');
             
             fetch(DEPLOY_URL)
@@ -1314,10 +1345,10 @@
                         );
                         console.log('📊 pianificatiCache length:', pianificatiCache.length);
                         
-                        aggiornaDashboard();
+                        // Carica obiettivi dal Google Sheet PRIMA di aggiornare dashboard
+                        await caricaObiettiviDalServer();
                         
-                        // Carica obiettivi dal Google Sheet
-                        caricaObiettiviDalServer();
+                        aggiornaDashboard();
                         
                         nascondiLoading();
                         mostraMessaggio('success', `✅ ${schedeCache.length} schede caricate`);
@@ -1350,7 +1381,6 @@
             const pianificati = pianificatiCache.length;
             const comuni = new Set(schedeCache.map(s => s.comune).filter(c => c)).size;
             const totale = schedeCache.length;
-            const OBIETTIVO_TOTALE = 50; // Obiettivo CSP Novi da Offerta ufficiale
             const progresso = Math.round((installati / OBIETTIVO_TOTALE) * 100);
             const rimanenti = OBIETTIVO_TOTALE - installati;
             
@@ -1370,34 +1400,8 @@
         // TABELLA DISTRIBUZIONE PER COMUNE
         // ========================================
         function aggiornaTabellaComuni() {
-            // Obiettivi caricati SOLO dal Google Sheet
-            // Nessun valore hardcoded - richiede connessione al database
-            let OBIETTIVI_COMUNI = {};
-            
-            // Carica obiettivi dal Google Sheet invece di localStorage
-            async function caricaObiettiviDalServer() {
-                try {
-                    console.log('📊 Caricamento obiettivi dal server...');
-                    const response = await fetch(DEPLOY_URL + '?action=getObiettivi');
-                    const data = await response.json();
-                    
-                    if (data.success && data.obiettivi) {
-                        OBIETTIVI_COMUNI = data.obiettivi;
-                        console.log('✅ Obiettivi caricati dal server:', OBIETTIVI_COMUNI);
-                        console.log('📊 Totale comuni con obiettivi:', Object.keys(OBIETTIVI_COMUNI).length);
-                        aggiornaDashboard();
-                        renderConfigObiettivi();
-                    } else {
-                        console.error('❌ Errore: obiettivi non disponibili nel database');
-                        mostraMessaggio('error', '❌ ERRORE: Impossibile caricare gli obiettivi dal database. Verifica la connessione e riprova.');
-                        throw new Error('Obiettivi non disponibili nel database');
-                    }
-                } catch(e) {
-                    console.error('❌ Errore caricamento obiettivi dal server:', e);
-                    mostraMessaggio('error', '❌ ERRORE CRITICO: Impossibile caricare gli obiettivi dal database.\n\nL\'applicazione richiede connessione al database per funzionare.\n\nVerifica:\n1) Connessione internet\n2) Google Sheet accessibile\n3) API Script attivo');
-                    throw e; // Propaga l'errore - l'app non funziona senza obiettivi dal DB
-                }
-            }
+            // Obiettivi vengono dalla variabile globale OBIETTIVI_COMUNI
+            // caricata da caricaObiettiviDalServer() all'avvio
             
             const COMUNI_DISTRETTO = [
                 'Novi Ligure', 'Arquata Scrivia', 'Serravalle Scrivia', 'Gavi',
@@ -2135,6 +2139,7 @@ function caricaSchedaCompleta(scheda) {
         
         // Listener per i select di pianificazione
         function setupPianificazioneListeners() {
+            const selectIds = ['comune-pianificazione', 'mese-installazione'];
             selectIds.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) {

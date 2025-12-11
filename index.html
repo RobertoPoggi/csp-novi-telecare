@@ -511,7 +511,7 @@
         <div class="header">
             <div class="version-badge">v1.0.0</div>
             <h1>🏥 TeleCare H24 - CSP Novi Ligure</h1>
-            <p>Progetto FNNA 2025-2028 | 30 Comuni Novese | Centrale Operativa 36 mesi</p>
+            <p>Progetto FNNA | 30 Comuni Novese | Centrale Operativa 36 mesi</p>
         </div>
         
         <div class="nav-tabs">
@@ -561,7 +561,7 @@
                         </div>
                         <div>
                             <div style="font-size: 14px; color: #666; margin-bottom: 5px;">Da Completare</div>
-                            <div style="font-size: 32px; font-weight: bold; color: #ffc107;" id="dashboard-remaining">100</div>
+                            <div style="font-size: 32px; font-weight: bold; color: #ffc107;" id="dashboard-remaining">50</div>
                         </div>
                     </div>
                     
@@ -633,39 +633,44 @@
             
             <div class="filter-bar">
                 <label>Filtra per Comune:</label>
-                <select id="filter-comune-installati" onchange="filtraInstallati()">
-                    <option value="">🌍 Tutti i Comuni</option>
-                    <option value="Albera Ligure">🏘️ Albera Ligure</option>
-                    <option value="Arquata Scrivia">🏔️ Arquata Scrivia</option>
-                    <option value="Basaluzzo">🌾 Basaluzzo</option>
-                    <option value="Borghetto Di Borbera">🏘️ Borghetto Di Borbera</option>
-                    <option value="Bosio">🌲 Bosio</option>
-                    <option value="Cabella Ligure">🏘️ Cabella Ligure</option>
-                    <option value="Cantalupo Ligure">🏘️ Cantalupo Ligure</option>
-                    <option value="Capriata D'Orba">🏘️ Capriata D'Orba</option>
-                    <option value="Carrega Ligure">🏘️ Carrega Ligure</option>
-                    <option value="Carrosio">🏘️ Carrosio</option>
-                    <option value="Cassano Spinola">⛪ Cassano Spinola</option>
-                    <option value="Fraconalto">🏘️ Fraconalto</option>
-                    <option value="Francavilla Bisio">🏘️ Francavilla Bisio</option>
-                    <option value="Fresonara">🏘️ Fresonara</option>
-                    <option value="Gavi">🍷 Gavi</option>
-                    <option value="Grondona">🏘️ Grondona</option>
-                    <option value="Mongiardino Ligure">🏘️ Mongiardino Ligure</option>
-                    <option value="Novi Ligure">🏛️ Novi Ligure</option>
-                    <option value="Parodi Ligure">🏘️ Parodi Ligure</option>
-                    <option value="Pasturana">🏘️ Pasturana</option>
-                    <option value="Pozzolo Formigaro">🏘️ Pozzolo Formigaro</option>
-                    <option value="Roccaforte Ligure">🏘️ Roccaforte Ligure</option>
-                    <option value="Rocchetta Ligure">🏘️ Rocchetta Ligure</option>
-                    <option value="San Cristoforo">🏘️ San Cristoforo</option>
-                    <option value="Sardigliano">🏘️ Sardigliano</option>
-                    <option value="Serravalle Scrivia">🏰 Serravalle Scrivia</option>
-                    <option value="Stazzano">🏘️ Stazzano</option>
-                    <option value="Tassarolo">🏘️ Tassarolo</option>
-                    <option value="Vignole Borbera">🏘️ Vignole Borbera</option>
-                    <option value="Voltaggio">⛰️ Voltaggio</option>
-                </select>
+                <input type="text" id="filter-comune-installati" list="comuni-filter-installati-list" 
+                       placeholder="Digita per cercare (es: 'Nov')..." 
+                       onchange="filtraInstallati()"
+                       oninput="filtraInstallati()"
+                       style="padding: 8px; font-size: 14px; min-width: 250px;">
+                <datalist id="comuni-filter-installati-list">
+                    <option value="">
+                    <option value="Albera Ligure">
+                    <option value="Arquata Scrivia">
+                    <option value="Basaluzzo">
+                    <option value="Borghetto Di Borbera">
+                    <option value="Bosio">
+                    <option value="Cabella Ligure">
+                    <option value="Cantalupo Ligure">
+                    <option value="Capriata D'Orba">
+                    <option value="Carrega Ligure">
+                    <option value="Carrosio">
+                    <option value="Cassano Spinola">
+                    <option value="Fraconalto">
+                    <option value="Francavilla Bisio">
+                    <option value="Fresonara">
+                    <option value="Gavi">
+                    <option value="Grondona">
+                    <option value="Mongiardino Ligure">
+                    <option value="Novi Ligure">
+                    <option value="Parodi Ligure">
+                    <option value="Pasturana">
+                    <option value="Pozzolo Formigaro">
+                    <option value="Roccaforte Ligure">
+                    <option value="Rocchetta Ligure">
+                    <option value="San Cristoforo">
+                    <option value="Sardigliano">
+                    <option value="Serravalle Scrivia">
+                    <option value="Stazzano">
+                    <option value="Tassarolo">
+                    <option value="Vignole Borbera">
+                    <option value="Voltaggio">
+                </datalist>
             </div>
             
             <div id="lista-installati-full" class="assistiti-container"></div>
@@ -687,39 +692,44 @@
                 </select>
                 
                 <label>Filtra per Comune:</label>
-                <select id="filter-comune-pianificati" onchange="filtraPianificati()">
-                    <option value="">🌍 Tutti i Comuni</option>
-                    <option value="Albera Ligure">🏘️ Albera Ligure</option>
-                    <option value="Arquata Scrivia">🏔️ Arquata Scrivia</option>
-                    <option value="Basaluzzo">🌾 Basaluzzo</option>
-                    <option value="Borghetto Di Borbera">🏘️ Borghetto Di Borbera</option>
-                    <option value="Bosio">🌲 Bosio</option>
-                    <option value="Cabella Ligure">🏘️ Cabella Ligure</option>
-                    <option value="Cantalupo Ligure">🏘️ Cantalupo Ligure</option>
-                    <option value="Capriata D'Orba">🏘️ Capriata D'Orba</option>
-                    <option value="Carrega Ligure">🏘️ Carrega Ligure</option>
-                    <option value="Carrosio">🏘️ Carrosio</option>
-                    <option value="Cassano Spinola">⛪ Cassano Spinola</option>
-                    <option value="Fraconalto">🏘️ Fraconalto</option>
-                    <option value="Francavilla Bisio">🏘️ Francavilla Bisio</option>
-                    <option value="Fresonara">🏘️ Fresonara</option>
-                    <option value="Gavi">🍷 Gavi</option>
-                    <option value="Grondona">🏘️ Grondona</option>
-                    <option value="Mongiardino Ligure">🏘️ Mongiardino Ligure</option>
-                    <option value="Novi Ligure">🏛️ Novi Ligure</option>
-                    <option value="Parodi Ligure">🏘️ Parodi Ligure</option>
-                    <option value="Pasturana">🏘️ Pasturana</option>
-                    <option value="Pozzolo Formigaro">🏘️ Pozzolo Formigaro</option>
-                    <option value="Roccaforte Ligure">🏘️ Roccaforte Ligure</option>
-                    <option value="Rocchetta Ligure">🏘️ Rocchetta Ligure</option>
-                    <option value="San Cristoforo">🏘️ San Cristoforo</option>
-                    <option value="Sardigliano">🏘️ Sardigliano</option>
-                    <option value="Serravalle Scrivia">🏰 Serravalle Scrivia</option>
-                    <option value="Stazzano">🏘️ Stazzano</option>
-                    <option value="Tassarolo">🏘️ Tassarolo</option>
-                    <option value="Vignole Borbera">🏘️ Vignole Borbera</option>
-                    <option value="Voltaggio">⛰️ Voltaggio</option>
-                </select>
+                <input type="text" id="filter-comune-pianificati" list="comuni-filter-pianificati-list" 
+                       placeholder="Digita per cercare (es: 'Nov')..." 
+                       onchange="filtraPianificati()"
+                       oninput="filtraPianificati()"
+                       style="padding: 8px; font-size: 14px; min-width: 250px;">
+                <datalist id="comuni-filter-pianificati-list">
+                    <option value="">
+                    <option value="Albera Ligure">
+                    <option value="Arquata Scrivia">
+                    <option value="Basaluzzo">
+                    <option value="Borghetto Di Borbera">
+                    <option value="Bosio">
+                    <option value="Cabella Ligure">
+                    <option value="Cantalupo Ligure">
+                    <option value="Capriata D'Orba">
+                    <option value="Carrega Ligure">
+                    <option value="Carrosio">
+                    <option value="Cassano Spinola">
+                    <option value="Fraconalto">
+                    <option value="Francavilla Bisio">
+                    <option value="Fresonara">
+                    <option value="Gavi">
+                    <option value="Grondona">
+                    <option value="Mongiardino Ligure">
+                    <option value="Novi Ligure">
+                    <option value="Parodi Ligure">
+                    <option value="Pasturana">
+                    <option value="Pozzolo Formigaro">
+                    <option value="Roccaforte Ligure">
+                    <option value="Rocchetta Ligure">
+                    <option value="San Cristoforo">
+                    <option value="Sardigliano">
+                    <option value="Serravalle Scrivia">
+                    <option value="Stazzano">
+                    <option value="Tassarolo">
+                    <option value="Vignole Borbera">
+                    <option value="Voltaggio">
+                </datalist>
             </div>
             
             <div id="lista-pianificati-full" class="assistiti-container"></div>
@@ -1239,7 +1249,7 @@
         // ========================================
         // CONFIGURAZIONE
         // ========================================
-        const DEPLOY_URL = 'https://script.google.com/macros/s/AKfycby1MogQ8MtIz6H1zdGE5KbyyLJk-qKoYDaRSJQoew_zpcbEgl_ZuxkXf3bF6XT9kZ6u/exec';
+        const DEPLOY_URL = 'https://script.google.com/macros/s/AKfycbxxkBg-9f-e1Rzac-FPeAMKT7t1NQTJ6yyQf2PMq4a3up2FoEGMTULJ_mbAvHLdKK1c/exec';
         
         let schedeCache = [];
         let installatiCache = [];
@@ -1305,6 +1315,10 @@
                         console.log('📊 pianificatiCache length:', pianificatiCache.length);
                         
                         aggiornaDashboard();
+                        
+                        // Carica obiettivi dal Google Sheet
+                        caricaObiettiviDalServer();
+                        
                         nascondiLoading();
                         mostraMessaggio('success', `✅ ${schedeCache.length} schede caricate`);
                     }
@@ -1320,7 +1334,17 @@
         // DASHBOARD
         // ========================================
         function aggiornaDashboard() {
-            if (schedeCache.length === 0) return;
+            // Anche se non ci sono schede, aggiorna i valori di default
+            if (schedeCache.length === 0) {
+                document.getElementById('stat-totale').textContent = 0;
+                document.getElementById('stat-installati').textContent = 0;
+                document.getElementById('stat-pianificati').textContent = 0;
+                document.getElementById('stat-comuni').textContent = 0;
+                document.getElementById('dashboard-progress').textContent = '0%';
+                document.getElementById('dashboard-remaining').textContent = 50;
+                document.getElementById('progress-bar').style.width = '0%';
+                return;
+            }
             
             const installati = installatiCache.length;
             const pianificati = pianificatiCache.length;
@@ -1346,24 +1370,9 @@
         // TABELLA DISTRIBUZIONE PER COMUNE
         // ========================================
         function aggiornaTabellaComuni() {
-            // Carica obiettivi da localStorage o usa default
-            const defaultObiettivi = {
-                'Novi Ligure': 19,
-                'Arquata Scrivia': 8,
-                'Serravalle Scrivia': 9,
-                'Gavi': 5,
-                'Basaluzzo': 1,
-                'Bosio': 1,
-                'Cassano Spinola': 1,
-                'Fresonara': 1,
-                'Pozzolo Formigaro': 1,
-                'Stazzano': 1,
-                'Tassarolo': 1,
-                'Vignole Borbera': 1,
-                'Voltaggio': 1
-            };
-            
-            let OBIETTIVI_COMUNI = defaultObiettivi;
+            // Obiettivi caricati SOLO dal Google Sheet
+            // Nessun valore hardcoded - richiede connessione al database
+            let OBIETTIVI_COMUNI = {};
             
             // Carica obiettivi dal Google Sheet invece di localStorage
             async function caricaObiettiviDalServer() {
@@ -1375,15 +1384,18 @@
                     if (data.success && data.obiettivi) {
                         OBIETTIVI_COMUNI = data.obiettivi;
                         console.log('✅ Obiettivi caricati dal server:', OBIETTIVI_COMUNI);
+                        console.log('📊 Totale comuni con obiettivi:', Object.keys(OBIETTIVI_COMUNI).length);
                         aggiornaDashboard();
                         renderConfigObiettivi();
                     } else {
-                        console.log('⚠️ Usando obiettivi default');
-                        OBIETTIVI_COMUNI = defaultObiettivi;
+                        console.error('❌ Errore: obiettivi non disponibili nel database');
+                        mostraMessaggio('error', '❌ ERRORE: Impossibile caricare gli obiettivi dal database. Verifica la connessione e riprova.');
+                        throw new Error('Obiettivi non disponibili nel database');
                     }
                 } catch(e) {
-                    console.log('⚠️ Errore caricamento obiettivi, uso default:', e);
-                    OBIETTIVI_COMUNI = defaultObiettivi;
+                    console.error('❌ Errore caricamento obiettivi dal server:', e);
+                    mostraMessaggio('error', '❌ ERRORE CRITICO: Impossibile caricare gli obiettivi dal database.\n\nL\'applicazione richiede connessione al database per funzionare.\n\nVerifica:\n1) Connessione internet\n2) Google Sheet accessibile\n3) API Script attivo');
+                    throw e; // Propaga l'errore - l'app non funziona senza obiettivi dal DB
                 }
             }
             
@@ -1997,31 +2009,20 @@ function caricaSchedaCompleta(scheda) {
         }
         
         function renderConfigObiettivi() {
-            const defaultObiettivi = {
-                'Novi Ligure': 19,
-                'Arquata Scrivia': 8,
-                'Serravalle Scrivia': 9,
-                'Gavi': 5,
-                'Basaluzzo': 1,
-                'Bosio': 1,
-                'Cassano Spinola': 1,
-                'Fresonara': 1,
-                'Pozzolo Formigaro': 1,
-                'Stazzano': 1,
-                'Tassarolo': 1,
-                'Vignole Borbera': 1,
-                'Voltaggio': 1
-            };
-            
-            let obiettivi = defaultObiettivi;
-            try {
-                const saved = localStorage.getItem('obiettivi_comuni');
-                if (saved) {
-                    obiettivi = JSON.parse(saved);
-                }
-            } catch(e) {
-                console.log('Usando obiettivi default');
+            // Usa OBIETTIVI_COMUNI caricati dal Google Sheet
+            // Nessun valore hardcoded o localStorage
+            if (!OBIETTIVI_COMUNI || Object.keys(OBIETTIVI_COMUNI).length === 0) {
+                console.error('❌ Obiettivi non caricati dal database');
+                document.getElementById('config-obiettivi-grid').innerHTML = `
+                    <div style="grid-column: 1 / -1; padding: 40px; text-align: center; color: #dc3545; background: #f8d7da; border-radius: 8px;">
+                        <h3>❌ Errore: Obiettivi non disponibili</h3>
+                        <p>Gli obiettivi non sono stati caricati dal database.<br>Verifica la connessione e ricarica la pagina.</p>
+                    </div>
+                `;
+                return;
             }
+            
+            const obiettivi = OBIETTIVI_COMUNI;
             
             const comuni = Object.keys(obiettivi);
             let htmlContent = '';
@@ -2049,33 +2050,24 @@ function caricaSchedaCompleta(scheda) {
         }
         
         function salvaObiettivi() {
+            // Leggi obiettivi dai campi input
+            // Usa OBIETTIVI_COMUNI caricati dal Google Sheet (nessun hardcoded)
+            if (!OBIETTIVI_COMUNI || Object.keys(OBIETTIVI_COMUNI).length === 0) {
+                alert('❌ Errore: Obiettivi non caricati dal database.\n\nRicarica la pagina e riprova.');
+                return;
+            }
+            
             const obiettivi = {};
             
-            // Leggi tutti i campi input in modo sicuro
-            const defaultObiettivi = {
-                'Novi Ligure': 19,
-                'Arquata Scrivia': 8,
-                'Serravalle Scrivia': 9,
-                'Gavi': 5,
-                'Basaluzzo': 1,
-                'Bosio': 1,
-                'Cassano Spinola': 1,
-                'Fresonara': 1,
-                'Pozzolo Formigaro': 1,
-                'Stazzano': 1,
-                'Tassarolo': 1,
-                'Vignole Borbera': 1,
-                'Voltaggio': 1
-            };
-            
-            Object.keys(defaultObiettivi).forEach(comune => {
+            // Leggi tutti i campi input basandosi su OBIETTIVI_COMUNI dal DB
+            Object.keys(OBIETTIVI_COMUNI).forEach(comune => {
                 const safeId = comune.replace(/\s+/g, '-').replace(/'/g, '');
                 const element = document.getElementById('obiettivo-' + safeId);
                 if (element) {
-                    obiettivi[comune] = parseInt(element.value) || defaultObiettivi[comune];
+                    obiettivi[comune] = parseInt(element.value) || 0;
                 } else {
                     console.warn('Elemento non trovato per: ' + comune);
-                    obiettivi[comune] = defaultObiettivi[comune];
+                    obiettivi[comune] = OBIETTIVI_COMUNI[comune] || 0;
                 }
             });
             

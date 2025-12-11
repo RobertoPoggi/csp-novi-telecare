@@ -549,10 +549,10 @@
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
                         <div>
                             <div style="font-size: 14px; color: #666; margin-bottom: 5px;">Obiettivo Totale</div>
-                            <div style="font-size: 32px; font-weight: bold; color: #1e5799;">100</div>
+                            <div style="font-size: 32px; font-weight: bold; color: #1e5799;">50</div>
                         </div>
                         <div>
-                            <div style="font-size: 14px; color: #666; margin-bottom: 5px;">Scadenza FNNA</div>
+                            <div style="font-size: 14px; color: #666; margin-bottom: 5px;">Termine Progetto</div>
                             <div style="font-size: 24px; font-weight: bold; color: #dc3545;">30 Novembre 2028</div>
                         </div>
                         <div>
@@ -635,15 +635,36 @@
                 <label>Filtra per Comune:</label>
                 <select id="filter-comune-installati" onchange="filtraInstallati()">
                     <option value="">🌍 Tutti i Comuni</option>
-                    <option value="Novi Ligure">🏛️ Novi Ligure (15)</option>
-                    <option value="Arquata Scrivia">🏔️ Arquata Scrivia (3)</option>
-                    <option value="Serravalle Scrivia">🏰 Serravalle Scrivia (4)</option>
-                    <option value="Tortona">🏛️ Tortona (5)</option>
-                    <option value="Cassano Spinola">⛪ Cassano Spinola (2)</option>
-                    <option value="Basaluzzo">🌾 Basaluzzo (2)</option>
-                    <option value="Pozzolo Formigaro">🏘️ Pozzolo Formigaro (2)</option>
-                    <option value="Bosco Marengo">🌳 Bosco Marengo (1)</option>
-                    <option value="Frugarolo">🏘️ Frugarolo (1)</option>
+                    <option value="Albera Ligure">🏘️ Albera Ligure</option>
+                    <option value="Arquata Scrivia">🏔️ Arquata Scrivia</option>
+                    <option value="Basaluzzo">🌾 Basaluzzo</option>
+                    <option value="Borghetto Di Borbera">🏘️ Borghetto Di Borbera</option>
+                    <option value="Bosio">🌲 Bosio</option>
+                    <option value="Cabella Ligure">🏘️ Cabella Ligure</option>
+                    <option value="Cantalupo Ligure">🏘️ Cantalupo Ligure</option>
+                    <option value="Capriata D'Orba">🏘️ Capriata D'Orba</option>
+                    <option value="Carrega Ligure">🏘️ Carrega Ligure</option>
+                    <option value="Carrosio">🏘️ Carrosio</option>
+                    <option value="Cassano Spinola">⛪ Cassano Spinola</option>
+                    <option value="Fraconalto">🏘️ Fraconalto</option>
+                    <option value="Francavilla Bisio">🏘️ Francavilla Bisio</option>
+                    <option value="Fresonara">🏘️ Fresonara</option>
+                    <option value="Gavi">🍷 Gavi</option>
+                    <option value="Grondona">🏘️ Grondona</option>
+                    <option value="Mongiardino Ligure">🏘️ Mongiardino Ligure</option>
+                    <option value="Novi Ligure">🏛️ Novi Ligure</option>
+                    <option value="Parodi Ligure">🏘️ Parodi Ligure</option>
+                    <option value="Pasturana">🏘️ Pasturana</option>
+                    <option value="Pozzolo Formigaro">🏘️ Pozzolo Formigaro</option>
+                    <option value="Roccaforte Ligure">🏘️ Roccaforte Ligure</option>
+                    <option value="Rocchetta Ligure">🏘️ Rocchetta Ligure</option>
+                    <option value="San Cristoforo">🏘️ San Cristoforo</option>
+                    <option value="Sardigliano">🏘️ Sardigliano</option>
+                    <option value="Serravalle Scrivia">🏰 Serravalle Scrivia</option>
+                    <option value="Stazzano">🏘️ Stazzano</option>
+                    <option value="Tassarolo">🏘️ Tassarolo</option>
+                    <option value="Vignole Borbera">🏘️ Vignole Borbera</option>
+                    <option value="Voltaggio">⛰️ Voltaggio</option>
                 </select>
             </div>
             
@@ -668,15 +689,36 @@
                 <label>Filtra per Comune:</label>
                 <select id="filter-comune-pianificati" onchange="filtraPianificati()">
                     <option value="">🌍 Tutti i Comuni</option>
-                    <option value="Novi Ligure">🏛️ Novi Ligure (15)</option>
-                    <option value="Arquata Scrivia">🏔️ Arquata Scrivia (3)</option>
-                    <option value="Serravalle Scrivia">🏰 Serravalle Scrivia (4)</option>
-                    <option value="Tortona">🏛️ Tortona (5)</option>
-                    <option value="Cassano Spinola">⛪ Cassano Spinola (2)</option>
-                    <option value="Basaluzzo">🌾 Basaluzzo (2)</option>
-                    <option value="Pozzolo Formigaro">🏘️ Pozzolo Formigaro (2)</option>
-                    <option value="Bosco Marengo">🌳 Bosco Marengo (1)</option>
-                    <option value="Frugarolo">🏘️ Frugarolo (1)</option>
+                    <option value="Albera Ligure">🏘️ Albera Ligure</option>
+                    <option value="Arquata Scrivia">🏔️ Arquata Scrivia</option>
+                    <option value="Basaluzzo">🌾 Basaluzzo</option>
+                    <option value="Borghetto Di Borbera">🏘️ Borghetto Di Borbera</option>
+                    <option value="Bosio">🌲 Bosio</option>
+                    <option value="Cabella Ligure">🏘️ Cabella Ligure</option>
+                    <option value="Cantalupo Ligure">🏘️ Cantalupo Ligure</option>
+                    <option value="Capriata D'Orba">🏘️ Capriata D'Orba</option>
+                    <option value="Carrega Ligure">🏘️ Carrega Ligure</option>
+                    <option value="Carrosio">🏘️ Carrosio</option>
+                    <option value="Cassano Spinola">⛪ Cassano Spinola</option>
+                    <option value="Fraconalto">🏘️ Fraconalto</option>
+                    <option value="Francavilla Bisio">🏘️ Francavilla Bisio</option>
+                    <option value="Fresonara">🏘️ Fresonara</option>
+                    <option value="Gavi">🍷 Gavi</option>
+                    <option value="Grondona">🏘️ Grondona</option>
+                    <option value="Mongiardino Ligure">🏘️ Mongiardino Ligure</option>
+                    <option value="Novi Ligure">🏛️ Novi Ligure</option>
+                    <option value="Parodi Ligure">🏘️ Parodi Ligure</option>
+                    <option value="Pasturana">🏘️ Pasturana</option>
+                    <option value="Pozzolo Formigaro">🏘️ Pozzolo Formigaro</option>
+                    <option value="Roccaforte Ligure">🏘️ Roccaforte Ligure</option>
+                    <option value="Rocchetta Ligure">🏘️ Rocchetta Ligure</option>
+                    <option value="San Cristoforo">🏘️ San Cristoforo</option>
+                    <option value="Sardigliano">🏘️ Sardigliano</option>
+                    <option value="Serravalle Scrivia">🏰 Serravalle Scrivia</option>
+                    <option value="Stazzano">🏘️ Stazzano</option>
+                    <option value="Tassarolo">🏘️ Tassarolo</option>
+                    <option value="Vignole Borbera">🏘️ Vignole Borbera</option>
+                    <option value="Voltaggio">⛰️ Voltaggio</option>
                 </select>
             </div>
             
@@ -760,18 +802,41 @@
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="comune">Comune di Residenza<span class="required">*</span></label>
-                            <select id="comune" name="comune" required>
-                                <option value="">Seleziona il comune...</option>
-                                <option value="Novi Ligure">🏛️ Novi Ligure (46)</option>
-                                <option value="Erice">🏛️ Erice (19)</option>
-                                <option value="Valderice">🏛️ Valderice (8)</option>
-                                <option value="Paceco">🏛️ Paceco (8)</option>
-                                <option value="Misiliscemi">🏛️ Misiliscemi (7)</option>
-                                <option value="Custonaci">🏛️ Custonaci (4)</option>
-                                <option value="San Vito Lo Capo">🏛️ San Vito Lo Capo (3)</option>
-                                <option value="Favignana">🏛️ Favignana (3)</option>
-                                <option value="Buseto Palizzolo">🏛️ Buseto Palizzolo (2)</option>
-                            </select>
+                            <input type="text" id="comune" name="comune" list="comuni-list" 
+                                   placeholder="Digita per cercare (es: 'Nov' per Novi)..." required
+                                   autocomplete="off" style="padding: 10px; font-size: 14px;">
+                            <datalist id="comuni-list">
+                                <option value="Albera Ligure">
+                                <option value="Arquata Scrivia">
+                                <option value="Basaluzzo">
+                                <option value="Borghetto Di Borbera">
+                                <option value="Bosio">
+                                <option value="Cabella Ligure">
+                                <option value="Cantalupo Ligure">
+                                <option value="Capriata D'Orba">
+                                <option value="Carrega Ligure">
+                                <option value="Carrosio">
+                                <option value="Cassano Spinola">
+                                <option value="Fraconalto">
+                                <option value="Francavilla Bisio">
+                                <option value="Fresonara">
+                                <option value="Gavi">
+                                <option value="Grondona">
+                                <option value="Mongiardino Ligure">
+                                <option value="Novi Ligure">
+                                <option value="Parodi Ligure">
+                                <option value="Pasturana">
+                                <option value="Pozzolo Formigaro">
+                                <option value="Roccaforte Ligure">
+                                <option value="Rocchetta Ligure">
+                                <option value="San Cristoforo">
+                                <option value="Sardigliano">
+                                <option value="Serravalle Scrivia">
+                                <option value="Stazzano">
+                                <option value="Tassarolo">
+                                <option value="Vignole Borbera">
+                                <option value="Voltaggio">
+                            </datalist>
                         </div>
 
                         <div class="form-group">
@@ -1174,7 +1239,7 @@
         // ========================================
         // CONFIGURAZIONE
         // ========================================
-        const DEPLOY_URL = 'https://script.google.com/macros/s/AKfycbyGbbSDB8caThhSTLTngDqYiIlX758ra4XRihtYpikpng8YJrjRy5jardSXYM7vLmo/exec';
+        const DEPLOY_URL = 'https://script.google.com/macros/s/AKfycby1MogQ8MtIz6H1zdGE5KbyyLJk-qKoYDaRSJQoew_zpcbEgl_ZuxkXf3bF6XT9kZ6u/exec';
         
         let schedeCache = [];
         let installatiCache = [];
@@ -1261,8 +1326,9 @@
             const pianificati = pianificatiCache.length;
             const comuni = new Set(schedeCache.map(s => s.comune).filter(c => c)).size;
             const totale = schedeCache.length;
-            const progresso = Math.round((installati / 100) * 100);
-            const rimanenti = 100 - installati;
+            const OBIETTIVO_TOTALE = 50; // Obiettivo CSP Novi da Offerta ufficiale
+            const progresso = Math.round((installati / OBIETTIVO_TOTALE) * 100);
+            const rimanenti = OBIETTIVO_TOTALE - installati;
             
             document.getElementById('stat-totale').textContent = totale;
             document.getElementById('stat-installati').textContent = installati;
@@ -1282,15 +1348,19 @@
         function aggiornaTabellaComuni() {
             // Carica obiettivi da localStorage o usa default
             const defaultObiettivi = {
-                'Novi Ligure': 46,
-                'Erice': 19,
-                'Valderice': 8,
-                'Paceco': 8,
-                'Misiliscemi': 7,
-                'Custonaci': 4,
-                'San Vito Lo Capo': 3,
-                'Favignana': 3,
-                'Buseto Palizzolo': 2
+                'Novi Ligure': 19,
+                'Arquata Scrivia': 8,
+                'Serravalle Scrivia': 9,
+                'Gavi': 5,
+                'Basaluzzo': 1,
+                'Bosio': 1,
+                'Cassano Spinola': 1,
+                'Fresonara': 1,
+                'Pozzolo Formigaro': 1,
+                'Stazzano': 1,
+                'Tassarolo': 1,
+                'Vignole Borbera': 1,
+                'Voltaggio': 1
             };
             
             let OBIETTIVI_COMUNI = defaultObiettivi;
@@ -1318,8 +1388,10 @@
             }
             
             const COMUNI_DISTRETTO = [
-                'Novi Ligure', 'Erice', 'Valderice', 'Paceco', 'Misiliscemi',
-                'Custonaci', 'San Vito Lo Capo', 'Favignana', 'Buseto Palizzolo'
+                'Novi Ligure', 'Arquata Scrivia', 'Serravalle Scrivia', 'Gavi',
+                'Voltaggio', 'Bosio', 'Francavilla Bisio', 'Pasturana',
+                'Pozzolo Formigaro', 'Cassano Spinola', 'Basaluzzo', 'Fresonara',
+                'Tassarolo'
             ];
             
             // Conta assistiti e installati per comune
@@ -1926,15 +1998,19 @@ function caricaSchedaCompleta(scheda) {
         
         function renderConfigObiettivi() {
             const defaultObiettivi = {
-                'Novi Ligure': 46,
-                'Erice': 19,
-                'Valderice': 8,
-                'Paceco': 8,
-                'Misiliscemi': 7,
-                'Custonaci': 4,
-                'San Vito Lo Capo': 3,
-                'Favignana': 3,
-                'Buseto Palizzolo': 2
+                'Novi Ligure': 19,
+                'Arquata Scrivia': 8,
+                'Serravalle Scrivia': 9,
+                'Gavi': 5,
+                'Basaluzzo': 1,
+                'Bosio': 1,
+                'Cassano Spinola': 1,
+                'Fresonara': 1,
+                'Pozzolo Formigaro': 1,
+                'Stazzano': 1,
+                'Tassarolo': 1,
+                'Vignole Borbera': 1,
+                'Voltaggio': 1
             };
             
             let obiettivi = defaultObiettivi;
@@ -1977,15 +2053,19 @@ function caricaSchedaCompleta(scheda) {
             
             // Leggi tutti i campi input in modo sicuro
             const defaultObiettivi = {
-                'Novi Ligure': 46,
-                'Erice': 19,
-                'Valderice': 8,
-                'Paceco': 8,
-                'Misiliscemi': 7,
-                'Custonaci': 4,
-                'San Vito Lo Capo': 3,
-                'Favignana': 3,
-                'Buseto Palizzolo': 2
+                'Novi Ligure': 19,
+                'Arquata Scrivia': 8,
+                'Serravalle Scrivia': 9,
+                'Gavi': 5,
+                'Basaluzzo': 1,
+                'Bosio': 1,
+                'Cassano Spinola': 1,
+                'Fresonara': 1,
+                'Pozzolo Formigaro': 1,
+                'Stazzano': 1,
+                'Tassarolo': 1,
+                'Vignole Borbera': 1,
+                'Voltaggio': 1
             };
             
             Object.keys(defaultObiettivi).forEach(comune => {

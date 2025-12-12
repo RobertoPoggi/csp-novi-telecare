@@ -7,6 +7,7 @@
     
     <!-- Icona Torre del Castello di Novi Ligure -->
     <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Castello_di_Novi_Ligure_-_torre.png/300px-Castello_di_Novi_Ligure_-_torre.png">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="TeleCare H24">
     
@@ -1352,6 +1353,7 @@
                         console.log('📊 pianificatiCache length:', pianificatiCache.length);
                         
                         aggiornaDashboard();
+                        updateAutocompleteAssistiti(); // Aggiorna suggerimenti ricerca
                         nascondiLoading();
                         mostraMessaggio('success', `✅ ${schedeCache.length} schede caricate`);
                     }
@@ -1373,8 +1375,8 @@
             const pianificati = pianificatiCache.length;
             const comuni = new Set(schedeCache.map(s => s.comune).filter(c => c)).size;
             const totale = schedeCache.length;
-            const progresso = Math.round((installati / 100) * 100);
-            const rimanenti = 100 - installati;
+            const progresso = Math.round((installati / 50) * 100);
+            const rimanenti = 50 - installati;
             
             document.getElementById('stat-totale').textContent = totale;
             document.getElementById('stat-installati').textContent = installati;
@@ -1394,15 +1396,13 @@
         function aggiornaTabellaComuni() {
             // Carica obiettivi da localStorage o usa default
             const defaultObiettivi = {
-                'Trapani': 46,
-                'Erice': 19,
+                                'Erice': 19,
                 'Valderice': 8,
                 'Paceco': 8,
                 'Misiliscemi': 7,
                 'Custonaci': 4,
                 'San Vito Lo Capo': 3,
-                'Favignana': 3,
-                'Buseto Palizzolo': 2
+                'Favignana': 3: 2
             };
             
             let OBIETTIVI_COMUNI = defaultObiettivi;
@@ -1430,8 +1430,7 @@
             }
             
             const COMUNI_DISTRETTO = [
-                'Trapani', 'Erice', 'Valderice', 'Paceco', 'Misiliscemi',
-                'Custonaci', 'San Vito Lo Capo', 'Favignana', 'Buseto Palizzolo'
+                'Favignana'
             ];
             
             // Conta assistiti e installati per comune
@@ -2042,15 +2041,13 @@ function caricaSchedaCompleta(scheda) {
         
         function renderConfigObiettivi() {
             const defaultObiettivi = {
-                'Trapani': 46,
-                'Erice': 19,
+                                'Erice': 19,
                 'Valderice': 8,
                 'Paceco': 8,
                 'Misiliscemi': 7,
                 'Custonaci': 4,
                 'San Vito Lo Capo': 3,
-                'Favignana': 3,
-                'Buseto Palizzolo': 2
+                'Favignana': 3: 2
             };
             
             let obiettivi = defaultObiettivi;
@@ -2093,15 +2090,13 @@ function caricaSchedaCompleta(scheda) {
             
             // Leggi tutti i campi input in modo sicuro
             const defaultObiettivi = {
-                'Trapani': 46,
-                'Erice': 19,
+                                'Erice': 19,
                 'Valderice': 8,
                 'Paceco': 8,
                 'Misiliscemi': 7,
                 'Custonaci': 4,
                 'San Vito Lo Capo': 3,
-                'Favignana': 3,
-                'Buseto Palizzolo': 2
+                'Favignana': 3: 2
             };
             
             Object.keys(defaultObiettivi).forEach(comune => {
@@ -2195,18 +2190,18 @@ function caricaSchedaCompleta(scheda) {
         // ═══════════════════════════════════════════════════════════════════════
         // AUTOCOMPLETE INTELLIGENTE PER RICERCA ASSISTITI
         // ═══════════════════════════════════════════════════════════════════════
-        
         function updateAutocompleteAssistiti() {
+        
             const datalist = document.getElementById('assistiti-suggestions');
             if (!datalist) return;
             
             // Pulisci datalist
             datalist.innerHTML = '';
             
-            // Genera suggestions da schedeCaricate
+            // Genera suggestions da schedeCache
             const suggestions = new Set();
             
-            schedeCaricate.forEach(scheda => {
+            schedeCache.forEach(scheda => {
                 // Aggiungi nome completo
                 if (scheda.nome && scheda.cognome) {
                     suggestions.add(`${scheda.nome} ${scheda.cognome}`);
@@ -2232,11 +2227,7 @@ function caricaSchedaCompleta(scheda) {
         }
         
         // Aggiorna autocomplete quando le schede vengono caricate
-        const originalCaricaSchede = caricaSchede;
-        caricaSchede = async function() {
-            await originalCaricaSchede();
-            updateAutocompleteAssistiti();
-        };
+        
 
     </script>
 </body>

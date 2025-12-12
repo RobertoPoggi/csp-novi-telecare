@@ -728,11 +728,13 @@
                 <label>Filtra per Mese:</label>
                 <select id="filter-mese-pianificati" onchange="filtraPianificati()">
                     <option value="">📅 Tutti i Mesi</option>
-                    <option value="Novembre 2025">Novembre 2025</option>
-                    <option value="Dicembre 2025">Dicembre 2025</option>
-                    <option value="Gennaio 2026">Gennaio 2026</option>
-                    <option value="Febbraio 2026">Febbraio 2026</option>
-                    <option value="Marzo 2026">Marzo 2026</option>
+                    <option value="Dicembre 2024">Dicembre 2024</option>
+                    <option value="Gennaio 2025">Gennaio 2025</option>
+                    <option value="Febbraio 2025">Febbraio 2025</option>
+                    <option value="Marzo 2025">Marzo 2025</option>
+                    <option value="Aprile 2025">Aprile 2025</option>
+                    <option value="Maggio 2025">Maggio 2025</option>
+                    <option value="Giugno 2025">Giugno 2025</option>
                 </select>
                 
                 <label>Filtra per Comune:</label>
@@ -1183,21 +1185,13 @@
                             <label for="meseInstallazionePrevisto">Mese Install. Dispositivo</label>
                             <select id="meseInstallazionePrevisto" name="meseInstallazionePrevisto">
                                 <option value="">-- Seleziona --</option>
-                                <option value="Novembre 2025">Nov 2025</option>
-                                <option value="Dicembre 2025">Dic 2025</option>
-                                <option value="Gennaio 2026">Gen 2026</option>
-                                <option value="Febbraio 2026">Feb 2026</option>
-                                <option value="Marzo 2026">Mar 2026</option>
-                                <option value="Non pianificato">Non pianificato</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                                <option value="">-- Seleziona --</option>
-                                <option value="Novembre 2025">Nov 2025</option>
-                                <option value="Dicembre 2025">Dic 2025</option>
-                                <option value="Gennaio 2026">Gen 2026</option>
-                                <option value="Febbraio 2026">Feb 2026</option>
-                                <option value="Marzo 2026">Mar 2026</option>
+                                <option value="Dicembre 2024">Dicembre 2024</option>
+                                <option value="Gennaio 2025">Gennaio 2025</option>
+                                <option value="Febbraio 2025">Febbraio 2025</option>
+                                <option value="Marzo 2025">Marzo 2025</option>
+                                <option value="Aprile 2025">Aprile 2025</option>
+                                <option value="Maggio 2025">Maggio 2025</option>
+                                <option value="Giugno 2025">Giugno 2025</option>
                                 <option value="Non pianificato">Non pianificato</option>
                             </select>
                         </div>
@@ -1215,11 +1209,13 @@
                             <label for="meseInstallazioneSensoreEcg">Mese Install. Sensore ECG</label>
                             <select id="meseInstallazioneSensoreEcg" name="meseInstallazioneSensoreEcg">
                                 <option value="">-- Seleziona --</option>
-                                <option value="Novembre 2025">Nov 2025</option>
-                                <option value="Dicembre 2025">Dic 2025</option>
-                                <option value="Gennaio 2026">Gen 2026</option>
-                                <option value="Febbraio 2026">Feb 2026</option>
-                                <option value="Marzo 2026">Mar 2026</option>
+                                <option value="Dicembre 2024">Dicembre 2024</option>
+                                <option value="Gennaio 2025">Gennaio 2025</option>
+                                <option value="Febbraio 2025">Febbraio 2025</option>
+                                <option value="Marzo 2025">Marzo 2025</option>
+                                <option value="Aprile 2025">Aprile 2025</option>
+                                <option value="Maggio 2025">Maggio 2025</option>
+                                <option value="Giugno 2025">Giugno 2025</option>
                                 <option value="Non pianificato">Non pianificato</option>
                             </select>
                         </div>
@@ -1238,18 +1234,7 @@
                             <label for="serialeDispositivo">Seriale Dispositivo</label>
                             <input type="text" id="serialeDispositivo" name="serialeDispositivo" placeholder="SN...">
                         </div>
-                        <div class="form-group">
-                                <option value="">-</option>
-                                <option value="SI">✅ SI</option>
-                                <option value="NO">❌ NO</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                                <option value="">-</option>
-                                <option value="SI">✅ SI</option>
-                                <option value="NO">❌ NO</option>
-                            </select>
-                        </div>
+                        
                         <div class="form-group">
                             <label for="installazioneSensoreEcg">Sensore ECG Installato</label>
                             <select id="installazioneSensoreEcg" name="installazioneSensoreEcg">
@@ -1978,26 +1963,32 @@ function caricaSchedaCompleta(scheda) {
             
             mostraLoading('Salvataggio...');
             
+            const formParams = new URLSearchParams();
+            formParams.append('action', 'save');
+            formParams.append('data', JSON.stringify(schedaData));
+            
             fetch(DEPLOY_URL, {
                 method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ action: 'save', data: schedaData })
+                body: formParams
             })
-            .then(() => {
+            .then(response => response.json())
+            .then(result => {
                 nascondiLoading();
-                mostraMessaggio('success', `✅ Scheda ${schedaData.numeroScheda} salvata!`);
-                setTimeout(() => {
-                    caricaSchede();
-                    resetForm();
-                    switchTab('dashboard');
-                }, 1500);
+                if (result.success) {
+                    mostraMessaggio('success', `✅ Scheda ${schedaData.numeroScheda} salvata!`);
+                    setTimeout(() => {
+                        caricaSchede();
+                        resetForm();
+                        switchTab('dashboard');
+                    }, 1500);
+                } else {
+                    mostraMessaggio('error', '❌ Errore: ' + result.message);
+                }
             })
             .catch(error => {
                 nascondiLoading();
-                console.error(error);
-                mostraMessaggio('info', '📤 Scheda inviata (modalità no-cors)');
-                setTimeout(() => { caricaSchede(); }, 2000);
+                console.error('Errore salvataggio:', error);
+                mostraMessaggio('error', '❌ Errore di connessione al server');
             });
         }
         

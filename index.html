@@ -1353,7 +1353,6 @@
                         console.log('📊 pianificatiCache length:', pianificatiCache.length);
                         
                         aggiornaDashboard();
-                        updateAutocompleteAssistiti(); // Aggiorna suggerimenti ricerca
                         nascondiLoading();
                         mostraMessaggio('success', `✅ ${schedeCache.length} schede caricate`);
                     }
@@ -2190,8 +2189,8 @@ function caricaSchedaCompleta(scheda) {
         // ═══════════════════════════════════════════════════════════════════════
         // AUTOCOMPLETE INTELLIGENTE PER RICERCA ASSISTITI
         // ═══════════════════════════════════════════════════════════════════════
-        function updateAutocompleteAssistiti() {
         
+        function updateAutocompleteAssistiti() {
             const datalist = document.getElementById('assistiti-suggestions');
             if (!datalist) return;
             
@@ -2227,7 +2226,7 @@ function caricaSchedaCompleta(scheda) {
         }
         
         // Aggiorna autocomplete quando le schede vengono caricate
-        
+    }
 
     </script>
 </body>

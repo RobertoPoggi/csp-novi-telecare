@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TeleCare H24 v1.0.0 - CSP Novi Ligure</title>
     
-    <!-- Icona Torre del Castello di Novi Ligure -->
-    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Castello_di_Novi_Ligure_-_torre.png/250px-Castello_di_Novi_Ligure_-_torre.png">
-    
-    <!-- Icona Torre del Castello di Novi Ligure -->
-    <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Castello_di_Novi_Ligure_-_torre.png/250px-Castello_di_Novi_Ligure_-_torre.png">
+    <!-- Icona Torre di Ligny -->
+    <link rel="apple-touch-icon" href="https://cdn1.genspark.ai/user-upload-image/5_generated/a65a552f-4932-467c-9204-3d2950f76226.jpeg">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="TeleCare H24">
     
@@ -18,7 +15,7 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1e5799 0%, #207cca 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 20px;
             min-height: 100vh;
         }
@@ -29,12 +26,11 @@
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: visible;
-            min-height: 800px;
+            overflow: hidden;
         }
         
         .header {
-            background: linear-gradient(135deg, #1e5799 0%, #207cca 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 30px;
             text-align: center;
@@ -57,7 +53,7 @@
         .nav-tabs {
             background: #f8f9fa;
             display: flex;
-            border-bottom: 3px solid #1e5799;
+            border-bottom: 3px solid #667eea;
             overflow-x: auto;
         }
         
@@ -77,20 +73,14 @@
         
         .nav-tab.active {
             background: white;
-            color: #1e5799;
-            border-bottom: 3px solid #1e5799;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
         }
         
         .nav-tab:hover { background: #e9ecef; }
         
-        .tab-content { 
-            display: none; 
-            padding: 30px;
-            min-height: 600px;
-        }
-        .tab-content.active { 
-            display: block; 
-        }
+        .tab-content { display: none; padding: 30px; }
+        .tab-content.active { display: block; }
         
         /* Stats Grid */
         .stats-grid {
@@ -101,7 +91,7 @@
         }
         
         .stat-card {
-            background: linear-gradient(135deg, #1e5799 0%, #207cca 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 25px;
             border-radius: 15px;
@@ -139,7 +129,7 @@
         
         .filter-bar select {
             padding: 10px 15px;
-            border: 2px solid #1e5799;
+            border: 2px solid #667eea;
             border-radius: 8px;
             font-size: 15px;
             min-width: 200px;
@@ -148,7 +138,7 @@
         
         .filter-bar label {
             font-weight: 600;
-            color: #1e5799;
+            color: #667eea;
         }
         
         .list-table {
@@ -162,7 +152,7 @@
         }
         
         .list-table thead {
-            background: #1e5799;
+            background: #667eea;
             color: white;
         }
         
@@ -211,14 +201,14 @@
             padding: 25px;
             border-radius: 15px;
             margin-bottom: 30px;
-            border: 2px solid #1e5799;
+            border: 2px solid #667eea;
         }
         
         .search-input {
             width: 100%;
             padding: 15px 20px;
             font-size: 18px;
-            border: 2px solid #1e5799;
+            border: 2px solid #667eea;
             border-radius: 10px;
             outline: none;
         }
@@ -242,7 +232,7 @@
         }
         
         .assistito-card:hover {
-            border-color: #1e5799;
+            border-color: #667eea;
             transform: translateX(5px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
@@ -252,7 +242,7 @@
         .assistito-nome {
             font-size: 20px;
             font-weight: 700;
-            color: #1e5799;
+            color: #667eea;
             margin-bottom: 5px;
         }
         
@@ -267,7 +257,7 @@
         }
         
         .comuni-table thead {
-            background: linear-gradient(135deg, #1e5799 0%, #207cca 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
         }
         
@@ -298,7 +288,7 @@
         
         .progress-mini-fill {
             height: 100%;
-            background: linear-gradient(90deg, #1e5799 0%, #207cca 100%);
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
             transition: width 0.3s;
         }
         
@@ -322,8 +312,8 @@
         
         .form-section-title {
             font-size: 20px;
-            color: #1e5799;
-            border-bottom: 2px solid #1e5799;
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
             padding-bottom: 8px;
             margin-bottom: 20px;
         }
@@ -362,7 +352,7 @@
         
         input:focus, textarea:focus, select:focus {
             outline: none;
-            border-color: #1e5799;
+            border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
         
@@ -381,7 +371,7 @@
         
         .age-display {
             padding: 12px 20px;
-            background: linear-gradient(135deg, #1e5799 0%, #207cca 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border-radius: 8px;
             font-weight: 600;
@@ -412,7 +402,7 @@
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, #1e5799 0%, #207cca 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
         }
         
@@ -423,12 +413,12 @@
         
         .btn-secondary {
             background: white;
-            color: #1e5799;
-            border: 2px solid #1e5799;
+            color: #667eea;
+            border: 2px solid #667eea;
         }
         
         .btn-secondary:hover {
-            background: #1e5799;
+            background: #667eea;
             color: white;
         }
         
@@ -479,7 +469,7 @@
         
         .spinner {
             border: 4px solid #f3f3f3;
-            border-top: 4px solid #1e5799;
+            border-top: 4px solid #667eea;
             border-radius: 50%;
             width: 50px;
             height: 50px;
@@ -511,51 +501,44 @@
             .filter-bar { flex-direction: column; }
             .filter-bar select { width: 100%; }
         }
-    </style>
     
-    <script>
-        // Funzioni base chiamate da onclick inline (devono essere definite prima dell'HTML)
-        function switchTab(tabName) {
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            document.querySelectorAll('.nav-tab').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            const targetTab = document.getElementById('tab-' + tabName);
-            if (targetTab) {
-                targetTab.classList.add('active');
-                const navBtn = Array.from(document.querySelectorAll('.nav-tab')).find(btn => 
-                    btn.textContent.includes(tabName === 'dashboard' ? 'Dashboard' : 
-                                            tabName === 'installati' ? 'Installati' : 
-                                            tabName === 'pianificati' ? 'Pianificati' : 
-                                            tabName === 'ricerca' ? 'Ricerca' : 'Nuova')
-                );
-                if (navBtn) navBtn.classList.add('active');
-            }
-        }
-        
-        function toggleConfigPanel(panelId) {
-            const panel = document.getElementById(panelId);
-            if (panel) {
-                panel.classList.toggle('active');
-                if (panel.classList.contains('active') && panelId === 'config-obiettivi-panel') {
-                    // Renderizza obiettivi quando il pannello viene aperto
-                    if (typeof renderConfigObiettivi === 'function') {
-                        renderConfigObiettivi();
-                    }
-                }
-            }
-        }
-    </script>
+/* Nascondi campi poltrone e sensori luce */
+input[name="poltrone"],
+input[name="sensoreLuce"],
+input[name="installazionePoltrona"],
+input[name="installazioneSensoreLuce"],
+select[name="meseInstallazionePoltrona"],
+select[name="meseInstallazioneSensoreLuce"],
+label[for="poltrone"],
+label[for="sensoreLuce"],
+label[for="installazionePoltrona"],
+label[for="installazioneSensoreLuce"],
+label[for="meseInstallazionePoltrona"],
+label[for="meseInstallazioneSensoreLuce"] {
+    display: none !important;
+}
+
+/* Nascondi anche i div contenitori se hanno questi campi */
+input[name="poltrone"]:parent,
+input[name="sensoreLuce"]:parent,
+input[name="installazionePoltrona"]:parent,
+input[name="installazioneSensoreLuce"]:parent,
+select[name="meseInstallazionePoltrona"]:parent,
+select[name="meseInstallazioneSensoreLuce"]:parent {
+    display: none !important;
+}
+</style>
 </head>
 <body>
+    <div style="background: linear-gradient(135deg, #1e5799 0%, #2989d8 50%, #7db9e8 100%); padding: 20px; text-align: center; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px;">
+        <img src="https://www.genspark.ai/api/files/s/431HJ6qj" alt="TeleCare H24 - CSP Novi Ligure" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+
     <div class="container">
         <div class="header">
-            <div class="version-badge">v1.0.0</div>
+            <div class="version-badge">v3.4.3</div>
             <h1>🏥 TeleCare H24 - CSP Novi Ligure</h1>
-            <p>Progetto FNNA | 30 Comuni Novese | Centrale Operativa 36 mesi</p>
+            <p>Progetto FNNA | 50 Assistiti | Dic 2025 - Mar 2026</p>
         </div>
         
         <div class="nav-tabs">
@@ -588,16 +571,16 @@
             </div>
             
             <div style="margin-top: 40px;">
-                <h2 style="color: #1e5799; margin-bottom: 20px;">📈 Riepilogo Progetto</h2>
+                <h2 style="color: #667eea; margin-bottom: 20px;">📈 Riepilogo Progetto</h2>
                 <div style="background: #f8f9fa; padding: 30px; border-radius: 15px;">
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
                         <div>
                             <div style="font-size: 14px; color: #666; margin-bottom: 5px;">Obiettivo Totale</div>
-                            <div style="font-size: 32px; font-weight: bold; color: #1e5799;">50</div>
+                            <div style="font-size: 32px; font-weight: bold; color: #667eea;">50</div>
                         </div>
                         <div>
-                            <div style="font-size: 14px; color: #666; margin-bottom: 5px;">Termine Progetto</div>
-                            <div style="font-size: 24px; font-weight: bold; color: #dc3545;">30 Novembre 2028</div>
+                            <div style="font-size: 14px; color: #666; margin-bottom: 5px;">Scadenza FNNA</div>
+                            <div style="font-size: 24px; font-weight: bold; color: #dc3545;">31 Marzo 2026</div>
                         </div>
                         <div>
                             <div style="font-size: 14px; color: #666; margin-bottom: 5px;">Progresso</div>
@@ -612,7 +595,7 @@
                     <div style="margin-top: 30px; background: white; padding: 20px; border-radius: 10px;">
                         <div style="font-size: 14px; color: #666; margin-bottom: 10px;">Avanzamento Installazioni</div>
                         <div style="background: #e9ecef; height: 30px; border-radius: 15px; overflow: hidden;">
-                            <div id="progress-bar" style="background: linear-gradient(90deg, #1e5799 0%, #207cca 100%); height: 100%; width: 0%; transition: width 0.5s;"></div>
+                            <div id="progress-bar" style="background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); height: 100%; width: 0%; transition: width 0.5s;"></div>
                         </div>
                     </div>
                     
@@ -629,7 +612,7 @@
                                 <!-- Popolato dinamicamente -->
                             </div>
                             <div style="margin-top: 20px; text-align: center;">
-                                <button onclick="salvaObiettivi()" style="background: linear-gradient(135deg, #1e5799 0%, #207cca 100%); color: white; border: none; padding: 12px 30px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600; box-shadow: 0 4px 6px rgba(0,0,0,0.2); transition: all 0.3s;">
+                                <button onclick="salvaObiettivi()" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 12px 30px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600; box-shadow: 0 4px 6px rgba(0,0,0,0.2); transition: all 0.3s;">
                                     💾 Salva Obiettivi
                                 </button>
                                 <button onclick="resetObiettivi()" style="background: #dc3545; color: white; border: none; padding: 12px 30px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600; margin-left: 10px; transition: all 0.3s;">
@@ -643,7 +626,7 @@
             
             <!-- STATISTICA PER COMUNE -->
             <div style="margin-top: 40px;">
-                <h2 style="color: #1e5799; margin-bottom: 20px;">🏘️ Distribuzione per Comune</h2>
+                <h2 style="color: #667eea; margin-bottom: 20px;">🏘️ Distribuzione per Comune</h2>
                 <div style="background: #f8f9fa; padding: 30px; border-radius: 15px;">
                     <table class="comuni-table">
                         <thead>
@@ -673,48 +656,22 @@
         
         <!-- TAB INSTALLATI -->
         <div id="tab-installati" class="tab-content">
-            <h2 style="color: #1e5799; margin-bottom: 20px;">✅ Dispositivi Installati (<span id="count-installati">0</span>)</h2>
+            <h2 style="color: #667eea; margin-bottom: 20px;">✅ Dispositivi Installati (<span id="count-installati">0</span>)</h2>
             
             <div class="filter-bar">
                 <label>Filtra per Comune:</label>
-                <input type="text" id="filter-comune-installati" list="comuni-filter-installati-list" 
-                       placeholder="Digita per cercare (es: 'Nov')..." 
-                       onchange="filtraInstallati()"
-                       oninput="filtraInstallati()"
-                       style="padding: 8px; font-size: 14px; min-width: 250px;">
-                <datalist id="comuni-filter-installati-list">
-                    <option value="">
-                    <option value="Albera Ligure">
-                    <option value="Arquata Scrivia">
-                    <option value="Basaluzzo">
-                    <option value="Borghetto Di Borbera">
-                    <option value="Bosio">
-                    <option value="Cabella Ligure">
-                    <option value="Cantalupo Ligure">
-                    <option value="Capriata D'Orba">
-                    <option value="Carrega Ligure">
-                    <option value="Carrosio">
-                    <option value="Cassano Spinola">
-                    <option value="Fraconalto">
-                    <option value="Francavilla Bisio">
-                    <option value="Fresonara">
-                    <option value="Gavi">
-                    <option value="Grondona">
-                    <option value="Mongiardino Ligure">
-                    <option value="Novi Ligure">
-                    <option value="Parodi Ligure">
-                    <option value="Pasturana">
-                    <option value="Pozzolo Formigaro">
-                    <option value="Roccaforte Ligure">
-                    <option value="Rocchetta Ligure">
-                    <option value="San Cristoforo">
-                    <option value="Sardigliano">
-                    <option value="Serravalle Scrivia">
-                    <option value="Stazzano">
-                    <option value="Tassarolo">
-                    <option value="Vignole Borbera">
-                    <option value="Voltaggio">
-                </datalist>
+                <select id="filter-comune-installati" onchange="filtraInstallati()">
+                    <option value="">🌍 Tutti i Comuni</option>
+                    <option value="Novi Ligure">Novi Ligure</option>
+                    <option value="Arquata Scrivia">Arquata Scrivia</option>
+                    <option value="Serravalle Scrivia">Serravalle Scrivia</option>
+                    <option value="Gavi">Gavi</option>
+                    <option value="Basaluzzo">Basaluzzo</option>
+                    <option value="Bosio">Bosio</option>
+                    <option value="Cassano Spinola">Cassano Spinola</option>
+                    <option value="Fresonara">Fresonara</option>
+                    <option value="Pozzolo Formigaro">Pozzolo Formigaro</option>
+                </select>
             </div>
             
             <div id="lista-installati-full" class="assistiti-container"></div>
@@ -722,57 +679,32 @@
         
         <!-- TAB PIANIFICATI -->
         <div id="tab-pianificati" class="tab-content">
-            <h2 style="color: #1e5799; margin-bottom: 20px;">📅 Installazioni Pianificate (<span id="count-pianificati">0</span>)</h2>
+            <h2 style="color: #667eea; margin-bottom: 20px;">📅 Installazioni Pianificate (<span id="count-pianificati">0</span>)</h2>
             
             <div class="filter-bar">
                 <label>Filtra per Mese:</label>
                 <select id="filter-mese-pianificati" onchange="filtraPianificati()">
                     <option value="">📅 Tutti i Mesi</option>
                     <option value="Dicembre 2025">Dicembre 2025</option>
-                    <option value="Gennaio 2026">Gennaio 2026</option>
-                    <option value="Febbraio 2026">Febbraio 2026</option>
-                    <option value="Marzo 2026">Marzo 2026</option>
+                    <option value="Dicembre 2026">Dicembre 2026</option>
+                    <option value="Gennaio 2027">Gennaio 2027</option>
+                    <option value="Febbraio 2027">Febbraio 2027</option>
+                    <option value="Marzo 2027">Marzo 2027</option>
                 </select>
                 
                 <label>Filtra per Comune:</label>
-                <input type="text" id="filter-comune-pianificati" list="comuni-filter-pianificati-list" 
-                       placeholder="Digita per cercare (es: 'Nov')..." 
-                       onchange="filtraPianificati()"
-                       oninput="filtraPianificati()"
-                       style="padding: 8px; font-size: 14px; min-width: 250px;">
-                <datalist id="comuni-filter-pianificati-list">
-                    <option value="">
-                    <option value="Albera Ligure">
-                    <option value="Arquata Scrivia">
-                    <option value="Basaluzzo">
-                    <option value="Borghetto Di Borbera">
-                    <option value="Bosio">
-                    <option value="Cabella Ligure">
-                    <option value="Cantalupo Ligure">
-                    <option value="Capriata D'Orba">
-                    <option value="Carrega Ligure">
-                    <option value="Carrosio">
-                    <option value="Cassano Spinola">
-                    <option value="Fraconalto">
-                    <option value="Francavilla Bisio">
-                    <option value="Fresonara">
-                    <option value="Gavi">
-                    <option value="Grondona">
-                    <option value="Mongiardino Ligure">
-                    <option value="Novi Ligure">
-                    <option value="Parodi Ligure">
-                    <option value="Pasturana">
-                    <option value="Pozzolo Formigaro">
-                    <option value="Roccaforte Ligure">
-                    <option value="Rocchetta Ligure">
-                    <option value="San Cristoforo">
-                    <option value="Sardigliano">
-                    <option value="Serravalle Scrivia">
-                    <option value="Stazzano">
-                    <option value="Tassarolo">
-                    <option value="Vignole Borbera">
-                    <option value="Voltaggio">
-                </datalist>
+                <select id="filter-comune-pianificati" onchange="filtraPianificati()">
+                    <option value="">🌍 Tutti i Comuni</option>
+                    <option value="Novi Ligure">Novi Ligure</option>
+                    <option value="Arquata Scrivia">Arquata Scrivia</option>
+                    <option value="Serravalle Scrivia">Serravalle Scrivia</option>
+                    <option value="Gavi">Gavi</option>
+                    <option value="Basaluzzo">Basaluzzo</option>
+                    <option value="Bosio">Bosio</option>
+                    <option value="Cassano Spinola">Cassano Spinola</option>
+                    <option value="Fresonara">Fresonara</option>
+                    <option value="Pozzolo Formigaro">Pozzolo Formigaro</option>
+                </select>
             </div>
             
             <div id="lista-pianificati-full" class="assistiti-container"></div>
@@ -781,7 +713,7 @@
         <!-- TAB RICERCA -->
         <div id="tab-ricerca" class="tab-content">
             <div class="search-box">
-                <h2 style="margin-bottom: 15px; color: #1e5799;">🔍 Cerca Assistito</h2>
+                <h2 style="margin-bottom: 15px; color: #667eea;">🔍 Cerca Assistito</h2>
                 <input type="text" 
                        class="search-input" 
                        id="searchInput" 
@@ -832,7 +764,7 @@
                                 <span>/</span>
                                 <input type="number" id="mese" name="mese" placeholder="MM" min="1" max="12" maxlength="2" required>
                                 <span>/</span>
-                                <input type="number" id="anno" name="anno" placeholder="AAAA" min="1900" max="2026" maxlength="4" required>
+                                <input type="number" id="anno" name="anno" placeholder="AAAA" min="1900" max="2025" maxlength="4" required>
                             </div>
                             <input type="hidden" id="dataNascita" name="dataNascita">
                         </div>
@@ -855,46 +787,27 @@
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="comune">Comune di Residenza<span class="required">*</span></label>
-                            <input type="text" id="comune" name="comune" list="comuni-list" 
-                                   placeholder="Digita per cercare (es: 'Nov' per Novi)..." required
-                                   autocomplete="off" style="padding: 10px; font-size: 14px;">
-                            <datalist id="comuni-list">
-                                <option value="Albera Ligure">
-                                <option value="Arquata Scrivia">
-                                <option value="Basaluzzo">
-                                <option value="Borghetto Di Borbera">
-                                <option value="Bosio">
-                                <option value="Cabella Ligure">
-                                <option value="Cantalupo Ligure">
-                                <option value="Capriata D'Orba">
-                                <option value="Carrega Ligure">
-                                <option value="Carrosio">
-                                <option value="Cassano Spinola">
-                                <option value="Fraconalto">
-                                <option value="Francavilla Bisio">
-                                <option value="Fresonara">
-                                <option value="Gavi">
-                                <option value="Grondona">
-                                <option value="Mongiardino Ligure">
-                                <option value="Novi Ligure">
-                                <option value="Parodi Ligure">
-                                <option value="Pasturana">
-                                <option value="Pozzolo Formigaro">
-                                <option value="Roccaforte Ligure">
-                                <option value="Rocchetta Ligure">
-                                <option value="San Cristoforo">
-                                <option value="Sardigliano">
-                                <option value="Serravalle Scrivia">
-                                <option value="Stazzano">
-                                <option value="Tassarolo">
-                                <option value="Vignole Borbera">
-                                <option value="Voltaggio">
-                            </datalist>
+                            <select id="comune" name="comune" required>
+                                <option value="">Seleziona il comune...</option>
+                                <option value="Novi Ligure">🏛️ Novi Ligure (19)</option>
+                                <option value="Arquata Scrivia">🏛️ Arquata Scrivia (8)</option>
+                                <option value="Serravalle Scrivia">🏛️ Serravalle Scrivia (9)</option>
+                                <option value="Gavi">🏛️ Gavi (5)</option>
+                                <option value="Basaluzzo">🏛️ Basaluzzo (1)</option>
+                                <option value="Bosio">🏛️ Bosio (1)</option>
+                                <option value="Cassano Spinola">🏛️ Cassano Spinola (1)</option>
+                                <option value="Fresonara">🏛️ Fresonara (1)</option>
+                                <option value="Pozzolo Formigaro">🏛️ Pozzolo Formigaro (1)</option>
+                                <option value="Stazzano">🏛️ Stazzano (1)</option>
+                                <option value="Tassarolo">🏛️ Tassarolo (1)</option>
+                                <option value="Vignole Borbera">🏛️ Vignole Borbera (1)</option>
+                                <option value="Voltaggio">🏛️ Voltaggio (1)</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
                             <label for="telFisso">Telefono Fisso</label>
-                            <input type="tel" id="telFisso" name="telFisso" placeholder="0143..." value="0143">
+                            <input type="tel" id="telFisso" name="telFisso" placeholder="0143...">
                         </div>
 
                         <div class="form-group">
@@ -1027,7 +940,7 @@
                         </div>
                         <div class="form-group">
                             <label for="provincia">Provincia</label>
-                            <input type="text" id="provincia" name="provincia" maxlength="2" placeholder="AL" value="AL">
+                            <input type="text" id="provincia" name="provincia" maxlength="2" placeholder="TP">
                         </div>
                         <div class="form-group">
                             <label for="codiceFiscale">Codice Fiscale</label>
@@ -1101,17 +1014,33 @@
                     </div>
                 </div>
 
-                <!-- SENSORE ECG SOLO -->
+                <!-- AUSILI ED ECG -->
                 <div class="section">
-                    <h2 class="section-title" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #e0e0e0;">❤️ Sensore ECG (TeleMonitoraggio)</h2>
+                    <h2 class="section-title" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #e0e0e0;">🔧 Ausili ed ECG</h2>
                     
                     <div class="form-grid">
+                        <div class="form-group">
+                            <label for="poltrone">Poltrone antidecubito</label>
+                            <select id="poltrone" name="poltrone">
+                                <option value="">-</option>
+                                <option value="S">✅ S</option>
+                                <option value="N">❌ N</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="sensoreLuce">Sensore Luce</label>
+                            <select id="sensoreLuce" name="sensoreLuce">
+                                <option value="">-</option>
+                                <option value="S">✅ S</option>
+                                <option value="N">❌ N</option>
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label for="sensoreEcg">Sensore ECG</label>
                             <select id="sensoreEcg" name="sensoreEcg">
                                 <option value="">-</option>
-                                <option value="S">✅ SÌ</option>
-                                <option value="N">❌ NO</option>
+                                <option value="S">✅ S</option>
+                                <option value="N">❌ N</option>
                             </select>
                         </div>
                     </div>
@@ -1182,10 +1111,35 @@
                             <label for="meseInstallazionePrevisto">Mese Install. Dispositivo</label>
                             <select id="meseInstallazionePrevisto" name="meseInstallazionePrevisto">
                                 <option value="">-- Seleziona --</option>
-                                <option value="Dicembre 2025">Dicembre 2025</option>
-                                <option value="Gennaio 2026">Gennaio 2026</option>
-                                <option value="Febbraio 2026">Febbraio 2026</option>
-                                <option value="Marzo 2026">Marzo 2026</option>
+                                <option value="Dicembre 2025">Dic. 2025</option>
+                                <option value="Dicembre 2025">Dic 2025</option>
+                                <option value="Gennaio 2026">Gen 2026</option>
+                                <option value="Febbraio 2026">Feb 2026</option>
+                                <option value="Marzo 2026">Mar 2026</option>
+                                <option value="Non pianificato">Non pianificato</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="meseInstallazionePoltrona">Mese Install. Poltrona</label>
+                            <select id="meseInstallazionePoltrona" name="meseInstallazionePoltrona">
+                                <option value="">-- Seleziona --</option>
+                                <option value="Dicembre 2025">Dic. 2025</option>
+                                <option value="Dicembre 2025">Dic 2025</option>
+                                <option value="Gennaio 2026">Gen 2026</option>
+                                <option value="Febbraio 2026">Feb 2026</option>
+                                <option value="Marzo 2026">Mar 2026</option>
+                                <option value="Non pianificato">Non pianificato</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="meseInstallazioneSensoreLuce">Mese Install. Sensore Luce</label>
+                            <select id="meseInstallazioneSensoreLuce" name="meseInstallazioneSensoreLuce">
+                                <option value="">-- Seleziona --</option>
+                                <option value="Dicembre 2025">Dic. 2025</option>
+                                <option value="Dicembre 2025">Dic 2025</option>
+                                <option value="Gennaio 2026">Gen 2026</option>
+                                <option value="Febbraio 2026">Feb 2026</option>
+                                <option value="Marzo 2026">Mar 2026</option>
                                 <option value="Non pianificato">Non pianificato</option>
                             </select>
                         </div>
@@ -1193,10 +1147,11 @@
                             <label for="meseInstallazioneSensoreEcg">Mese Install. Sensore ECG</label>
                             <select id="meseInstallazioneSensoreEcg" name="meseInstallazioneSensoreEcg">
                                 <option value="">-- Seleziona --</option>
-                                <option value="Dicembre 2026">Dicembre 2026</option>
-                                <option value="Gennaio 2027">Gennaio 2027</option>
-                                <option value="Febbraio 2027">Febbraio 2027</option>
-                                <option value="Marzo 2027">Marzo 2027</option>
+                                <option value="Dicembre 2025">Dic. 2025</option>
+                                <option value="Dicembre 2025">Dic 2025</option>
+                                <option value="Gennaio 2026">Gen 2026</option>
+                                <option value="Febbraio 2026">Feb 2026</option>
+                                <option value="Marzo 2026">Mar 2026</option>
                                 <option value="Non pianificato">Non pianificato</option>
                             </select>
                         </div>
@@ -1215,7 +1170,22 @@
                             <label for="serialeDispositivo">Seriale Dispositivo</label>
                             <input type="text" id="serialeDispositivo" name="serialeDispositivo" placeholder="SN...">
                         </div>
-                        
+                        <div class="form-group">
+                            <label for="installazionePoltrona">Poltrona Installata</label>
+                            <select id="installazionePoltrona" name="installazionePoltrona">
+                                <option value="">-</option>
+                                <option value="SI">✅ SI</option>
+                                <option value="NO">❌ NO</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="installazioneSensoreLuce">Sensore Luce Installato</label>
+                            <select id="installazioneSensoreLuce" name="installazioneSensoreLuce">
+                                <option value="">-</option>
+                                <option value="SI">✅ SI</option>
+                                <option value="NO">❌ NO</option>
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label for="installazioneSensoreEcg">Sensore ECG Installato</label>
                             <select id="installazioneSensoreEcg" name="installazioneSensoreEcg">
@@ -1259,47 +1229,17 @@
         // ========================================
         // CONFIGURAZIONE
         // ========================================
-        const DEPLOY_URL = 'https://script.google.com/macros/s/AKfycbzlHLYKYx4wOEAdqzAO-PBzxYwufwWWSxIymLI3PJO7LU9tagYPu42h4VDa0jzXiT_f/exec';
+        const DEPLOY_URL = 'https://script.google.com/macros/s/AKfycbwhYrBmohQomRCt-mr41PLsmEJPCKuswi77_NfYjiWfrq1gKtV_ReqYxmp5mjY9rQdR/exec';
         
         let schedeCache = [];
         let installatiCache = [];
         let pianificatiCache = [];
         
-        // VARIABILE GLOBALE per obiettivi (caricata da Google Sheet)
-        let OBIETTIVI_COMUNI = {};
-        const OBIETTIVO_TOTALE = 50;
-        
-        // ========================================
-        // CARICAMENTO OBIETTIVI DA GOOGLE SHEET
-        // ========================================
-        async function caricaObiettiviDalServer() {
-            try {
-                console.log('📊 Caricamento obiettivi dal server...');
-                const response = await fetch(DEPLOY_URL + '?action=getObiettivi');
-                const data = await response.json();
-                
-                if (data.success && data.obiettivi) {
-                    OBIETTIVI_COMUNI = data.obiettivi;
-                    console.log('✅ Obiettivi caricati dal server:', OBIETTIVI_COMUNI);
-                    console.log('📊 Totale comuni con obiettivi:', Object.keys(OBIETTIVI_COMUNI).length);
-                    aggiornaDashboard();
-                    renderConfigObiettivi();
-                } else {
-                    console.error('❌ Errore: obiettivi non disponibili nel database');
-                    mostraMessaggio('error', '❌ ERRORE: Impossibile caricare gli obiettivi dal database. Verifica la connessione e riprova.');
-                    throw new Error('Obiettivi non disponibili nel database');
-                }
-            } catch(e) {
-                console.error('❌ Errore caricamento obiettivi dal server:', e);
-                mostraMessaggio('error', '❌ ERRORE CRITICO: Impossibile caricare gli obiettivi dal database.\n\nL\'applicazione richiede connessione al database per funzionare.\n\nVerifica:\n1) Connessione internet\n2) Google Sheet accessibile\n3) API Script attivo');
-                throw e;
-            }
-        }
-        
         // ========================================
         // INIZIALIZZAZIONE
         // ========================================
         window.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 DOMContentLoaded - Inizializzazione');
             setupPianificazioneListeners();
             impostaDataOggi();
             caricaSchede();
@@ -1307,18 +1247,40 @@
         });
         
         // ========================================
-        // GESTIONE TAB (già definita in <head>)
+        // GESTIONE TAB
         // ========================================
+        function switchTab(tabName) {
+            console.log(`📑 switchTab chiamato con: ${tabName}`);
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+            event.target.classList.add('active');
+            
+            if (tabName === 'dashboard') {
+                aggiornaDashboard();
+            } else if (tabName === 'installati') {
+                mostraInstallati();
+            } else if (tabName === 'pianificati') {
+                mostraPianificati();
+            }
+        }
         
         // ========================================
         // CARICAMENTO DATI
         // ========================================
-        async function caricaSchede() {
+        function caricaSchede() {
+            console.trace(`🔴 ${name} CHIAMATA - Stack trace:`);
+            console.log(`⏰ ${name} timestamp:`, Date.now());
             mostraLoading('Caricamento dati...');
             
             fetch(DEPLOY_URL)
                 .then(response => response.json())
-                .then(async data => {
+                .then(data => {
                     console.log('📊 Dati ricevuti:', data);
                     console.log('📊 data.schede length:', data.schede ? data.schede.length : 0);
                     if (data.success) {
@@ -1336,11 +1298,7 @@
                         );
                         console.log('📊 pianificatiCache length:', pianificatiCache.length);
                         
-                        // Carica obiettivi dal Google Sheet PRIMA di aggiornare dashboard
-                        await caricaObiettiviDalServer();
-                        
                         aggiornaDashboard();
-                        
                         nascondiLoading();
                         mostraMessaggio('success', `✅ ${schedeCache.length} schede caricate`);
                     }
@@ -1356,24 +1314,16 @@
         // DASHBOARD
         // ========================================
         function aggiornaDashboard() {
-            // Anche se non ci sono schede, aggiorna i valori di default
-            if (schedeCache.length === 0) {
-                document.getElementById('stat-totale').textContent = 0;
-                document.getElementById('stat-installati').textContent = 0;
-                document.getElementById('stat-pianificati').textContent = 0;
-                document.getElementById('stat-comuni').textContent = 0;
-                document.getElementById('dashboard-progress').textContent = '0%';
-                document.getElementById('dashboard-remaining').textContent = 50;
-                document.getElementById('progress-bar').style.width = '0%';
-                return;
-            }
+            console.trace(`🔴 ${name} CHIAMATA - Stack trace:`);
+            console.log(`⏰ ${name} timestamp:`, Date.now());
+            if (schedeCache.length === 0) return;
             
             const installati = installatiCache.length;
             const pianificati = pianificatiCache.length;
             const comuni = new Set(schedeCache.map(s => s.comune).filter(c => c)).size;
             const totale = schedeCache.length;
-            const progresso = Math.round((installati / OBIETTIVO_TOTALE) * 100);
-            const rimanenti = OBIETTIVO_TOTALE - installati;
+            const progresso = Math.round((installati / 50) * 100);
+            const rimanenti = 50 - installati;
             
             document.getElementById('stat-totale').textContent = totale;
             document.getElementById('stat-installati').textContent = installati;
@@ -1391,14 +1341,77 @@
         // TABELLA DISTRIBUZIONE PER COMUNE
         // ========================================
         function aggiornaTabellaComuni() {
-            // Obiettivi vengono dalla variabile globale OBIETTIVI_COMUNI
-            // caricata da caricaObiettiviDalServer() all'avvio
+            console.trace(`🔴 ${name} CHIAMATA - Stack trace:`);
+            console.log(`⏰ ${name} timestamp:`, Date.now());
+            // Carica obiettivi da localStorage o usa default
+            const defaultObiettivi = {
+                'Novi Ligure': 19,
+                'Arquata Scrivia': 8,
+                'Serravalle Scrivia': 9,
+                'Gavi': 5,
+                'Basaluzzo': 1,
+                'Bosio': 1,
+                'Cassano Spinola': 1,
+                'Fresonara': 1,
+                'Pozzolo Formigaro': 1,
+                'Stazzano': 1,
+                'Tassarolo': 1,
+                'Vignole Borbera': 1,
+                'Voltaggio': 1,
+                'Albera Ligure': 0,
+                'Borghetto Di Borbera': 0,
+                'Cabella Ligure': 0,
+                'Cantalupo Ligure': 0,
+                'Capriata D\'Orba': 0,
+                'Carrega Ligure': 0,
+                'Carrosio': 0,
+                'Fraconalto': 0,
+                'Francavilla Bisio': 0,
+                'Grondona': 0,
+                'Mongiardino Ligure': 0,
+                'Parodi Ligure': 0,
+                'Pasturana': 0,
+                'Roccaforte Ligure': 0,
+                'Rocchetta Ligure': 0,
+                'San Cristoforo': 0,
+                'Sardigliano': 0
+            };
+            
+            let OBIETTIVI_COMUNI = defaultObiettivi;
+            
+            // Carica obiettivi dal Google Sheet invece di localStorage
+            async function caricaObiettiviDalServer() {
+            console.trace(`🔴 ${name} CHIAMATA - Stack trace:`);
+            console.log(`⏰ ${name} timestamp:`, Date.now());
+                try {
+                    console.log('📊 Caricamento obiettivi dal server...');
+                    const response = await fetch(DEPLOY_URL + '?action=getObiettivi');
+                    const data = await response.json();
+                    
+                    if (data.success && data.obiettivi) {
+                        OBIETTIVI_COMUNI = data.obiettivi;
+                        console.log('✅ Obiettivi caricati dal server:', OBIETTIVI_COMUNI);
+                        // aggiornaDashboard(); // RIMOSSO: causava loop infinito!
+                        renderConfigObiettivi();
+                    } else {
+                        console.log('⚠️ Usando obiettivi default');
+                        OBIETTIVI_COMUNI = defaultObiettivi;
+                    }
+                } catch(e) {
+                    console.log('⚠️ Errore caricamento obiettivi, uso default:', e);
+                    OBIETTIVI_COMUNI = defaultObiettivi;
+                }
+            }
             
             const COMUNI_DISTRETTO = [
                 'Novi Ligure', 'Arquata Scrivia', 'Serravalle Scrivia', 'Gavi',
-                'Voltaggio', 'Bosio', 'Francavilla Bisio', 'Pasturana',
-                'Pozzolo Formigaro', 'Cassano Spinola', 'Basaluzzo', 'Fresonara',
-                'Tassarolo'
+                'Basaluzzo', 'Bosio', 'Cassano Spinola', 'Fresonara',
+                'Pozzolo Formigaro', 'Stazzano', 'Tassarolo', 'Vignole Borbera',
+                'Voltaggio', 'Albera Ligure', 'Borghetto Di Borbera', 'Cabella Ligure',
+                'Cantalupo Ligure', 'Capriata D\'Orba', 'Carrega Ligure', 'Carrosio',
+                'Fraconalto', 'Francavilla Bisio', 'Grondona', 'Mongiardino Ligure',
+                'Parodi Ligure', 'Pasturana', 'Roccaforte Ligure', 'Rocchetta Ligure',
+                'San Cristoforo', 'Sardigliano'
             ];
             
             // Conta assistiti e installati per comune
@@ -1432,7 +1445,7 @@
                 const percentuale = obiettivo > 0 ? Math.round((count / obiettivo) * 100) : 0;
                 const mancanti = Math.max(0, obiettivo - count);
                 
-                let coloreBarra = '#1e5799';
+                let coloreBarra = '#667eea';
                 let bgColor = '';
                 if (percentuale >= 100) {
                     coloreBarra = '#28a745';
@@ -1451,9 +1464,9 @@
                 html += `
                     <tr style="${bgColor}">
                         <td><strong>${comune}</strong></td>
-                        <td style="text-align: center;"><strong style="font-size: 16px; color: #1e5799;">${count}</strong></td>
+                        <td style="text-align: center;"><strong style="font-size: 16px; color: #667eea;">${count}</strong></td>
                         <td style="text-align: center;"><strong style="font-size: 18px; color: #28a745;">${installati}</strong></td>
-                        <td style="text-align: center;"><strong style="color: #207cca;">${obiettivo}</strong></td>
+                        <td style="text-align: center;"><strong style="color: #764ba2;">${obiettivo}</strong></td>
                         <td style="text-align: center;"><strong style="color: ${coloreBarra};">${percentuale}%</strong></td>
                         <td>
                             <div class="progress-mini">
@@ -1482,11 +1495,11 @@
             
             // Aggiungi riga totali
             html += `
-                <tr style="background: #e9ecef; font-weight: bold; border-top: 3px solid #1e5799;">
+                <tr style="background: #e9ecef; font-weight: bold; border-top: 3px solid #667eea;">
                     <td><strong>📊 TOTALE</strong></td>
-                    <td style="text-align: center;"><strong style="font-size: 18px; color: #1e5799;">${totalAssistiti}</strong></td>
+                    <td style="text-align: center;"><strong style="font-size: 18px; color: #667eea;">${totalAssistiti}</strong></td>
                     <td style="text-align: center;"><strong style="font-size: 18px; color: #28a745;">${totalInstallati}</strong></td>
-                    <td style="text-align: center;"><strong style="color: #207cca;">${totalObiettivo}</strong></td>
+                    <td style="text-align: center;"><strong style="color: #764ba2;">${totalObiettivo}</strong></td>
                     <td style="text-align: center;"><strong style="color: ${totalPercentuale >= 100 ? '#28a745' : totalPercentuale >= 75 ? '#ffc107' : '#dc3545'};">${totalPercentuale}%</strong></td>
                     <td>
                         <div class="progress-mini">
@@ -1836,12 +1849,17 @@ function caricaSchedaCompleta(scheda) {
             if (document.getElementById('dataCompilazione')) document.getElementById('dataCompilazione').value = scheda.dataCompilazione || '';
             
             // DISPOSITIVI AGGIUNTIVI (campi 53-58)
-            // Poltrone e sensori luce rimossi per CSP Novi
+            if (document.getElementById('poltrone')) // document.getElementById('poltrone').value = /* scheda.poltrone */ "" || ''; // Campo nascosto per CSP Novi
+            if (document.getElementById('sensoreLuce')) // document.getElementById('sensoreLuce').value = /* scheda.sensoreLuce */ "" || ''; // Campo nascosto per CSP Novi
             if (document.getElementById('sensoreEcg')) document.getElementById('sensoreEcg').value = scheda.sensoreEcg || '';
+            if (document.getElementById('installazionePoltrona')) // document.getElementById('installazionePoltrona').value = /* scheda.installazionePoltrona */ "" || ''; // Campo nascosto per CSP Novi
+            if (document.getElementById('installazioneSensoreLuce')) // document.getElementById('installazioneSensoreLuce').value = /* scheda.installazioneSensoreLuce */ "" || ''; // Campo nascosto per CSP Novi
             if (document.getElementById('installazioneSensoreEcg')) document.getElementById('installazioneSensoreEcg').value = scheda.installazioneSensoreEcg || '';
             
             // PIANIFICAZIONE (campi 59-61)
             if (document.getElementById('meseInstallazionePrevisto')) document.getElementById('meseInstallazionePrevisto').value = scheda.meseInstallazionePrevisto || '';
+            if (document.getElementById('meseInstallazionePoltrona')) // document.getElementById('meseInstallazionePoltrona').value = /* scheda.meseInstallazionePoltrona */ "" || ''; // Campo nascosto per CSP Novi
+            if (document.getElementById('meseInstallazioneSensoreLuce')) // document.getElementById('meseInstallazioneSensoreLuce').value = /* scheda.meseInstallazioneSensoreLuce */ "" || ''; // Campo nascosto per CSP Novi
             if (document.getElementById('meseInstallazioneSensoreEcg')) document.getElementById('meseInstallazioneSensoreEcg').value = scheda.meseInstallazioneSensoreEcg || '';
             
             // Aggiorna display riepilogo
@@ -1943,32 +1961,26 @@ function caricaSchedaCompleta(scheda) {
             
             mostraLoading('Salvataggio...');
             
-            const formParams = new URLSearchParams();
-            formParams.append('action', 'save');
-            formParams.append('data', JSON.stringify(schedaData));
-            
             fetch(DEPLOY_URL, {
                 method: 'POST',
-                body: formParams
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: 'save', data: schedaData })
             })
-            .then(response => response.json())
-            .then(result => {
+            .then(() => {
                 nascondiLoading();
-                if (result.success) {
-                    mostraMessaggio('success', `✅ Scheda ${schedaData.numeroScheda} salvata!`);
-                    setTimeout(() => {
-                        caricaSchede();
-                        resetForm();
-                        switchTab('dashboard');
-                    }, 1500);
-                } else {
-                    mostraMessaggio('error', '❌ Errore: ' + result.message);
-                }
+                mostraMessaggio('success', `✅ Scheda ${schedaData.numeroScheda} salvata!`);
+                setTimeout(() => {
+                    caricaSchede();
+                    resetForm();
+                    switchTab('dashboard');
+                }, 1500);
             })
             .catch(error => {
                 nascondiLoading();
-                console.error('Errore salvataggio:', error);
-                mostraMessaggio('error', '❌ Errore di connessione al server');
+                console.error(error);
+                mostraMessaggio('info', '📤 Scheda inviata (modalità no-cors)');
+                setTimeout(() => { caricaSchede(); }, 2000);
             });
         }
         
@@ -2009,20 +2021,50 @@ function caricaSchedaCompleta(scheda) {
         }
         
         function renderConfigObiettivi() {
-            // Usa OBIETTIVI_COMUNI caricati dal Google Sheet
-            // Nessun valore hardcoded o localStorage
-            if (!OBIETTIVI_COMUNI || Object.keys(OBIETTIVI_COMUNI).length === 0) {
-                console.error('❌ Obiettivi non caricati dal database');
-                document.getElementById('config-obiettivi-grid').innerHTML = `
-                    <div style="grid-column: 1 / -1; padding: 40px; text-align: center; color: #dc3545; background: #f8d7da; border-radius: 8px;">
-                        <h3>❌ Errore: Obiettivi non disponibili</h3>
-                        <p>Gli obiettivi non sono stati caricati dal database.<br>Verifica la connessione e ricarica la pagina.</p>
-                    </div>
-                `;
-                return;
-            }
+            console.trace(`🔴 ${name} CHIAMATA - Stack trace:`);
+            console.log(`⏰ ${name} timestamp:`, Date.now());
+            const defaultObiettivi = {
+                'Novi Ligure': 19,
+                'Arquata Scrivia': 8,
+                'Serravalle Scrivia': 9,
+                'Gavi': 5,
+                'Basaluzzo': 1,
+                'Bosio': 1,
+                'Cassano Spinola': 1,
+                'Fresonara': 1,
+                'Pozzolo Formigaro': 1,
+                'Stazzano': 1,
+                'Tassarolo': 1,
+                'Vignole Borbera': 1,
+                'Voltaggio': 1,
+                'Albera Ligure': 0,
+                'Borghetto Di Borbera': 0,
+                'Cabella Ligure': 0,
+                'Cantalupo Ligure': 0,
+                'Capriata D\'Orba': 0,
+                'Carrega Ligure': 0,
+                'Carrosio': 0,
+                'Fraconalto': 0,
+                'Francavilla Bisio': 0,
+                'Grondona': 0,
+                'Mongiardino Ligure': 0,
+                'Parodi Ligure': 0,
+                'Pasturana': 0,
+                'Roccaforte Ligure': 0,
+                'Rocchetta Ligure': 0,
+                'San Cristoforo': 0,
+                'Sardigliano': 0
+            };
             
-            const obiettivi = OBIETTIVI_COMUNI;
+            let obiettivi = defaultObiettivi;
+            try {
+                const saved = localStorage.getItem('obiettivi_comuni');
+                if (saved) {
+                    obiettivi = JSON.parse(saved);
+                }
+            } catch(e) {
+                console.log('Usando obiettivi default');
+            }
             
             const comuni = Object.keys(obiettivi);
             let htmlContent = '';
@@ -2050,26 +2092,65 @@ function caricaSchedaCompleta(scheda) {
         }
         
         function salvaObiettivi() {
-            // Leggi obiettivi dai campi input
-            // Usa OBIETTIVI_COMUNI caricati dal Google Sheet (nessun hardcoded)
-            if (!OBIETTIVI_COMUNI || Object.keys(OBIETTIVI_COMUNI).length === 0) {
-                alert('❌ Errore: Obiettivi non caricati dal database.\n\nRicarica la pagina e riprova.');
-                return;
-            }
-            
+            console.trace(`🔴 ${name} CHIAMATA - Stack trace:`);
+            console.log(`⏰ ${name} timestamp:`, Date.now());
             const obiettivi = {};
             
-            // Leggi tutti i campi input basandosi su OBIETTIVI_COMUNI dal DB
-            Object.keys(OBIETTIVI_COMUNI).forEach(comune => {
+            // Leggi tutti i campi input in modo sicuro
+            const defaultObiettivi = {
+                'Novi Ligure': 19,
+                'Arquata Scrivia': 8,
+                'Serravalle Scrivia': 9,
+                'Gavi': 5,
+                'Basaluzzo': 1,
+                'Bosio': 1,
+                'Cassano Spinola': 1,
+                'Fresonara': 1,
+                'Pozzolo Formigaro': 1,
+                'Stazzano': 1,
+                'Tassarolo': 1,
+                'Vignole Borbera': 1,
+                'Voltaggio': 1,
+                'Albera Ligure': 0,
+                'Borghetto Di Borbera': 0,
+                'Cabella Ligure': 0,
+                'Cantalupo Ligure': 0,
+                'Capriata D\'Orba': 0,
+                'Carrega Ligure': 0,
+                'Carrosio': 0,
+                'Fraconalto': 0,
+                'Francavilla Bisio': 0,
+                'Grondona': 0,
+                'Mongiardino Ligure': 0,
+                'Parodi Ligure': 0,
+                'Pasturana': 0,
+                'Roccaforte Ligure': 0,
+                'Rocchetta Ligure': 0,
+                'San Cristoforo': 0,
+                'Sardigliano': 0
+            };
+            
+            Object.keys(defaultObiettivi).forEach(comune => {
                 const safeId = comune.replace(/\s+/g, '-').replace(/'/g, '');
                 const element = document.getElementById('obiettivo-' + safeId);
                 if (element) {
-                    obiettivi[comune] = parseInt(element.value) || 0;
+                    obiettivi[comune] = parseInt(element.value) || defaultObiettivi[comune];
                 } else {
                     console.warn('Elemento non trovato per: ' + comune);
-                    obiettivi[comune] = OBIETTIVI_COMUNI[comune] || 0;
+                    obiettivi[comune] = defaultObiettivi[comune];
                 }
             });
+            
+            // VALIDAZIONE: Verifica che la somma sia 50
+            const somma = Object.values(obiettivi).reduce((acc, val) => acc + val, 0);
+            if (somma !== 50) {
+                alert(`⚠️ ERRORE: La somma degli obiettivi deve essere 50!
+
+Attualmente: ${somma}
+
+Modifica i valori prima di salvare.`);
+                return; // Blocca il salvataggio
+            }
             
             // Salva obiettivi sul Google Sheet
             mostraLoading('Salvataggio obiettivi...');
@@ -2121,6 +2202,8 @@ function caricaSchedaCompleta(scheda) {
         function aggiornaDisplayPianificazione() {
             const displays = {
                 'display_meseDispositivo': 'meseInstallazionePrevisto',
+                'display_mesePoltrona': 'meseInstallazionePoltrona',
+                'display_meseSensoreLuce': 'meseInstallazioneSensoreLuce',
                 'display_meseSensoreEcg': 'meseInstallazioneSensoreEcg'
             };
             
@@ -2135,7 +2218,8 @@ function caricaSchedaCompleta(scheda) {
         
         // Listener per i select di pianificazione
         function setupPianificazioneListeners() {
-            const selectIds = ['comune-pianificazione', 'mese-installazione'];
+            const selectIds = ['meseInstallazionePrevisto', 'meseInstallazionePoltrona', 
+                             'meseInstallazioneSensoreLuce', 'meseInstallazioneSensoreEcg'];
             selectIds.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) {

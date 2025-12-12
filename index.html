@@ -1229,7 +1229,7 @@ select[name="meseInstallazioneSensoreLuce"]:parent {
         // ========================================
         // CONFIGURAZIONE
         // ========================================
-        const DEPLOY_URL = 'https://script.google.com/macros/s/AKfycbwhYrBmohQomRCt-mr41PLsmEJPCKuswi77_NfYjiWfrq1gKtV_ReqYxmp5mjY9rQdR/exec';
+        const DEPLOY_URL = 'https://script.google.com/macros/s/AKfycbxONTX5scZcJOUdg0kFvEfedsUrAK8X1KEZ69yV6DR9PAx-IqOoifbjCIUmoCcoKi4d/exec';
         
         let schedeCache = [];
         let installatiCache = [];
@@ -1239,7 +1239,6 @@ select[name="meseInstallazioneSensoreLuce"]:parent {
         // INIZIALIZZAZIONE
         // ========================================
         window.addEventListener('DOMContentLoaded', function() {
-            console.log('🚀 DOMContentLoaded - Inizializzazione');
             setupPianificazioneListeners();
             impostaDataOggi();
             caricaSchede();
@@ -1250,7 +1249,6 @@ select[name="meseInstallazioneSensoreLuce"]:parent {
         // GESTIONE TAB
         // ========================================
         function switchTab(tabName) {
-            console.log(`📑 switchTab chiamato con: ${tabName}`);
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
             });
@@ -1274,8 +1272,6 @@ select[name="meseInstallazioneSensoreLuce"]:parent {
         // CARICAMENTO DATI
         // ========================================
         function caricaSchede() {
-            console.trace(`🔴 ${name} CHIAMATA - Stack trace:`);
-            console.log(`⏰ ${name} timestamp:`, Date.now());
             mostraLoading('Caricamento dati...');
             
             fetch(DEPLOY_URL)
@@ -1314,8 +1310,6 @@ select[name="meseInstallazioneSensoreLuce"]:parent {
         // DASHBOARD
         // ========================================
         function aggiornaDashboard() {
-            console.trace(`🔴 ${name} CHIAMATA - Stack trace:`);
-            console.log(`⏰ ${name} timestamp:`, Date.now());
             if (schedeCache.length === 0) return;
             
             const installati = installatiCache.length;
@@ -1341,8 +1335,6 @@ select[name="meseInstallazioneSensoreLuce"]:parent {
         // TABELLA DISTRIBUZIONE PER COMUNE
         // ========================================
         function aggiornaTabellaComuni() {
-            console.trace(`🔴 ${name} CHIAMATA - Stack trace:`);
-            console.log(`⏰ ${name} timestamp:`, Date.now());
             // Carica obiettivi da localStorage o usa default
             const defaultObiettivi = {
                 'Novi Ligure': 19,
@@ -1381,8 +1373,6 @@ select[name="meseInstallazioneSensoreLuce"]:parent {
             
             // Carica obiettivi dal Google Sheet invece di localStorage
             async function caricaObiettiviDalServer() {
-            console.trace(`🔴 ${name} CHIAMATA - Stack trace:`);
-            console.log(`⏰ ${name} timestamp:`, Date.now());
                 try {
                     console.log('📊 Caricamento obiettivi dal server...');
                     const response = await fetch(DEPLOY_URL + '?action=getObiettivi');
@@ -2021,8 +2011,6 @@ function caricaSchedaCompleta(scheda) {
         }
         
         function renderConfigObiettivi() {
-            console.trace(`🔴 ${name} CHIAMATA - Stack trace:`);
-            console.log(`⏰ ${name} timestamp:`, Date.now());
             const defaultObiettivi = {
                 'Novi Ligure': 19,
                 'Arquata Scrivia': 8,
@@ -2092,8 +2080,6 @@ function caricaSchedaCompleta(scheda) {
         }
         
         function salvaObiettivi() {
-            console.trace(`🔴 ${name} CHIAMATA - Stack trace:`);
-            console.log(`⏰ ${name} timestamp:`, Date.now());
             const obiettivi = {};
             
             // Leggi tutti i campi input in modo sicuro

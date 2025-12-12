@@ -728,13 +728,10 @@
                 <label>Filtra per Mese:</label>
                 <select id="filter-mese-pianificati" onchange="filtraPianificati()">
                     <option value="">📅 Tutti i Mesi</option>
-                    <option value="Dicembre 2024">Dicembre 2024</option>
-                    <option value="Gennaio 2025">Gennaio 2025</option>
-                    <option value="Febbraio 2025">Febbraio 2025</option>
-                    <option value="Marzo 2025">Marzo 2025</option>
-                    <option value="Aprile 2025">Aprile 2025</option>
-                    <option value="Maggio 2025">Maggio 2025</option>
-                    <option value="Giugno 2025">Giugno 2025</option>
+                    <option value="Dicembre 2025">Dicembre 2025</option>
+                    <option value="Gennaio 2026">Gennaio 2026</option>
+                    <option value="Febbraio 2026">Febbraio 2026</option>
+                    <option value="Marzo 2026">Marzo 2026</option>
                 </select>
                 
                 <label>Filtra per Comune:</label>
@@ -1185,13 +1182,10 @@
                             <label for="meseInstallazionePrevisto">Mese Install. Dispositivo</label>
                             <select id="meseInstallazionePrevisto" name="meseInstallazionePrevisto">
                                 <option value="">-- Seleziona --</option>
-                                <option value="Dicembre 2024">Dicembre 2024</option>
-                                <option value="Gennaio 2025">Gennaio 2025</option>
-                                <option value="Febbraio 2025">Febbraio 2025</option>
-                                <option value="Marzo 2025">Marzo 2025</option>
-                                <option value="Aprile 2025">Aprile 2025</option>
-                                <option value="Maggio 2025">Maggio 2025</option>
-                                <option value="Giugno 2025">Giugno 2025</option>
+                                <option value="Dicembre 2025">Dicembre 2025</option>
+                                <option value="Gennaio 2026">Gennaio 2026</option>
+                                <option value="Febbraio 2026">Febbraio 2026</option>
+                                <option value="Marzo 2026">Marzo 2026</option>
                                 <option value="Non pianificato">Non pianificato</option>
                             </select>
                         </div>
@@ -1199,13 +1193,10 @@
                             <label for="meseInstallazioneSensoreEcg">Mese Install. Sensore ECG</label>
                             <select id="meseInstallazioneSensoreEcg" name="meseInstallazioneSensoreEcg">
                                 <option value="">-- Seleziona --</option>
-                                <option value="Dicembre 2024">Dicembre 2024</option>
-                                <option value="Gennaio 2025">Gennaio 2025</option>
-                                <option value="Febbraio 2025">Febbraio 2025</option>
-                                <option value="Marzo 2025">Marzo 2025</option>
-                                <option value="Aprile 2025">Aprile 2025</option>
-                                <option value="Maggio 2025">Maggio 2025</option>
-                                <option value="Giugno 2025">Giugno 2025</option>
+                                <option value="Dicembre 2026">Dicembre 2026</option>
+                                <option value="Gennaio 2027">Gennaio 2027</option>
+                                <option value="Febbraio 2027">Febbraio 2027</option>
+                                <option value="Marzo 2027">Marzo 2027</option>
                                 <option value="Non pianificato">Non pianificato</option>
                             </select>
                         </div>
@@ -1845,8 +1836,7 @@ function caricaSchedaCompleta(scheda) {
             if (document.getElementById('dataCompilazione')) document.getElementById('dataCompilazione').value = scheda.dataCompilazione || '';
             
             // DISPOSITIVI AGGIUNTIVI (campi 53-58)
-            if (document.getElementById()) document.getElementById().value = scheda.poltrone || '';
-            if (document.getElementById()) document.getElementById().value = scheda.sensoreLuce || '';
+            // Poltrone e sensori luce rimossi per CSP Novi
             if (document.getElementById('sensoreEcg')) document.getElementById('sensoreEcg').value = scheda.sensoreEcg || '';
             if (document.getElementById('installazioneSensoreEcg')) document.getElementById('installazioneSensoreEcg').value = scheda.installazioneSensoreEcg || '';
             

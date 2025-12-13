@@ -521,7 +521,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="version-badge">v1.0.5</div>
+            <div class="version-badge">v1.0.7</div>
             <h1>🏥 TeleCare H24 - CSP Novi Ligure</h1>
             <p>Progetto FNNA | 50 Assistiti | Dic 2025 - Mar 2026</p>
         </div>
@@ -1395,13 +1395,36 @@
         function aggiornaTabellaComuni() {
             // Carica obiettivi da localStorage o usa default
             const defaultObiettivi = {
-                                'Erice': 19,
-                'Valderice': 8,
-                'Paceco': 8,
-                'Misiliscemi': 7,
-                'Custonaci': 4,
-                'San Vito Lo Capo': 3,
-                'Favignana': 3: 2
+                'Novi Ligure': 19,
+                'Serravalle Scrivia': 9,
+                'Arquata Scrivia': 8,
+                'Gavi': 5,
+                'Basaluzzo': 1,
+                'Bosio': 1,
+                'Cassano Spinola': 1,
+                'Fresonara': 1,
+                'Pozzolo Formigaro': 1,
+                'Stazzano': 1,
+                'Tassarolo': 1,
+                'Vignole Borbera': 1,
+                'Voltaggio': 1,
+                'Albera Ligure': 0,
+                'Borghetto Di Borbera': 0,
+                'Cabella Ligure': 0,
+                'Cantalupo Ligure': 0,
+                'Capriata D'Orba': 0,
+                'Carrega Ligure': 0,
+                'Carrosio': 0,
+                'Fraconalto': 0,
+                'Francavilla Bisio': 0,
+                'Grondona': 0,
+                'Mongiardino Ligure': 0,
+                'Parodi Ligure': 0,
+                'Pasturana': 0,
+                'Roccaforte Ligure': 0,
+                'Rocchetta Ligure': 0,
+                'San Cristoforo': 0,
+                'Sardigliano': 0
             };
             
             let OBIETTIVI_COMUNI = defaultObiettivi;
@@ -1429,7 +1452,7 @@
             }
             
             const COMUNI_DISTRETTO = [
-                'Favignana'
+
             ];
             
             // Conta assistiti e installati per comune
@@ -2040,13 +2063,36 @@ function caricaSchedaCompleta(scheda) {
         
         function renderConfigObiettivi() {
             const defaultObiettivi = {
-                                'Erice': 19,
-                'Valderice': 8,
-                'Paceco': 8,
-                'Misiliscemi': 7,
-                'Custonaci': 4,
-                'San Vito Lo Capo': 3,
-                'Favignana': 3: 2
+                'Novi Ligure': 19,
+                'Serravalle Scrivia': 9,
+                'Arquata Scrivia': 8,
+                'Gavi': 5,
+                'Basaluzzo': 1,
+                'Bosio': 1,
+                'Cassano Spinola': 1,
+                'Fresonara': 1,
+                'Pozzolo Formigaro': 1,
+                'Stazzano': 1,
+                'Tassarolo': 1,
+                'Vignole Borbera': 1,
+                'Voltaggio': 1,
+                'Albera Ligure': 0,
+                'Borghetto Di Borbera': 0,
+                'Cabella Ligure': 0,
+                'Cantalupo Ligure': 0,
+                'Capriata D'Orba': 0,
+                'Carrega Ligure': 0,
+                'Carrosio': 0,
+                'Fraconalto': 0,
+                'Francavilla Bisio': 0,
+                'Grondona': 0,
+                'Mongiardino Ligure': 0,
+                'Parodi Ligure': 0,
+                'Pasturana': 0,
+                'Roccaforte Ligure': 0,
+                'Rocchetta Ligure': 0,
+                'San Cristoforo': 0,
+                'Sardigliano': 0
             };
             
             let obiettivi = defaultObiettivi;
@@ -2089,13 +2135,36 @@ function caricaSchedaCompleta(scheda) {
             
             // Leggi tutti i campi input in modo sicuro
             const defaultObiettivi = {
-                                'Erice': 19,
-                'Valderice': 8,
-                'Paceco': 8,
-                'Misiliscemi': 7,
-                'Custonaci': 4,
-                'San Vito Lo Capo': 3,
-                'Favignana': 3: 2
+                'Novi Ligure': 19,
+                'Serravalle Scrivia': 9,
+                'Arquata Scrivia': 8,
+                'Gavi': 5,
+                'Basaluzzo': 1,
+                'Bosio': 1,
+                'Cassano Spinola': 1,
+                'Fresonara': 1,
+                'Pozzolo Formigaro': 1,
+                'Stazzano': 1,
+                'Tassarolo': 1,
+                'Vignole Borbera': 1,
+                'Voltaggio': 1,
+                'Albera Ligure': 0,
+                'Borghetto Di Borbera': 0,
+                'Cabella Ligure': 0,
+                'Cantalupo Ligure': 0,
+                'Capriata D'Orba': 0,
+                'Carrega Ligure': 0,
+                'Carrosio': 0,
+                'Fraconalto': 0,
+                'Francavilla Bisio': 0,
+                'Grondona': 0,
+                'Mongiardino Ligure': 0,
+                'Parodi Ligure': 0,
+                'Pasturana': 0,
+                'Roccaforte Ligure': 0,
+                'Rocchetta Ligure': 0,
+                'San Cristoforo': 0,
+                'Sardigliano': 0
             };
             
             Object.keys(defaultObiettivi).forEach(comune => {

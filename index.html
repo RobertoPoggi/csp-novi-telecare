@@ -521,7 +521,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="version-badge">v1.0.17</div>
+            <div class="version-badge">v1.0.22</div>
             <h1>🏥 TeleCare H24 - CSP Novi Ligure</h1>
             <p>Progetto FNNA | 50 Assistiti | Dic 2025 - Mar 2026</p>
         </div>
@@ -752,7 +752,6 @@
             <div style="font-size: 12px; color: #666; margin-top: 8px;">
                 💡 <strong>Tip:</strong> L'autocomplete mostra suggerimenti mentre digiti. Premi freccia ↓ per vedere tutti i risultati.
             </div>
-                       onkeyup="cercaAssistito()">
             </div>
             <div id="search-results" class="search-results"></div>
         </div>
@@ -872,6 +871,11 @@
                             <label for="cellulare">Cellulare</label>
                             <input type="tel" id="cellulare" name="cellulare" placeholder="333...">
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="email@esempio.it">
+                        </div>
                     </div>
                 </div>
 
@@ -880,6 +884,45 @@
                     <h2 class="section-title" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #e0e0e0;">👥 Caregiver</h2>
 
                     <div class="caregiver-card">
+
+                    <div class="caregiver-card">
+                        <div class="caregiver-header">Caregiver A (Principale)</div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="caregiverA_nome">Nome</label>
+                                <input type="text" id="caregiverA_nome" name="caregiverA_nome">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverA_cognome">Cognome</label>
+                                <input type="text" id="caregiverA_cognome" name="caregiverA_cognome">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverA_parentela">Parentela</label>
+                                <input type="text" id="caregiverA_parentela" name="caregiverA_parentela" placeholder="Es: Figlio/a, Coniuge...">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverA_telefono">Telefono Fisso</label>
+                                <input type="tel" id="caregiverA_telefono" name="caregiverA_telefono">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverA_cellulare">Cellulare</label>
+                                <input type="tel" id="caregiverA_cellulare" name="caregiverA_cellulare">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverA_email">Email</label>
+                                <input type="email" id="caregiverA_email" name="caregiverA_email">
+                            </div>
+                            <div class="form-group">
+                                <label for="caregiverA_chiavi">Chiavi Disponibili</label>
+                                <select id="caregiverA_chiavi" name="caregiverA_chiavi">
+                                    <option value="">-- Seleziona --</option>
+                                    <option value="Sì">Sì</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
                         <div class="caregiver-header">Caregiver B</div>
                         <div class="form-grid">
                             <div class="form-group">
@@ -1000,6 +1043,11 @@
                             <label for="provincia">Provincia</label>
                             <input type="text" id="provincia" name="provincia" maxlength="2" placeholder="AL">
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="cap">CAP</label>
+                            <input type="text" id="cap" name="cap" maxlength="5" placeholder="Es: 15067">
+                        </div>
                         <div class="form-group">
                             <label for="codiceFiscale">Codice Fiscale</label>
                             <input type="text" id="codiceFiscale" name="codiceFiscale" maxlength="16" style="text-transform: uppercase;">
@@ -1076,19 +1124,6 @@
                 <div class="section">
                     <h2 class="section-title" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #e0e0e0;">🔧 ECG</h2>
                     
-                    <div class="form-grid">
-                        <div class="form-group" style="display:none;">
-                            <label for="poltrone">Poltrone antidecubito</label>
-                            <select id="poltrone" name="poltrone">
-                                <option value="">-</option>
-                                <option value="S">✅ S</option>
-                                <option value="N">❌ N</option>
-                            </select>
-                        </div>
-                        <div class="form-group" style="display:none;">
-                            
-                        <div class="form-group">
-                            <label for="sensoreEcg">Sensore ECG</label>
                             <select id="sensoreEcg" name="sensoreEcg">
                                 <option value="">-</option>
                                 <option value="S">✅ S</option>
@@ -1163,7 +1198,6 @@
                             <label for="meseInstallazionePrevisto">Mese Install. Dispositivo</label>
                             <select id="meseInstallazionePrevisto" name="meseInstallazionePrevisto">
                                 <option value="">-- Seleziona --</option>
-                                <option value="Novembre 2025">Nov 2025</option>
                                 <option value="Dicembre 2025">Dic 2025</option>
                                 <option value="Gennaio 2026">Gen 2026</option>
                                 <option value="Febbraio 2026">Feb 2026</option>
@@ -1181,7 +1215,6 @@
                             <label for="meseInstallazioneSensoreEcg">Mese Install. Sensore ECG</label>
                             <select id="meseInstallazioneSensoreEcg" name="meseInstallazioneSensoreEcg">
                                 <option value="">-- Seleziona --</option>
-                                <option value="Novembre 2025">Nov 2025</option>
                                 <option value="Dicembre 2026">Dic 2026</option>
                                 <option value="Gennaio 2027">Gen 2027</option>
                                 <option value="Febbraio 2027">Feb 2027</option>
@@ -1250,7 +1283,7 @@
         // ========================================
         // CONFIGURAZIONE
         // ========================================
-        const DEPLOY_URL = 'https://script.google.com/macros/s/AKfycbyY92KF0IHxXg0_1-3M9_3QXA9IkkzxixI8KPHQG6W5DLJ0bJAyjHOpnNJyA0ERooY/exec';
+        const DEPLOY_URL = 'https://script.google.com/macros/s/AKfycbzLaOgXyoNZvCxVKqgOdUkU9BetmCvIjC4KU5e4vb0/dev';
         
         let schedeCache = [];
         let installatiCache = [];
@@ -1305,14 +1338,14 @@
                         
                         // Pre-filtra le cache
                         console.log('📊 schedeCache length:', schedeCache.length);
-                        installatiCache = schedeCache.filter(s => s.IMEI && s.IMEI.trim() !== '');
+                        installatiCache = schedeCache.filter(s => s.serialeDispositivo && s.serialeDispositivo.trim() !== '');
                         console.log('📊 installatiCache length:', installatiCache.length);
                         pianificatiCache = schedeCache.filter(s => 
-                            s.meseInstallazionePrevisto && 
-                            s.meseInstallazionePrevisto !== 'Non pianificato' &&
-                            s.meseInstallazionePrevisto !== '' &&
-                            (!s.IMEI || s.IMEI.trim() === '')
-                        );
+            s.meseInstallazionePrevisto && 
+            s.meseInstallazionePrevisto !== 'Non pianificato' &&
+            s.meseInstallazionePrevisto !== '' &&
+            (!s.serialeDispositivo || s.serialeDispositivo.trim() === '')
+        );
                         console.log('📊 pianificatiCache length:', pianificatiCache.length);
                         
                         aggiornaDashboard();
@@ -1331,7 +1364,6 @@
         // DASHBOARD
         // ========================================
         function aggiornaDashboard() {
-            if (schedeCache.length === 0) return;
             
             const installati = installatiCache.length;
             const pianificati = pianificatiCache.length;
@@ -1430,7 +1462,7 @@
                 if (scheda.comune && COMUNI_DISTRETTO.includes(scheda.comune)) {
                     conteggioComuni[scheda.comune]++;
                     // Conta installati: se ha IMEI o Seriale dispositivo, è installato
-                    const haImei = scheda.IMEI && scheda.IMEI.trim() !== '' && scheda.IMEI !== 'Non specificato';
+                    const haImei = scheda.serialeDispositivo && scheda.serialeDispositivo.trim() !== '' && scheda.serialeDispositivo !== 'Non specificato';
                     const haSeriale = scheda.serialeDispositivo && scheda.serialeDispositivo.trim() !== '' && scheda.serialeDispositivo !== 'Non specificato';
                     if (haImei || haSeriale) {
                         installatiComuni[scheda.comune]++;
@@ -1581,7 +1613,7 @@
                     <td><strong>${s.numeroScheda || '-'}</strong></td>
                     <td>${s.nome || ''} ${s.cognome || ''}</td>
                     <td>📍 ${s.comune || ''}</td>
-                    <td><code>${s.IMEI || "-"}</code></td>
+                    <td><code>${s.serialeDispositivo || "-"}</code></td>
                     <td>${formatMeseInstallazione(s.meseInstallazionePrevisto)}</td>
                     <td><span class="badge badge-success">✅ Installato</span></td>
                 </tr>`;
@@ -1666,7 +1698,7 @@
             html += '</tr></thead><tbody>';
             
             schedeCache.forEach(s => {
-                const installato = s.IMEI && s.IMEI.trim() !== '';
+                const installato = s.serialeDispositivo && s.serialeDispositivo.trim() !== '';
                 const pianificato = s.meseInstallazionePrevisto && s.meseInstallazionePrevisto !== 'Non pianificato' && s.meseInstallazionePrevisto !== '';
                 
                 let stato = '⚠️ Non pianificato';
@@ -1712,6 +1744,12 @@
                 return;
             }
             
+            
+            if (!schedeCache || schedeCache.length === 0) {
+                document.getElementById('risultatiRicerca').innerHTML = '<p style="text-align:center; color:#999;">Nessuna scheda presente nel database</p>';
+                return;
+            }
+            
             const risultati = schedeCache.filter(s => {
                 const nome = (s.nome || '').toLowerCase();
                 const cognome = (s.cognome || '').toLowerCase();
@@ -1728,7 +1766,7 @@
             
             let html = '';
             risultati.forEach(s => {
-                const installato = s.IMEI && s.IMEI.trim() !== '';
+                const installato = s.serialeDispositivo && s.serialeDispositivo.trim() !== '';
                 const pianificato = s.meseInstallazionePrevisto && s.meseInstallazionePrevisto !== 'Non pianificato' && s.meseInstallazionePrevisto !== '';
                 
                 let badges = '';
@@ -1751,7 +1789,7 @@
                                 📍 ${s.comune || '-'} | 
                                 🎂 ${s.dataNascita || '-'}
                             </div>
-                            ${installato ? `<div class="assistito-dettagli" style="margin-top:5px">📱 IMEI: <code>${s.IMEI}</code></div>` : ''}
+                            ${installato ? `<div class="assistito-dettagli" style="margin-top:5px">📱 IMEI: <code>${s.serialeDispositivo}</code></div>` : ''}
                         </div>
                         <div class="assistito-badges">
                             ${badges}
@@ -1849,12 +1887,11 @@ function caricaSchedaCompleta(scheda) {
             if (document.getElementById('saturazioneMin')) document.getElementById('saturazioneMin').value = scheda.saturazioneMin || '';
             
             // DISPOSITIVO (campi 51-52)
-            if (document.getElementById('serialeDispositivo')) document.getElementById('serialeDispositivo').value = scheda.IMEI || scheda.serialeDispositivo || '';
+            if (document.getElementById('serialeDispositivo')) document.getElementById('serialeDispositivo').value = scheda.serialeDispositivo || scheda.serialeDispositivo || '';
             if (document.getElementById('dataCompilazione')) document.getElementById('dataCompilazione').value = scheda.dataCompilazione || '';
             
             // DISPOSITIVI AGGIUNTIVI (campi 53-58)
-            if (document.getElementById('poltrone')) document.getElementById('poltrone').value = scheda.poltrone || '';
-                        if (document.getElementById('sensoreEcg')) document.getElementById('sensoreEcg').value = scheda.sensoreEcg || '';
+            if (document.getElementById('sensoreEcg')) document.getElementById('sensoreEcg').value = scheda.sensoreEcg || '';
                                     if (document.getElementById('installazioneSensoreEcg')) document.getElementById('installazioneSensoreEcg').value = scheda.installazioneSensoreEcg || '';
             
             // PIANIFICAZIONE (campi 59-61)
@@ -1894,7 +1931,7 @@ function caricaSchedaCompleta(scheda) {
             // Pianificazione
             document.getElementById('meseInstallazionePrevisto').value = scheda.meseInstallazionePrevisto || '';
             document.getElementById('notePianificazione').value = scheda.notePianificazione || '';
-            document.getElementById('serialeDispositivo').value = scheda.IMEI || scheda.serialeDispositivo || '';
+            document.getElementById('serialeDispositivo').value = scheda.serialeDispositivo || scheda.serialeDispositivo || '';
             
             // Data compilazione
             if (scheda.dataCompilazione) {
@@ -1959,13 +1996,18 @@ function caricaSchedaCompleta(scheda) {
             const schedaData = {};
             formData.forEach((value, key) => { schedaData[key] = value; });
             
+            // Validazione numero scheda
+            if (!schedaData.numeroScheda) {
+                mostraMessaggio('error', '❌ Numero scheda obbligatorio');
+                return;
+            }
+            
             mostraLoading('Salvataggio...');
             
             fetch(DEPLOY_URL, {
                 method: 'POST',
-                mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ action: 'save', data: schedaData })
+                body: JSON.stringify(schedaData)
             })
             .then(() => {
                 nascondiLoading();

@@ -521,17 +521,17 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="version-badge">v1.0.16</div>
+            <div class="version-badge">v1.0.17-FINAL</div>
             <h1>🏥 TeleCare H24 - CSP Novi Ligure</h1>
             <p>Progetto FNNA | 50 Assistiti | Dic 2025 - Mar 2026</p>
         </div>
         
         <div class="nav-tabs">
-            <button class="nav-tab active" onclick="switchTab('dashboard')">📊 Dashboard</button>
-            <button class="nav-tab" onclick="switchTab('installati')">✅ Installati</button>
-            <button class="nav-tab" onclick="switchTab('pianificati')">📅 Pianificati</button>
-            <button class="nav-tab" onclick="switchTab('ricerca')">🔍 Ricerca</button>
-            <button class="nav-tab" onclick="switchTab('nuova')">➕ Nuova</button>
+            <button class="nav-tab active" onclick="switchTab(event, 'dashboard')">📊 Dashboard</button>
+            <button class="nav-tab" onclick="switchTab(event, 'installati')">✅ Installati</button>
+            <button class="nav-tab" onclick="switchTab(event, 'pianificati')">📅 Pianificati</button>
+            <button class="nav-tab" onclick="switchTab(event, 'ricerca')">🔍 Ricerca</button>
+            <button class="nav-tab" onclick="switchTab(event, 'nuova')">➕ Nuova</button>
         </div>
         
         <!-- TAB DASHBOARD -->
@@ -1074,7 +1074,7 @@
 
                 <!-- AUSILI ED ECG -->
                 <div class="section">
-                    <h2 class="section-title" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #e0e0e0;">🔧 Ausili ed ECG</h2>
+                    <h2 class="section-title" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #e0e0e0;">🔧 ECG</h2>
                     
                     <div class="form-grid">
                         <div class="form-group" style="display:none;">
@@ -1086,13 +1086,7 @@
                             </select>
                         </div>
                         <div class="form-group" style="display:none;">
-                            <label for="sensoreLuce">Sensore Luce</label>
-                            <select id="sensoreLuce" name="sensoreLuce">
-                                <option value="">-</option>
-                                <option value="S">✅ S</option>
-                                <option value="N">❌ N</option>
-                            </select>
-                        </div>
+                            
                         <div class="form-group">
                             <label for="sensoreEcg">Sensore ECG</label>
                             <select id="sensoreEcg" name="sensoreEcg">
@@ -1178,43 +1172,24 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="meseInstallazionePoltrona">Mese Install. Poltrona</label>
-                            <select id="meseInstallazionePoltrona" name="meseInstallazionePoltrona">
-                                <option value="">-- Seleziona --</option>
-                                <option value="Novembre 2025">Nov 2025</option>
-                                <option value="Dicembre 2025">Dic 2025</option>
-                                <option value="Gennaio 2026">Gen 2026</option>
-                                <option value="Febbraio 2026">Feb 2026</option>
-                                <option value="Marzo 2026">Mar 2026</option>
-                                <option value="Non pianificato">Non pianificato</option>
-                            </select>
+                            
                         </div>
                         <div class="form-group">
-                            <label for="meseInstallazioneSensoreLuce">Mese Install. Sensore Luce</label>
-                            <select id="meseInstallazioneSensoreLuce" name="meseInstallazioneSensoreLuce">
-                                <option value="">-- Seleziona --</option>
-                                <option value="Novembre 2025">Nov 2025</option>
-                                <option value="Dicembre 2025">Dic 2025</option>
-                                <option value="Gennaio 2026">Gen 2026</option>
-                                <option value="Febbraio 2026">Feb 2026</option>
-                                <option value="Marzo 2026">Mar 2026</option>
-                                <option value="Non pianificato">Non pianificato</option>
-                            </select>
+                            
                         </div>
                         <div class="form-group">
                             <label for="meseInstallazioneSensoreEcg">Mese Install. Sensore ECG</label>
                             <select id="meseInstallazioneSensoreEcg" name="meseInstallazioneSensoreEcg">
                                 <option value="">-- Seleziona --</option>
                                 <option value="Novembre 2025">Nov 2025</option>
-                                <option value="Dicembre 2025">Dic 2025</option>
-                                <option value="Gennaio 2026">Gen 2026</option>
-                                <option value="Febbraio 2026">Feb 2026</option>
-                                <option value="Marzo 2026">Mar 2026</option>
+                                <option value="Dicembre 2026">Dic 2026</option>
+                                <option value="Gennaio 2027">Gen 2027</option>
+                                <option value="Febbraio 2027">Feb 2027</option>
+                                <option value="Marzo 2027">Mar 2027</option>
                                 <option value="Non pianificato">Non pianificato</option>
                             </select>
                         </div>
                     </div>
-
 
                 </div>
 
@@ -1229,21 +1204,9 @@
                             <input type="text" id="serialeDispositivo" name="serialeDispositivo" placeholder="SN...">
                         </div>
                         <div class="form-group">
-                            <label for="installazionePoltrona">Poltrona Installata</label>
-                            <select id="installazionePoltrona" name="installazionePoltrona">
-                                <option value="">-</option>
-                                <option value="SI">✅ SI</option>
-                                <option value="NO">❌ NO</option>
-                            </select>
-                        </div>
+                            
                         <div class="form-group">
-                            <label for="installazioneSensoreLuce">Sensore Luce Installato</label>
-                            <select id="installazioneSensoreLuce" name="installazioneSensoreLuce">
-                                <option value="">-</option>
-                                <option value="SI">✅ SI</option>
-                                <option value="NO">❌ NO</option>
-                            </select>
-                        </div>
+                            
                         <div class="form-group">
                             <label for="installazioneSensoreEcg">Sensore ECG Installato</label>
                             <select id="installazioneSensoreEcg" name="installazioneSensoreEcg">
@@ -1287,7 +1250,7 @@
         // ========================================
         // CONFIGURAZIONE
         // ========================================
-        const DEPLOY_URL = 'https://script.google.com/macros/s/AKfycbyVV5ihW7LeOHII3IyuXpMzZ_y0886Hy4f9MOoV2W9M7DtmE_Sndtc8kNw7r1W3Mebn/exec';
+        const DEPLOY_URL = 'https://script.google.com/macros/s/AKfycbyY92KF0IHxXg0_1-3M9_3QXA9IkkzxixI8KPHQG6W5DLJ0bJAyjHOpnNJyA0ERooY/exec';
         
         let schedeCache = [];
         let installatiCache = [];
@@ -1306,7 +1269,7 @@
         // ========================================
         // GESTIONE TAB
         // ========================================
-        function switchTab(tabName) {
+        function switchTab(event, tabName) {
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
             });
@@ -1891,16 +1854,12 @@ function caricaSchedaCompleta(scheda) {
             
             // DISPOSITIVI AGGIUNTIVI (campi 53-58)
             if (document.getElementById('poltrone')) document.getElementById('poltrone').value = scheda.poltrone || '';
-            if (document.getElementById('sensoreLuce')) document.getElementById('sensoreLuce').value = scheda.sensoreLuce || '';
-            if (document.getElementById('sensoreEcg')) document.getElementById('sensoreEcg').value = scheda.sensoreEcg || '';
-            if (document.getElementById('installazionePoltrona')) document.getElementById('installazionePoltrona').value = scheda.installazionePoltrona || '';
-            if (document.getElementById('installazioneSensoreLuce')) document.getElementById('installazioneSensoreLuce').value = scheda.installazioneSensoreLuce || '';
-            if (document.getElementById('installazioneSensoreEcg')) document.getElementById('installazioneSensoreEcg').value = scheda.installazioneSensoreEcg || '';
+                        if (document.getElementById('sensoreEcg')) document.getElementById('sensoreEcg').value = scheda.sensoreEcg || '';
+                                    if (document.getElementById('installazioneSensoreEcg')) document.getElementById('installazioneSensoreEcg').value = scheda.installazioneSensoreEcg || '';
             
             // PIANIFICAZIONE (campi 59-61)
             if (document.getElementById('meseInstallazionePrevisto')) document.getElementById('meseInstallazionePrevisto').value = scheda.meseInstallazionePrevisto || '';
-            if (document.getElementById('meseInstallazionePoltrona')) document.getElementById('meseInstallazionePoltrona').value = '' /* scheda.meseInstallazionePoltrona - CSP Novi: nascosto */ || '';
-            if (document.getElementById('meseInstallazioneSensoreLuce')) document.getElementById('meseInstallazioneSensoreLuce').value = '' /* scheda.meseInstallazioneSensoreLuce - CSP Novi: nascosto */ || '';
+
             if (document.getElementById('meseInstallazioneSensoreEcg')) document.getElementById('meseInstallazioneSensoreEcg').value = scheda.meseInstallazioneSensoreEcg || '';
             
             // Aggiorna display riepilogo
@@ -2228,8 +2187,6 @@ function caricaSchedaCompleta(scheda) {
         function aggiornaDisplayPianificazione() {
             const displays = {
                 'display_meseDispositivo': 'meseInstallazionePrevisto',
-                'display_mesePoltrona': 'meseInstallazionePoltrona',
-                'display_meseSensoreLuce': 'meseInstallazioneSensoreLuce',
                 'display_meseSensoreEcg': 'meseInstallazioneSensoreEcg'
             };
             
@@ -2244,8 +2201,7 @@ function caricaSchedaCompleta(scheda) {
         
         // Listener per i select di pianificazione
         function setupPianificazioneListeners() {
-            const selectIds = ['meseInstallazionePrevisto', 'meseInstallazionePoltrona', 
-                             'meseInstallazioneSensoreLuce', 'meseInstallazioneSensoreEcg'];
+            const selectIds = ['meseInstallazionePrevisto', 'meseInstallazioneSensoreEcg'];
             selectIds.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) {

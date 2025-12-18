@@ -5,10 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TeleCare H24 v3.6.13 FINAL - CSP Novi Ligure</title>
     
-    <!-- Icona Castello di Novi Ligure -->
-    <link rel="apple-touch-icon" href="https://www.genspark.ai/api/files/s/j38eZzDY?cache_control=3600">
+    <!-- Icona Castello di Novi Ligure - Incorporata (NO dipendenze esterne) -->
+    <!-- Favicon per tutti i browser - SVG Base64 incorporato -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnR3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojNjY3ZWVhO3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM3NjRiYTI7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8IS0tIFNmb25kbyBjaXJjb2xhcmUgY29uIGdyYWRpZW50ZSAtLT4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjI1NiIgZmlsbD0idXJsKCNiZ0dyYWRpZW50KSIvPgogIAogIDwhLS0gVG9ycmUgZGVsIGNhc3RlbGxvIC0gZGVzaWduIG1pbmltYWxpc3RhIGNvbWUgZGEgb3JpZ2luYWxlIC0tPgogIDxnIGZpbGw9IndoaXRlIj4KICAgIDwhLS0gQ29ycG8gcHJpbmNpcGFsZSBkZWxsYSB0b3JyZSAtLT4KICAgIDxyZWN0IHg9IjE3NiIgeT0iMTk2IiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE4OCIvPgogICAgCiAgICA8IS0tIDQgTWVybGF0dXJlIHN1cGVyaW9yaSAtLT4KICAgIDxyZWN0IHg9IjE3NiIgeT0iMTY0IiB3aWR0aD0iMzYiIGhlaWdodD0iMzIiLz4KICAgIDxyZWN0IHg9IjIyMSIgeT0iMTY0IiB3aWR0aD0iMzYiIGhlaWdodD0iMzIiLz4KICAgIDxyZWN0IHg9IjI2NSIgeT0iMTY0IiB3aWR0aD0iMzYiIGhlaWdodD0iMzIiLz4KICAgIDxyZWN0IHg9IjMxMCIgeT0iMTY0IiB3aWR0aD0iMjYiIGhlaWdodD0iMzIiLz4KICAgIAogICAgPCEtLSBMaW5lYSBkaSBzZXBhcmF6aW9uZSBzb3R0byBsZSBtZXJsYXR1cmUgLS0+CiAgICA8cmVjdCB4PSIxNzYiIHk9IjE5NiIgd2lkdGg9IjE2MCIgaGVpZ2h0PSI0Ii8+CiAgICAKICAgIDwhLS0gRmVyaXRvaWEgY2VudHJhbGUgKGZpbmVzdHJhIHN0cmV0dGEgdmVydGljYWxlKSAtLT4KICAgIDxyZWN0IHg9IjI0NCIgeT0iMjIwIiB3aWR0aD0iMjQiIGhlaWdodD0iNDgiLz4KICAgIAogICAgPCEtLSBQb3J0YSBhZCBhcmNvIGFsbGEgYmFzZSAtLT4KICAgIDxwYXRoIGQ9Ik0gMjM2IDM0MCBMIDIzNiAzODQgTCAyNzYgMzg0IEwgMjc2IDM0MCBRIDI3NiAzMjUgMjU2IDMyNSBRIDIzNiAzMjUgMjM2IDM0MCBaIi8+CiAgPC9nPgo8L3N2Zz4K">
+    <link rel="shortcut icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnR3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojNjY3ZWVhO3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM3NjRiYTI7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8IS0tIFNmb25kbyBjaXJjb2xhcmUgY29uIGdyYWRpZW50ZSAtLT4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjI1NiIgZmlsbD0idXJsKCNiZ0dyYWRpZW50KSIvPgogIAogIDwhLS0gVG9ycmUgZGVsIGNhc3RlbGxvIC0gZGVzaWduIG1pbmltYWxpc3RhIGNvbWUgZGEgb3JpZ2luYWxlIC0tPgogIDxnIGZpbGw9IndoaXRlIj4KICAgIDwhLS0gQ29ycG8gcHJpbmNpcGFsZSBkZWxsYSB0b3JyZSAtLT4KICAgIDxyZWN0IHg9IjE3NiIgeT0iMTk2IiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE4OCIvPgogICAgCiAgICA8IS0tIDQgTWVybGF0dXJlIHN1cGVyaW9yaSAtLT4KICAgIDxyZWN0IHg9IjE3NiIgeT0iMTY0IiB3aWR0aD0iMzYiIGhlaWdodD0iMzIiLz4KICAgIDxyZWN0IHg9IjIyMSIgeT0iMTY0IiB3aWR0aD0iMzYiIGhlaWdodD0iMzIiLz4KICAgIDxyZWN0IHg9IjI2NSIgeT0iMTY0IiB3aWR0aD0iMzYiIGhlaWdodD0iMzIiLz4KICAgIDxyZWN0IHg9IjMxMCIgeT0iMTY0IiB3aWR0aD0iMjYiIGhlaWdodD0iMzIiLz4KICAgIAogICAgPCEtLSBMaW5lYSBkaSBzZXBhcmF6aW9uZSBzb3R0byBsZSBtZXJsYXR1cmUgLS0+CiAgICA8cmVjdCB4PSIxNzYiIHk9IjE5NiIgd2lkdGg9IjE2MCIgaGVpZ2h0PSI0Ii8+CiAgICAKICAgIDwhLS0gRmVyaXRvaWEgY2VudHJhbGUgKGZpbmVzdHJhIHN0cmV0dGEgdmVydGljYWxlKSAtLT4KICAgIDxyZWN0IHg9IjI0NCIgeT0iMjIwIiB3aWR0aD0iMjQiIGhlaWdodD0iNDgiLz4KICAgIAogICAgPCEtLSBQb3J0YSBhZCBhcmNvIGFsbGEgYmFzZSAtLT4KICAgIDxwYXRoIGQ9Ik0gMjM2IDM0MCBMIDIzNiAzODQgTCAyNzYgMzg0IEwgMjc2IDM0MCBRIDI3NiAzMjUgMjU2IDMyNSBRIDIzNiAzMjUgMjM2IDM0MCBaIi8+CiAgPC9nPgo8L3N2Zz4K">
+    
+    <!-- Apple Touch Icon per iOS/Safari -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnR3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojNjY3ZWVhO3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM3NjRiYTI7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8IS0tIFNmb25kbyBjaXJjb2xhcmUgY29uIGdyYWRpZW50ZSAtLT4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjI1NiIgZmlsbD0idXJsKCNiZ0dyYWRpZW50KSIvPgogIAogIDwhLS0gVG9ycmUgZGVsIGNhc3RlbGxvIC0gZGVzaWduIG1pbmltYWxpc3RhIGNvbWUgZGEgb3JpZ2luYWxlIC0tPgogIDxnIGZpbGw9IndoaXRlIj4KICAgIDwhLS0gQ29ycG8gcHJpbmNpcGFsZSBkZWxsYSB0b3JyZSAtLT4KICAgIDxyZWN0IHg9IjE3NiIgeT0iMTk2IiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE4OCIvPgogICAgCiAgICA8IS0tIDQgTWVybGF0dXJlIHN1cGVyaW9yaSAtLT4KICAgIDxyZWN0IHg9IjE3NiIgeT0iMTY0IiB3aWR0aD0iMzYiIGhlaWdodD0iMzIiLz4KICAgIDxyZWN0IHg9IjIyMSIgeT0iMTY0IiB3aWR0aD0iMzYiIGhlaWdodD0iMzIiLz4KICAgIDxyZWN0IHg9IjI2NSIgeT0iMTY0IiB3aWR0aD0iMzYiIGhlaWdodD0iMzIiLz4KICAgIDxyZWN0IHg9IjMxMCIgeT0iMTY0IiB3aWR0aD0iMjYiIGhlaWdodD0iMzIiLz4KICAgIAogICAgPCEtLSBMaW5lYSBkaSBzZXBhcmF6aW9uZSBzb3R0byBsZSBtZXJsYXR1cmUgLS0+CiAgICA8cmVjdCB4PSIxNzYiIHk9IjE5NiIgd2lkdGg9IjE2MCIgaGVpZ2h0PSI0Ii8+CiAgICAKICAgIDwhLS0gRmVyaXRvaWEgY2VudHJhbGUgKGZpbmVzdHJhIHN0cmV0dGEgdmVydGljYWxlKSAtLT4KICAgIDxyZWN0IHg9IjI0NCIgeT0iMjIwIiB3aWR0aD0iMjQiIGhlaWdodD0iNDgiLz4KICAgIAogICAgPCEtLSBQb3J0YSBhZCBhcmNvIGFsbGEgYmFzZSAtLT4KICAgIDxwYXRoIGQ9Ik0gMjM2IDM0MCBMIDIzNiAzODQgTCAyNzYgMzg0IEwgMjc2IDM0MCBRIDI3NiAzMjUgMjU2IDMyNSBRIDIzNiAzMjUgMjM2IDM0MCBaIi8+CiAgPC9nPgo8L3N2Zz4K">
+    
+    <!-- Meta tags per web app -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="TeleCare H24">
+    <meta name="application-name" content="TeleCare H24">
+    <meta name="theme-color" content="#667eea">
     
     <style>
         * { 
@@ -59,7 +68,21 @@
             font-weight: 600;
         }
         
-        .header h1 { font-size: 28px; margin-bottom: 10px; }
+        .header h1 { 
+            font-size: 28px; 
+            margin-bottom: 10px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .castle-icon {
+            width: 32px;
+            height: 32px;
+            display: inline-block;
+            vertical-align: middle;
+        }
         
         .nav-tabs {
             background: #f8f9fa;
@@ -875,7 +898,7 @@
     <div class="container">
         <div class="header">
             <div class="version-badge">v3.6.13 ⚡</div>
-            <h1>TeleCare H24 - CSP Novi Ligure</h1>
+            <h1><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnR3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojNjY3ZWVhO3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM3NjRiYTI7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8IS0tIFNmb25kbyBjaXJjb2xhcmUgY29uIGdyYWRpZW50ZSAtLT4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjI1NiIgZmlsbD0idXJsKCNiZ0dyYWRpZW50KSIvPgogIAogIDwhLS0gVG9ycmUgZGVsIGNhc3RlbGxvIC0gZGVzaWduIG1pbmltYWxpc3RhIGNvbWUgZGEgb3JpZ2luYWxlIC0tPgogIDxnIGZpbGw9IndoaXRlIj4KICAgIDwhLS0gQ29ycG8gcHJpbmNpcGFsZSBkZWxsYSB0b3JyZSAtLT4KICAgIDxyZWN0IHg9IjE3NiIgeT0iMTk2IiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE4OCIvPgogICAgCiAgICA8IS0tIDQgTWVybGF0dXJlIHN1cGVyaW9yaSAtLT4KICAgIDxyZWN0IHg9IjE3NiIgeT0iMTY0IiB3aWR0aD0iMzYiIGhlaWdodD0iMzIiLz4KICAgIDxyZWN0IHg9IjIyMSIgeT0iMTY0IiB3aWR0aD0iMzYiIGhlaWdodD0iMzIiLz4KICAgIDxyZWN0IHg9IjI2NSIgeT0iMTY0IiB3aWR0aD0iMzYiIGhlaWdodD0iMzIiLz4KICAgIDxyZWN0IHg9IjMxMCIgeT0iMTY0IiB3aWR0aD0iMjYiIGhlaWdodD0iMzIiLz4KICAgIAogICAgPCEtLSBMaW5lYSBkaSBzZXBhcmF6aW9uZSBzb3R0byBsZSBtZXJsYXR1cmUgLS0+CiAgICA8cmVjdCB4PSIxNzYiIHk9IjE5NiIgd2lkdGg9IjE2MCIgaGVpZ2h0PSI0Ii8+CiAgICAKICAgIDwhLS0gRmVyaXRvaWEgY2VudHJhbGUgKGZpbmVzdHJhIHN0cmV0dGEgdmVydGljYWxlKSAtLT4KICAgIDxyZWN0IHg9IjI0NCIgeT0iMjIwIiB3aWR0aD0iMjQiIGhlaWdodD0iNDgiLz4KICAgIAogICAgPCEtLSBQb3J0YSBhZCBhcmNvIGFsbGEgYmFzZSAtLT4KICAgIDxwYXRoIGQ9Ik0gMjM2IDM0MCBMIDIzNiAzODQgTCAyNzYgMzg0IEwgMjc2IDM0MCBRIDI3NiAzMjUgMjU2IDMyNSBRIDIzNiAzMjUgMjM2IDM0MCBaIi8+CiAgPC9nPgo8L3N2Zz4K" alt="Castello Novi Ligure" class="castle-icon"> TeleCare H24 - CSP Novi Ligure</h1>
             <p>Progetto FNNA | 50 Assistiti | Dic 2025 - Mar 2026</p>
         </div>
         

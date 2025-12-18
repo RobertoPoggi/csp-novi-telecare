@@ -3,16 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TeleCare H24 - CSP Novi Ligure</title>
+    <title>TeleCare H24 v3.6.13 FINAL - CSP Novi Ligure</title>
     
-    <!-- Icona Torre del Castello di Novi Ligure -->
-    <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Castello_di_Novi_Ligure_-_torre.png/300px-Castello_di_Novi_Ligure_-_torre.png">
-    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Icona Castello di Novi Ligure -->
+    <link rel="apple-touch-icon" href="https://www.genspark.ai/api/files/s/j38eZzDY?cache_control=3600">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="TeleCare H24">
     
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        /* 📱 RESPONSIVE BASE: Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%; /* Previene zoom automatico iOS */
+        }
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -23,6 +32,7 @@
         
         .container {
             max-width: 1400px;
+            width: 100%; /* 📱 RESPONSIVE */
             margin: 0 auto;
             background: white;
             border-radius: 20px;
@@ -424,10 +434,20 @@
         }
         
         .message {
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 20px 30px;
+            border-radius: 12px;
+            margin-bottom: 0;
             display: none;
+            z-index: 10000;
+            min-width: 300px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            font-size: 18px;
+            font-weight: 600;
         }
         
         .message.success {
@@ -493,45 +513,378 @@
             font-size: 64px;
             margin-bottom: 20px;
         }
-        
-        @media (max-width: 768px) {
-            .container { border-radius: 0; }
-            .form-grid { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: 1fr; }
-            .nav-tab { min-width: 110px; font-size: 13px; padding: 15px 8px; }
-            .filter-bar { flex-direction: column; }
-            .filter-bar select { width: 100%; }
-        }
-    
-        /* Autocomplete Styling */
-        input[list] {
-            background-image: url('data:image/svg+xml;utf8,<svg fill="%23667eea" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
-            background-repeat: no-repeat;
-            background-position: right 10px center;
-            background-size: 20px;
-            padding-right: 40px;
+
+        .caregiver-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #e0e0e0;
         }
         
-        input[list]:focus {
-            background-image: url('data:image/svg+xml;utf8,<svg fill="%23667eea" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 14l5-5 5 5z"/></svg>');
+        .caregiver-header {
+            font-size: 18px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
         }
 
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .required {
+            color: #dc3545;
+            margin-left: 3px;
+        }
+        
+        /* ========================================
+           📱 RESPONSIVE DESIGN - MEDIA QUERIES v3.5.5
+           ======================================== */
+        
+        /* 📱 MOBILE SMALL (320px - 480px) */
+        @media (max-width: 480px) {
+            body {
+                padding: 0;
+                font-size: 14px;
+            }
+            
+            .container {
+                border-radius: 0;
+                box-shadow: none;
+            }
+            
+            .header {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 18px;
+            }
+            
+            .version-badge {
+                position: static;
+                display: inline-block;
+                margin-bottom: 10px;
+                font-size: 11px;
+                padding: 4px 10px;
+            }
+            
+            /* Navigation mobile */
+            .nav-tabs {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding: 0 5px;
+            }
+            
+            .nav-tab {
+                min-width: 80px;
+                font-size: 11px;
+                padding: 12px 6px;
+                white-space: nowrap;
+            }
+            
+            /* Form mobile-first */
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .form-group label {
+                font-size: 13px;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 16px; /* Previene zoom iOS */
+                padding: 12px;
+            }
+            
+            /* Bottoni touch-friendly */
+            .btn {
+                padding: 14px 20px;
+                font-size: 15px;
+                min-height: 48px; /* Touch target size */
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            
+            /* Stats grid mobile */
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .stat-card {
+                padding: 12px;
+            }
+            
+            .stat-value {
+                font-size: 24px;
+            }
+            
+            .stat-label {
+                font-size: 11px;
+            }
+            
+            /* Tabelle scrollabili */
+            .assistiti-list,
+            .table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .assistito-card {
+                padding: 12px;
+                margin-bottom: 10px;
+            }
+            
+            .assistito-nome {
+                font-size: 15px;
+            }
+            
+            .assistito-dettagli {
+                font-size: 12px;
+            }
+            
+            /* Filter bar mobile */
+            .filter-bar {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .filter-bar select,
+            .filter-bar input {
+                width: 100%;
+                font-size: 16px;
+            }
+            
+            /* Section spacing */
+            .section {
+                padding: 15px;
+            }
+            
+            .section-title {
+                font-size: 16px;
+                padding: 10px;
+            }
+            
+            /* Date inputs mobile */
+            .date-input-group {
+                flex-direction: column;
+            }
+            
+            .date-input-group input {
+                width: 100%;
+            }
+            
+            /* Config panel mobile */
+            #config-obiettivi-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Caregiver cards */
+            .caregiver-card {
+                padding: 12px;
+            }
+            
+            .caregiver-header {
+                font-size: 14px;
+                padding: 8px;
+            }
+            
+            /* Messages */
+        .message {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 20px 30px;
+            border-radius: 12px;
+            margin-bottom: 0;
+            display: none;
+            z-index: 10000;
+            min-width: 300px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            font-size: 18px;
+            font-weight: 600;
+        }
+            
+            /* Loading overlay */
+            #loadingText {
+                font-size: 16px;
+            }
+        }
+        
+        /* 📱 MOBILE LARGE (481px - 767px) */
+        @media (min-width: 481px) and (max-width: 767px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                border-radius: 10px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 22px;
+            }
+            
+            .nav-tab {
+                min-width: 100px;
+                font-size: 12px;
+                padding: 14px 10px;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .btn {
+                padding: 12px 24px;
+            }
+        }
+        
+        /* 📱 TABLET PORTRAIT (768px - 1024px) */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .container {
+                border-radius: 15px;
+            }
+            
+            .header h1 {
+                font-size: 26px;
+            }
+            
+            .nav-tab {
+                min-width: 120px;
+                font-size: 13px;
+            }
+            
+            .form-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 18px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            #config-obiettivi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* 🖥️ TABLET LANDSCAPE / SMALL DESKTOP (1025px - 1366px) */
+        @media (min-width: 1025px) and (max-width: 1366px) {
+            .container {
+                max-width: 1200px;
+            }
+            
+            .form-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        /* 🖥️ LARGE DESKTOP (1367px+) */
+        @media (min-width: 1367px) {
+            .container {
+                max-width: 1400px;
+            }
+            
+            .form-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+        
+        /* 📱 ORIENTATION: Landscape mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .header {
+                padding: 10px 20px;
+            }
+            
+            .header h1 {
+                font-size: 18px;
+            }
+            
+            .nav-tab {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+            
+            .section {
+                padding: 10px;
+            }
+        }
+        
+        /* 🎨 ACCESSIBILITY: High contrast mode */
+        @media (prefers-contrast: high) {
+            .nav-tab {
+                border: 2px solid #333;
+            }
+            
+            .btn {
+                border: 2px solid #000;
+            }
+            
+            .assistito-card {
+                border: 2px solid #333;
+            }
+        }
+        
+        /* 🎨 DARK MODE Support (future-proof) */
+        @media (prefers-color-scheme: dark) {
+            /* Placeholder for future dark mode implementation */
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="version-badge">v1.0.26</div>
-            <h1>🏥 TeleCare H24 - CSP Novi Ligure</h1>
+            <div class="version-badge">v3.6.13 ⚡</div>
+            <h1>TeleCare H24 - CSP Novi Ligure</h1>
             <p>Progetto FNNA | 50 Assistiti | Dic 2025 - Mar 2026</p>
         </div>
         
         <div class="nav-tabs">
-            <button class="nav-tab active" onclick="switchTab(event, 'dashboard')">📊 Dashboard</button>
-            <button class="nav-tab" onclick="switchTab(event, 'installati')">✅ Installati</button>
-            <button class="nav-tab" onclick="switchTab(event, 'pianificati')">📅 Pianificati</button>
-            <button class="nav-tab" onclick="switchTab(event, 'ricerca')">🔍 Ricerca</button>
-            <button class="nav-tab" onclick="switchTab(event, 'nuova')">➕ Nuova</button>
+            <button class="nav-tab active" onclick="switchTab('dashboard')">📊 Dashboard</button>
+            <button class="nav-tab" onclick="switchTab('installati')">✅ Installati</button>
+            <button class="nav-tab" onclick="switchTab('pianificati')">📅 Pianificati</button>
+            <button class="nav-tab" onclick="switchTab('ricerca')">🔍 Ricerca</button>
+            <button class="nav-tab" onclick="nuovaScheda()">➕ Nuova</button>
         </div>
         
         <!-- TAB DASHBOARD -->
@@ -561,11 +914,11 @@
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
                         <div>
                             <div style="font-size: 14px; color: #666; margin-bottom: 5px;">Obiettivo Totale</div>
-                            <div style="font-size: 32px; font-weight: bold; color: #667eea;">50</div>
+                            <div style="font-size: 32px; font-weight: bold; color: #667eea;" id="obiettivo-totale">50</div>
                         </div>
                         <div>
-                            <div style="font-size: 14px; color: #666; margin-bottom: 5px;">Scadenza PNRR</div>
-                            <div style="font-size: 24px; font-weight: bold; color: #dc3545;">31 Marzo 2026</div>
+                            <div style="font-size: 14px; color: #666; margin-bottom: 5px;">Termine Progetto</div>
+                            <div style="font-size: 24px; font-weight: bold; color: #dc3545;">30 Novembre 2028</div>
                         </div>
                         <div>
                             <div style="font-size: 14px; color: #666; margin-bottom: 5px;">Progresso</div>
@@ -573,7 +926,7 @@
                         </div>
                         <div>
                             <div style="font-size: 14px; color: #666; margin-bottom: 5px;">Da Completare</div>
-                            <div style="font-size: 32px; font-weight: bold; color: #ffc107;" id="dashboard-remaining">50</div>
+                            <div style="font-size: 32px; font-weight: bold; color: #ffc107;" id="dashboard-remaining">100</div>
                         </div>
                     </div>
                     
@@ -647,37 +1000,38 @@
                 <label>Filtra per Comune:</label>
                 <select id="filter-comune-installati" onchange="filtraInstallati()">
                     <option value="">🌍 Tutti i Comuni</option>
-                                        <option value="Albera Ligure">Albera Ligure</option>
-                    <option value="Arquata Scrivia">Arquata Scrivia</option>
-                    <option value="Basaluzzo">Basaluzzo</option>
-                    <option value="Borghetto Di Borbera">Borghetto Di Borbera</option>
-                    <option value="Bosio">Bosio</option>
-                    <option value="Cabella Ligure">Cabella Ligure</option>
-                    <option value="Cantalupo Ligure">Cantalupo Ligure</option>
-                    <option value="Capriata D&#39;Orba">Capriata D'Orba</option>
-                    <option value="Carrega Ligure">Carrega Ligure</option>
-                    <option value="Carrosio">Carrosio</option>
-                    <option value="Cassano Spinola">Cassano Spinola</option>
-                    <option value="Fraconalto">Fraconalto</option>
-                    <option value="Francavilla Bisio">Francavilla Bisio</option>
-                    <option value="Fresonara">Fresonara</option>
-                    <option value="Gavi">Gavi</option>
-                    <option value="Grondona">Grondona</option>
-                    <option value="Mongiardino Ligure">Mongiardino Ligure</option>
                     <option value="Novi Ligure">Novi Ligure</option>
-                    <option value="Parodi Ligure">Parodi Ligure</option>
-                    <option value="Pasturana">Pasturana</option>
-                    <option value="Pozzolo Formigaro">Pozzolo Formigaro</option>
-                    <option value="Roccaforte Ligure">Roccaforte Ligure</option>
-                    <option value="Rocchetta Ligure">Rocchetta Ligure</option>
-                    <option value="San Cristoforo">San Cristoforo</option>
-                    <option value="Sardigliano">Sardigliano</option>
+                    <option value="Arquata Scrivia">Arquata Scrivia</option>
                     <option value="Serravalle Scrivia">Serravalle Scrivia</option>
+                    <option value="Gavi">Gavi</option>
+                    <option value="Basaluzzo">Basaluzzo</option>
+                    <option value="Bosio">Bosio</option>
+                    <option value="Cassano Spinola">Cassano Spinola</option>
+                    <option value="Fresonara">Fresonara</option>
+                    <option value="Pozzolo Formigaro">Pozzolo Formigaro</option>
                     <option value="Stazzano">Stazzano</option>
                     <option value="Tassarolo">Tassarolo</option>
                     <option value="Vignole Borbera">Vignole Borbera</option>
                     <option value="Voltaggio">Voltaggio</option>
-                </select>
+                    <option value="Albera Ligure">Albera Ligure</option>
+                    <option value="Borghetto Di Borbera">Borghetto Di Borbera</option>
+                    <option value="Cabella Ligure">Cabella Ligure</option>
+                    <option value="Cantalupo Ligure">Cantalupo Ligure</option>
+                    <option value="Capriata D'Orba">Capriata D'Orba</option>
+                    <option value="Carrega Ligure">Carrega Ligure</option>
+                    <option value="Carrosio">Carrosio</option>
+                    <option value="Fraconalto">Fraconalto</option>
+                    <option value="Francavilla Bisio">Francavilla Bisio</option>
+                    <option value="Grondona">Grondona</option>
+                    <option value="Mongiardino Ligure">Mongiardino Ligure</option>
+                    <option value="Parodi Ligure">Parodi Ligure</option>
+                    <option value="Pasturana">Pasturana</option>
+                    <option value="Roccaforte Ligure">Roccaforte Ligure</option>
+                    <option value="Rocchetta Ligure">Rocchetta Ligure</option>
+                    <option value="San Cristoforo">San Cristoforo</option>
+                    <option value="Sardigliano">Sardigliano</option>
+
+                    </select>
             </div>
             
             <div id="lista-installati-full" class="assistiti-container"></div>
@@ -691,6 +1045,7 @@
                 <label>Filtra per Mese:</label>
                 <select id="filter-mese-pianificati" onchange="filtraPianificati()">
                     <option value="">📅 Tutti i Mesi</option>
+                    <option value="Novembre 2025">Novembre 2025</option>
                     <option value="Dicembre 2025">Dicembre 2025</option>
                     <option value="Gennaio 2026">Gennaio 2026</option>
                     <option value="Febbraio 2026">Febbraio 2026</option>
@@ -700,37 +1055,38 @@
                 <label>Filtra per Comune:</label>
                 <select id="filter-comune-pianificati" onchange="filtraPianificati()">
                     <option value="">🌍 Tutti i Comuni</option>
-                                        <option value="Albera Ligure">Albera Ligure</option>
-                    <option value="Arquata Scrivia">Arquata Scrivia</option>
-                    <option value="Basaluzzo">Basaluzzo</option>
-                    <option value="Borghetto Di Borbera">Borghetto Di Borbera</option>
-                    <option value="Bosio">Bosio</option>
-                    <option value="Cabella Ligure">Cabella Ligure</option>
-                    <option value="Cantalupo Ligure">Cantalupo Ligure</option>
-                    <option value="Capriata D&#39;Orba">Capriata D'Orba</option>
-                    <option value="Carrega Ligure">Carrega Ligure</option>
-                    <option value="Carrosio">Carrosio</option>
-                    <option value="Cassano Spinola">Cassano Spinola</option>
-                    <option value="Fraconalto">Fraconalto</option>
-                    <option value="Francavilla Bisio">Francavilla Bisio</option>
-                    <option value="Fresonara">Fresonara</option>
-                    <option value="Gavi">Gavi</option>
-                    <option value="Grondona">Grondona</option>
-                    <option value="Mongiardino Ligure">Mongiardino Ligure</option>
                     <option value="Novi Ligure">Novi Ligure</option>
-                    <option value="Parodi Ligure">Parodi Ligure</option>
-                    <option value="Pasturana">Pasturana</option>
-                    <option value="Pozzolo Formigaro">Pozzolo Formigaro</option>
-                    <option value="Roccaforte Ligure">Roccaforte Ligure</option>
-                    <option value="Rocchetta Ligure">Rocchetta Ligure</option>
-                    <option value="San Cristoforo">San Cristoforo</option>
-                    <option value="Sardigliano">Sardigliano</option>
+                    <option value="Arquata Scrivia">Arquata Scrivia</option>
                     <option value="Serravalle Scrivia">Serravalle Scrivia</option>
+                    <option value="Gavi">Gavi</option>
+                    <option value="Basaluzzo">Basaluzzo</option>
+                    <option value="Bosio">Bosio</option>
+                    <option value="Cassano Spinola">Cassano Spinola</option>
+                    <option value="Fresonara">Fresonara</option>
+                    <option value="Pozzolo Formigaro">Pozzolo Formigaro</option>
                     <option value="Stazzano">Stazzano</option>
                     <option value="Tassarolo">Tassarolo</option>
                     <option value="Vignole Borbera">Vignole Borbera</option>
                     <option value="Voltaggio">Voltaggio</option>
-                </select>
+                    <option value="Albera Ligure">Albera Ligure</option>
+                    <option value="Borghetto Di Borbera">Borghetto Di Borbera</option>
+                    <option value="Cabella Ligure">Cabella Ligure</option>
+                    <option value="Cantalupo Ligure">Cantalupo Ligure</option>
+                    <option value="Capriata D'Orba">Capriata D'Orba</option>
+                    <option value="Carrega Ligure">Carrega Ligure</option>
+                    <option value="Carrosio">Carrosio</option>
+                    <option value="Fraconalto">Fraconalto</option>
+                    <option value="Francavilla Bisio">Francavilla Bisio</option>
+                    <option value="Grondona">Grondona</option>
+                    <option value="Mongiardino Ligure">Mongiardino Ligure</option>
+                    <option value="Parodi Ligure">Parodi Ligure</option>
+                    <option value="Pasturana">Pasturana</option>
+                    <option value="Roccaforte Ligure">Roccaforte Ligure</option>
+                    <option value="Rocchetta Ligure">Rocchetta Ligure</option>
+                    <option value="San Cristoforo">San Cristoforo</option>
+                    <option value="Sardigliano">Sardigliano</option>
+
+                    </select>
             </div>
             
             <div id="lista-pianificati-full" class="assistiti-container"></div>
@@ -743,15 +1099,8 @@
                 <input type="text" 
                        class="search-input" 
                        id="searchInput" 
-                       list="assistiti-suggestions"
-                       placeholder="Digita nome, cognome, numero scheda o comune... (autocomplete attivo)"
-                       autocomplete="off">
-            <datalist id="assistiti-suggestions">
-                <!-- Popolato dinamicamente via JavaScript -->
-            </datalist>
-            <div style="font-size: 12px; color: #666; margin-top: 8px;">
-                💡 <strong>Tip:</strong> L'autocomplete mostra suggerimenti mentre digiti. Premi freccia ↓ per vedere tutti i risultati.
-            </div>
+                       placeholder="Digita nome, cognome, numero scheda o comune..."
+                       onkeyup="cercaAssistito()">
             </div>
             <div id="search-results" class="search-results"></div>
         </div>
@@ -763,7 +1112,7 @@
             <form id="assistitoForm">
                 <!-- DATI ASSISTITO -->
                 <div class="section">
-                    <h2 class="section-title" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #e0e0e0;">👤 Dati Assistito</h2>
+                    <h2 class="section-title">👤 Dati Assistito</h2>
                     
                     <div class="form-grid">
                         <div class="form-group">
@@ -820,46 +1169,40 @@
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="comune">Comune di Residenza<span class="required">*</span></label>
-                            <input type="text" 
-                                   id="comune" 
-                                   name="comune" 
-                                   list="comuni-list" 
-                                   required
-                                   placeholder="Digita per cercare... (es: Nov, Arq, Ser)"
-                                   autocomplete="off">
-                            <datalist id="comuni-list">
-                                    <option value="Albera Ligure">
-                                    <option value="Arquata Scrivia">
-                                    <option value="Basaluzzo">
-                                    <option value="Borghetto Di Borbera">
-                                    <option value="Bosio">
-                                    <option value="Cabella Ligure">
-                                    <option value="Cantalupo Ligure">
-                                    <option value="Capriata D'Orba">
-                                    <option value="Carrega Ligure">
-                                    <option value="Carrosio">
-                                    <option value="Cassano Spinola">
-                                    <option value="Fraconalto">
-                                    <option value="Francavilla Bisio">
-                                    <option value="Fresonara">
-                                    <option value="Gavi">
-                                    <option value="Grondona">
-                                    <option value="Mongiardino Ligure">
-                                    <option value="Novi Ligure">
-                                    <option value="Parodi Ligure">
-                                    <option value="Pasturana">
-                                    <option value="Pozzolo Formigaro">
-                                    <option value="Roccaforte Ligure">
-                                    <option value="Rocchetta Ligure">
-                                    <option value="San Cristoforo">
-                                    <option value="Sardigliano">
-                                    <option value="Serravalle Scrivia">
-                                    <option value="Stazzano">
-                                    <option value="Tassarolo">
-                                    <option value="Vignole Borbera">
-                                    <option value="Voltaggio">
-                            </datalist>
-                            <!-- 💡 TIP: Digita le prime lettere per filtrare i comuni -->
+                            <select id="comune" name="comune" required>
+                                <option value="">Seleziona il comune...</option>
+                                <option value="Novi Ligure">🏛️ Novi Ligure (19)</option>
+                                <option value="Arquata Scrivia">🏛️ Arquata Scrivia (8)</option>
+                                <option value="Serravalle Scrivia">🏛️ Serravalle Scrivia (9)</option>
+                                <option value="Gavi">🏛️ Gavi (5)</option>
+                                <option value="Basaluzzo">🏛️ Basaluzzo (1)</option>
+                                <option value="Bosio">🏛️ Bosio (1)</option>
+                                <option value="Cassano Spinola">🏛️ Cassano Spinola (1)</option>
+                                <option value="Fresonara">🏛️ Fresonara (1)</option>
+                                <option value="Pozzolo Formigaro">🏛️ Pozzolo Formigaro (1)</option>
+                                <option value="Stazzano">🏛️ Stazzano (1)</option>
+                                <option value="Tassarolo">🏛️ Tassarolo (1)</option>
+                                <option value="Vignole Borbera">🏛️ Vignole Borbera (1)</option>
+                                <option value="Voltaggio">🏛️ Voltaggio (1)</option>
+                                <option value="Albera Ligure">🏛️ Albera Ligure (0)</option>
+                                <option value="Borghetto Di Borbera">🏛️ Borghetto Di Borbera (0)</option>
+                                <option value="Cabella Ligure">🏛️ Cabella Ligure (0)</option>
+                                <option value="Cantalupo Ligure">🏛️ Cantalupo Ligure (0)</option>
+                                <option value="Capriata D'Orba">🏛️ Capriata D'Orba (0)</option>
+                                <option value="Carrega Ligure">🏛️ Carrega Ligure (0)</option>
+                                <option value="Carrosio">🏛️ Carrosio (0)</option>
+                                <option value="Fraconalto">🏛️ Fraconalto (0)</option>
+                                <option value="Francavilla Bisio">🏛️ Francavilla Bisio (0)</option>
+                                <option value="Grondona">🏛️ Grondona (0)</option>
+                                <option value="Mongiardino Ligure">🏛️ Mongiardino Ligure (0)</option>
+                                <option value="Parodi Ligure">🏛️ Parodi Ligure (0)</option>
+                                <option value="Pasturana">🏛️ Pasturana (0)</option>
+                                <option value="Roccaforte Ligure">🏛️ Roccaforte Ligure (0)</option>
+                                <option value="Rocchetta Ligure">🏛️ Rocchetta Ligure (0)</option>
+                                <option value="San Cristoforo">🏛️ San Cristoforo (0)</option>
+                                <option value="Sardigliano">🏛️ Sardigliano (0)</option>
+
+                                </select>
                         </div>
 
                         <div class="form-group">
@@ -871,58 +1214,14 @@
                             <label for="cellulare">Cellulare</label>
                             <input type="tel" id="cellulare" name="cellulare" placeholder="333...">
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="email@esempio.it">
-                        </div>
                     </div>
                 </div>
 
                 <!-- CAREGIVER -->
                 <div class="section">
-                    <h2 class="section-title" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #e0e0e0;">👥 Caregiver</h2>
+                    <h2 class="section-title">👥 Caregiver</h2>
 
                     <div class="caregiver-card">
-
-                    <div class="caregiver-card">
-                        <div class="caregiver-header">Caregiver A (Principale)</div>
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="caregiverA_nome">Nome</label>
-                                <input type="text" id="caregiverA_nome" name="caregiverA_nome">
-                            </div>
-                            <div class="form-group">
-                                <label for="caregiverA_cognome">Cognome</label>
-                                <input type="text" id="caregiverA_cognome" name="caregiverA_cognome">
-                            </div>
-                            <div class="form-group">
-                                <label for="caregiverA_parentela">Parentela</label>
-                                <input type="text" id="caregiverA_parentela" name="caregiverA_parentela" placeholder="Es: Figlio/a, Coniuge...">
-                            </div>
-                            <div class="form-group">
-                                <label for="caregiverA_telefono">Telefono Fisso</label>
-                                <input type="tel" id="caregiverA_telefono" name="caregiverA_telefono">
-                            </div>
-                            <div class="form-group">
-                                <label for="caregiverA_cellulare">Cellulare</label>
-                                <input type="tel" id="caregiverA_cellulare" name="caregiverA_cellulare">
-                            </div>
-                            <div class="form-group">
-                                <label for="caregiverA_email">Email</label>
-                                <input type="email" id="caregiverA_email" name="caregiverA_email">
-                            </div>
-                            <div class="form-group">
-                                <label for="caregiverA_chiavi">Chiavi Disponibili</label>
-                                <select id="caregiverA_chiavi" name="caregiverA_chiavi">
-                                    <option value="">-- Seleziona --</option>
-                                    <option value="Sì">Sì</option>
-                                    <option value="No">No</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
                         <div class="caregiver-header">Caregiver B</div>
                         <div class="form-grid">
                             <div class="form-group">
@@ -1032,7 +1331,7 @@
 
                 <!-- ALTRI DATI ASSISTITO -->
                 <div class="section">
-                    <h2 class="section-title" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #e0e0e0;">📝 Altri Dati Assistito</h2>
+                    <h2 class="section-title">📝 Altri Dati Assistito</h2>
                     
                     <div class="form-grid">
                         <div class="form-group">
@@ -1040,13 +1339,8 @@
                             <input type="text" id="natoA" name="natoA">
                         </div>
                         <div class="form-group">
-                            <label for="provincia">Provincia</label>
-                            <input type="text" id="provincia" name="provincia" maxlength="2" placeholder="AL">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="cap">CAP</label>
-                            <input type="text" id="cap" name="cap" maxlength="5" placeholder="Es: 15067">
+                            <label for="provinciaNascita">Provincia</label>
+                            <input type="text" id="provinciaNascita" name="provinciaNascita" maxlength="2" placeholder="TP">
                         </div>
                         <div class="form-group">
                             <label for="codiceFiscale">Codice Fiscale</label>
@@ -1122,14 +1416,20 @@
 
                 <!-- AUSILI ED ECG -->
                 <div class="section">
-                    <h2 class="section-title" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #e0e0e0;">🔧 ECG</h2>
+                    <h2 class="section-title">🔧 Sensore ECG</h2>
                     
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="sensoreEcg">Sensore ECG</label>
                             <select id="sensoreEcg" name="sensoreEcg">
                                 <option value="">-</option>
                                 <option value="S">✅ S</option>
                                 <option value="N">❌ N</option>
                             </select>
                         </div>
+                        <!-- Campi nascosti per mantenere compatibilità Google Sheet -->
+                        <input type="hidden" id="poltrone" name="poltrone" value="">
+                        <input type="hidden" id="sensoreLuce" name="sensoreLuce" value="">
                     </div>
 
                     <div class="form-grid">
@@ -1142,7 +1442,7 @@
 
                 <!-- ALTRI CONTATTI -->
                 <div class="section">
-                    <h2 class="section-title" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #e0e0e0;">📞 ALTRI CONTATTI</h2>
+                    <h2 class="section-title">📞 Altri Contatti</h2>
                     
                     <div class="form-grid">
                         <div class="form-group">
@@ -1191,13 +1491,14 @@
 
                 <!-- PIANIFICAZIONE INSTALLAZIONE -->
                 <div class="section">
-                    <h2 class="section-title" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #e0e0e0;">📅 Pianificazione Installazione</h2>
+                    <h2 class="section-title">📅 Pianificazione Installazione</h2>
                     
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="meseInstallazionePrevisto">Mese Install. Dispositivo</label>
                             <select id="meseInstallazionePrevisto" name="meseInstallazionePrevisto">
                                 <option value="">-- Seleziona --</option>
+                                <option value="Novembre 2025">Nov 2025</option>
                                 <option value="Dicembre 2025">Dic 2025</option>
                                 <option value="Gennaio 2026">Gen 2026</option>
                                 <option value="Febbraio 2026">Feb 2026</option>
@@ -1206,40 +1507,37 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            
-                        </div>
-                        <div class="form-group">
-                            
-                        </div>
-                        <div class="form-group">
                             <label for="meseInstallazioneSensoreEcg">Mese Install. Sensore ECG</label>
                             <select id="meseInstallazioneSensoreEcg" name="meseInstallazioneSensoreEcg">
                                 <option value="">-- Seleziona --</option>
-                                <option value="Dicembre 2026">Dic 2026</option>
-                                <option value="Gennaio 2027">Gen 2027</option>
-                                <option value="Febbraio 2027">Feb 2027</option>
-                                <option value="Marzo 2027">Mar 2027</option>
+                                <option value="Novembre 2025">Nov 2025</option>
+                                <option value="Dicembre 2025">Dic 2025</option>
+                                <option value="Gennaio 2026">Gen 2026</option>
+                                <option value="Febbraio 2026">Feb 2026</option>
+                                <option value="Marzo 2026">Mar 2026</option>
                                 <option value="Non pianificato">Non pianificato</option>
                             </select>
                         </div>
+                        <!-- Campi nascosti per compatibilità Google Sheet -->
+                        <input type="hidden" id="meseInstallazionePoltrona" name="meseInstallazionePoltrona" value="">
+                        <input type="hidden" id="meseInstallazioneSensoreLuce" name="meseInstallazioneSensoreLuce" value="">
                     </div>
 
+                    <div class="form-group full-width" style="margin-top: 15px;">
+                        <label for="notePianificazione">Note Pianificazione</label>
+                        <textarea id="notePianificazione" name="notePianificazione" placeholder="Eventuali note sulla pianificazione installazione..."></textarea>
+                    </div>
                 </div>
 
-                
                 <!-- INSTALLAZIONE -->
                 <div class="section">
-                    <h2 class="section-title" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #e0e0e0;">⚙️ Installazione</h2>
+                    <h2 class="section-title">⚙️ Installazione</h2>
                     
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="serialeDispositivo">Seriale Dispositivo</label>
                             <input type="text" id="serialeDispositivo" name="serialeDispositivo" placeholder="SN...">
                         </div>
-                        <div class="form-group">
-                            
-                        <div class="form-group">
-                            
                         <div class="form-group">
                             <label for="installazioneSensoreEcg">Sensore ECG Installato</label>
                             <select id="installazioneSensoreEcg" name="installazioneSensoreEcg">
@@ -1248,22 +1546,17 @@
                                 <option value="NO">❌ NO</option>
                             </select>
                         </div>
+                        <!-- Campi nascosti per compatibilità Google Sheet -->
+                        <input type="hidden" id="installazionePoltrona" name="installazionePoltrona" value="">
+                        <input type="hidden" id="installazioneSensoreLuce" name="installazioneSensoreLuce" value="">
                     </div>
-                    
-                    <!-- VISUALIZZAZIONE SCELTE EFFETTUATE -->
-                    
-                    <div class="form-group full-width" style="margin-top: 15px;">
-                        <label for="notePianificazione">Note Pianificazione</label>
-                        <textarea id="notePianificazione" name="notePianificazione" placeholder="Eventuali note sulla pianificazione installazione..."></textarea>
-                    </div>
-                </div>
                 </div>
 
                 <div class="button-group">
-                    <button type="submit" class="btn-primary">
+                    <button type="submit" class="btn btn-primary">
                         💾 SALVA
                     </button>
-                    <button type="button" class="btn-secondary" onclick="nuovaScheda()">
+                    <button type="button" class="btn btn-secondary" onclick="nuovaSchedaConConferma()">
                         ✨ Nuova Scheda
                     </button>
                 </div>
@@ -1281,13 +1574,53 @@
     
     <script>
         // ========================================
-        // CONFIGURAZIONE
+        // ✅ CONFIGURAZIONE GLOBALE
         // ========================================
-        const DEPLOY_URL = 'https://script.google.com/macros/s/AKfycbzc6rV3D-lG-Emk2RU9RRc5ErCal2fzR8cylIKLvcMuQssvkHDHqhvC07iIAKC0unU/exec';
+        const DEPLOY_URL = 'https://script.google.com/macros/s/AKfycbyfAcAGaiJD2upzZPKJjnsHQq6gwdY3jPBamo9Bnv41I4v_F0wJ9cKNDtCeX02ggQLSuQ/exec';  // ✅ URL CONFIGURATO - Backend CSP Novi Ligure
+        
+        // ✅ FIX v3.5.2: Traccia se stiamo modificando una scheda esistente
+        let SCHEDA_IN_MODIFICA = false;
         
         let schedeCache = [];
         let installatiCache = [];
         let pianificatiCache = [];
+        
+        let OBIETTIVI_COMUNI = {
+            '': 46,
+            '': 19,
+            'Vald': 8,
+            '': 8,
+            '': 7,
+            '': 4,
+            '': 3,
+            '': 3,
+            '': 2
+        };
+        
+        // ========================================
+        // ✅ FIX CORS: Caricamento obiettivi dal backend
+        // ========================================
+        async function caricaObiettiviDalServer() {
+            try {
+                console.log('📊 Caricamento obiettivi dal server...');
+                const response = await fetch(DEPLOY_URL + '?action=getObiettivi', {
+                    method: 'GET',
+                    mode: 'cors' // ✅ Prova prima CORS
+                });
+                const data = await response.json();
+                
+                if (data.success && data.obiettivi) {
+                    OBIETTIVI_COMUNI = data.obiettivi;
+                    console.log('✅ Obiettivi caricati dal server:', OBIETTIVI_COMUNI);
+                    aggiornaDashboard();
+                    renderConfigObiettivi();
+                } else {
+                    console.log('⚠️ Usando obiettivi default');
+                }
+            } catch(e) {
+                console.log('⚠️ Errore caricamento obiettivi, uso default:', e);
+            }
+        }
         
         // ========================================
         // INIZIALIZZAZIONE
@@ -1295,6 +1628,7 @@
         window.addEventListener('DOMContentLoaded', function() {
             setupPianificazioneListeners();
             impostaDataOggi();
+            caricaObiettiviDalServer();
             caricaSchede();
             setupDateInputs();
         });
@@ -1302,13 +1636,7 @@
         // ========================================
         // GESTIONE TAB
         // ========================================
-        function switchTab(event, tabName) {
-            // Se event è una stringa, significa che è stato chiamato come switchTab('nome-tab')
-            if (typeof event === 'string') {
-                tabName = event;
-                event = null;
-            }
-            
+        function switchTab(tabName, clickEvent) {
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
             });
@@ -1316,13 +1644,10 @@
                 btn.classList.remove('active');
             });
             
-            const targetTab = document.getElementById(`tab-${tabName}`);
-            if (targetTab) {
-                targetTab.classList.add('active');
-            }
-            
-            if (event && event.target) {
-                event.target.classList.add('active');
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+            // ✅ FIX v3.5.4: Verifica che event esista prima di usare event.target
+            if (clickEvent && clickEvent.target) {
+                clickEvent.target.classList.add('active');
             }
             
             if (tabName === 'dashboard') {
@@ -1335,30 +1660,43 @@
         }
         
         // ========================================
-        // CARICAMENTO DATI
+        // ✅ FIX CORS: Caricamento dati
         // ========================================
         function caricaSchede() {
             mostraLoading('Caricamento dati...');
             
-            fetch(DEPLOY_URL)
-                .then(response => response.json())
+            fetch(DEPLOY_URL, {
+                method: 'GET',
+                mode: 'cors' // ✅ Prova CORS
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     console.log('📊 Dati ricevuti:', data);
-                    console.log('📊 data.schede length:', data.schede ? data.schede.length : 0);
                     if (data.success) {
                         schedeCache = data.schede || [];
                         
-                        // Pre-filtra le cache
-                        console.log('📊 schedeCache length:', schedeCache.length);
-                        installatiCache = schedeCache.filter(s => s.serialeDispositivo && s.serialeDispositivo.trim() !== '');
-                        console.log('📊 installatiCache length:', installatiCache.length);
+                        installatiCache = schedeCache.filter(s => {
+                            const haImei = s.IMEI && String(s.IMEI).trim() !== '';
+                            const haSeriale = s.serialeDispositivo && String(s.serialeDispositivo).trim() !== '';
+                            return haImei || haSeriale;
+                        });
+                        
                         pianificatiCache = schedeCache.filter(s => 
-            s.meseInstallazionePrevisto && 
-            s.meseInstallazionePrevisto !== 'Non pianificato' &&
-            s.meseInstallazionePrevisto !== '' &&
-            (!s.serialeDispositivo || s.serialeDispositivo.trim() === '')
-        );
-                        console.log('📊 pianificatiCache length:', pianificatiCache.length);
+                            s.meseInstallazionePrevisto && 
+                            s.meseInstallazionePrevisto !== 'Non pianificato' &&
+                            s.meseInstallazionePrevisto !== '' &&
+                            (!s.IMEI || String(s.IMEI).trim() === '') &&
+                            (!s.serialeDispositivo || String(s.serialeDispositivo).trim() === '')
+                        );
+                        
+                        console.log('✅ Schede:', schedeCache.length);
+                        console.log('✅ Installati:', installatiCache.length);
+                        console.log('✅ Pianificati:', pianificatiCache.length);
                         
                         aggiornaDashboard();
                         nascondiLoading();
@@ -1366,9 +1704,9 @@
                     }
                 })
                 .catch(error => {
-                    console.error('Errore:', error);
+                    console.error('❌ Errore caricamento:', error);
                     nascondiLoading();
-                    mostraMessaggio('error', '❌ Errore caricamento dati');
+                    mostraMessaggio('error', '❌ Errore caricamento dati. Verifica la connessione e l\'URL Google Apps Script.');
                 });
         }
         
@@ -1376,13 +1714,17 @@
         // DASHBOARD
         // ========================================
         function aggiornaDashboard() {
+            if (schedeCache.length === 0) return;
             
             const installati = installatiCache.length;
             const pianificati = pianificatiCache.length;
             const comuni = new Set(schedeCache.map(s => s.comune).filter(c => c)).size;
             const totale = schedeCache.length;
-            const progresso = Math.round((installati / 50) * 100);
-            const rimanenti = 50 - installati;
+            
+            // ✅ FIX CSP NOVI: Calcolo dinamico su totalObiettivo (50) invece di 100 hardcoded
+            const totalObiettivo = Object.values(OBIETTIVI_COMUNI).reduce((sum, val) => sum + (val || 0), 0);
+            const progresso = totalObiettivo > 0 ? Math.round((installati / totalObiettivo) * 100) : 0;
+            const rimanenti = Math.max(0, totalObiettivo - installati);
             
             document.getElementById('stat-totale').textContent = totale;
             document.getElementById('stat-installati').textContent = installati;
@@ -1392,100 +1734,49 @@
             document.getElementById('dashboard-remaining').textContent = rimanenti;
             document.getElementById('progress-bar').style.width = progresso + '%';
             
-            // Aggiorna tabella comuni
+            // ✅ FIX CSP NOVI: Aggiorna anche l'obiettivo totale dinamicamente
+            if (document.getElementById('obiettivo-totale')) {
+                document.getElementById('obiettivo-totale').textContent = totalObiettivo;
+            }
+            
             aggiornaTabellaComuni();
         }
         
         // ========================================
-        // TABELLA DISTRIBUZIONE PER COMUNE
+        // TABELLA COMUNI
         // ========================================
         function aggiornaTabellaComuni() {
-            // Carica obiettivi da localStorage o usa default
-            const defaultObiettivi = {
-                'Novi Ligure': 19,
-                'Serravalle Scrivia': 9,
-                'Arquata Scrivia': 8,
-                'Gavi': 5,
-                'Basaluzzo': 1,
-                'Bosio': 1,
-                'Cassano Spinola': 1,
-                'Fresonara': 1,
-                'Pozzolo Formigaro': 1,
-                'Stazzano': 1,
-                'Tassarolo': 1,
-                'Vignole Borbera': 1,
-                'Voltaggio': 1,
-                'Albera Ligure': 0,
-                'Borghetto Di Borbera': 0,
-                'Cabella Ligure': 0,
-                'Cantalupo Ligure': 0,
-                'Capriata D\'Orba': 0,
-                'Carrega Ligure': 0,
-                'Carrosio': 0,
-                'Fraconalto': 0,
-                'Francavilla Bisio': 0,
-                'Grondona': 0,
-                'Mongiardino Ligure': 0,
-                'Parodi Ligure': 0,
-                'Pasturana': 0,
-                'Roccaforte Ligure': 0,
-                'Rocchetta Ligure': 0,
-                'San Cristoforo': 0,
-                'Sardigliano': 0
-            };
+            // ✅ FIX CSP NOVI: Usa i comuni da OBIETTIVI_COMUNI invece di array hardcoded
+            const COMUNI_DISTRETTO = Object.keys(OBIETTIVI_COMUNI);
             
-            let OBIETTIVI_COMUNI = defaultObiettivi;
-            
-            // Carica obiettivi dal Google Sheet invece di localStorage
-            async function caricaObiettiviDalServer() {
-                try {
-                    console.log('📊 Caricamento obiettivi dal server...');
-                    const response = await fetch(DEPLOY_URL + '?action=getObiettivi');
-                    const data = await response.json();
-                    
-                    if (data.success && data.obiettivi) {
-                        OBIETTIVI_COMUNI = data.obiettivi;
-                        console.log('✅ Obiettivi caricati dal server:', OBIETTIVI_COMUNI);
-                        aggiornaDashboard();
-                        renderConfigObiettivi();
-                    } else {
-                        console.log('⚠️ Usando obiettivi default');
-                        OBIETTIVI_COMUNI = defaultObiettivi;
-                    }
-                } catch(e) {
-                    console.log('⚠️ Errore caricamento obiettivi, uso default:', e);
-                    OBIETTIVI_COMUNI = defaultObiettivi;
-                }
-            }
-            
-            const COMUNI_DISTRETTO = [
-
-            ];
-            
-            // Conta assistiti e installati per comune
             const conteggioComuni = {};
             const installatiComuni = {};
+            
             COMUNI_DISTRETTO.forEach(comune => {
                 conteggioComuni[comune] = 0;
                 installatiComuni[comune] = 0;
             });
             
+            // 🔧 FIX: Aggiungi contatore per comuni non validi
+            conteggioComuni['_ALTRI'] = 0;
+            installatiComuni['_ALTRI'] = 0;
+            
             schedeCache.forEach(scheda => {
-                if (scheda.comune && COMUNI_DISTRETTO.includes(scheda.comune)) {
-                    conteggioComuni[scheda.comune]++;
-                    // Conta installati: se ha IMEI o Seriale dispositivo, è installato
-                    const haImei = scheda.serialeDispositivo && scheda.serialeDispositivo.trim() !== '' && scheda.serialeDispositivo !== 'Non specificato';
-                    const haSeriale = scheda.serialeDispositivo && scheda.serialeDispositivo.trim() !== '' && scheda.serialeDispositivo !== 'Non specificato';
-                    if (haImei || haSeriale) {
-                        installatiComuni[scheda.comune]++;
-                    }
+                const comuneValido = scheda.comune && COMUNI_DISTRETTO.includes(scheda.comune);
+                const comuneTarget = comuneValido ? scheda.comune : '_ALTRI';
+                
+                conteggioComuni[comuneTarget]++;
+                
+                const haImei = scheda.IMEI && String(scheda.IMEI).trim() !== '' && scheda.IMEI !== 'Non specificato';
+                const haSeriale = scheda.serialeDispositivo && String(scheda.serialeDispositivo).trim() !== '' && scheda.serialeDispositivo !== 'Non specificato';
+                if (haImei || haSeriale) {
+                    installatiComuni[comuneTarget]++;
                 }
             });
             
-            // Ordina comuni per obiettivo (decrescente)
-            const comuniOrdinati = COMUNI_DISTRETTO.sort((a, b) => OBIETTIVI_COMUNI[b] - OBIETTIVI_COMUNI[a]);
+            // ✅ FIX: Crea copia array prima di sort per non modificare l'originale
+            const comuniOrdinati = [...COMUNI_DISTRETTO].sort((a, b) => OBIETTIVI_COMUNI[b] - OBIETTIVI_COMUNI[a]);
             
-            // Genera HTML tabella
             let html = '';
             comuniOrdinati.forEach(comune => {
                 const count = conteggioComuni[comune] || 0;
@@ -1524,9 +1815,27 @@
                         <td style="text-align: center;"><span style="color: ${mancanti > 0 ? '#dc3545' : '#28a745'};">${mancanti}</span></td>
                     </tr>
                 `;
+            // 🔧 FIX: Aggiungi riga "Altri" se ci sono assistiti non classificati
             });
             
-            // Calcola totali
+            // 🔧 FIX: Aggiungi riga "Altri" se ci sono assistiti non classificati
+            if (conteggioComuni['_ALTRI'] > 0) {
+                const countAltri = conteggioComuni['_ALTRI'] || 0;
+                const installatiAltri = installatiComuni['_ALTRI'] || 0;
+                
+                html += `
+                    <tr style="background: #fff3cd;">
+                        <td><strong style="color: #856404;">⚠️ Altri / Non Specificato</strong></td>
+                        <td style="text-align: center;"><strong style="font-size: 16px; color: #856404;">${countAltri}</strong></td>
+                        <td style="text-align: center;"><strong style="font-size: 18px; color: #856404;">${installatiAltri}</strong></td>
+                        <td style="text-align: center;"><strong style="color: #999;">-</strong></td>
+                        <td style="text-align: center;"><strong style="color: #999;">-</strong></td>
+                        <td><div class="progress-mini"><div class="progress-mini-fill" style="width: 0%; background: #999;"></div></div></td>
+                        <td style="text-align: center;"><strong style="color: #999;">-</strong></td>
+                    </tr>
+                `;
+            }
+            
             let totalAssistiti = 0;
             let totalInstallati = 0;
             let totalObiettivo = 0;
@@ -1539,9 +1848,12 @@
                 totalMancanti += Math.max(0, OBIETTIVI_COMUNI[comune] - conteggioComuni[comune]);
             });
             
+            // 🔧 FIX: Includi "Altri" nel totale
+            totalAssistiti += conteggioComuni['_ALTRI'] || 0;
+            totalInstallati += installatiComuni['_ALTRI'] || 0;
+            
             const totalPercentuale = totalObiettivo > 0 ? Math.round((totalAssistiti / totalObiettivo) * 100) : 0;
             
-            // Aggiungi riga totali
             html += `
                 <tr style="background: #e9ecef; font-weight: bold; border-top: 3px solid #667eea;">
                     <td><strong>📊 TOTALE</strong></td>
@@ -1568,24 +1880,18 @@
             filtraInstallati();
         }
         
-        // Formatta data mese in formato leggibile
         function formatMeseInstallazione(dataString) {
             if (!dataString || dataString === 'Non specificato' || dataString === 'Non pianificato') {
                 return 'Non specificato';
             }
             
-            // ✅ Se è già nel formato "Mese Anno", restituiscilo direttamente
             if (typeof dataString === 'string' && /^[A-Za-z]+ \d{4}$/.test(dataString)) {
                 return dataString;
             }
             
             try {
                 const data = new Date(dataString);
-                
-                // Controlla se la data è valida
-                if (isNaN(data.getTime())) {
-                    return 'Non specificato';
-                }
+                if (isNaN(data.getTime())) return 'Non specificato';
                 
                 const mesi = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno',
                               'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
@@ -1621,11 +1927,12 @@
             html += '</tr></thead><tbody>';
             
             lista.forEach(s => {
+                const seriale = s.IMEI || s.serialeDispositivo || '-';
                 html += `<tr onclick='mostraDettaglioAssistito(${JSON.stringify(s).replace(/'/g, "&apos;")})'>
                     <td><strong>${s.numeroScheda || '-'}</strong></td>
                     <td>${s.nome || ''} ${s.cognome || ''}</td>
                     <td>📍 ${s.comune || ''}</td>
-                    <td><code>${s.serialeDispositivo || "-"}</code></td>
+                    <td><code>${seriale}</code></td>
                     <td>${formatMeseInstallazione(s.meseInstallazionePrevisto)}</td>
                     <td><span class="badge badge-success">✅ Installato</span></td>
                 </tr>`;
@@ -1688,16 +1995,12 @@
         }
         
         // ========================================
-        // RICERCA ASSISTITO
+        // ✅ FIX: RICERCA con conversione a stringa
         // ========================================
         function mostraTutteLeSchede() {
-            // Switch al tab Ricerca e mostra tutte le schede
             switchTab('ricerca');
-            
-            // Svuota campo ricerca per mostrare tutte
             document.getElementById('searchInput').value = '';
             
-            // Renderizza tutte le schede
             const resultsDiv = document.getElementById('search-results');
             
             if (schedeCache.length === 0) {
@@ -1710,7 +2013,9 @@
             html += '</tr></thead><tbody>';
             
             schedeCache.forEach(s => {
-                const installato = s.serialeDispositivo && s.serialeDispositivo.trim() !== '';
+                const haImei = s.IMEI && String(s.IMEI).trim() !== '';
+                const haSeriale = s.serialeDispositivo && String(s.serialeDispositivo).trim() !== '';
+                const installato = haImei || haSeriale;
                 const pianificato = s.meseInstallazionePrevisto && s.meseInstallazionePrevisto !== 'Non pianificato' && s.meseInstallazionePrevisto !== '';
                 
                 let stato = '⚠️ Non pianificato';
@@ -1723,20 +2028,27 @@
                     badgeClass = 'badge-info';
                 }
                 
-                let eta = '-';
+                // ✅ FIX v3.6.14: Parser manuale DD/MM/YY → DD/MM/YYYY per visualizzazione
+                // 🔧 BUGFIX: Per assistiti anziani, TUTTI gli anni a 2 cifre sono nel 1900
+                let dataFormattata = '-';
                 if (s.dataNascita) {
-                    const nascita = new Date(s.dataNascita);
-                    const oggi = new Date();
-                    let calcoloEta = oggi.getFullYear() - nascita.getFullYear();
-                    if (oggi.getMonth() < nascita.getMonth() || (oggi.getMonth() === nascita.getMonth() && oggi.getDate() < nascita.getDate())) calcoloEta--;
-                    eta = calcoloEta;
+                    const match = s.dataNascita.match(/^(\d{2})\/(\d{2})\/(\d{2})$/);
+                    if (match) {
+                        const [_, giorno, mese, anno] = match;
+                        // Per assistenza anziani: tutti gli anni a 2 cifre sono nel 1900
+                        const annoCompleto = `19${anno}`;
+                        dataFormattata = `${giorno}/${mese}/${annoCompleto}`;
+                    } else {
+                        dataFormattata = s.dataNascita;
+                    }
                 }
                 
+                const eta = s.eta || 'N/A';  // ✅ Usa età dal backend (già calcolata correttamente)
                 html += `<tr onclick='mostraDettaglioAssistito(${JSON.stringify(s).replace(/'/g, "&apos;")})' style="cursor: pointer;">
                     <td><strong>${s.numeroScheda || '-'}</strong></td>
                     <td>${s.nome || ''} ${s.cognome || ''}</td>
                     <td>📍 ${s.comune || ''}</td>
-                    <td>${s.dataNascita ? new Date(s.dataNascita).toLocaleDateString('it-IT') : '-'}</td>
+                    <td>${dataFormattata}</td>
                     <td>${eta}</td>
                     <td>${s.cellulare || '-'}</td>
                     <td><span class="badge ${badgeClass}">${stato}</span></td>
@@ -1756,17 +2068,12 @@
                 return;
             }
             
-            
-            if (!schedeCache || schedeCache.length === 0) {
-                document.getElementById('risultatiRicerca').innerHTML = '<p style="text-align:center; color:#999;">Nessuna scheda presente nel database</p>';
-                return;
-            }
-            
+            // ✅ FIX: Converti tutti i campi a stringa prima di toLowerCase()
             const risultati = schedeCache.filter(s => {
-                const nome = (s.nome || '').toLowerCase();
-                const cognome = (s.cognome || '').toLowerCase();
-                const scheda = (s.numeroScheda || '').toLowerCase();
-                const comune = (s.comune || '').toLowerCase();
+                const nome = String(s.nome || '').toLowerCase();
+                const cognome = String(s.cognome || '').toLowerCase();
+                const scheda = String(s.numeroScheda || '').toLowerCase();
+                const comune = String(s.comune || '').toLowerCase();
                 
                 return nome.includes(query) || cognome.includes(query) || scheda.includes(query) || comune.includes(query);
             });
@@ -1778,7 +2085,9 @@
             
             let html = '';
             risultati.forEach(s => {
-                const installato = s.serialeDispositivo && s.serialeDispositivo.trim() !== '';
+                const haImei = s.IMEI && String(s.IMEI).trim() !== '';
+                const haSeriale = s.serialeDispositivo && String(s.serialeDispositivo).trim() !== '';
+                const installato = haImei || haSeriale;
                 const pianificato = s.meseInstallazionePrevisto && s.meseInstallazionePrevisto !== 'Non pianificato' && s.meseInstallazionePrevisto !== '';
                 
                 let badges = '';
@@ -1792,6 +2101,8 @@
                     badges += `<span class="badge badge-warning">⚠️ Non pianificato</span>`;
                 }
                 
+                const seriale = s.IMEI || s.serialeDispositivo;
+                
                 html += `
                     <div class="assistito-card" onclick='mostraDettaglioAssistito(${JSON.stringify(s).replace(/'/g, "&apos;")})'>
                         <div class="assistito-info">
@@ -1801,7 +2112,7 @@
                                 📍 ${s.comune || '-'} | 
                                 🎂 ${s.dataNascita || '-'}
                             </div>
-                            ${installato ? `<div class="assistito-dettagli" style="margin-top:5px">📱 IMEI: <code>${s.serialeDispositivo}</code></div>` : ''}
+                            ${installato ? `<div class="assistito-dettagli" style="margin-top:5px">📱 Seriale: <code>${seriale}</code></div>` : ''}
                         </div>
                         <div class="assistito-badges">
                             ${badges}
@@ -1814,27 +2125,47 @@
         }
         
         function mostraDettaglioAssistito(scheda) {
-            // Carica la scheda completa nel form
+            // ✅ FIX v3.5.2: Imposta flag di modifica
+            SCHEDA_IN_MODIFICA = true;
             caricaSchedaCompleta(scheda);
-            
-            // Switch al tab "Nuova Scheda" 
             switchTab('nuova');
+            console.log('📝 Modalità MODIFICA attivata per scheda:', scheda.numeroScheda);
         }
         
-function caricaSchedaCompleta(scheda) {
-            // Popola TUTTI i 61 campi del form completo
-            
-            // DATI ASSISTITO (campi 1-9)
+        function caricaSchedaCompleta(scheda) {
             document.getElementById('numeroScheda').value = scheda.numeroScheda || '';
             document.getElementById('nome').value = scheda.nome || '';
             document.getElementById('cognome').value = scheda.cognome || '';
             
-            // Data nascita
             if (scheda.dataNascita) {
-                const data = new Date(scheda.dataNascita);
-                document.getElementById('giorno').value = data.getDate();
-                document.getElementById('mese').value = data.getMonth() + 1;
-                document.getElementById('anno').value = data.getFullYear();
+                // ✅ FIX v3.6.3: Parser manuale per formato DD/MM/YY
+                let giorno, mese, anno;
+                
+                if (typeof scheda.dataNascita === 'string' && scheda.dataNascita.includes('/')) {
+                    // Formato DD/MM/YY o DD/MM/YYYY
+                    const parti = scheda.dataNascita.split('/');
+                    if (parti.length === 3) {
+                        giorno = parseInt(parti[0]);
+                        mese = parseInt(parti[1]);
+                        anno = parseInt(parti[2]);
+                        
+                        // 🔧 BUGFIX v3.6.14: Converti anno 2 cifre in 4 cifre
+                        // Per assistenza anziani: tutti gli anni a 2 cifre sono nel 1900
+                        if (anno < 100) {
+                            anno = 1900 + anno;
+                        }
+                    }
+                } else {
+                    // Fallback: usa Date() standard
+                    const data = new Date(scheda.dataNascita);
+                    giorno = data.getDate();
+                    mese = data.getMonth() + 1;
+                    anno = data.getFullYear();
+                }
+                
+                document.getElementById('giorno').value = giorno || '';
+                document.getElementById('mese').value = mese || '';
+                document.getElementById('anno').value = anno || '';
                 calcolaEta();
             }
             
@@ -1843,113 +2174,84 @@ function caricaSchedaCompleta(scheda) {
             document.getElementById('telFisso').value = scheda.telFisso || '';
             document.getElementById('cellulare').value = scheda.cellulare || '';
             
-            // CAREGIVER B (campi 10-14)
-            if (document.getElementById('caregiverB_nome')) document.getElementById('caregiverB_nome').value = scheda.caregiverB_nome || '';
-            if (document.getElementById('caregiverB_cognome')) document.getElementById('caregiverB_cognome').value = scheda.caregiverB_cognome || '';
-            if (document.getElementById('caregiverB_parentela')) document.getElementById('caregiverB_parentela').value = scheda.caregiverB_parentela || '';
-            if (document.getElementById('caregiverB_email')) document.getElementById('caregiverB_email').value = scheda.caregiverB_email || '';
-            if (document.getElementById('caregiverB_cellulare')) document.getElementById('caregiverB_cellulare').value = scheda.caregiverB_cellulare || '';
-            if (document.getElementById('caregiverB_chiavi')) document.getElementById('caregiverB_chiavi').value = scheda.caregiverB_chiavi || '';
+            document.getElementById('caregiverB_nome').value = scheda.caregiverB_nome || '';
+            document.getElementById('caregiverB_cognome').value = scheda.caregiverB_cognome || '';
+            document.getElementById('caregiverB_parentela').value = scheda.caregiverB_parentela || '';
+            document.getElementById('caregiverB_email').value = scheda.caregiverB_email || '';
+            document.getElementById('caregiverB_cellulare').value = scheda.caregiverB_cellulare || '';
+            document.getElementById('caregiverB_chiavi').value = scheda.caregiverB_chiavi || '';
             
-            // CAREGIVER C (campi 15-20)
-            if (document.getElementById('caregiverC_nome')) document.getElementById('caregiverC_nome').value = scheda.caregiverC_nome || '';
-            if (document.getElementById('caregiverC_cognome')) document.getElementById('caregiverC_cognome').value = scheda.caregiverC_cognome || '';
-            if (document.getElementById('caregiverC_parentela')) document.getElementById('caregiverC_parentela').value = scheda.caregiverC_parentela || '';
-            if (document.getElementById('caregiverC_email')) document.getElementById('caregiverC_email').value = scheda.caregiverC_email || '';
-            if (document.getElementById('caregiverC_cellulare')) document.getElementById('caregiverC_cellulare').value = scheda.caregiverC_cellulare || '';
-            if (document.getElementById('caregiverC_chiavi')) document.getElementById('caregiverC_chiavi').value = scheda.caregiverC_chiavi || '';
+            document.getElementById('caregiverC_nome').value = scheda.caregiverC_nome || '';
+            document.getElementById('caregiverC_cognome').value = scheda.caregiverC_cognome || '';
+            document.getElementById('caregiverC_parentela').value = scheda.caregiverC_parentela || '';
+            document.getElementById('caregiverC_email').value = scheda.caregiverC_email || '';
+            document.getElementById('caregiverC_cellulare').value = scheda.caregiverC_cellulare || '';
+            document.getElementById('caregiverC_chiavi').value = scheda.caregiverC_chiavi || '';
             
-            // CAREGIVER D (campi 21-26)
-            if (document.getElementById('caregiverD_nome')) document.getElementById('caregiverD_nome').value = scheda.caregiverD_nome || '';
-            if (document.getElementById('caregiverD_cognome')) document.getElementById('caregiverD_cognome').value = scheda.caregiverD_cognome || '';
-            if (document.getElementById('caregiverD_parentela')) document.getElementById('caregiverD_parentela').value = scheda.caregiverD_parentela || '';
-            if (document.getElementById('caregiverD_email')) document.getElementById('caregiverD_email').value = scheda.caregiverD_email || '';
-            if (document.getElementById('caregiverD_cellulare')) document.getElementById('caregiverD_cellulare').value = scheda.caregiverD_cellulare || '';
-            if (document.getElementById('caregiverD_chiavi')) document.getElementById('caregiverD_chiavi').value = scheda.caregiverD_chiavi || '';
+            document.getElementById('caregiverD_nome').value = scheda.caregiverD_nome || '';
+            document.getElementById('caregiverD_cognome').value = scheda.caregiverD_cognome || '';
+            document.getElementById('caregiverD_parentela').value = scheda.caregiverD_parentela || '';
+            document.getElementById('caregiverD_email').value = scheda.caregiverD_email || '';
+            document.getElementById('caregiverD_cellulare').value = scheda.caregiverD_cellulare || '';
+            document.getElementById('caregiverD_chiavi').value = scheda.caregiverD_chiavi || '';
             
-            // CONTATTI SANITARI (campi 27-36)
-            if (document.getElementById('scalettaContatti')) document.getElementById('scalettaContatti').value = scheda.scalettaContatti || '';
-            if (document.getElementById('assSocialeNome')) document.getElementById('assSocialeNome').value = scheda.assSocialeNome || '';
-            if (document.getElementById('assSocialeCellulare')) document.getElementById('assSocialeCellulare').value = scheda.assSocialeCellulare || '';
-            if (document.getElementById('ossNome')) document.getElementById('ossNome').value = scheda.ossNome || '';
-            if (document.getElementById('ossCellulare')) document.getElementById('ossCellulare').value = scheda.ossCellulare || '';
-            if (document.getElementById('infermiereNome')) document.getElementById('infermiereNome').value = scheda.infermiereNome || '';
-            if (document.getElementById('infermiereCellulare')) document.getElementById('infermiereCellulare').value = scheda.infermiereCellulare || '';
-            if (document.getElementById('mmgNome')) document.getElementById('mmgNome').value = scheda.mmgNome || '';
-            if (document.getElementById('mmgCellulare')) document.getElementById('mmgCellulare').value = scheda.mmgCellulare || '';
+            document.getElementById('scalettaContatti').value = scheda.scalettaContatti || '';
+            document.getElementById('assSocialeNome').value = scheda.assSocialeNome || '';
+            document.getElementById('assSocialeCellulare').value = scheda.assSocialeCellulare || '';
+            document.getElementById('ossNome').value = scheda.ossNome || '';
+            document.getElementById('ossCellulare').value = scheda.ossCellulare || '';
+            document.getElementById('infermiereNome').value = scheda.infermiereNome || '';
+            document.getElementById('infermiereCellulare').value = scheda.infermiereCellulare || '';
+            document.getElementById('mmgNome').value = scheda.mmgNome || '';
+            document.getElementById('mmgCellulare').value = scheda.mmgCellulare || '';
             
-            // DATI ANAGRAFICI ESTESI (campi 37-39)
-            if (document.getElementById('natoA')) document.getElementById('natoA').value = scheda.natoA || '';
-            if (document.getElementById('provincia')) document.getElementById('provincia').value = scheda.provincia || '';
-            if (document.getElementById('codiceFiscale')) document.getElementById('codiceFiscale').value = scheda.codiceFiscale || '';
+            document.getElementById('natoA').value = scheda.natoA || '';
+            document.getElementById('provinciaNascita').value = scheda.provinciaNascita || '';
+            document.getElementById('codiceFiscale').value = scheda.codiceFiscale || '';
             
-            // ABITAZIONE (campi 40-42)
-            if (document.getElementById('tipoAbitazione')) document.getElementById('tipoAbitazione').value = scheda.tipoAbitazione || '';
-            if (document.getElementById('piano')) document.getElementById('piano').value = scheda.piano || '';
-            if (document.getElementById('ascensore')) document.getElementById('ascensore').value = scheda.ascensore || '';
+            document.getElementById('tipoAbitazione').value = scheda.tipoAbitazione || '';
+            document.getElementById('piano').value = scheda.piano || '';
+            document.getElementById('ascensore').value = scheda.ascensore || '';
             
-            // DATI SANITARI (campi 43-50)
-            if (document.getElementById('sesso')) document.getElementById('sesso').value = scheda.sesso || '';
-            if (document.getElementById('peso')) document.getElementById('peso').value = scheda.peso || '';
-            if (document.getElementById('altezza')) document.getElementById('altezza').value = scheda.altezza || '';
-            if (document.getElementById('patologie')) document.getElementById('patologie').value = scheda.patologie || '';
-            if (document.getElementById('farmaci')) document.getElementById('farmaci').value = scheda.farmaci || '';
-            if (document.getElementById('freqCardiacaMin')) document.getElementById('freqCardiacaMin').value = scheda.freqCardiacaMin || '';
-            if (document.getElementById('freqCardiacaMax')) document.getElementById('freqCardiacaMax').value = scheda.freqCardiacaMax || '';
-            if (document.getElementById('saturazioneMin')) document.getElementById('saturazioneMin').value = scheda.saturazioneMin || '';
+            document.getElementById('sesso').value = scheda.sesso || '';
+            document.getElementById('peso').value = scheda.peso || '';
+            document.getElementById('altezza').value = scheda.altezza || '';
+            document.getElementById('patologie').value = scheda.patologie || '';
+            document.getElementById('farmaci').value = scheda.farmaci || '';
+            document.getElementById('freqCardiacaMin').value = scheda.freqCardiacaMin || '';
+            document.getElementById('freqCardiacaMax').value = scheda.freqCardiacaMax || '';
+            document.getElementById('saturazioneMin').value = scheda.saturazioneMin || '';
             
-            // DISPOSITIVO (campi 51-52)
-            if (document.getElementById('serialeDispositivo')) document.getElementById('serialeDispositivo').value = scheda.serialeDispositivo || scheda.serialeDispositivo || '';
-            if (document.getElementById('dataCompilazione')) document.getElementById('dataCompilazione').value = scheda.dataCompilazione || '';
+            document.getElementById('serialeDispositivo').value = scheda.IMEI || scheda.serialeDispositivo || '';
             
-            // DISPOSITIVI AGGIUNTIVI (campi 53-58)
-            if (document.getElementById('sensoreEcg')) document.getElementById('sensoreEcg').value = scheda.sensoreEcg || '';
-                                    if (document.getElementById('installazioneSensoreEcg')) document.getElementById('installazioneSensoreEcg').value = scheda.installazioneSensoreEcg || '';
-            
-            // PIANIFICAZIONE (campi 59-61)
-            if (document.getElementById('meseInstallazionePrevisto')) document.getElementById('meseInstallazionePrevisto').value = scheda.meseInstallazionePrevisto || '';
-
-            if (document.getElementById('meseInstallazioneSensoreEcg')) document.getElementById('meseInstallazioneSensoreEcg').value = scheda.meseInstallazioneSensoreEcg || '';
-            
-            // Aggiorna display riepilogo
-            setTimeout(aggiornaDisplayPianificazione, 100);
-            if (document.getElementById('notePianificazione')) document.getElementById('notePianificazione').value = scheda.notePianificazione || '';
-            if (document.getElementById('note')) document.getElementById('note').value = scheda.note || '';
-        }
-        
-        // FUNZIONE SOSTITUITA CON VERSIONE COMPLETA (61 campi)
-        // Vecchia funzione caricaSchedaCompleta rimossa
-        /*
-        function caricaSchedaCompleta_OLD(scheda) {
-            // Popola tutti i campi del form
-            document.getElementById('numeroScheda').value = scheda.numeroScheda || '';
-            document.getElementById('nome').value = scheda.nome || '';
-            document.getElementById('cognome').value = scheda.cognome || '';
-            
-            // Data nascita
-            if (scheda.dataNascita) {
-                const data = new Date(scheda.dataNascita);
-                document.getElementById('giorno').value = data.getDate();
-                document.getElementById('mese').value = data.getMonth() + 1;
-                document.getElementById('anno').value = data.getFullYear();
-                calcolaEta();
+            // ✅ FIX v3.6.7: Conversione data compilazione da DD/MM/YY a YYYY-MM-DD
+            if (scheda.dataCompilazione) {
+                const match = scheda.dataCompilazione.match(/(\d{2})\/(\d{2})\/(\d{2})/);
+                if (match) {
+                    const [_, giorno, mese, anno] = match;
+                    const annoCompleto = parseInt(anno) <= 30 ? `20${anno}` : `19${anno}`;
+                    document.getElementById('dataCompilazione').value = `${annoCompleto}-${mese}-${giorno}`;
+                } else {
+                    document.getElementById('dataCompilazione').value = '';
+                }
+            } else {
+                document.getElementById('dataCompilazione').value = '';
             }
             
-            document.getElementById('indirizzoResidenza').value = scheda.indirizzoResidenza || '';
-            document.getElementById('comune').value = scheda.comune || '';
-            document.getElementById('telFisso').value = scheda.telFisso || '';
-            document.getElementById('cellulare').value = scheda.cellulare || '';
+            document.getElementById('poltrone').value = scheda.poltrone || '';
+            document.getElementById('sensoreLuce').value = scheda.sensoreLuce || '';
+            document.getElementById('sensoreEcg').value = scheda.sensoreEcg || '';
+            document.getElementById('note').value = scheda.note || '';
+            document.getElementById('installazionePoltrona').value = scheda.installazionePoltrona || '';
+            document.getElementById('installazioneSensoreLuce').value = scheda.installazioneSensoreLuce || '';
+            document.getElementById('installazioneSensoreEcg').value = scheda.installazioneSensoreEcg || '';
             
-            // Pianificazione
             document.getElementById('meseInstallazionePrevisto').value = scheda.meseInstallazionePrevisto || '';
             document.getElementById('notePianificazione').value = scheda.notePianificazione || '';
-            document.getElementById('serialeDispositivo').value = scheda.serialeDispositivo || scheda.serialeDispositivo || '';
-            
-            // Data compilazione
-            if (scheda.dataCompilazione) {
-                document.getElementById('dataCompilazione').value = scheda.dataCompilazione;
-            }
-        */
+            document.getElementById('meseInstallazionePoltrona').value = scheda.meseInstallazionePoltrona || '';
+            document.getElementById('meseInstallazioneSensoreLuce').value = scheda.meseInstallazioneSensoreLuce || '';
+            document.getElementById('meseInstallazioneSensoreEcg').value = scheda.meseInstallazioneSensoreEcg || '';
+        }
         
         // ========================================
         // FORM GESTIONE
@@ -1985,57 +2287,395 @@ function caricaSchedaCompleta(scheda) {
             }
         }
         
+        function calcolaEtaDaForm() {
+            console.log('🔍 [ETA] Inizio calcolo età');
+            
+            const gInput = document.getElementById('giorno');
+            const mInput = document.getElementById('mese');
+            const aInput = document.getElementById('anno');
+            
+            if (!gInput || !mInput || !aInput) {
+                console.warn('⚠️ [ETA] Campi data non trovati');
+                return '';
+            }
+            
+            const g = parseInt(gInput.value);
+            const m = parseInt(mInput.value);
+            const a = parseInt(aInput.value);
+            
+            console.log('🔍 [ETA] Valori letti:', { g, m, a });
+            
+            if (g && m && a && g <= 31 && m <= 12 && a >= 1900 && a <= 2025) {
+                const nascita = new Date(a, m - 1, g);
+                const oggi = new Date();
+                let eta = oggi.getFullYear() - nascita.getFullYear();
+                if (oggi.getMonth() < nascita.getMonth() || (oggi.getMonth() === nascita.getMonth() && oggi.getDate() < nascita.getDate())) eta--;
+                console.log('✅ [ETA] Età calcolata:', eta);
+                return eta;
+            }
+            
+            console.warn('⚠️ [ETA] Dati non validi, ritorno stringa vuota');
+            return '';
+        }
+        
         function impostaDataOggi() {
             document.getElementById('dataCompilazione').value = new Date().toISOString().split('T')[0];
         }
         
-        function resetForm() {
-            if (confirm('Vuoi resettare il form?')) {
-                document.getElementById('assistitoForm').reset();
-                impostaDataOggi();
-                document.getElementById('ageDisplay').className = 'age-display empty';
-                document.getElementById('ageDisplay').textContent = '🎂 - anni';
-            }
+        function nuovaScheda() {
+            // ✅ FIX v3.6.13: Rimosso confirm inutile
+                try {
+                    console.log('🧹 [NUOVA SCHEDA] Inizio pulizia form...');
+                    
+                    // 1. Reset flag modifica
+                    SCHEDA_IN_MODIFICA = false;
+                    console.log('✅ [NUOVA SCHEDA] Flag modifica = false');
+                    
+                    // 2. Ottieni riferimento al form
+                    const form = document.getElementById('assistitoForm');
+                    if (!form) {
+                        throw new Error('Form assistitoForm non trovato!');
+                    }
+                    
+                    // 3. Reset form HTML
+                    form.reset();
+                    console.log('✅ [NUOVA SCHEDA] Form reset() eseguito');
+                    
+                    // 4. Pulizia MANUALE di tutti i campi
+                    const allInputs = form.querySelectorAll('input, select, textarea');
+                    console.log(`📝 [NUOVA SCHEDA] Trovati ${allInputs.length} campi da pulire`);
+                    
+                    let puliti = 0;
+                    allInputs.forEach(input => {
+                        try {
+                            if (input.type === 'checkbox' || input.type === 'radio') {
+                                input.checked = false;
+                            } else if (input.id !== 'dataCompilazione') {
+                                input.value = '';
+                            }
+                            puliti++;
+                        } catch (e) {
+                            console.warn('⚠️ Errore pulizia campo:', input.id, e);
+                        }
+                    });
+                    console.log(`✅ [NUOVA SCHEDA] ${puliti}/${allInputs.length} campi puliti`);
+                    
+                    // 5. Imposta data odierna
+                    const oggi = new Date().toISOString().split('T')[0];
+                    const dataComp = document.getElementById('dataCompilazione');
+                    if (dataComp) {
+                        dataComp.value = oggi;
+                        console.log(`✅ [NUOVA SCHEDA] Data compilazione = ${oggi}`);
+                    }
+                    
+                    // 6. Reset display età
+                    const ageDisplay = document.getElementById('ageDisplay');
+                    if (ageDisplay) {
+                        ageDisplay.className = 'age-display empty';
+                        ageDisplay.textContent = '🎂 - anni';
+                    }
+                    
+                    // 7. Cambia tab per rendere visibile il form
+                    console.log('📡 [NUOVA SCHEDA] Cambio tab a nuova...');
+                    switchTab('nuova');
+                    
+                    // 8. Scroll al form dopo breve delay
+                    setTimeout(() => {
+                        const formElement = document.getElementById('assistitoForm');
+                        if (formElement) {
+                            formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            console.log('📍 [NUOVA SCHEDA] Scroll al form completato');
+                        }
+                    }, 200);
+                    
+                    console.log('✨ [NUOVA SCHEDA] Form completamente pulito e pronto!');
+                    
+                } catch (error) {
+                    console.error('❌ [NUOVA SCHEDA] ERRORE:', error);
+                    alert('❌ Errore durante la creazione del form:\n' + error.message + '\n\nRicarica la pagina e riprova.');
+                }
         }
         
+        // ========================================
+        // ✅ FIX CORS: SALVATAGGIO SCHEDA
+        // ========================================
         document.getElementById('assistitoForm').addEventListener('submit', function(e) {
             e.preventDefault();
             salvaScheda();
         });
         
         function salvaScheda() {
-            const formData = new FormData(document.getElementById('assistitoForm'));
-            const schedaData = {};
-            formData.forEach((value, key) => { schedaData[key] = value; });
+            console.log('🔍 [DEBUG 1] Inizio salvaScheda()');
             
-            // Validazione numero scheda
-            if (!schedaData.numeroScheda) {
-                mostraMessaggio('error', '❌ Numero scheda obbligatorio');
-                return;
-            }
+            try {
+                const form = document.getElementById('assistitoForm');
+                console.log('🔍 [DEBUG 2] Form trovato:', form ? 'OK' : 'ERRORE');
+                
+                if (!form) {
+                    alert('❌ ERRORE: Form assistitoForm non trovato!');
+                    return;
+                }
+                
+                console.log('🔍 [DEBUG 3] Calcolo età...');
+                let eta;
+                try {
+                    eta = calcolaEtaDaForm();
+                    console.log('🔍 [DEBUG 4] Età calcolata:', eta);
+                } catch (etaError) {
+                    console.error('❌ Errore calcolo età:', etaError);
+                    eta = '';
+                }
+                
+                console.log('🔍 [DEBUG 5] Creazione schedaData...');
+                const schedaData = {
+                numeroScheda: form.numeroScheda.value,
+                nome: form.nome.value,
+                cognome: form.cognome.value,
+                dataNascita: document.getElementById('dataNascita').value,
+                eta: eta,
+                indirizzoResidenza: form.indirizzoResidenza.value,
+                comune: form.comune.value,
+                telFisso: form.telFisso.value,
+                cellulare: form.cellulare.value,
+                
+                caregiverB_nome: form.caregiverB_nome.value,
+                caregiverB_cognome: form.caregiverB_cognome.value,
+                caregiverB_parentela: form.caregiverB_parentela.value,
+                caregiverB_email: form.caregiverB_email.value,
+                caregiverB_cellulare: form.caregiverB_cellulare.value,
+                caregiverB_chiavi: form.caregiverB_chiavi.value,
+                
+                caregiverC_nome: form.caregiverC_nome.value,
+                caregiverC_cognome: form.caregiverC_cognome.value,
+                caregiverC_parentela: form.caregiverC_parentela.value,
+                caregiverC_email: form.caregiverC_email.value,
+                caregiverC_cellulare: form.caregiverC_cellulare.value,
+                caregiverC_chiavi: form.caregiverC_chiavi.value,
+                
+                caregiverD_nome: form.caregiverD_nome.value,
+                caregiverD_cognome: form.caregiverD_cognome.value,
+                caregiverD_parentela: form.caregiverD_parentela.value,
+                caregiverD_email: form.caregiverD_email.value,
+                caregiverD_cellulare: form.caregiverD_cellulare.value,
+                caregiverD_chiavi: form.caregiverD_chiavi.value,
+                
+                scalettaContatti: form.scalettaContatti.value,
+                
+                assSocialeNome: form.assSocialeNome.value,
+                assSocialeCellulare: form.assSocialeCellulare.value,
+                ossNome: form.ossNome.value,
+                ossCellulare: form.ossCellulare.value,
+                infermiereNome: form.infermiereNome.value,
+                infermiereCellulare: form.infermiereCellulare.value,
+                mmgNome: form.mmgNome.value,
+                mmgCellulare: form.mmgCellulare.value,
+                
+                natoA: form.natoA.value,
+                provinciaNascita: form.provinciaNascita.value,
+                codiceFiscale: form.codiceFiscale.value,
+                tipoAbitazione: form.tipoAbitazione.value,
+                piano: form.piano.value,
+                ascensore: form.ascensore.value,
+                sesso: form.sesso.value,
+                peso: form.peso.value,
+                altezza: form.altezza.value,
+                
+                patologie: form.patologie.value,
+                farmaci: form.farmaci.value,
+                freqCardiacaMin: form.freqCardiacaMin.value,
+                freqCardiacaMax: form.freqCardiacaMax.value,
+                saturazioneMin: form.saturazioneMin.value,
+                
+                IMEI: form.serialeDispositivo.value,
+                serialeDispositivo: form.serialeDispositivo.value,
+                dataCompilazione: form.dataCompilazione.value,
+                
+                poltrone: form.poltrone.value,
+                sensoreLuce: form.sensoreLuce.value,
+                sensoreEcg: form.sensoreEcg.value,
+                note: form.note.value,
+                
+                installazionePoltrona: form.installazionePoltrona.value,
+                installazioneSensoreLuce: form.installazioneSensoreLuce.value,
+                installazioneSensoreEcg: form.installazioneSensoreEcg.value,
+                
+                meseInstallazionePrevisto: form.meseInstallazionePrevisto.value,
+                notePianificazione: form.notePianificazione.value,
+                meseInstallazionePoltrona: form.meseInstallazionePoltrona.value,
+                meseInstallazioneSensoreLuce: form.meseInstallazioneSensoreLuce.value,
+                meseInstallazioneSensoreEcg: form.meseInstallazioneSensoreEcg.value
+            };
             
+            console.log('🔍 [DEBUG 6] schedaData creato OK');
+            console.log('📤 Invio scheda:', schedaData);
+            
+            // ✅ FIX v3.5.2: Determina se INSERT o UPDATE
+            const isNuovaScheda = !SCHEDA_IN_MODIFICA;
+            console.log(`📤 Invio scheda - Modalità: ${isNuovaScheda ? 'INSERT (Nuova)' : 'UPDATE (Modifica)'}`);
+            
+            console.log('🔍 [DEBUG 7] Inizio fetch...');
             mostraLoading('Salvataggio...');
             
             fetch(DEPLOY_URL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(schedaData)
+                headers: { 'Content-Type': 'text/plain' },
+                body: JSON.stringify({ 
+                    action: 'save', 
+                    scheda: schedaData 
+                })
             })
             .then(() => {
+                console.log('🔍 [DEBUG 8] Fetch completato, verifica risposta...');
                 nascondiLoading();
-                mostraMessaggio('success', `✅ Scheda ${schedaData.numeroScheda} salvata!`);
+                mostraMessaggio('success', `✅ Scheda ${schedaData.numeroScheda} ${isNuovaScheda ? 'creata con successo' : 'aggiornata con successo'}!`);
                 setTimeout(() => {
+                    console.log('🔍 [DEBUG 9] Ricaricamento schede...');
                     caricaSchede();
-                    resetForm();
+                    // ✅ FIX v3.5.3: Reset form silenzioso dopo INSERT, nessun dialog
+                    if (isNuovaScheda) {
+                        // Reset form silenzioso (no dialog)
+                        SCHEDA_IN_MODIFICA = false;
+                        document.getElementById('assistitoForm').reset();
+                        impostaDataOggi();
+                        document.getElementById('ageDisplay').className = 'age-display empty';
+                        document.getElementById('ageDisplay').textContent = '🎂 - anni';
+                        console.log('✅ Nuovo assistito creato, form resettato per prossimo inserimento');
+                    } else {
+                        // Dopo UPDATE: reset flag e torna alla dashboard
+                        SCHEDA_IN_MODIFICA = false;
+                        console.log('✅ Scheda modificata con successo, flag reset');
+                    }
+                    console.log('🔍 [DEBUG 10] Switch a dashboard...');
                     switchTab('dashboard');
+                    console.log('✅ [DEBUG 11] Procedura completata con successo');
                 }, 1500);
             })
             .catch(error => {
+                console.error('❌ [DEBUG 8] Errore fetch:', error);
+                console.error('❌ Stack:', error.stack);
                 nascondiLoading();
-                console.error(error);
-                mostraMessaggio('info', '📤 Scheda inviata (modalità no-cors)');
-                setTimeout(() => { caricaSchede(); }, 2000);
+                mostraMessaggio('info', '📤 Scheda inviata (verifica manualmente su Google Sheet)');
+                setTimeout(() => { 
+                    caricaSchede();
+                    SCHEDA_IN_MODIFICA = false; // Reset anche in caso di errore
+                }, 2000);
             });
+            
+            } catch (error) {
+                console.error('❌ [DEBUG FATALE] Errore in salvaScheda():', error);
+                console.error('❌ Stack trace:', error.stack);
+                nascondiLoading();
+                alert('❌ ERRORE CRITICO: ' + error.message + '\nControlla console (F12) per dettagli');
+            }
+        }
+        
+        // ========================================
+        // CONFIGURAZIONE OBIETTIVI
+        // ========================================
+        function toggleConfigPanel() {
+            const panel = document.getElementById('config-obiettivi-panel');
+            const icon = document.getElementById('config-toggle-icon');
+            if (panel.style.display === 'none') {
+                panel.style.display = 'block';
+                icon.textContent = '▲';
+                renderConfigObiettivi();
+            } else {
+                panel.style.display = 'none';
+                icon.textContent = '▼';
+            }
+        }
+        
+        function renderConfigObiettivi() {
+            const comuni = Object.keys(OBIETTIVI_COMUNI);
+            let htmlContent = '';
+            
+            comuni.forEach(comune => {
+                const safeId = comune.replace(/\s+/g, '-').replace(/'/g, '');
+                htmlContent += `
+                    <div style="padding: 15px; background: #f8f9fa; border-radius: 8px; border: 2px solid #dee2e6;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #495057;">
+                            ${comune}
+                        </label>
+                        <input 
+                            type="number" 
+                            id="obiettivo-${safeId}" 
+                            value="${OBIETTIVI_COMUNI[comune]}" 
+                            min="0" 
+                            max="200"
+                            style="width: 100%; padding: 10px; border: 2px solid #ced4da; border-radius: 6px; font-size: 16px; font-weight: 600; text-align: center;"
+                        />
+                    </div>
+                `;
+            });
+            
+            document.getElementById('config-obiettivi-grid').innerHTML = htmlContent;
+        }
+        
+        function salvaObiettivi() {
+            const obiettivi = {};
+            
+            Object.keys(OBIETTIVI_COMUNI).forEach(comune => {
+                const safeId = comune.replace(/\s+/g, '-').replace(/'/g, '');
+                const element = document.getElementById('obiettivo-' + safeId);
+                if (element) {
+                    obiettivi[comune] = parseInt(element.value) || OBIETTIVI_COMUNI[comune];
+                }
+            });
+            
+            console.log('💾 [1/5] Salvataggio obiettivi:', obiettivi);
+            
+            // ✅ FIX v3.5.2: Aggiorna SUBITO la variabile globale PRIMA del fetch
+            // Così la dashboard si aggiorna immediatamente anche se il fetch fallisce
+            OBIETTIVI_COMUNI = obiettivi;
+            console.log('💾 [2/5] Variabile globale OBIETTIVI_COMUNI aggiornata');
+            
+            aggiornaTabellaComuni(); // Aggiorna la UI subito
+            console.log('💾 [3/5] Dashboard aggiornata localmente');
+            
+            mostraLoading('Salvataggio obiettivi su Google Sheet...');
+            console.log('💾 [4/5] Invio richiesta POST a Google Apps Script...');
+            
+            fetch(DEPLOY_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain' },
+                body: JSON.stringify({
+                    action: 'setObiettivi',
+                    obiettivi: obiettivi
+                })
+            })
+            .then(() => {
+                console.log('💾 [5/5] ✅ Richiesta POST inviata al backend');
+                nascondiLoading();
+                alert('✅ Obiettivi salvati localmente!\n\n📋 Per verificare la sincronizzazione:\n1. Apri Google Sheet\n2. Vai al foglio "Obiettivi"\n3. Verifica che i valori siano aggiornati');
+                toggleConfigPanel();
+            })
+            .catch(e => {
+                console.error('💾 [5/5] ⚠️ Errore richiesta POST:', e);
+                nascondiLoading();
+                alert('⚠️ Errore salvataggio:\n' + e.message + '\n\nObiettivi salvati solo localmente.\nVerifica connessione internet e Google Apps Script.');
+            });
+        }
+        
+        function resetObiettivi() {
+            if (confirm('⚠️ Ripristinare gli obiettivi predefiniti?')) {
+                OBIETTIVI_COMUNI = {
+                    '': 46,
+                    '': 19,
+                    'Vald': 8,
+                    '': 8,
+                    '': 7,
+                    '': 4,
+                    '': 3,
+                    '': 3,
+                    '': 2
+                };
+                renderConfigObiettivi();
+                alert('🔄 Obiettivi ripristinati! Clicca "Salva" per confermare.');
+            }
+        }
+        
+        function setupPianificazioneListeners() {
+            // Placeholder
         }
         
         // ========================================
@@ -2055,257 +2695,74 @@ function caricaSchedaCompleta(scheda) {
             box.className = 'message ' + tipo;
             box.textContent = testo;
             box.style.display = 'block';
-            setTimeout(() => { box.style.display = 'none'; }, 5000);
-        }
-    
-        // ========================================
-        // CONFIGURAZIONE OBIETTIVI COMUNI
-        // ========================================
-        function toggleConfigPanel() {
-            const panel = document.getElementById('config-obiettivi-panel');
-            const icon = document.getElementById('config-toggle-icon');
-            if (panel.style.display === 'none') {
-                panel.style.display = 'block';
-                icon.textContent = '▲';
-                renderConfigObiettivi();
-            } else {
-                panel.style.display = 'none';
-                icon.textContent = '▼';
-            }
-        }
-        
-        function renderConfigObiettivi() {
-            const defaultObiettivi = {
-                'Novi Ligure': 19,
-                'Serravalle Scrivia': 9,
-                'Arquata Scrivia': 8,
-                'Gavi': 5,
-                'Basaluzzo': 1,
-                'Bosio': 1,
-                'Cassano Spinola': 1,
-                'Fresonara': 1,
-                'Pozzolo Formigaro': 1,
-                'Stazzano': 1,
-                'Tassarolo': 1,
-                'Vignole Borbera': 1,
-                'Voltaggio': 1,
-                'Albera Ligure': 0,
-                'Borghetto Di Borbera': 0,
-                'Cabella Ligure': 0,
-                'Cantalupo Ligure': 0,
-                'Capriata D\'Orba': 0,
-                'Carrega Ligure': 0,
-                'Carrosio': 0,
-                'Fraconalto': 0,
-                'Francavilla Bisio': 0,
-                'Grondona': 0,
-                'Mongiardino Ligure': 0,
-                'Parodi Ligure': 0,
-                'Pasturana': 0,
-                'Roccaforte Ligure': 0,
-                'Rocchetta Ligure': 0,
-                'San Cristoforo': 0,
-                'Sardigliano': 0
-            };
-            
-            let obiettivi = defaultObiettivi;
-            try {
-                const saved = localStorage.getItem('obiettivi_comuni');
-                if (saved) {
-                    obiettivi = JSON.parse(saved);
-                }
-            } catch(e) {
-                console.log('Usando obiettivi default');
-            }
-            
-            const comuni = Object.keys(obiettivi);
-            let htmlContent = '';
-            
-            comuni.forEach(comune => {
-                const safeId = comune.replace(/\s+/g, '-').replace(/'/g, '');
-                htmlContent += `
-                    <div style="padding: 15px; background: #f8f9fa; border-radius: 8px; border: 2px solid #dee2e6;">
-                        <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #495057;">
-                            ${comune}
-                        </label>
-                        <input 
-                            type="number" 
-                            id="obiettivo-${safeId}" 
-                            value="${obiettivi[comune]}" 
-                            min="0" 
-                            max="200"
-                            style="width: 100%; padding: 10px; border: 2px solid #ced4da; border-radius: 6px; font-size: 16px; font-weight: 600; text-align: center;"
-                        />
-                    </div>
-                `;
-            });
-            
-            document.getElementById('config-obiettivi-grid').innerHTML = htmlContent;
-        }
-        
-        function salvaObiettivi() {
-            const obiettivi = {};
-            
-            // Leggi tutti i campi input in modo sicuro
-            const defaultObiettivi = {
-                'Novi Ligure': 19,
-                'Serravalle Scrivia': 9,
-                'Arquata Scrivia': 8,
-                'Gavi': 5,
-                'Basaluzzo': 1,
-                'Bosio': 1,
-                'Cassano Spinola': 1,
-                'Fresonara': 1,
-                'Pozzolo Formigaro': 1,
-                'Stazzano': 1,
-                'Tassarolo': 1,
-                'Vignole Borbera': 1,
-                'Voltaggio': 1,
-                'Albera Ligure': 0,
-                'Borghetto Di Borbera': 0,
-                'Cabella Ligure': 0,
-                'Cantalupo Ligure': 0,
-                'Capriata D\'Orba': 0,
-                'Carrega Ligure': 0,
-                'Carrosio': 0,
-                'Fraconalto': 0,
-                'Francavilla Bisio': 0,
-                'Grondona': 0,
-                'Mongiardino Ligure': 0,
-                'Parodi Ligure': 0,
-                'Pasturana': 0,
-                'Roccaforte Ligure': 0,
-                'Rocchetta Ligure': 0,
-                'San Cristoforo': 0,
-                'Sardigliano': 0
-            };
-            
-            Object.keys(defaultObiettivi).forEach(comune => {
-                const safeId = comune.replace(/\s+/g, '-').replace(/'/g, '');
-                const element = document.getElementById('obiettivo-' + safeId);
-                if (element) {
-                    obiettivi[comune] = parseInt(element.value) || defaultObiettivi[comune];
-                } else {
-                    console.warn('Elemento non trovato per: ' + comune);
-                    obiettivi[comune] = defaultObiettivi[comune];
-                }
-            });
-            
-            // Salva obiettivi sul Google Sheet
-            mostraLoading('Salvataggio obiettivi...');
-            
-            fetch(DEPLOY_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    action: 'setObiettivi',
-                    obiettivi: obiettivi
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                nascondiLoading();
-                if (data.success) {
-                    OBIETTIVI_COMUNI = obiettivi;
-                    alert('✅ Obiettivi salvati nel Google Sheet!\n\nOra tutti i browser vedranno gli stessi obiettivi.');
-                    aggiornaTabellaComuni();
-                    toggleConfigPanel();
-                } else {
-                    alert('❌ Errore: ' + (data.error || 'Errore sconosciuto'));
-                }
-            })
-            .catch(e => {
-                nascondiLoading();
-                alert('❌ Errore di connessione: ' + e.message);
-                console.error('Errore salvataggio obiettivi:', e);
-            });
-        }
-        
-        function resetObiettivi() {
-            if (confirm('⚠️ Sei sicuro di voler ripristinare gli obiettivi predefiniti?\n\nQuesta azione cancellerà le tue modifiche.')) {
-                try {
-                    // Gli obiettivi saranno ripristinati al prossimo caricamento dal server
-                    alert('🔄 Obiettivi ripristinati ai valori predefiniti!');
-                    aggiornaTabellaComuni();
-                    toggleConfigPanel();
-                } catch(e) {
-                    alert('❌ Errore: ' + e.message);
-                }
-            }
+            setTimeout(() => { box.style.display = 'none'; }, 8000);  // 8 secondi
         }
 
-    
         // ========================================
-        // AGGIORNAMENTO RIEPILOGO PIANIFICAZIONE
+        // ✅ FIX v3.6.13: PROTEZIONE DATI NON SALVATI
         // ========================================
-        function aggiornaDisplayPianificazione() {
-            const displays = {
-                'display_meseDispositivo': 'meseInstallazionePrevisto',
-                'display_meseSensoreEcg': 'meseInstallazioneSensoreEcg'
-            };
+        
+        let FORM_MODIFICATO = false;  // Flag globale per tracciare modifiche
+        
+        // Inizializza listener per tracciare modifiche al form
+        function initFormChangeTracking() {
+            const form = document.getElementById('assistitoForm');
+            if (!form) return;
             
-            Object.keys(displays).forEach(displayId => {
-                const displayEl = document.getElementById(displayId);
-                const selectEl = document.getElementById(displays[displayId]);
-                if (displayEl && selectEl) {
-                    displayEl.textContent = selectEl.value || '-';
+            // Ascolta tutti gli input, textarea e select nel form
+            form.querySelectorAll('input, textarea, select').forEach(campo => {
+                campo.addEventListener('change', () => {
+                    FORM_MODIFICATO = true;
+                    console.log('⚠️ Form modificato - protezione attiva');
+                });
+                
+                // Anche per i campi di testo (input/change non bastano)
+                if (campo.type === 'text' || campo.tagName === 'TEXTAREA') {
+                    campo.addEventListener('input', () => {
+                        FORM_MODIFICATO = true;
+                    });
                 }
             });
+            
+            console.log('🛡️ Protezione modifiche form inizializzata');
         }
         
-        // Listener per i select di pianificazione
-        function setupPianificazioneListeners() {
-            const selectIds = ['meseInstallazionePrevisto', 'meseInstallazioneSensoreEcg'];
-            selectIds.forEach(id => {
-                const el = document.getElementById(id);
-                if (el) {
-                    el.addEventListener('change', aggiornaDisplayPianificazione);
-                }
-            });
-        }
-
-    
-        // ═══════════════════════════════════════════════════════════════════════
-        // AUTOCOMPLETE INTELLIGENTE PER RICERCA ASSISTITI
-        // ═══════════════════════════════════════════════════════════════════════
+        // Reset flag dopo salvataggio
+        document.getElementById('assistitoForm')?.addEventListener('submit', (e) => {
+            FORM_MODIFICATO = false;
+            console.log('💾 Form salvato - protezione disattivata');
+        });
         
-        function updateAutocompleteAssistiti() {
-            const datalist = document.getElementById('assistiti-suggestions');
-            if (!datalist) return;
+        // Funzione per pulsante in fondo al form (con conferma)
+        function nuovaSchedaConConferma() {
+            console.log('🔵 Pulsante NUOVA SCHEDA (fondo form) premuto');
             
-            // Pulisci datalist
-            datalist.innerHTML = '';
-            
-            // Genera suggestions da schedeCache
-            const suggestions = new Set();
-            
-            schedeCache.forEach(scheda => {
-                // Aggiungi nome completo
-                if (scheda.nome && scheda.cognome) {
-                    suggestions.add(`${scheda.nome} ${scheda.cognome}`);
+            // Se il form è stato modificato, chiedi conferma
+            if (FORM_MODIFICATO) {
+                const conferma = confirm(
+                    '⚠️ ATTENZIONE\n\n' +
+                    'Hai modificato il form senza salvare.\n\n' +
+                    'Vuoi davvero creare una nuova scheda?\n' +
+                    'Le modifiche NON salvate andranno perse.'
+                );
+                
+                if (!conferma) {
+                    console.log('❌ Utente ha annullato - dati preservati');
+                    return;  // Annulla operazione
                 }
                 
-                // Aggiungi numero scheda
-                if (scheda.numeroScheda) {
-                    suggestions.add(`Scheda ${scheda.numeroScheda}`);
-                }
-                
-                // Aggiungi comune
-                if (scheda.comune) {
-                    suggestions.add(scheda.comune);
-                }
-            });
+                console.log('⚠️ Utente ha confermato - dati persi');
+            }
             
-            // Ordina alfabeticamente e aggiungi a datalist
-            Array.from(suggestions).sort().forEach(text => {
-                const option = document.createElement('option');
-                option.value = text;
-                datalist.appendChild(option);
-            });
+            // Pulisci il form (usa la funzione esistente)
+            nuovaScheda();
         }
         
-
-    
+        // Inizializza tracciamento al caricamento della pagina
+        window.addEventListener('DOMContentLoaded', () => {
+            initFormChangeTracking();
+            console.log('✅ Sistema protezione dati caricato');
+        });
     </script>
 </body>
 </html>

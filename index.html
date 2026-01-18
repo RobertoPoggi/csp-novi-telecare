@@ -3,7 +3,7 @@
 ═══════════════════════════════════════════════════════════════════
     TeleCare H24 - Sistema di Gestione Assistiti
     VERSIONE: 4.1 FINALE
-    Data: 14 Gennaio 2026
+    Data: 18 Gennaio 2026
     CSP Novi Ligure - Progetto FNNA
     
     NOVITÀ VERSIONE 4.1:
@@ -1886,7 +1886,7 @@
         // ========================================
         // ✅ CONFIGURAZIONE GLOBALE
         // ========================================
-        const DEPLOY_URL = 'https://script.google.com/macros/s/AKfycbyZmfeeEtjBLr3_lh5R5vYur12W58XJT0yoFGFUbxGr7LV-0CNfzllsiI4070bRca1GmA/exec';  // ✅ URL CONFIGURATO - Backend CSP Novi Ligure
+        const DEPLOY_URL = 'https://script.google.com/macros/s/AKfycbzWVGhE-xyqBLZlryL7BKntlcoGLaMLyUxu--PmscZZe-akIvgRbEWan4tuDcs0q9AihA/exec';  // ✅ URL CONFIGURATO - Backend CSP Novi Ligure
         
         // ✅ FIX v3.5.2: Traccia se stiamo modificando una scheda esistente
         let SCHEDA_IN_MODIFICA = false;
@@ -4280,7 +4280,7 @@ function recuperaDatiValutazione() {
 function stampaSchedaValutazioneModal() {
   // ✅ CSP Novi Ligure - Scheda Valutazione (PDF master + overlay) via pdf-lib
   // Manteniamo jsPDF nel file per le altre stampe.
-  const MASTER_TEMPLATE_URL = 'https://www.genspark.ai/api/files/s/gb5yK3Bs';
+  const MASTER_TEMPLATE_URL = './Scheda_CSP_master.pdf';
 
   console.log('🖨️ Genero Scheda Valutazione CSP (template+overlay) con pdf-lib...');
 
@@ -4324,7 +4324,20 @@ function stampaSchedaValutazioneModal() {
       const caregiverD_email = v('caregiverD_email');
 
       // ---- Scarica PDF master ----
-      const tplBytes = await fetch(MASTER_TEMPLATE_URL).then(r => r.arrayBuffer());
+      const url = MASTER_TEMPLATE_URL + (MASTER_TEMPLATE_URL.includes('?') ? '&' : '?') + 't=' + Date.now();
+      const res = await fetch(url, { cache: 'no-store' });
+      if (!res.ok) {
+        throw new Error(`Template PDF non raggiungibile (HTTP ${res.status}). Verifica Scheda_CSP_master.pdf in root.`);
+      }
+      const ct = (res.headers.get('content-type') || '').toLowerCase();
+      if (!ct.includes('pdf')) {
+        const txt = await res.text();
+        throw new Error(`Template non-PDF (content-type=${ct || 'n/a'}). Inizio risposta: ${txt.slice(0,160)}`);
+      }
+      const tplBytes = await res.arrayBuffer();
+      const u8 = new Uint8Array(tplBytes);
+      const isPdf = u8.length >= 5 && u8[0]===0x25 && u8[1]===0x50 && u8[2]===0x44 && u8[3]===0x46 && u8[4]===0x2D;
+      if (!isPdf) throw new Error('Header %PDF- mancante: file non valido.');
       const pdfDoc = await PDFDocument.load(tplBytes);
       const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
 

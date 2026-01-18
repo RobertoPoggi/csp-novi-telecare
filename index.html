@@ -2,8 +2,8 @@
 <!-- 
 ═══════════════════════════════════════════════════════════════════
     TeleCare H24 - Sistema di Gestione Assistiti
-    VERSIONE: 4.1 FINALE
-    Data: 18 Gennaio 2026
+    VERSIONE: 4.0 FINALE
+    Data: 10 Gennaio 2026
     CSP Novi Ligure - Progetto FNNA
     
     NOVITÀ VERSIONE 4.1:
@@ -4324,8 +4324,8 @@ function stampaSchedaValutazioneModal() {
       const caregiverD_email = v('caregiverD_email');
 
       // ---- Scarica PDF master ----
-      const url = MASTER_TEMPLATE_URL + (MASTER_TEMPLATE_URL.includes('?') ? '&' : '?') + 't=' + Date.now();
-      const res = await fetch(url, { cache: 'no-store' });
+      const tplUrl = MASTER_TEMPLATE_URL + (MASTER_TEMPLATE_URL.includes('?') ? '&' : '?') + 't=' + Date.now();
+      const res = await fetch(tplUrl, { cache: 'no-store' });
       if (!res.ok) {
         throw new Error(`Template PDF non raggiungibile (HTTP ${res.status}). Verifica Scheda_CSP_master.pdf in root.`);
       }

@@ -1,0 +1,1254 @@
+{
+  "pdf": "Scheda_CSP_master.pdf",
+  "unit": "pt (origin bottom-left)",
+  "pages": [
+    {
+      "page": 1,
+      "size_pt": {
+        "w": 595.9199829101562,
+        "h": 842.8800048828125
+      },
+      "fields": [
+        {
+          "type": "checkbox",
+          "rect": [
+            9.65,
+            443.78,
+            17.35,
+            451.48
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_01"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            305.15,
+            443.78,
+            312.85,
+            451.48
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_02"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            9.65,
+            426.53,
+            17.35,
+            434.23
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_03"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            305.15,
+            426.53,
+            312.85,
+            434.23
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_04"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            9.65,
+            409.28,
+            17.35,
+            416.98
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_05"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            305.15,
+            409.28,
+            312.85,
+            416.98
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_06"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            305.15,
+            392.03,
+            312.85,
+            399.73
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_07"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            305.15,
+            374.78,
+            312.85,
+            382.48
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_08"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            305.15,
+            357.53,
+            312.85,
+            365.23
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_09"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            9.65,
+            350.78,
+            17.35,
+            358.48
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_10"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            9.65,
+            333.53,
+            17.35,
+            341.23
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_11"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            9.65,
+            316.28,
+            17.35,
+            323.98
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_12"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            9.65,
+            299.03,
+            17.35,
+            306.73
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_13"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            305.15,
+            284.78,
+            312.85,
+            292.48
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_14"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            404.9,
+            284.78,
+            412.6,
+            292.48
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_15"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            467.15,
+            284.78,
+            474.85,
+            292.48
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_16"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            9.65,
+            281.03,
+            17.35,
+            288.73
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_17"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            305.15,
+            252.53,
+            312.85,
+            260.23
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_18"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            305.15,
+            235.28,
+            312.85,
+            242.98
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_19"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            9.65,
+            207.53,
+            17.35,
+            215.23
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_20"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            9.65,
+            190.28,
+            17.35,
+            197.98
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_21"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            305.15,
+            176.78,
+            312.85,
+            184.48
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_22"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            9.65,
+            173.03,
+            17.35,
+            180.73
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_23"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            305.15,
+            159.53,
+            312.85,
+            167.23
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_24"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            305.15,
+            142.28,
+            312.85,
+            149.98
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_25"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            9.65,
+            141.53,
+            17.35,
+            149.23
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_26"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            305.15,
+            125.03,
+            312.85,
+            132.73
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_27"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            9.65,
+            124.28,
+            17.35,
+            131.98
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_28"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            305.15,
+            107.78,
+            312.85,
+            115.48
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p1_cb_29"
+        },
+        {
+          "name": "p1_text_01",
+          "type": "text",
+          "rect": [
+            64.07,
+            678.84,
+            206.61,
+            686.59
+          ],
+          "source": "underscores",
+          "raw_sample": "  __________________________"
+        },
+        {
+          "name": "p1_text_02",
+          "type": "text",
+          "rect": [
+            335.93,
+            678.84,
+            483.84,
+            686.59
+          ],
+          "source": "underscores",
+          "raw_sample": "  ___________________________"
+        },
+        {
+          "name": "p1_text_03",
+          "type": "text",
+          "rect": [
+            87.61,
+            656.34,
+            182.0,
+            664.09
+          ],
+          "source": "underscores",
+          "raw_sample": "  ____/____/________"
+        },
+        {
+          "name": "p1_date_04",
+          "type": "date",
+          "rect": [
+            87.61,
+            656.34,
+            182.0,
+            664.09
+          ],
+          "source": "date_placeholder",
+          "raw_sample": "  ____/____/________"
+        },
+        {
+          "name": "p1_text_05",
+          "type": "text",
+          "rect": [
+            333.43,
+            656.34,
+            362.8,
+            664.09
+          ],
+          "source": "mixed_span_replace",
+          "raw_sample": "  _______ anni"
+        },
+        {
+          "name": "p1_text_06",
+          "type": "text",
+          "rect": [
+            87.08,
+            634.59,
+            283.13,
+            642.34
+          ],
+          "source": "underscores",
+          "raw_sample": "  ____________________________________"
+        },
+        {
+          "name": "p1_text_07",
+          "type": "text",
+          "rect": [
+            123.56,
+            612.09,
+            325.08,
+            619.84
+          ],
+          "source": "mixed_span_replace",
+          "raw_sample": "  Via/Piazza ___________________________"
+        },
+        {
+          "name": "p1_text_08",
+          "type": "text",
+          "rect": [
+            58.19,
+            589.59,
+            182.01,
+            597.34
+          ],
+          "source": "underscores",
+          "raw_sample": "  ______________________ "
+        },
+        {
+          "name": "p1_text_09",
+          "type": "text",
+          "rect": [
+            219.78,
+            589.59,
+            268.69,
+            597.34
+          ],
+          "source": "underscores",
+          "raw_sample": "  ________ "
+        },
+        {
+          "name": "p1_text_10",
+          "type": "text",
+          "rect": [
+            325.71,
+            589.59,
+            425.46,
+            597.34
+          ],
+          "source": "underscores",
+          "raw_sample": "  __________________"
+        },
+        {
+          "name": "p1_text_11",
+          "type": "text",
+          "rect": [
+            60.69,
+            567.84,
+            176.49,
+            575.59
+          ],
+          "source": "underscores",
+          "raw_sample": "  _____________________"
+        },
+        {
+          "name": "p1_text_12",
+          "type": "text",
+          "rect": [
+            349.85,
+            567.84,
+            465.64,
+            575.59
+          ],
+          "source": "underscores",
+          "raw_sample": "  _____________________"
+        },
+        {
+          "name": "p1_text_13",
+          "type": "text",
+          "rect": [
+            151.27,
+            545.34,
+            268.64,
+            553.09
+          ],
+          "source": "mixed_span_replace",
+          "raw_sample": "  Dr./Dr.ssa _________________________ "
+        },
+        {
+          "name": "p1_text_14",
+          "type": "text",
+          "rect": [
+            304.1,
+            545.34,
+            409.19,
+            553.09
+          ],
+          "source": "underscores",
+          "raw_sample": "  ___________________"
+        },
+        {
+          "name": "p1_text_15",
+          "type": "text",
+          "rect": [
+            176.23,
+            391.51,
+            291.0,
+            399.68
+          ],
+          "source": "underscores",
+          "raw_sample": "Punteggio B1: ______ / 3"
+        },
+        {
+          "name": "p1_text_16",
+          "type": "text",
+          "rect": [
+            471.73,
+            339.76,
+            586.5,
+            347.93
+          ],
+          "source": "underscores",
+          "raw_sample": "Punteggio B4: ______ / 3"
+        },
+        {
+          "name": "p1_text_17",
+          "type": "text",
+          "rect": [
+            135.94,
+            262.51,
+            291.0,
+            270.68
+          ],
+          "source": "underscores",
+          "raw_sample": "Punteggio B2: ______ / 3 (+ ____)"
+        },
+        {
+          "name": "p1_text_18",
+          "type": "text",
+          "rect": [
+            431.44,
+            217.51,
+            586.5,
+            225.68
+          ],
+          "source": "underscores",
+          "raw_sample": "Punteggio B5: ______ / 2 (+ ____)"
+        },
+        {
+          "name": "p1_text_19",
+          "type": "text",
+          "rect": [
+            135.94,
+            106.51,
+            291.0,
+            114.68
+          ],
+          "source": "underscores",
+          "raw_sample": "Punteggio B3: ______ / 2 (+ ____)"
+        },
+        {
+          "name": "p1_text_20",
+          "type": "text",
+          "rect": [
+            471.73,
+            90.01,
+            586.5,
+            98.18
+          ],
+          "source": "underscores",
+          "raw_sample": "Punteggio B6: ______ / 2"
+        },
+        {
+          "name": "p1_text_21",
+          "type": "text",
+          "rect": [
+            311.26,
+            47.91,
+            385.87,
+            60.55
+          ],
+          "source": "mixed_span_replace",
+          "raw_sample": "PUNTEGGIO TOTALE: __________ / 10"
+        }
+      ],
+      "anchors_sample": [
+        {
+          "text": "Data:",
+          "rect": [
+            437.99998174999996,
+            825.9727741644678,
+            459.5112112436987,
+            834.9727737894677
+          ]
+        },
+        {
+          "text": "Comune:",
+          "rect": [
+            437.99998174999996,
+            802.7227751332177,
+            474.5185347583935,
+            811.7227747582177
+          ]
+        },
+        {
+          "text": "SEZIONE",
+          "rect": [
+            11.24999953125,
+            715.0870366047071,
+            63.925778616425774,
+            727.0870361047071
+          ]
+        },
+        {
+          "text": "Cognome:",
+          "rect": [
+            14.999999375,
+            677.3408638710079,
+            62.565727494844,
+            686.9633633950704
+          ]
+        },
+        {
+          "text": "Nome:",
+          "rect": [
+            304.49998731249997,
+            677.3408638710079,
+            334.43485679196306,
+            686.9633633950704
+          ]
+        },
+        {
+          "text": "Data",
+          "rect": [
+            14.999999375,
+            654.8408648085078,
+            35.85432470600831,
+            664.4633643325703
+          ]
+        },
+        {
+          "text": "Codice",
+          "rect": [
+            14.999999375,
+            633.0908657147578,
+            47.07738491338079,
+            642.7133652388203
+          ]
+        },
+        {
+          "text": "Indirizzo:",
+          "rect": [
+            14.999999375,
+            610.5908666522578,
+            57.21963179259799,
+            620.2133661763203
+          ]
+        },
+        {
+          "text": "Comune:",
+          "rect": [
+            14.999999375,
+            588.0908675897579,
+            56.68877461471704,
+            597.7133671138204
+          ]
+        },
+        {
+          "text": "CAP:",
+          "rect": [
+            194.76561688476562,
+            588.0908675897579,
+            218.28328083161227,
+            597.7133671138204
+          ]
+        },
+        {
+          "text": "Frazione:",
+          "rect": [
+            281.449210772949,
+            588.0908675897579,
+            324.213787842841,
+            597.7133671138204
+          ]
+        },
+        {
+          "text": "Tel.",
+          "rect": [
+            14.999999375,
+            566.3408684960078,
+            30.86007532700107,
+            575.9633680200703
+          ]
+        },
+        {
+          "text": "Cellulare:",
+          "rect": [
+            304.49998731249997,
+            566.3408684960078,
+            348.3450697623708,
+            575.9633680200703
+          ]
+        },
+        {
+          "text": "Medico",
+          "rect": [
+            14.999999375,
+            543.8408694335078,
+            48.1438565335929,
+            553.4633689575703
+          ]
+        },
+        {
+          "text": "SEZIONE",
+          "rect": [
+            11.24999953125,
+            496.08704572970703,
+            63.925778616425774,
+            508.08704522970703
+          ]
+        },
+        {
+          "text": "PRIORITÀ",
+          "rect": [
+            173.47264899197265,
+            496.08704572970703,
+            230.80663096305665,
+            508.08704522970703
+          ]
+        },
+        {
+          "text": "PUNTEGGIO",
+          "rect": [
+            170.0624929140625,
+            46.41429591637245,
+            254.02463412548977,
+            60.40929533324743
+          ]
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "size_pt": {
+        "w": 595.9199829101562,
+        "h": 842.8800048828125
+      },
+      "fields": [
+        {
+          "type": "checkbox",
+          "rect": [
+            5.15,
+            677.03,
+            12.85,
+            684.73
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p2_cb_01"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            5.15,
+            275.78,
+            12.85,
+            283.48
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p2_cb_02"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            5.15,
+            254.03,
+            12.85,
+            261.73
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p2_cb_03"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            23.9,
+            223.28,
+            28.6,
+            227.98
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p2_cb_04"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            64.4,
+            223.28,
+            69.1,
+            227.98
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p2_cb_05"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            110.15,
+            223.28,
+            114.85,
+            227.98
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p2_cb_06"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            154.4,
+            223.28,
+            159.1,
+            227.98
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p2_cb_07"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            241.4,
+            223.28,
+            246.1,
+            227.98
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p2_cb_08"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            18.65,
+            160.28,
+            26.35,
+            167.98
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p2_cb_09"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            18.65,
+            142.28,
+            26.35,
+            149.98
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p2_cb_10"
+        },
+        {
+          "type": "checkbox",
+          "rect": [
+            18.65,
+            123.53,
+            26.35,
+            131.23
+          ],
+          "source": "draw_rect_dedup",
+          "name": "p2_cb_11"
+        },
+        {
+          "name": "p2_text_01",
+          "type": "text",
+          "rect": [
+            151.66,
+            676.3,
+            352.8,
+            685.58
+          ],
+          "source": "mixed_span_replace",
+          "raw_sample": " PRIORITÀ ASSEGNATA: ___________________"
+        },
+        {
+          "name": "p2_text_02",
+          "type": "text",
+          "rect": [
+            180.56,
+            253.3,
+            564.56,
+            262.58
+          ],
+          "source": "mixed_span_replace",
+          "raw_sample": "- Motivazione: _________________________"
+        },
+        {
+          "name": "p2_text_03",
+          "type": "text",
+          "rect": [
+            294.15,
+            222.76,
+            374.68,
+            230.93
+          ],
+          "source": "mixed_span_replace",
+          "raw_sample": " Altro: _________________"
+        },
+        {
+          "name": "p2_text_04",
+          "type": "text",
+          "rect": [
+            357.2,
+            154.88,
+            577.46,
+            165.07
+          ],
+          "source": "underscores",
+          "raw_sample": "Data presa in carico: ____/____/________"
+        },
+        {
+          "name": "p2_date_05",
+          "type": "date",
+          "rect": [
+            357.2,
+            154.88,
+            577.46,
+            165.07
+          ],
+          "source": "date_placeholder",
+          "raw_sample": "Data presa in carico: ____/____/________"
+        },
+        {
+          "name": "p2_text_06",
+          "type": "text",
+          "rect": [
+            338.81,
+            124.13,
+            577.45,
+            134.32
+          ],
+          "source": "underscores",
+          "raw_sample": "Previsione installazione: ____/____/____"
+        },
+        {
+          "name": "p2_date_07",
+          "type": "date",
+          "rect": [
+            338.81,
+            124.13,
+            577.45,
+            134.32
+          ],
+          "source": "date_placeholder",
+          "raw_sample": "Previsione installazione: ____/____/________"
+        },
+        {
+          "name": "p2_text_08",
+          "type": "text",
+          "rect": [
+            41.74,
+            11.8,
+            239.42,
+            21.08
+          ],
+          "source": "mixed_span_replace",
+          "raw_sample": "Nome: _________________________________"
+        },
+        {
+          "name": "p2_text_09",
+          "type": "text",
+          "rect": [
+            365.55,
+            11.8,
+            563.23,
+            21.08
+          ],
+          "source": "mixed_span_replace",
+          "raw_sample": "Nome: _________________________________"
+        }
+      ],
+      "anchors_sample": [
+        {
+          "text": "SEZIONE",
+          "rect": [
+            11.24999953125,
+            825.3370320109572,
+            63.925778616425774,
+            837.3370315109571
+          ]
+        },
+        {
+          "text": "PRIORITÀ",
+          "rect": [
+            213.70897545545898,
+            825.3370320109572,
+            271.042957426543,
+            837.3370315109571
+          ]
+        },
+        {
+          "text": "PRIORITÀ",
+          "rect": [
+            84.62958187376726,
+            793.5113912580691,
+            132.3902866596502,
+            803.5088907665066
+          ]
+        },
+        {
+          "text": "PRIORITÀ",
+          "rect": [
+            79.07022540540713,
+            763.5113925080691,
+            126.8309301912901,
+            773.5088920165066
+          ]
+        },
+        {
+          "text": "PRIORITÀ",
+          "rect": [
+            79.07022540540713,
+            733.5113937580691,
+            126.8309301912901,
+            743.5088932665066
+          ]
+        },
+        {
+          "text": "PRIORITÀ",
+          "rect": [
+            79.07022540540713,
+            702.7613950393192,
+            126.8309301912901,
+            712.7588945477567
+          ]
+        },
+        {
+          "text": "PRIORITÀ",
+          "rect": [
+            23.30398080400076,
+            674.8000119454204,
+            75.82483513745656,
+            685.7950113372953
+          ]
+        },
+        {
+          "text": "SEZIONE",
+          "rect": [
+            11.24999953125,
+            644.5870395422072,
+            63.925778616425774,
+            656.5870390422072
+          ]
+        },
+        {
+          "text": "Nome",
+          "rect": [
+            17.624999265625,
+            609.0191699342018,
+            53.63598397516724,
+            622.5191693717019
+          ]
+        },
+        {
+          "text": "SEZIONE",
+          "rect": [
+            11.24999953125,
+            504.3370453859571,
+            63.925778616425774,
+            516.3370448859571
+          ]
+        },
+        {
+          "text": "SEZIONE",
+          "rect": [
+            11.24999953125,
+            299.5870539172071,
+            63.925778616425774,
+            311.587053417207
+          ]
+        },
+        {
+          "text": "SEZIONE",
+          "rect": [
+            11.24999953125,
+            191.58705841720723,
+            63.925778616425774,
+            203.58705791720718
+          ]
+        },
+        {
+          "text": "Data",
+          "rect": [
+            355.69920767919905,
+            153.3767938955515,
+            380.65080567204905,
+            165.189293403364
+          ]
+        },
+        {
+          "text": "SEZIONE",
+          "rect": [
+            11.24999953125,
+            72.3370633859571,
+            63.925778616425774,
+            84.33706288595704
+          ]
+        },
+        {
+          "text": "Nome:",
+          "rect": [
+            3.74999984375,
+            10.300039632920516,
+            36.1262071479165,
+            21.295039024795415
+          ]
+        },
+        {
+          "text": "Nome:",
+          "rect": [
+            327.5624863515625,
+            10.300039632920516,
+            359.93869365572897,
+            21.295039024795415
+          ]
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "size_pt": {
+        "w": 595.9199829101562,
+        "h": 842.8800048828125
+      },
+      "fields": [
+        {
+          "name": "p3_text_01",
+          "type": "text",
+          "rect": [
+            46.54,
+            817.3,
+            238.18,
+            826.58
+          ],
+          "source": "mixed_span_replace",
+          "raw_sample": "Firma: _________________________________"
+        },
+        {
+          "name": "p3_text_02",
+          "type": "text",
+          "rect": [
+            370.35,
+            817.3,
+            562.0,
+            826.58
+          ],
+          "source": "mixed_span_replace",
+          "raw_sample": "Firma: _________________________________"
+        },
+        {
+          "name": "p3_text_03",
+          "type": "text",
+          "rect": [
+            233.81,
+            805.72,
+            267.17,
+            812.78
+          ],
+          "source": "mixed_span_replace",
+          "raw_sample": "Data: ____/____/________"
+        },
+        {
+          "name": "p3_date_04",
+          "type": "date",
+          "rect": [
+            233.81,
+            805.72,
+            267.17,
+            812.78
+          ],
+          "source": "mixed_span_replace",
+          "raw_sample": "Data: ____/____/________"
+        },
+        {
+          "name": "p3_text_05",
+          "type": "text",
+          "rect": [
+            557.62,
+            805.72,
+            590.98,
+            812.78
+          ],
+          "source": "mixed_span_replace",
+          "raw_sample": "Data: ____/____/________"
+        },
+        {
+          "name": "p3_date_06",
+          "type": "date",
+          "rect": [
+            557.62,
+            805.72,
+            590.98,
+            812.78
+          ],
+          "source": "mixed_span_replace",
+          "raw_sample": "Data: ____/____/________"
+        }
+      ],
+      "anchors_sample": [
+        {
+          "text": "Firma:",
+          "rect": [
+            3.74999984375,
+            815.8000060704203,
+            34.89173307435292,
+            826.7950054622952
+          ]
+        },
+        {
+          "text": "Data:",
+          "rect": [
+            159.58593085058592,
+            804.2227750707177,
+            181.09716034428465,
+            813.2227746957177
+          ]
+        },
+        {
+          "text": "Firma:",
+          "rect": [
+            327.5624863515625,
+            815.8000060704203,
+            358.7042195821654,
+            826.7950054622952
+          ]
+        },
+        {
+          "text": "Data:",
+          "rect": [
+            483.39841735839843,
+            804.2227750707177,
+            504.9096468520972,
+            813.2227746957177
+          ]
+        },
+        {
+          "text": "Tel.",
+          "rect": [
+            385.24927034794655,
+            762.4357504739311,
+            397.6868034678912,
+            770.430749990806
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": "v4 adjusted text fields to exclude label text (Via/Piazza, anni, Dr./Dr.ssa)"
+}

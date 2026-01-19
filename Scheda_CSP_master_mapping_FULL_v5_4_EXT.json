@@ -1,0 +1,825 @@
+{
+  "pdf": "Scheda_CSP_master.pdf",
+  "unit": "pt (origin bottom-left)",
+  "pages": [
+    {
+      "page": 1,
+      "size_pt": {
+        "w": 595.9199829101562,
+        "h": 842.8800048828125
+      },
+      "fields": [
+        {
+          "name": "p1_cb_01",
+          "type": "checkbox",
+          "rect": [
+            8.85,
+            442.98,
+            18.15,
+            452.28
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_02",
+          "type": "checkbox",
+          "rect": [
+            304.35,
+            442.98,
+            313.65,
+            452.28
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_03",
+          "type": "checkbox",
+          "rect": [
+            8.85,
+            425.73,
+            18.15,
+            435.03
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_04",
+          "type": "checkbox",
+          "rect": [
+            304.35,
+            425.73,
+            313.65,
+            435.03
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_05",
+          "type": "checkbox",
+          "rect": [
+            8.85,
+            408.48,
+            18.15,
+            417.78
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_06",
+          "type": "checkbox",
+          "rect": [
+            304.35,
+            408.48,
+            313.65,
+            417.78
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_07",
+          "type": "checkbox",
+          "rect": [
+            304.35,
+            391.23,
+            313.65,
+            400.53
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_08",
+          "type": "checkbox",
+          "rect": [
+            304.35,
+            373.98,
+            313.65,
+            383.28
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_09",
+          "type": "checkbox",
+          "rect": [
+            304.35,
+            356.73,
+            313.65,
+            366.03
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_10",
+          "type": "checkbox",
+          "rect": [
+            8.85,
+            349.98,
+            18.15,
+            359.28
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_11",
+          "type": "checkbox",
+          "rect": [
+            8.85,
+            332.73,
+            18.15,
+            342.03
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_12",
+          "type": "checkbox",
+          "rect": [
+            8.85,
+            315.48,
+            18.15,
+            324.78
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_13",
+          "type": "checkbox",
+          "rect": [
+            8.85,
+            298.23,
+            18.15,
+            307.53
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_14",
+          "type": "checkbox",
+          "rect": [
+            304.35,
+            283.98,
+            313.65,
+            293.28
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_15",
+          "type": "checkbox",
+          "rect": [
+            404.1,
+            283.98,
+            413.4,
+            293.28
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_16",
+          "type": "checkbox",
+          "rect": [
+            466.35,
+            283.98,
+            475.65,
+            293.28
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_17",
+          "type": "checkbox",
+          "rect": [
+            8.85,
+            280.23,
+            18.15,
+            289.53
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_18",
+          "type": "checkbox",
+          "rect": [
+            304.35,
+            251.73,
+            313.65,
+            261.03
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_19",
+          "type": "checkbox",
+          "rect": [
+            304.35,
+            234.48,
+            313.65,
+            243.78
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_20",
+          "type": "checkbox",
+          "rect": [
+            8.85,
+            206.73,
+            18.15,
+            216.03
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_21",
+          "type": "checkbox",
+          "rect": [
+            8.85,
+            189.48,
+            18.15,
+            198.78
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_22",
+          "type": "checkbox",
+          "rect": [
+            304.35,
+            175.98,
+            313.65,
+            185.28
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_23",
+          "type": "checkbox",
+          "rect": [
+            8.85,
+            172.23,
+            18.15,
+            181.53
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_24",
+          "type": "checkbox",
+          "rect": [
+            304.35,
+            158.73,
+            313.65,
+            168.03
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_25",
+          "type": "checkbox",
+          "rect": [
+            304.35,
+            141.48,
+            313.65,
+            150.78
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_26",
+          "type": "checkbox",
+          "rect": [
+            8.85,
+            140.73,
+            18.15,
+            150.03
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_27",
+          "type": "checkbox",
+          "rect": [
+            304.35,
+            124.23,
+            313.65,
+            133.53
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_28",
+          "type": "checkbox",
+          "rect": [
+            8.85,
+            123.48,
+            18.15,
+            132.78
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_cb_29",
+          "type": "checkbox",
+          "rect": [
+            304.35,
+            106.98,
+            313.65,
+            116.28
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p1_text_01",
+          "type": "text",
+          "rect": [
+            70.19,
+            678.54,
+            206.91,
+            686.89
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p1_text_02",
+          "type": "text",
+          "rect": [
+            342.06,
+            678.54,
+            484.14,
+            686.89
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p1_text_03",
+          "type": "text",
+          "rect": [
+            141.9,
+            656.04,
+            182.3,
+            664.39
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p1_text_04",
+          "type": "text",
+          "rect": [
+            330.31,
+            656.04,
+            365.37,
+            664.39
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p1_text_05",
+          "type": "text",
+          "rect": [
+            93.21,
+            634.29,
+            283.43,
+            642.64
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p1_text_06",
+          "type": "text",
+          "rect": [
+            112.8,
+            611.79,
+            329.78,
+            620.14
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p1_text_07",
+          "type": "text",
+          "rect": [
+            345.55,
+            611.79,
+            375.26,
+            620.14
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p1_text_08",
+          "type": "text",
+          "rect": [
+            64.32,
+            589.29,
+            179.64,
+            597.64
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p1_text_09",
+          "type": "text",
+          "rect": [
+            225.91,
+            589.29,
+            266.31,
+            597.64
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p1_text_10",
+          "type": "text",
+          "rect": [
+            331.85,
+            589.29,
+            425.76,
+            597.64
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p1_text_11",
+          "type": "text",
+          "rect": [
+            66.83,
+            567.54,
+            176.79,
+            575.89
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p1_text_12",
+          "type": "text",
+          "rect": [
+            355.97,
+            567.54,
+            465.94,
+            575.89
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p1_text_13",
+          "type": "text",
+          "rect": [
+            139.7,
+            545.04,
+            271.07,
+            553.39
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p1_text_14",
+          "type": "text",
+          "rect": [
+            310.22,
+            545.04,
+            409.49,
+            553.39
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p1_text_15",
+          "type": "text",
+          "rect": [
+            246.45,
+            391.21,
+            277.41,
+            399.98
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p1_text_16",
+          "type": "text",
+          "rect": [
+            541.95,
+            339.46,
+            572.91,
+            348.23
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p1_text_17",
+          "type": "text",
+          "rect": [
+            206.16,
+            262.21,
+            237.12,
+            270.98
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p1_text_18",
+          "type": "text",
+          "rect": [
+            501.66,
+            217.21,
+            532.62,
+            225.98
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p1_text_19",
+          "type": "text",
+          "rect": [
+            206.16,
+            106.21,
+            237.12,
+            114.98
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p1_text_20",
+          "type": "text",
+          "rect": [
+            541.95,
+            89.71,
+            572.91,
+            98.48
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p1_text_21",
+          "type": "text",
+          "rect": [
+            322.33,
+            47.61,
+            397.74,
+            60.85
+          ],
+          "source": "underscore_chars"
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "size_pt": {
+        "w": 595.9199829101562,
+        "h": 842.8800048828125
+      },
+      "fields": [
+        {
+          "name": "p2_cb_01",
+          "type": "checkbox",
+          "rect": [
+            4.35,
+            676.23,
+            13.65,
+            685.53
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p2_cb_02",
+          "type": "checkbox",
+          "rect": [
+            4.35,
+            274.98,
+            13.65,
+            284.28
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p2_cb_03",
+          "type": "checkbox",
+          "rect": [
+            4.35,
+            253.23,
+            13.65,
+            262.53
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p2_cb_04",
+          "type": "checkbox",
+          "rect": [
+            23.1,
+            222.48,
+            29.4,
+            228.78
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p2_cb_05",
+          "type": "checkbox",
+          "rect": [
+            63.6,
+            222.48,
+            69.9,
+            228.78
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p2_cb_06",
+          "type": "checkbox",
+          "rect": [
+            109.35,
+            222.48,
+            115.65,
+            228.78
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p2_cb_07",
+          "type": "checkbox",
+          "rect": [
+            153.6,
+            222.48,
+            159.9,
+            228.78
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p2_cb_08",
+          "type": "checkbox",
+          "rect": [
+            240.6,
+            222.48,
+            246.9,
+            228.78
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p2_cb_09",
+          "type": "checkbox",
+          "rect": [
+            17.85,
+            159.48,
+            27.15,
+            168.78
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p2_cb_10",
+          "type": "checkbox",
+          "rect": [
+            17.85,
+            141.48,
+            27.15,
+            150.78
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p2_cb_11",
+          "type": "checkbox",
+          "rect": [
+            17.85,
+            122.73,
+            27.15,
+            132.03
+          ],
+          "source": "draw_rect_dedup"
+        },
+        {
+          "name": "p2_text_01",
+          "type": "text",
+          "rect": [
+            153.76,
+            676.0,
+            353.1,
+            685.88
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p2_text_02",
+          "type": "text",
+          "rect": [
+            163.78,
+            253.0,
+            564.86,
+            262.88
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p2_text_03",
+          "type": "text",
+          "rect": [
+            282.87,
+            222.46,
+            374.98,
+            231.23
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p2_text_04",
+          "type": "text",
+          "rect": [
+            527.61,
+            154.58,
+            577.76,
+            165.37
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p2_text_05",
+          "type": "text",
+          "rect": [
+            527.61,
+            123.83,
+            577.75,
+            134.62
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p2_text_06",
+          "type": "text",
+          "rect": [
+            40.38,
+            11.5,
+            239.72,
+            21.38
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p2_text_07",
+          "type": "text",
+          "rect": [
+            364.19,
+            11.5,
+            563.53,
+            21.38
+          ],
+          "source": "underscore_chars"
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "size_pt": {
+        "w": 595.9199829101562,
+        "h": 842.8800048828125
+      },
+      "fields": [
+        {
+          "name": "p3_text_01",
+          "type": "text",
+          "rect": [
+            39.14,
+            817.0,
+            238.48,
+            826.88
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p3_text_02",
+          "type": "text",
+          "rect": [
+            362.96,
+            817.0,
+            562.3,
+            826.88
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p3_text_03",
+          "type": "text",
+          "rect": [
+            229.83,
+            805.42,
+            267.47,
+            813.08
+          ],
+          "source": "underscore_chars"
+        },
+        {
+          "name": "p3_text_04",
+          "type": "text",
+          "rect": [
+            553.65,
+            805.42,
+            591.28,
+            813.08
+          ],
+          "source": "underscore_chars"
+        }
+      ]
+    }
+  ]
+}

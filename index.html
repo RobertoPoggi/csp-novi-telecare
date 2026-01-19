@@ -11,7 +11,7 @@
     ✅ Salti pagina intelligenti (condizionali)
     ✅ Salto forzato tra sezione 7 e 8
     ✅ Footer puliti (rimossa data automatica)
-    ✅ 4 pulsanti: STAMPA SCHEDA ASSISTITO / TEMPLATE VUOTO / CONSENSO PRIVACY / STAMPA SCHEDA VALUTAZIONE
+    ✅ 3 pulsanti: STAMPA SCHEDA ASSISTITO / TEMPLATE VUOTO / CONSENSO PRIVACY / STAMPA SCHEDA VALUTAZIONE
     ✅ Risparmio carta ~25%
     ✅ Struttura 3 pagine ottimizzata
 ═══════════════════════════════════════════════════════════════════
@@ -2361,7 +2361,8 @@ window.MASTER_TEMPLATE_URL = MASTER_TEMPLATE_URL;
                     }
                 }
                 
-                const eta = s.eta || 'N/A';  // ✅ Usa età dal backend (già calcolata correttamente)
+                const etaRaw = s.eta || 'N/A';
+      const eta = (etaRaw && String(etaRaw).trim()) ? etaRaw : calcEtaFromDate(dataNascita);  // ✅ Usa età dal backend (già calcolata correttamente)
                 html += `<tr onclick='mostraDettaglioAssistito(${JSON.stringify(s).replace(/'/g, "&apos;")})' style="cursor: pointer;">
                     <td><strong>${s.numeroScheda || '-'}</strong></td>
                     <td>${s.nome || ''} ${s.cognome || ''}</td>
@@ -4346,6 +4347,21 @@ function drawTextInRect(page, text, rect, font, color, maxSize=10, minSize=6){
   page.drawText(tt, { x: x1, y, size, font, color });
 }
 
+function calcEtaFromDate(ddmmyyyy){
+  const s=String(ddmmyyyy||'').trim();
+  const m=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if(!m) return '';
+  const d=parseInt(m[1],10);
+  const mo=parseInt(m[2],10);
+  const y=parseInt(m[3],10);
+  if(!(y>1900 && mo>=1 && mo<=12 && d>=1 && d<=31)) return '';
+  const today=new Date();
+  let age=today.getFullYear()-y;
+  const hasHadBirthday = (today.getMonth()+1>mo) || ((today.getMonth()+1===mo) && (today.getDate()>=d));
+  if(!hasHadBirthday) age-=1;
+  return age>=0 && age<=130 ? String(age) : '';
+}
+
 function stampaSchedaValutazioneVuota(){
   window.open('./Scheda_CSP_master.pdf?t='+Date.now(), '_blank');
 }
@@ -4444,6 +4460,27 @@ function stampaSchedaValutazioneModal() {
 
       // Punteggi
       const totale = (val.punteggio_totale||'').toString().replace('/10','').trim();
+      const b1 = Number(val.val_eta||0);
+      const b2 = Number(val.val_abitativa||0);
+      const b2bonus = val.val_zona_rurale ? 1 : 0;
+      const b3 = Number(val.val_cadute||0);
+      const b3bonus = (val.val_usa_ausili?1:0) + (val.val_paura_cadere?1:0);
+      const b4 = (val.val_cardiopatia?1:0)+(val.val_bpco?1:0)+(val.val_diabete?1:0)+(val.val_demenza?2:0)+(val.val_parkinson?1:0)+(val.val_politerapia?1:0);
+      const b5 = Number(val.val_ricoveri||0);
+      const b5bonus = (val.val_dimissione_recente?2:0) + (val.val_accessi_ps?1:0);
+      const b6 = (val.val_figli_lontani?2:0)+(val.val_figli_lavorano?1:0)+(val.val_doppio_carico?1:0)+(val.val_isolamento?1:0);
+
+      // Stampo i punteggi SOLO come numeri nei campi "Punteggio Bx" (mapping v4 già evita overlap con label)
+      drawTextInRect(p1, String(b1), rectByName.p1_text_15, font, color, 10, 6);
+      drawTextInRect(p1, String(b2), rectByName.p1_text_17, font, color, 10, 6);
+      if(b2bonus) drawTextInRect(p1, String(b2bonus), rectByName.p1_text_17, font, color, 10, 6);
+      drawTextInRect(p1, String(b3), rectByName.p1_text_19, font, color, 10, 6);
+      if(b3bonus) drawTextInRect(p1, String(b3bonus), rectByName.p1_text_19, font, color, 10, 6);
+      drawTextInRect(p1, String(b4), rectByName.p1_text_16, font, color, 10, 6);
+      drawTextInRect(p1, String(b5), rectByName.p1_text_18, font, color, 10, 6);
+      if(b5bonus) drawTextInRect(p1, String(b5bonus), rectByName.p1_text_18, font, color, 10, 6);
+      drawTextInRect(p1, String(b6), rectByName.p1_text_20, font, color, 10, 6);
+
       drawTextInRect(p1, totale, rectByName.p1_text_21, font, color, 11, 7);
 
       // Page 2: priorità
@@ -4451,9 +4488,6 @@ function stampaSchedaValutazioneModal() {
       drawTextInRect(p2, (val.priorita_descrizione||''), rectByName.p2_text_02, font, color, 9, 6);
 
       const nomec = (nome + ' ' + cognome).trim();
-      drawTextInRect(p2, nomec, rectByName.p2_text_08, font, color, 9, 6);
-      drawTextInRect(p2, nomec, rectByName.p2_text_09, font, color, 9, 6);
-
       const pdfBytes = await pdfDoc.save();
       const blob = new Blob([pdfBytes], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);

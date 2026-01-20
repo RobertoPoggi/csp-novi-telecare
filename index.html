@@ -3840,6 +3840,14 @@ window.v = (id) => (document.getElementById(id)?.value || '').toString().trim();
                 }
                 doc.setFont(undefined, 'normal');
                 y += 7;
+
+/* ATTENZIONE PATCH 1B: fix val (evita ReferenceError) - INIZIO */
+const v = (id) => (document.getElementById(id)?.value || '').toString().trim();
+const valKey = form?.numeroScheda?.value ? ('telecare_valutazione_' + form.numeroScheda.value) : null;
+const val = valKey ? (JSON.parse(localStorage.getItem(valKey) || '{}')) : {};
+/* ATTENZIONE PATCH 1B: fix val (evita ReferenceError) - FINE */
+
+
                 
                 const dataNascita = form?.dataNascita?.value || '';
       const eta = v('eta') || v('assistito_eta') || (val.eta || '') || calcEtaFromBirthJS(dataNascita);

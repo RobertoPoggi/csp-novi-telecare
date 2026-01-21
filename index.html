@@ -4590,6 +4590,99 @@ drawTextInRect(p2, (v('caregiverB_nome') + ' ' + v('caregiverB_cognome')), rectB
 drawTextInRect(p2, (v('caregiverC_nome') + ' ' + v('caregiverC_cognome')), rectByName.p2_text_04, font, color, 9, 6);
 drawTextInRect(p2, (v('caregiverD_nome') + ' ' + v('caregiverD_cognome')), rectByName.p2_text_05, font, color, 9, 6);
 drawTextInRect(p2, v('scalettaContatti'), rectByName.p2_text_06, font, color, 9, 6);
+
+/* ATTENZIONE PATCH NOTE-ROBUST: patologie+farmaci da val/DOM - INIZIO */
+
+// helper: prima stringa non vuota
+const pickFirst = (...xs) => {
+  for (const x of xs) {
+    const s = (x ?? '').toString().trim();
+    if (s) return s;
+  }
+  return '';
+};
+
+// EXCEL/FORM: patologie (cliniche)
+const patologieTxt = pickFirst(
+  val?.patologie,
+  val?.noteCliniche,
+  val?.note_cliniche,
+  val?.situazioneClinica,
+  val?.situazione_clinica,
+  v('patologie'),
+  v('noteCliniche'),
+  v('note_cliniche'),
+  v('situazioneClinica'),
+  v('situazione_clinica')
+);
+
+// EXCEL/FORM: farmaci
+const farmaciTxt = pickFirst(
+  val?.farmaci,
+  val?.terapia,
+  val?.terapiaFarmacologica,
+  v('farmaci'),
+  v('terapia'),
+  v('terapiaFarmacologica')
+);
+
+// Unione pulita (con etichette, così in PDF è chiaro)
+const noteCombined = [
+  patologieTxt ? ('PATOLOGIE: ' + patologieTxt) : '',
+  farmaciTxt   ? ('FARMACI: '   + farmaciTxt)   : ''
+].filter(Boolean).join('\n');
+
+/* ATTENZIONE PATCH NOTE-ROBUST: patologie+farmaci da val/DOM - FINE */
+
+
+// helper: prima stringa non vuota
+const pickFirst = (...xs) => {
+  for (const x of xs) {
+    const s = (x ?? '').toString().trim();
+    if (s) return s;
+  }
+  return '';
+};
+
+// NOTE CLINICHE / SITUAZIONE CLINICA  (PRIMA val, POI DOM)
+const noteCliniche = pickFirst(
+  val?.noteCliniche,
+  val?.note_cliniche,
+  val?.patologie,
+  val?.situazioneClinica,
+  val?.situazione_clinica,
+
+  v('noteCliniche'),
+  v('note_cliniche'),
+  v('patologie'),
+  v('situazioneClinica'),
+  v('situazione_clinica')
+);
+
+// NOTE SOCIALI / NOTE GENERALI  (PRIMA val, POI DOM)
+const noteSociali = pickFirst(
+  val?.noteSociali,
+  val?.note_sociali,
+  val?.note,
+  val?.situazioneSociale,
+  val?.situazione_sociale,
+  val?.note_valutazione,
+
+  v('noteSociali'),
+  v('note_sociali'),
+  v('note'),
+  v('situazioneSociale'),
+  v('situazione_sociale'),
+  v('note_valutazione')
+);
+
+// output finale (niente variabile non definita, niente righe vuote)
+const noteCombined = (noteCliniche && noteSociali)
+  ? (noteCliniche + '\n' + noteSociali)
+  : (noteCliniche || noteSociali);
+
+/* ATTENZIONE PATCH NOTE-ROBUST: clinica+sociale da val/DOM - FINE */
+
 drawTextInRect(p2, noteCombined, rectByName.p2_text_07, font, color, 9, 6);
 /* ATTENZIONE PATCH 3:  compilazione PDF D/E (scrittura su p2_text_03..p2_text_07) - FINE */     
 

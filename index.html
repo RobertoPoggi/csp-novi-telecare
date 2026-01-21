@@ -4645,8 +4645,11 @@ if (!window.pickFirst) {
     return '';
   };
 }
-/* ATTENZIONE PATCH PICKFIRST-GLOBAL - FINE */
+// (PATCH TDZ) alias subito disponibile nello scope della stampa
 const pickFirst = window.pickFirst;
+
+
+/* ATTENZIONE PATCH PICKFIRST-GLOBAL - FINE */
 
 // EXCEL/FORM: patologie (cliniche)
 const patologieTxt = pickFirst(

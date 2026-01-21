@@ -4607,6 +4607,7 @@ if (!window.pickFirst) {
   };
 }
 /* ATTENZIONE PATCH PICKFIRST-GLOBAL - FINE */
+const pickFirst = window.pickFirst;
 
 // EXCEL/FORM: patologie (cliniche)
 const patologieTxt = pickFirst(
@@ -4642,7 +4643,6 @@ const noteCombined = [
 
 
 // helper: prima stringa non vuota (agganciata alla versione globale)
-const pickFirst = window.pickFirst;
 
 // NOTE CLINICHE / SITUAZIONE CLINICA  (PRIMA val, POI DOM)
 const noteCliniche = pickFirst(

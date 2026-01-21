@@ -1,0 +1,33 @@
+# File di backup
+*.bak
+*.backup
+*~
+
+# File temporanei
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Dati sensibili (NON committare mai!)
+*.xlsx
+*.csv
+*.xls
+dati_reali/
+backup_db/
+
+# File di configurazione locale
+config_local.js
+.env
+.env.local
+
+# Log
+*.log
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test files (opzionale)
+index_test*.html

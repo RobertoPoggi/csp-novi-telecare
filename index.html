@@ -4633,7 +4633,7 @@ const farmaciTxt = pickFirst(
 );
 
 // Unione pulita (con etichette, così in PDF è chiaro)
-const noteCombinedPF = [
+const noteCombined = [
   patologieTxt ? ('PATOLOGIE: ' + patologieTxt) : '',
   farmaciTxt   ? ('FARMACI: '   + farmaciTxt)   : ''
 ].filter(Boolean).join('\n');
@@ -4676,14 +4676,14 @@ const noteSociali = pickFirst(
   v('note_valutazione')
 );
 
-// output finale (niente variabile non definita, niente righe vuote)
-const noteCombined = (noteCliniche && noteSociali)
+// (PATCH) evita doppia dichiarazione: noteCombined resta PAT+FARMACI
+const noteClinicaSociale = (noteCliniche && noteSociali)
   ? (noteCliniche + '\n' + noteSociali)
   : (noteCliniche || noteSociali);
 
 /* ATTENZIONE PATCH NOTE-ROBUST: clinica+sociale da val/DOM - FINE */
 
-drawTextInRect(p2, noteCombinedPF, rectByName.p2_text_07, font, color, 9, 6);/* ATTENZIONE PATCH 3:  compilazione PDF D/E (scrittura su p2_text_03..p2_text_07) - FINE */     
+drawTextInRect(p2, noteCombined, rectByName.p2_text_07, font, color, 9, 6);/* ATTENZIONE PATCH 3:  compilazione PDF D/E (scrittura su p2_text_03..p2_text_07) - FINE */     
 
 
 const nomec = (nome + ' ' + cognome).trim();

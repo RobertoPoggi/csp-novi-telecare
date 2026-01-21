@@ -3844,7 +3844,7 @@ window.v = (id) => (document.getElementById(id)?.value || '').toString().trim();
 /* ATTENZIONE PATCH 1B: fix val (evita ReferenceError) - INIZIO */
 const v = (id) => (document.getElementById(id)?.value || '').toString().trim();
 const valKey = form?.numeroScheda?.value ? ('telecare_valutazione_' + form.numeroScheda.value) : null;
-const val = valKey ? (JSON.parse(localStorage.getItem(valKey) || '{}')) : {};
+// (PATCH) NON ridefinire "val" qui: usare la "val" già definita all'inizio di stampaSchedaValutazioneModal
 /* ATTENZIONE PATCH 1B: fix val (evita ReferenceError) - FINE */
 
 
@@ -4611,20 +4611,16 @@ drawNumberInRectRight(p1, String(b6), rectByName.p1_text_20, font, color, 11, 7)
       drawTextInRect(p2, (val.priorita_descrizione||''), rectByName.p2_text_02, font, color, 9, 6);
 
  /* ATTENZIONE PATCH 3:  compilazione PDF D/E (scrittura su p2_text_03..p2_text_07) - INIZIO */
-const caregiverB = pickFirst(
-  ((v('caregiverB_nome') || '') + ' ' + (v('caregiverB_cognome') || '')).trim(),
+const caregiverB = window.pickFirst(  ((v('caregiverB_nome') || '') + ' ' + (v('caregiverB_cognome') || '')).trim(),
   ((val?.caregiverB_nome || '') + ' ' + (val?.caregiverB_cognome || '')).trim()
 );
-const caregiverC = pickFirst(
-  ((v('caregiverC_nome') || '') + ' ' + (v('caregiverC_cognome') || '')).trim(),
+const caregiverC = window.pickFirst(  ((v('caregiverC_nome') || '') + ' ' + (v('caregiverC_cognome') || '')).trim(),
   ((val?.caregiverC_nome || '') + ' ' + (val?.caregiverC_cognome || '')).trim()
 );
-const caregiverD = pickFirst(
-  ((v('caregiverD_nome') || '') + ' ' + (v('caregiverD_cognome') || '')).trim(),
+const caregiverD = window.pickFirst(  ((v('caregiverD_nome') || '') + ' ' + (v('caregiverD_cognome') || '')).trim(),
   ((val?.caregiverD_nome || '') + ' ' + (val?.caregiverD_cognome || '')).trim()
 );
-const scaletta = pickFirst(
-  v('scalettaContatti'),
+const scaletta = window.pickFirst(  v('scalettaContatti'),
   val?.scalettaContatti
 );
 
@@ -4652,8 +4648,7 @@ if (!window.pickFirst) {
 /* ATTENZIONE PATCH PICKFIRST-GLOBAL - FINE */
 
 // EXCEL/FORM: patologie (cliniche)
-const patologieTxt = pickFirst(
-  val?.patologie,
+const patologieTxt = window.pickFirst(  val?.patologie,
   val?.noteCliniche,
   val?.note_cliniche,
   val?.situazioneClinica,
@@ -4666,8 +4661,7 @@ const patologieTxt = pickFirst(
 );
 
 // EXCEL/FORM: farmaci
-const farmaciTxt = pickFirst(
-  val?.farmaci,
+const farmaciTxt = window.pickFirst(  val?.farmaci,
   val?.terapia,
   val?.terapiaFarmacologica,
   v('farmaci'),
@@ -4687,8 +4681,7 @@ const noteCombined = [
 // helper: prima stringa non vuota (agganciata alla versione globale)
 
 // NOTE CLINICHE / SITUAZIONE CLINICA  (PRIMA val, POI DOM)
-const noteCliniche = pickFirst(
-  val?.noteCliniche,
+const noteCliniche = window.pickFirst(  val?.noteCliniche,
   val?.note_cliniche,
   val?.patologie,
   val?.situazioneClinica,
@@ -4702,8 +4695,7 @@ const noteCliniche = pickFirst(
 );
 
 // NOTE SOCIALI / NOTE GENERALI  (PRIMA val, POI DOM)
-const noteSociali = pickFirst(
-  val?.noteSociali,
+const noteSociali = window.pickFirst(  val?.noteSociali,
   val?.note_sociali,
   val?.note,
   val?.situazioneSociale,

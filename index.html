@@ -3990,6 +3990,9 @@ function apriModalValutazione() {
     ricalcolaPunteggioModal();
 }
 
+// (PATCH) espone la funzione per onclick HTML
+window.apriModalValutazione = apriModalValutazione;
+
 /**
  * Chiudi modal valutazione
  */
@@ -4593,14 +4596,17 @@ drawTextInRect(p2, v('scalettaContatti'), rectByName.p2_text_06, font, color, 9,
 
 /* ATTENZIONE PATCH NOTE-ROBUST: patologie+farmaci da val/DOM - INIZIO */
 
-// helper: prima stringa non vuota
-const pickFirst = (...xs) => {
-  for (const x of xs) {
-    const s = (x ?? '').toString().trim();
-    if (s) return s;
-  }
-  return '';
-};
+/* ATTENZIONE PATCH PICKFIRST-GLOBAL - INIZIO */
+if (!window.pickFirst) {
+  window.pickFirst = (...xs) => {
+    for (const x of xs) {
+      const s = (x ?? '').toString().trim();
+      if (s) return s;
+    }
+    return '';
+  };
+}
+/* ATTENZIONE PATCH PICKFIRST-GLOBAL - FINE */
 
 // EXCEL/FORM: patologie (cliniche)
 const patologieTxt = pickFirst(
@@ -4635,14 +4641,8 @@ const noteCombined = [
 /* ATTENZIONE PATCH NOTE-ROBUST: patologie+farmaci da val/DOM - FINE */
 
 
-// helper: prima stringa non vuota
-const pickFirst = (...xs) => {
-  for (const x of xs) {
-    const s = (x ?? '').toString().trim();
-    if (s) return s;
-  }
-  return '';
-};
+// helper: prima stringa non vuota (agganciata alla versione globale)
+const pickFirst = window.pickFirst;
 
 // NOTE CLINICHE / SITUAZIONE CLINICA  (PRIMA val, POI DOM)
 const noteCliniche = pickFirst(

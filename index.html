@@ -4144,9 +4144,7 @@ function ricalcolaPunteggioModal() {
     
     document.getElementById('prioritaDescrizione').textContent = descrizione;
 
-    // Allinea eventuale label sotto il punteggio (evita contraddizioni tipo 10/10 ma BASSA)
-    const elSotto = document.getElementById('prioritaSottoPunteggio');
-    if (elSotto) elSotto.textContent = priorita;
+    // (PATCH) rimosso prioritaSottoPunteggio: non usato
 
     
     console.log('📊 Punteggio CSP aggiornato: ' + totale + '/10 → ' + priorita);
@@ -4568,27 +4566,20 @@ console.log('[DEBUG STAMPA NO-CALC] punteggi:', { b1,b2,b3,b4,b5,b6, totale10num
 /* ATTENZIONE PATCH 3-NOCALC: stampa punteggi da localStorage/DOM (no ricalcolo) - FINE */
 
 /* ATTENZIONE PATCH 3A-EXTRA: clamp B3 + debug - INIZIO */
-console.log('[DEBUG PUNTEGGI] CSP:', {
-  b1, b2base, b2bonus,
-  b3base, b3bonus,
-  b4,
-  b5base, b5bonus,
-  b6,
-  base15, bonus6, raw21, totale10num
-});
+console.log('[DEBUG PUNTEGGI] CSP:', { b1, b2, b3, b4, b5, b6, totale10num });
 /* ATTENZIONE PATCH 3A-EXTRA: clamp B3 + debug - FINE */
 
 
 
-      // Stampare SOLO numeri nei campi punteggio (scelta A)
-      drawTextInRect(p1, String(b1), rectByName.p1_text_15, font, color, 11, 7);                // B1
-      drawTextInRect(p1, String(b2base + b2bonus), rectByName.p1_text_17, font, color, 11, 7); // B2 (con bonus dentro)
-      drawTextInRect(p1, String(b3base + b3bonus), rectByName.p1_text_19, font, color, 11, 7); // B3 (con bonus dentro)
-      drawTextInRect(p1, String(b4), rectByName.p1_text_16, font, color, 11, 7);                // B4
-      drawTextInRect(p1, String(b5base + b5bonus), rectByName.p1_text_18, font, color, 11, 7); // B5 (con bonus dentro)
-      drawTextInRect(p1, String(b6), rectByName.p1_text_20, font, color, 11, 7);                // B6
+      drawNumberInRectRight(p1, String(b1), rectByName.p1_text_15, font, color, 11, 7); // B1
+drawNumberInRectRight(p1, String(b2), rectByName.p1_text_17, font, color, 11, 7); // B2
+drawNumberInRectRight(p1, String(b3), rectByName.p1_text_19, font, color, 11, 7); // B3
+drawNumberInRectRight(p1, String(b4), rectByName.p1_text_16, font, color, 11, 7); // B4
+drawNumberInRectRight(p1, String(b5), rectByName.p1_text_18, font, color, 11, 7); // B5
+drawNumberInRectRight(p1, String(b6), rectByName.p1_text_20, font, color, 11, 7); // B6
 
-      drawTextInRect(p1, String(totale10num), rectByName.p1_text_21, font, color, 13, 8);       // TOTALE /10 (solo numero)
+
+      drawNumberInRectRight(p1, String(totale10num), rectByName.p1_text_21, font, color, 11, 7);       // TOTALE /10 (solo numero)
 
       // Page 2: priorità
       drawTextInRect(p2, (val.priorita||''), rectByName.p2_text_01, font, color, 10, 6);
@@ -4599,7 +4590,7 @@ drawTextInRect(p2, (v('caregiverB_nome') + ' ' + v('caregiverB_cognome')), rectB
 drawTextInRect(p2, (v('caregiverC_nome') + ' ' + v('caregiverC_cognome')), rectByName.p2_text_04, font, color, 9, 6);
 drawTextInRect(p2, (v('caregiverD_nome') + ' ' + v('caregiverD_cognome')), rectByName.p2_text_05, font, color, 9, 6);
 drawTextInRect(p2, v('scalettaContatti'), rectByName.p2_text_06, font, color, 9, 6);
-drawTextInRect(p2, v('note'), rectByName.p2_text_07, font, color, 9, 6);
+drawTextInRect(p2, noteCombined, rectByName.p2_text_07, font, color, 9, 6);
 /* ATTENZIONE PATCH 3:  compilazione PDF D/E (scrittura su p2_text_03..p2_text_07) - FINE */     
 
 
@@ -4643,22 +4634,15 @@ console.log('✅ Modal Valutazione caricato');
         </div>
         
         <div class="modal-body">
-            
-                <div style="margin-top: 15px;">
-                    <span class="priorita" id="prioritaModal"><span id="prioritaSottoPunteggio">BASSA</span></span>
-                </div>
-            </div>
-            
             <!-- PUNTEGGIO TOTALE -->
-
-<div class="punteggio-display">
-    <h3>PUNTEGGIO TOTALE VALUTAZIONE</h3>
-    <div class="punteggio-numero" id="punteggioTotaleModal">0/10</div>
-    <div style="margin-top: 15px;">
-        <span class="priorita" id="prioritaModal"></span>
-    </div>
-    <div id="prioritaDescrizione" style="margin-top: 10px; font-size: 14px; opacity: 0.9;"></div>
-</div>
+            <div class="punteggio-display">
+                <h3>PUNTEGGIO TOTALE VALUTAZIONE</h3>
+                <div class="punteggio-numero" id="punteggioTotaleModal">0/10</div>
+                <div style="margin-top: 15px;">
+                    <span class="priorita" id="prioritaModal">BASSA</span>
+                </div>
+                <div id="prioritaDescrizione" style="margin-top: 10px; font-size: 14px; opacity: 0.9;">Servizi alternativi</div>
+            </div>
 
             
             <!-- B1: ETÀ -->

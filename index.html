@@ -4646,7 +4646,7 @@ if (!window.pickFirst) {
   };
 }
 // (PATCH TDZ) alias subito disponibile nello scope della stampa
-const pickFirst = window.pickFirst;
+// (PATCH) rimosso alias locale pickFirst: usare sempre window.pickFirst per evitare TDZ
 
 
 /* ATTENZIONE PATCH PICKFIRST-GLOBAL - FINE */
